@@ -2,15 +2,16 @@
 Notes: Below are some of the features and projected challenges surrounding them
 
 
-| Feature                         | Challenge                                     |
-| --------------------------------|:---------------------------------------------:|
-| Google OAuth                    | Bugs surrounding the API (on Zach’s computer) |
-| Facebook OAuth                  | Have not implemented Facebook OAuth before    |
-| Full CRUD for Tournaments       |                                               |
-| Full CRUD for Posts             |                                               |
-| Full CRUD for Comments          |                                               |
-| Google Maps API                 | Have not implemented google maps API before   |
-| Search Function with Filtering  | Have not implemented filtered searches before |
+| Feature                         | Challenge                                                        |
+| --------------------------------|:----------------------------------------------------------------:|
+| Google OAuth                    | Bugs surrounding the API (on Zach’s computer)                    |
+| Facebook OAuth                  | Have not implemented Facebook OAuth before                       |
+| Full CRUD for Tournaments       |                                                                  |
+| Full CRUD for Posts             |                                                                  |
+| Full CRUD for Comments          |                                                                  |
+| Google Maps API                 | Have not implemented google maps API before                      |
+| Search Function with Filtering  | Have not implemented filtered searches before                    |
+| Implement CDN for images        | Have not implemented AWS using express, Node, and MongoDB before |
 
 ***
 ## Schema
