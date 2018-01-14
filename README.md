@@ -19,12 +19,12 @@ Notes: This is a working schema subject to change
 
 #### UserSchema
 
-| Field                           | DataType                           |
-| --------------------------------|:---------------------------------- |
-| username                        | String                             |
-| city                            | String                             |
-| travelRange                     | { type: Number, default: 25 }      |
-| tournaments                     | [ tournamentSchema ]               |
+| Field                      | DataType                               |
+| ---------------------------|:-------------------------------------- |
+| username                   | String                                 |
+| city                       | String                                 |
+| travelRange                | { type: Number, default: 25 }          |
+| tournaments                | [ tournamentSchema ]                   |
 
 #### TournamentSchema
 
@@ -74,23 +74,23 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 
 #### Auth Routes
 
-| Route                      | Type          | Purpose                                            |
-| -------------------------- |:-------------:|:--------------------------------------------------|
-| ‘/auth/google’             | GET           | Google OAuth (login/ sign up)                      |
-| ‘/auth/google/callback’    | GET           | Google OAuth (callback url after authentication)   |
-| ‘/auth/facebook’           | GET           | Facebook OAuth (login/ sign up)                    |
-| ‘/auth/facebook/callback’  | GET           | Facebook OAuth (callback url after authentication) |
-| ‘/api/current_user’        | GET           | Get the current user                               |
-| ‘/api/logout’              | GET           | Logout the current user                            |
+| Route                      | Type          | Purpose                                                             |
+| -------------------------- |:-------------:| :-------------------------------------------------------------------|
+| ‘/auth/google’             | GET           | Google OAuth (login/ sign up)                                       |
+| ‘/auth/google/callback’    | GET           | Google OAuth (callback url after authentication)                    |
+| ‘/auth/facebook’           | GET           | Facebook OAuth (login/ sign up)                                     |
+| ‘/auth/facebook/callback’  | GET           | Facebook OAuth (callback url after authentication)                  |
+| ‘/api/current_user’        | GET           | Get the current user                                                |
+| ‘/api/logout’              | GET           | Logout the current user                                             |
 
 #### Tournament Routes
 
-| Route                      | Type          | Purpose                                                         |
-| -------------------------- |:-------------:| :---------------------------------------------------------------|
-| ‘/api/tournaments’         | GET           | Get an index of all the up and coming tournaments (and current) |
-| ‘/api/tournaments’         | POST          | Create a new tournament in the database                         |
-| ‘/api/tournaments’         | PATCH         | Update (edit) an existing tournament                            |
-| ‘/api/tournaments’         | DELETE        | Delete an existing tournament                                   |
+| Route                      | Type          | Purpose                                                             |
+| -------------------------- |:-------------:| :-------------------------------------------------------------------|
+| ‘/api/tournaments’         | GET           | Get an index of all the up and coming tournaments (and current)     |
+| ‘/api/tournaments’         | POST          | Create a new tournament in the database                             |
+| ‘/api/tournaments’         | PATCH         | Update (edit) an existing tournament                                |
+| ‘/api/tournaments’         | DELETE        | Delete an existing tournament                                       |
 
 #### Post Routes
 
@@ -103,19 +103,19 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 
 #### Comment Routes
 
-| Route                      | Type          | Purpose                                                          |
-| -------------------------- |:-------------:| :----------------------------------------------------------------|
-| ‘/api/comment’             | GET           | Get an index of all the the comments for a given post            |
-| ‘/api/comment’             | POST          | Create a new post to be added to a post’s collection of comments |
-| ‘/api/comment’             | PATCH         | Update (edit) an existing comment                                |
-| ‘/api/comment’             | DELETE        | Delete an existing comment                                       |
+| Route                      | Type          | Purpose                                                             |
+| -------------------------- |:-------------:| :-------------------------------------------------------------------|
+| ‘/api/comment’             | GET           | Get an index of all the the comments for a given post               |
+| ‘/api/comment’             | POST          | Create a new post to be added to a post’s collection of comments    |
+| ‘/api/comment’             | PATCH         | Update (edit) an existing comment                                   |
+| ‘/api/comment’             | DELETE        | Delete an existing comment                                          |
 
 ***
 ## FrontEnd Routes
 Notes: Below are the routes and pages they are associated with. May have a separate page for the ‘forum’ of each tournament.
 
-| Route                      | Page                                    |
-| ---------------------------|:-------------------------------------------|
+| Route                      | Page                                        |
+| ---------------------------|:--------------------------------------------|
 | '/'                        | Landing Page                                |
 | '/'                        | Dashboard                                   |
 | '/tournaments/${id}'       | Tournament Show Page                        |
