@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const tournamentSchema = require('./Tournament');
+
 //User Schema
 const userSchema = new Schema({
   username: String,
