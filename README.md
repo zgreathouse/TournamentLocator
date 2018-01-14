@@ -109,6 +109,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 | ‘/api/comment’             | PATCH         | Update (edit) an existing comment                                |
 | ‘/api/comment’             | DELETE        | Delete an existing comment                                       |
 
+***
 ## FrontEnd Routes
 Notes: Below are the routes and pages they are associated with. May have a separate page for the ‘forum’ of each tournament.
 
@@ -119,7 +120,7 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 | '/tournaments/${id}'       | Tournament Show Page                        |
 | '/tournaments/${new}       | Tournament Creation Form                    |
 
-
+***
 ## State Shape
 
 ##### Example State Shape (Landing Page)
