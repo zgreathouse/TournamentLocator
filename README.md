@@ -3,7 +3,7 @@ Notes: Below are some of the features and projected challenges surrounding them
 
 
 | Feature                         | Challenge                                                        |
-| --------------------------------|:----------------------------------------------------------------:|
+| --------------------------------|:---------------------------------------------------------------- |
 | Google OAuth                    | Bugs surrounding the API (on Zach’s computer)                    |
 | Facebook OAuth                  | Have not implemented Facebook OAuth before                       |
 | Full CRUD for Tournaments       |                                                                  |
@@ -20,7 +20,7 @@ Notes: This is a working schema subject to change
 #### UserSchema
 
 | Field                           | DataType                           |
-| --------------------------------|:----------------------------------:|
+| --------------------------------|:---------------------------------- |
 | username                        | String                             |
 | city                            | String                             |
 | travelRange                     | { type: Number, default: 25 }      |
@@ -29,7 +29,7 @@ Notes: This is a working schema subject to change
 #### TournamentSchema
 
 | Field                      | DataType                                    |
-| ---------------------------|:-------------------------------------------:|
+| ---------------------------|:------------------------------------------- |
 | title                      | String                                      |
 | game                       | String                                      |
 | tags                       | [ String ]                                  |
@@ -51,7 +51,7 @@ Notes: This is a working schema subject to change
 #### PostSchema
 
 | Field                      | DataType                                    |
-| ---------------------------|:-------------------------------------------:|
+| ---------------------------|:------------------------------------------- |
 | tournamentId               | Number                                      |
 | _user                      | { type: Schema.Types.ObjectId, ref: 'User'} |
 | title                      | String                                      |
@@ -61,7 +61,7 @@ Notes: This is a working schema subject to change
 #### CommentSchema
 
 | Field                      | DataType                                    |
-| ---------------------------|:-------------------------------------------:|
+| ---------------------------|:------------------------------------------- |
 | postId                     | Number                                      |
 | _user                      | { type: Schema.Types.ObjectId, ref: 'User'} |
 | body                       | String                                      |
@@ -75,7 +75,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 #### Auth Routes
 
 | Route                      | Type          | Purpose                                            |
-| -------------------------- |:-------------:| --------------------------------------------------:|
+| -------------------------- |:-------------:|:--------------------------------------------------|
 | ‘/auth/google’             | GET           | Google OAuth (login/ sign up)                      |
 | ‘/auth/google/callback’    | GET           | Google OAuth (callback url after authentication)   |
 | ‘/auth/facebook’           | GET           | Facebook OAuth (login/ sign up)                    |
@@ -86,7 +86,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 #### Tournament Routes
 
 | Route                      | Type          | Purpose                                                         |
-| -------------------------- |:-------------:| ---------------------------------------------------------------:|
+| -------------------------- |:-------------:| :---------------------------------------------------------------|
 | ‘/api/tournaments’         | GET           | Get an index of all the up and coming tournaments (and current) |
 | ‘/api/tournaments’         | POST          | Create a new tournament in the database                         |
 | ‘/api/tournaments’         | PATCH         | Update (edit) an existing tournament                            |
@@ -95,7 +95,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 #### Post Routes
 
 | Route                      | Type          | Purpose                                                             |
-| -------------------------- |:-------------:| -------------------------------------------------------------------:|
+| -------------------------- |:-------------:| :-------------------------------------------------------------------|
 | ‘/api/post’                | GET           | Get an index of all the the posts for a given tournament            |
 | ‘/api/post’                | POST          | Create a new post to be added to a Tournament’s collection of posts |
 | ‘/api/post’                | PATCH         | Update (edit) an existing post                                      |
@@ -104,7 +104,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 #### Comment Routes
 
 | Route                      | Type          | Purpose                                                          |
-| -------------------------- |:-------------:| ----------------------------------------------------------------:|
+| -------------------------- |:-------------:| :----------------------------------------------------------------|
 | ‘/api/comment’             | GET           | Get an index of all the the comments for a given post            |
 | ‘/api/comment’             | POST          | Create a new post to be added to a post’s collection of comments |
 | ‘/api/comment’             | PATCH         | Update (edit) an existing comment                                |
@@ -115,7 +115,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 Notes: Below are the routes and pages they are associated with. May have a separate page for the ‘forum’ of each tournament.
 
 | Route                      | Page                                    |
-| ---------------------------|:-------------------------------------------:|
+| ---------------------------|:-------------------------------------------|
 | '/'                        | Landing Page                                |
 | '/'                        | Dashboard                                   |
 | '/tournaments/${id}'       | Tournament Show Page                        |
