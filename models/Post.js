@@ -5,7 +5,7 @@ const commentSchema = require('./Comment');
 
 //Post Schema
 const postSchema = new Schema({
-  tournamentId: Number,
+  tournamentId: { type: Schema.Types.ObjectId, ref: 'Tournament'},
   _user: { type: Schema.Types.ObjectId, ref: 'User'},
   title: String,
   datePosted: Date,

@@ -8,6 +8,8 @@ const userSchema = new Schema({
   username: String,
   city: String,
   travelRange: { type: Number, default: 25 },
+  followedGames: [String],
+  followedSeries: [String],
   tournaments: [ tournamentSchema ]
 });
 
