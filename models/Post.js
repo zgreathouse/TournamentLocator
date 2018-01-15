@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const commentSchema = require('./Comment');
 
-//User Schema
+//Post Schema
 const postSchema = new Schema({
   tournamentId: Number,
   _user: { type: Schema.Types.ObjectId, ref: 'User'},

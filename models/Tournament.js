@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const postSchema = require('./Post');
 
-//User Schema
+//Tournament Schema
 const tournamentSchema = new Schema({
   title: String,
   game: String,
