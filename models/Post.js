@@ -5,11 +5,12 @@ const commentSchema = require('./Comment');
 
 //Post Schema
 const postSchema = new Schema({
-  tournamentId: { type: Schema.Types.ObjectId, ref: 'Tournament'},
-  _user: { type: Schema.Types.ObjectId, ref: 'User'},
-  title: String,
-  datePosted: Date,
-  comments: [commentSchema]
+  tournamentId: { type: Schema.Types.ObjectId, ref: 'Tournament'}, // id of tournament the post belongs to
+  _user: { type: Schema.Types.ObjectId, ref: 'User'},              // id of user who submitted the post
+  title: String,                                                   // title of the post
+  body: String,                                                    // body of the post
+  datePosted: Date,                                                // date the post was submitted
+  comments: [commentSchema]                                        // array of comments which belong to the post
 });
 
 mongoose.model('posts', postSchema);
