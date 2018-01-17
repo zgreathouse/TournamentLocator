@@ -7,7 +7,7 @@ module.exports = app => {
 
 
   // Get an index of all the tournaments created by a user
-  app.get('/api/tournaments/:userId', );
+  app.get('/api/:userId/tournaments/', );
 
 
   // Create a new tournament in the database
