@@ -1,10 +1,10 @@
 {
   "name": "TournamentLocator",
   "version": "1.0.0",
-  "description": "Notes: Below are some of the features and projected challenges surrounding them",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/zgreathouse/TournamentLocator/issues"
   },
-  "homepage": "https://github.com/zgreathouse/TournamentLocator#readme"
+  "homepage": "https://github.com/zgreathouse/TournamentLocator#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.9"
+  }
 }
