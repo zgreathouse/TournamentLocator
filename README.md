@@ -22,6 +22,7 @@ Notes: This is a working schema subject to change
 | Field                           | DataType                                    |
 | --------------------------------|:------------------------------------------- |
 | username                        | String                                      |
+| title		                        | String                                      |
 | city                            | String                                      |
 | travelRange                     | { type: Number, default: 25 }               |
 | tournaments                     | [ tournamentSchema ]                        |
