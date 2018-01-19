@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
 const keys = require('./config/keys');
 
 //class Models
@@ -14,6 +15,13 @@ mongoose.connect(keys.mongoURI, {
 
 //create instance of express
 const app = express();
+
+//middlewares
+app.use(passport.initialize());
+app.use(passport.session());
+
+//routes
+require('./routes/authRoutes')(app);
 
 //dynamic port binding
 const PORT = process.env.PORT || 5000;
