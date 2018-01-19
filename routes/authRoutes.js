@@ -1,4 +1,4 @@
-
+const passport = require('passport');
 
 module.exports = app => {
 
@@ -20,6 +20,14 @@ module.exports = app => {
   // app.get('/auth/facebook/callback');
 
 */
+
+  // Facebook OAuth (login/ sign up)
+  app.get('/auth/facebook/',
+    passport.authenticate('facebook', { session: false }),
+    async (req, res, next) => {
+      console.log('Got here');
+    }
+  );
 
 
   // Get the current user
