@@ -5,7 +5,7 @@ Notes: Below are some of the features and projected challenges surrounding them
 | Feature                         | Description                                                                                      |
 | --------------------------------|:------------------------------------------------------------------------------------------------ |
 | Authentication                  | Implement Google and Facebook OAuth and additional page to set city and username                 |
-| User pages 	                    | Have not implemented Facebook OAuth before                                                       |
+| User pages 	                    | Give user's their own profile view to see their own tournaments and edit user properties         |
 | Full CRUD for Tournaments       | Allow for users to Create, Read, Update, and Delete Tournaments                                  |
 | Full CRUD for Posts             | Allow for users to Create, Read, Update, and Delete Posts                                        |
 | Full CRUD for Comments          | Allow for users to Create, Read, Update, and Delete Comments                                     |
