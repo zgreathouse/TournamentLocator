@@ -167,8 +167,7 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 			},
 		},
 		posts: {},
-		comments: {},
-		search: {}
+		comments: {}
 	}
 }
 ```
@@ -177,7 +176,13 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 {
 	state: {
 		auth : {
-			currentUser: 9
+			currentUser: {
+				id: 9,
+				username: 'EvoChamp001',
+				title: 'Competitor',
+				city: 'SanFrancisco',
+				travelRadius: 25
+			}
 		},
 		tournaments: {
 			43: {
@@ -198,8 +203,7 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 				id: 936,
 				body: ‘There is street parking available, and there is a near by parking garage’
 			}
-		},
-		search: { }
+		}
 	}
 }
 ```
@@ -209,7 +213,13 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 {
 	state: {
 		auth : {
-			currentUser: 9
+			currentUser: {
+				id: 9,
+				username: 'EvoChamp001',
+				title: 'Competitor',
+				city: 'SanFrancisco',
+				travelRadius: 25
+			}
 		},
 		tournaments: {
 			78: {
@@ -231,13 +241,8 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 				…
 			},
 		},
-		posts: { },
-		comments: { },
-		search: {
-			city: ‘San Francisco’
-			radius: 30,
-			searchTerm: ‘SFV’
-		}
+		posts: {},
+		comments: {}
 	}
 }
 ```
