@@ -2,16 +2,16 @@
 Notes: Below are some of the features and projected challenges surrounding them
 
 
-| Feature                         | Challenge                                                        |
-| --------------------------------|:---------------------------------------------------------------- |
-| Google OAuth                    | Bugs surrounding the API (on Zach’s computer)                    |
-| Facebook OAuth                  | Have not implemented Facebook OAuth before                       |
-| Full CRUD for Tournaments       |                                                                  |
-| Full CRUD for Posts             |                                                                  |
-| Full CRUD for Comments          |                                                                  |
-| Google Maps API                 | Have not implemented google maps API before                      |
-| Search Function with Filtering  | Have not implemented filtered searches before                    |
-| Implement CDN for images        | Have not implemented AWS using express, Node, and MongoDB before |
+| Feature                         | Description                                                                                      |
+| --------------------------------|:------------------------------------------------------------------------------------------------ |
+| Authentication                  | Implement Google and Facebook OAuth and additional page to set city and username                 |
+| User pages 	                    | Have not implemented Facebook OAuth before                                                       |
+| Full CRUD for Tournaments       | Allow for users to Create, Read, Update, and Delete Tournaments                                  |
+| Full CRUD for Posts             | Allow for users to Create, Read, Update, and Delete Posts                                        |
+| Full CRUD for Comments          | Allow for users to Create, Read, Update, and Delete Comments                                     |
+| Google Maps API                 | Implement google maps api for users to locate tournaments                                        |
+| Search Function with Filtering  | Implement search function to find tournaments and allow for users to filter their search results |
+| Implement CDN for images        | Use AWS S3 buckets to save image files and save the image url as the reference to the file       |
 
 ***
 ## Schema

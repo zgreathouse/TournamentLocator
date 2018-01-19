@@ -5,7 +5,7 @@ const postSchema = require('./Post');
 
 //Tournament Schema
 const tournamentSchema = new Schema({
-  _user: { type: Schema.Types.ObjectId, ref: 'User' },                   // id of user who created the tournament
+  _user: { type: Schema.Types.ObjectId, ref: 'User' },                  // id of user who created the tournament
   title: String,                                                        // title of the tournament
   game: [String],                                                       // featured game(s)
   tags: [String],                                                       // tags associated to the game to assist search function
