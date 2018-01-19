@@ -6,6 +6,8 @@ const tournamentSchema = require('./Tournament');
 //User Schema
 const userSchema = new Schema({
   username: String,                                                     // the user's username
+  googleID: String,                                                     // google ID saved for google OAuth
+  facebookID: String,                                                   // facebook ID saved for google OAuth
   title: String,                                                        // the user's title
   city: String,                                                         // city the user is based out of
   travelRange: { type: Number, default: 25 },                           // travel radius specified by the user
