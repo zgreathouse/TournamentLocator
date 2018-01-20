@@ -1,4 +1,8 @@
 const passport = require('passport');
+const requireLogin = require('../middlewares/requireLogin');
+const mongoose = require('mongoose');
+
+const User = mongoose.model('users');
 
 module.exports = app => {
 
@@ -21,6 +25,20 @@ module.exports = app => {
       }
     }
   );
+
+  // app.patch('/api/edituser', requireLogin, async (req, res) => {
+  //   const { username, title, city } = req.body;
+  //
+  //   // edit user
+  //   const user = new Survey({
+  //     title,
+  //     subject,
+  //     body,
+  //     recipients: recipients.split(',').map(email => ({ email: email.trim() })),
+  //     _user: req.user.id,
+  //     dateSent: Date.now()
+  //   });
+  // });
 
 
   // Get the current user
