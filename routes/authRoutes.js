@@ -2,25 +2,6 @@ const passport = require('passport');
 
 module.exports = app => {
 
-/*
-  OAuth
-
-  // Google OAuth (login/ sign up)
-  // app.get('/auth/google', );
-
-
-  // Google OAuth (callback url after authentication)
-  // app.get('/auth/google/callback', );
-
-  // Facebook OAuth (login/ sign up)
-  // app.get('/auth/facebook/', );
-
-
-  // Facebook OAuth (callback url after authentication)
-  // app.get('/auth/facebook/callback');
-
-*/
-
   // Facebook OAuth (login/ sign up)
   app.get('/auth/facebook/',
     passport.authenticate('facebook')
@@ -29,7 +10,15 @@ module.exports = app => {
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook'),
     (req, res) => {
-      res.redirect('http://localhost:5000/');
+
+      //if the user has inputted their username, title, and city
+      //they will be redirected to the dashboard, and if they haven't
+      //they will be redirected to the user edit page to input their data
+      if(req.user.finishAccountSetup) {
+        res.redirect('/'); //this route will later change to the dashboard
+      } else {
+        res.redirect('/'); //this route will later change to the edit user page
+      }
     }
   );
 
