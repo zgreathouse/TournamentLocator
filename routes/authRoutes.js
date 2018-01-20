@@ -31,8 +31,9 @@ module.exports = app => {
     (req, res) => {
       if(req.user.finishAccountSetup){
         res.redirect('/')
+      } else {
+        res.redirect('/user/edit')
       }
-      res.redirect('/user/edit')
     }
   );
 
