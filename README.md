@@ -22,9 +22,14 @@ Notes: This is a working schema subject to change
 | Field                           | DataType                                    |
 | --------------------------------|:------------------------------------------- |
 | username                        | String                                      |
+| googleID		                    | String                                      |
+| facebookID	                    | String                                      |
 | title		                        | String                                      |
 | city                            | String                                      |
 | travelRange                     | { type: Number, default: 25 }               |
+| followedGames                   | [String]                                    |
+| followedSeries                  | [String]										                |
+| finishAccountSetup              | { type: Boolean, default: false }			      |
 | tournaments                     | [ tournamentSchema ]                        |
 
 #### TournamentSchema

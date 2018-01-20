@@ -22,7 +22,6 @@ passport.use(
       clientSecret: keys.facebookClientSecret,
       callbackURL: 'http://localhost:5000/auth/facebook/callback'
     }, async (accessToken, refreshToken, profile, done) => {
-      console.log("passport callback fired!");
       const existingUser = await User.findOne({ facebookID: profile.id });
 
       //sign in

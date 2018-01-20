@@ -11,7 +11,7 @@ require('./models/Post');
 require('./models/Comment');
 
 //services
-require('./services/passport/facebookOAuth');
+require('./services/passport/facebookStrategy');
 
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true

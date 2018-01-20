@@ -45,8 +45,4 @@ module.exports = app => {
     res.redirect('/');
   });
 
-  app.get('/', (req, res) => {
-    res.send("Sick auth");
-  })
-
 }
