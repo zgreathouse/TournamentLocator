@@ -23,15 +23,19 @@ module.exports = app => {
 
   // Facebook OAuth (login/ sign up)
   app.get('/auth/facebook/',
-    passport.authenticate('facebook', { session: false }),
-    async (req, res, next) => {
-      console.log('Got here');
+    passport.authenticate('facebook')
+  );
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/'}),
+    (req, res) => {
+      res.redirect('http://localhost:5000/');
     }
   );
 
 
   // Get the current user
-  app.get('api/current_user', (res, req) => {
+  app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
 
@@ -40,5 +44,9 @@ module.exports = app => {
     req.logout();
     res.redirect('/');
   });
+
+  app.get('/', (req, res) => {
+    res.send("Sick auth");
+  })
 
 }

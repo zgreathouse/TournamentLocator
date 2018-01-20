@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 
@@ -9,6 +10,9 @@ require('./models/Tournament');
 require('./models/Post');
 require('./models/Comment');
 
+//services
+require('./services/passport/facebookOAuth');
+
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true
 });
@@ -17,6 +21,12 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 
 //middlewares
+app.use(
+  cookieSession({
+    maxAge: 2592000000,
+    keys: [keys.cookieKey]
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
