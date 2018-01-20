@@ -29,7 +29,10 @@ module.exports = app => {
   app.get('/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      res.redirect('/');
+      if(req.user.finishAccountSetup){
+        res.redirect('/')
+      }
+      res.redirect('/user/edit')
     }
   );
 
