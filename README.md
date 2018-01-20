@@ -86,6 +86,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 | ‘/auth/google/callback’         | GET           | Google OAuth (callback url after authentication)                    |
 | ‘/auth/facebook’                | GET           | Facebook OAuth (login/ sign up)                                     |
 | ‘/auth/facebook/callback’       | GET           | Facebook OAuth (callback url after authentication)                  |
+| ‘/api/edituser’                 | PATCH         | Edit user document                                                  |
 | ‘/api/current_user’             | GET           | Get the current user                                                |
 | ‘/api/logout’                   | GET           | Logout the current user                                             |
 
@@ -125,8 +126,12 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 | --------------------------------|:--------------------------------------------|
 | '/'                             | Landing Page                                |
 | '/'                             | Dashboard                                   |
+| '/user/profile'                 | Profile Page                                |
+| '/user/edit'                    | Edit User Page                              |
 | '/tournaments/${id}'            | Tournament Show Page                        |
-| '/tournaments/${new}            | Tournament Creation Form                    |
+| '/tournaments/${id}/edit'       | Edit Tournament Form                        |
+| '/tournaments/new'              | Tournament Creation Form                    |
+| '/tournaments/${id}/forum'      | Tournament Forum Page                       |
 
 ***
 ## State Shape
