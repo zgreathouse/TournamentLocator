@@ -1,4 +1,4 @@
-
+const passport = require('passport');
 
 module.exports = app => {
 
@@ -20,10 +20,21 @@ module.exports = app => {
   // app.get('/auth/facebook/callback');
 
 */
+  app.get('/auth/google',
+    passport.authenticate('google', {
+      scope: ['profile']
+    })
+  );
 
+  app.get('/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/api/current_user');
+    }
+  );
 
   // Get the current user
-  app.get('api/current_user', (res, req) => {
+  app.get('/api/current_user', (req, res) => {
     res.send(req.user);
   });
 

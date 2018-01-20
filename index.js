@@ -9,6 +9,9 @@ require('./models/Tournament');
 require('./models/Post');
 require('./models/Comment');
 
+//services
+require('./services/googleStrategy');
+
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true
 });
