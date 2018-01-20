@@ -11,7 +11,7 @@ require('./models/Post');
 require('./models/Comment');
 
 //services
-require('./services/googleStrategy');
+require('./services/passport/googleStrategy');
 
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true
