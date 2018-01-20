@@ -27,16 +27,17 @@ module.exports = app => {
   );
 
   // app.patch('/api/edituser', requireLogin, async (req, res) => {
-  //   const { username, title, city } = req.body;
+  //   //deconstruct fields from the request body
+  //   const { id, username, title, games, city } = req.body;
+  //   let query = { _id: id };
   //
-  //   // edit user
-  //   const user = new Survey({
-  //     title,
-  //     subject,
-  //     body,
-  //     recipients: recipients.split(',').map(email => ({ email: email.trim() })),
-  //     _user: req.user.id,
-  //     dateSent: Date.now()
+  //   User.findOne(query, function (err, user){
+  //   user.username = username;
+  //   user.title = title;
+  //   user.followedGames = games;
+  //   user.city = city;
+  //
+  //   user.save();
   //   });
   // });
 
