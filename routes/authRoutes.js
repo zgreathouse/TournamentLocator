@@ -15,9 +15,9 @@ module.exports = app => {
     passport.authenticate('facebook'),
     (req, res) => {
 
-      //if the user has inputted their username, title, and city
-      //they will be redirected to the dashboard, and if they haven't
-      //they will be redirected to the user edit page to input their data
+      //check if user has existing values for username, title, and city.
+      //if they do they will be redirected to the dashboard, and if they haven't
+      //they will be redirected to the user edit page to input their data upon login/ signup
       if(req.user.finishAccountSetup) {
         res.redirect('/'); //this route will later change to the dashboard
       } else {
