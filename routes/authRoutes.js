@@ -1,25 +1,7 @@
 const passport = require('passport');
 
 module.exports = app => {
-
-/*
-  OAuth
-
-  // Google OAuth (login/ sign up)
-  // app.get('/auth/google', );
-
-
-  // Google OAuth (callback url after authentication)
-  // app.get('/auth/google/callback', );
-
-  // Facebook OAuth (login/ sign up)
-  // app.get('/auth/facebook/', );
-
-
-  // Facebook OAuth (callback url after authentication)
-  // app.get('/auth/facebook/callback');
-
-*/
+  
   app.get('/auth/google',
     passport.authenticate('google', {
       scope: ['profile']
@@ -32,7 +14,7 @@ module.exports = app => {
       if(req.user.finishAccountSetup){
         res.redirect('/')
       } else {
-        res.redirect('/user/edit')
+        res.redirect('/user/edit') //will change later to accomidate frontend route vs backend route
       }
     }
   );
