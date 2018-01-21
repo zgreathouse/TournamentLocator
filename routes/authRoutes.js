@@ -32,10 +32,10 @@ module.exports = app => {
   //   let query = { _id: id };
   //
   //   User.findOne(query, function (err, user){
-  //   user.username = username;
-  //   user.title = title;
-  //   user.followedGames = games;
-  //   user.city = city;
+  //   req.user.username = username;
+  //   req.user.title = title;
+  //   req.user.followedGames = games;
+  //   req.user.city = city;
   //
   //   user.save();
   //   });
