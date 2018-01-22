@@ -11,6 +11,7 @@ module.exports = app => {
     passport.authenticate('facebook')
   );
 
+  // Facebook OAuth callback (direct user after logging in or signing up)
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook'),
     (req, res) => {
@@ -25,33 +26,35 @@ module.exports = app => {
     }
   );
 
-  app.patch('/api/edituser', requireLogin, async (req, res) => {
-    //deconstruct fields from the request body
-    const { id, username, title, games, city } = req.body;
 
-    Todo.findById(req.body._id, (err, user) => {
-      // Handle any possible errors
-      if (err) {
-          res.status(500).send(err);
-      } else {
-        // Update each field with any possible field that may have been submitted in the body of the request
-        // If that field isn't in the request body, default back to whatever it was before.
-        user.username = username || user.username;
-        user.title = title || user.title;
-        user.games = games || user.games;
-        user.city = city || user.city;
-
-        // Save the updated document back to the database
-        user.save((err, user) => {
-            if (err) {
-                res.status(500).send(err)
-            }
-            res.status(200).send(user);
-        });
-      }
-    });
-  });
-
+//will test this route later, once the frontend is built out
+  // // Route for updating the user's attributes
+  // app.patch('/api/edituser', requireLogin, async (req, res) => {
+  //   //deconstruct fields from the request body
+  //   const { id, username, title, games, city } = req.body;
+  //
+  //   Todo.findById(req.body._id, (err, user) => {
+  //     // Handle any possible errors
+  //     if (err) {
+  //         res.status(500).send(err);
+  //     } else {
+  //       // Update each field with any possible field that may have been submitted in the body of the request
+  //       // If that field isn't in the request body, default back to whatever it was before.
+  //       user.username = username || user.username;
+  //       user.title = title || user.title;
+  //       user.games = games || user.games;
+  //       user.city = city || user.city;
+  //
+  //       // Save the updated document back to the database
+  //       user.save((err, user) => {
+  //           if (err) {
+  //               res.status(500).send(err)
+  //           }
+  //           res.status(200).send(user);
+  //       });
+  //     }
+  //   });
+  // });
 
   // Get the current user
   app.get('/api/current_user', (req, res) => {
