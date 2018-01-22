@@ -14,7 +14,6 @@ module.exports = app => {
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook'),
     (req, res) => {
-
       //check if user has existing values for username, title, and city.
       //if they do they will be redirected to the dashboard, and if they haven't
       //they will be redirected to the user edit page to input their data upon login/ signup
@@ -31,14 +30,9 @@ module.exports = app => {
   //   const { id, username, title, games, city } = req.body;
   //   let query = { _id: id };
   //
-  //   User.findOne(query, function (err, user){
-  //   req.user.username = username;
-  //   req.user.title = title;
-  //   req.user.followedGames = games;
-  //   req.user.city = city;
   //
-  //   user.save();
-  //   });
+  //
+  //
   // });
 
 
