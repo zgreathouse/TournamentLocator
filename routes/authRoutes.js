@@ -29,7 +29,7 @@ module.exports = app => {
     //deconstruct fields from the request body
     const { id, username, title, games, city } = req.body;
 
-    Todo.findById(req.user._id, (err, user) => {
+    Todo.findById(req.body._id, (err, user) => {
       // Handle any possible errors
       if (err) {
           res.status(500).send(err);
