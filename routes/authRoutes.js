@@ -25,15 +25,32 @@ module.exports = app => {
     }
   );
 
-  // app.patch('/api/edituser', requireLogin, async (req, res) => {
-  //   //deconstruct fields from the request body
-  //   const { id, username, title, games, city } = req.body;
-  //   let query = { _id: id };
-  //
-  //
-  //
-  //
-  // });
+  app.patch('/api/edituser', requireLogin, async (req, res) => {
+    //deconstruct fields from the request body
+    const { id, username, title, games, city } = req.body;
+
+    Todo.findById(req.user._id, (err, user) => {
+      // Handle any possible errors
+      if (err) {
+          res.status(500).send(err);
+      } else {
+        // Update each field with any possible field that may have been submitted in the body of the request
+        // If that field isn't in the request body, default back to whatever it was before.
+        user.username = username || user.username;
+        user.title = title || user.title;
+        user.games = games || user.games;
+        user.city = city || user.city;
+
+        // Save the updated document back to the database
+        user.save((err, user) => {
+            if (err) {
+                res.status(500).send(err)
+            }
+            res.status(200).send(user);
+        });
+      }
+    });
+  });
 
 
   // Get the current user
