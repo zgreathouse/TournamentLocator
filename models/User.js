@@ -17,4 +17,5 @@ const userSchema = new Schema({
   tournaments: [ tournamentSchema ]                                     // an array of tournaments created/run by the user
 });
 
+
 mongoose.model('users', userSchema);

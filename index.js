@@ -12,6 +12,7 @@ require('./models/Comment');
 
 //services
 require('./services/passport/facebookStrategy');
+require('./services/passport/googleStrategy');
 
 mongoose.connect(keys.mongoURI, {
   useMongoClient: true
