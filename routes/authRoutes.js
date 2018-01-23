@@ -21,7 +21,7 @@ module.exports = app => {
       if(req.user.finishAccountSetup) {
         res.redirect('/'); //this route will later change to the dashboard
       } else {
-        res.redirect('/'); //this route will later change to the edit user page
+        res.redirect('/user/edit'); //this route will later change to the edit user page
       }
     }
   );
@@ -41,9 +41,9 @@ module.exports = app => {
   //       // Update each field with any possible field that may have been submitted in the body of the request
   //       // If that field isn't in the request body, default back to whatever it was before.
   //       user.username = username || user.username;
-  //       user.title = title || user.title;
-  //       user.games = games || user.games;
-  //       user.city = city || user.city;
+  //       user.title = user.title;
+  //       user.games = user.games;
+  //       user.city = user.city;
   //
   //       // Save the updated document back to the database
   //       user.save((err, user) => {

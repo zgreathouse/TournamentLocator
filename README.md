@@ -86,7 +86,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 | ‘/auth/google/callback’         | GET           | Google OAuth (callback url after authentication)                    |
 | ‘/auth/facebook’                | GET           | Facebook OAuth (login/ sign up)                                     |
 | ‘/auth/facebook/callback’       | GET           | Facebook OAuth (callback url after authentication)                  |
-| ‘/api/edituser’                 | PATCH         | Edit user document                                                  |
+| ‘/api/edit/user’                | PATCH         | Edit user document                                                  |
 | ‘/api/current_user’             | GET           | Get the current user                                                |
 | ‘/api/logout’                   | GET           | Logout the current user                                             |
 
