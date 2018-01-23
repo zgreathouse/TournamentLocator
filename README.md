@@ -2,16 +2,16 @@
 Notes: Below are some of the features and projected challenges surrounding them
 
 
-| Feature                         | Challenge                                                        |
-| --------------------------------|:---------------------------------------------------------------- |
-| Google OAuth                    | Bugs surrounding the API (on Zach’s computer)                    |
-| Facebook OAuth                  | Have not implemented Facebook OAuth before                       |
-| Full CRUD for Tournaments       |                                                                  |
-| Full CRUD for Posts             |                                                                  |
-| Full CRUD for Comments          |                                                                  |
-| Google Maps API                 | Have not implemented google maps API before                      |
-| Search Function with Filtering  | Have not implemented filtered searches before                    |
-| Implement CDN for images        | Have not implemented AWS using express, Node, and MongoDB before |
+| Feature                         | Description                                                                                      |
+| --------------------------------|:------------------------------------------------------------------------------------------------ |
+| Authentication                  | Implement Google and Facebook OAuth and additional page to set city and username                 |
+| User pages 	                    | Give user's their own profile view to see their own tournaments and edit user properties         |
+| Full CRUD for Tournaments       | Allow for users to Create, Read, Update, and Delete Tournaments                                  |
+| Full CRUD for Posts             | Allow for users to Create, Read, Update, and Delete Posts                                        |
+| Full CRUD for Comments          | Allow for users to Create, Read, Update, and Delete Comments                                     |
+| Google Maps API                 | Implement google maps api for users to locate tournaments                                        |
+| Search Function with Filtering  | Implement search function to find tournaments and allow for users to filter their search results |
+| Implement CDN for images        | Use AWS S3 buckets to save image files and save the image url as the reference to the file       |
 
 ***
 ## Schema
@@ -22,9 +22,14 @@ Notes: This is a working schema subject to change
 | Field                           | DataType                                    |
 | --------------------------------|:------------------------------------------- |
 | username                        | String                                      |
+| googleID		                    | String                                      |
+| facebookID	                    | String                                      |
 | title		                        | String                                      |
 | city                            | String                                      |
 | travelRange                     | { type: Number, default: 25 }               |
+| followedGames                   | [String]                                    |
+| followedSeries                  | [String]										                |
+| finishAccountSetup              | { type: Boolean, default: false }			      |
 | tournaments                     | [ tournamentSchema ]                        |
 
 #### TournamentSchema
@@ -81,6 +86,7 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 | ‘/auth/google/callback’         | GET           | Google OAuth (callback url after authentication)                    |
 | ‘/auth/facebook’                | GET           | Facebook OAuth (login/ sign up)                                     |
 | ‘/auth/facebook/callback’       | GET           | Facebook OAuth (callback url after authentication)                  |
+| ‘/api/edit/user’                | PATCH         | Edit user document                                                  |
 | ‘/api/current_user’             | GET           | Get the current user                                                |
 | ‘/api/logout’                   | GET           | Logout the current user                                             |
 
@@ -120,8 +126,12 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 | --------------------------------|:--------------------------------------------|
 | '/'                             | Landing Page                                |
 | '/'                             | Dashboard                                   |
+| '/user/profile'                 | Profile Page                                |
+| '/user/edit'                    | Edit User Page                              |
 | '/tournaments/${id}'            | Tournament Show Page                        |
-| '/tournaments/${new}            | Tournament Creation Form                    |
+| '/tournaments/${id}/edit'       | Edit Tournament Form                        |
+| '/tournaments/new'              | Tournament Creation Form                    |
+| '/tournaments/${id}/forum'      | Tournament Forum Page                       |
 
 ***
 ## State Shape
@@ -167,8 +177,7 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 			},
 		},
 		posts: {},
-		comments: {},
-		search: {}
+		comments: {}
 	}
 }
 ```
@@ -177,7 +186,13 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 {
 	state: {
 		auth : {
-			currentUser: 9
+			currentUser: {
+				id: 9,
+				username: 'EvoChamp001',
+				title: 'Competitor',
+				city: 'SanFrancisco',
+				travelRadius: 25
+			}
 		},
 		tournaments: {
 			43: {
@@ -198,8 +213,7 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 				id: 936,
 				body: ‘There is street parking available, and there is a near by parking garage’
 			}
-		},
-		search: { }
+		}
 	}
 }
 ```
@@ -209,7 +223,13 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 {
 	state: {
 		auth : {
-			currentUser: 9
+			currentUser: {
+				id: 9,
+				username: 'EvoChamp001',
+				title: 'Competitor',
+				city: 'SanFrancisco',
+				travelRadius: 25
+			}
 		},
 		tournaments: {
 			78: {
@@ -231,13 +251,8 @@ Notes: Below are the routes and pages they are associated with. May have a separ
 				…
 			},
 		},
-		posts: { },
-		comments: { },
-		search: {
-			city: ‘San Francisco’
-			radius: 30,
-			searchTerm: ‘SFV’
-		}
+		posts: {},
+		comments: {}
 	}
 }
 ```

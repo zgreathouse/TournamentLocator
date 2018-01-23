@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
-const cookieSession = require('cookie-session');
 
 //class Models
 require('./models/User');
@@ -11,6 +11,7 @@ require('./models/Post');
 require('./models/Comment');
 
 //services
+require('./services/passport/facebookStrategy');
 require('./services/passport/googleStrategy');
 
 mongoose.connect(keys.mongoURI, {
