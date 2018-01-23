@@ -14,7 +14,7 @@ module.exports = app => {
       if(req.user.finishAccountSetup){
         res.redirect('/')
       } else {
-        res.redirect('/user/edit') //will change later to accomidate frontend route vs backend route
+        res.redirect('/user/edit') //will change later to accommidate frontend route vs backend route
       }
     }
   );
