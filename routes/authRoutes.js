@@ -1,7 +1,7 @@
 const passport = require('passport');
 
 module.exports = app => {
-  
+
   app.get('/auth/google',
     passport.authenticate('google', {
       scope: ['profile']
@@ -24,7 +24,7 @@ module.exports = app => {
     res.send(req.user);
   });
 
-  //Logout the current User
+  //Logout the current User and redirects to root route
   app.get('/api/logout', (req, res) => {
     req.logout();
     res.redirect('/');
