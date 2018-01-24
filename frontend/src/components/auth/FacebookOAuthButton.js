@@ -2,7 +2,7 @@ import React from 'react';
 
 const FacebookOAuthButton = (props) => {
   return (
-    <button>Log In with Facebook</button>
+    <a href='/auth/facebook'>Log In with Facebook</a>
   )
 }
 

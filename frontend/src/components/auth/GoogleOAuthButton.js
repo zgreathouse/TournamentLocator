@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoogleOAuthButton = (props) => {
   return (
-    <button>Log In with Google</button>
+    <a>Log In with Google</a>
   )
 }
 
