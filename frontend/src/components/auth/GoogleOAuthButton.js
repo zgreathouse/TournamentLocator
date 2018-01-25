@@ -1,12 +1,14 @@
 import React from 'react';
 
-const GoogleOAuthButton = (props) => {
+const GoogleOAuthButton = ({ modalType }) => {
+
   return (
     <a
       href="auth/google"
-      class="waves-effect waves-light btn social google"
+      className="waves-effect waves-light btn social google"
+      style={{backgroundColor: "#dd4b39"}}
     >
-    <i class="fa fa-google"></i> Sign in with google</a>
+    <i className="fa fa-google"></i> {modalType} with google</a>
   )
 }
 

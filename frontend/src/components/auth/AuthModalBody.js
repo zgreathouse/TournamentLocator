@@ -10,8 +10,8 @@ const AuthModalBody = ({modalType}) => {
       <div>
         {modalType} with Google or Facebook!
       </div>
-      <GoogleOAuthButton />
-      <FacebookOAuthButton />
+      <GoogleOAuthButton modalType={modalType}/>
+      <FacebookOAuthButton modalType={modalType}/>
     </div>
   )
 }

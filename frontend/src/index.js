@@ -1,6 +1,6 @@
-import 'font-awesome/css/font-awesome.min.css';
-import 'materialize-social/css/materialize.min.css';
 import 'materialize-css/dist/css/materialize.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import 'materialize-social/materialize-social.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

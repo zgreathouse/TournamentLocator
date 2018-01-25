@@ -1,12 +1,13 @@
 import React from 'react';
 
-const FacebookOAuthButton = (props) => {
+const FacebookOAuthButton = ({ modalType }) => {
   return (
     <a
       href='auth/facebook'
-      class="waves-effect waves-light btn social facebook"
+      className="waves-effect waves-light btn social facebook"
+      style={{backgroundColor: "#3b5998"}}
     >
-    <i class="fa fa-facebook"></i> Sign in with facebook</a>
+    <i className="fa fa-facebook"></i> {modalType} with facebook</a>
   )
 }
 
