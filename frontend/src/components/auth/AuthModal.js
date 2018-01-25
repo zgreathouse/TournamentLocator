@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 
+//components
+import AuthModalBody from './AuthModalBody';
+
 const customStyles = {
   content : {
     top              : '50%',
@@ -24,6 +27,12 @@ class AuthModal extends Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.renderSignUpModal = this.renderSignUpModal.bind(this);
+    this.renderLoginModal = this.renderLoginModal.bind(this);
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
   }
 
   openModal() {
@@ -34,12 +43,44 @@ class AuthModal extends Component {
     this.setState({modalIsOpen: false});
   }
 
-  render() {
+  renderSignUpModal() {
     return (
       <div>
-        Modal
+        <button onClick={this.openModal}>Sign Up</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Auth Modal"
+        >
+          <button onClick={this.closeModal}> X </button>
+          <AuthModalBody modalType="Sign Up"/>
+        </Modal>
       </div>
     )
+  }
+
+  renderLoginModal() {
+    return (
+      <div>
+        <button onClick={this.openModal}>Login</button>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Auth Modal"
+        >
+          <button onClick={this.closeModal}> X </button>
+          <AuthModalBody modalType="Login"/>
+        </Modal>
+      </div>
+    )
+  }
+
+  render() {
+    const { modalType } = this.props;
+    return modalType === "Sign Up" ?
+      this.renderSignUpModal() : this.renderLoginModal();
   }
 }
 

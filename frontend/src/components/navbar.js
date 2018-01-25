@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //components
-// import AuthModal from './auth/AuthModal';
-import FacebookOAuthButton from './auth/FacebookOAuthButton';
-import GoogleOAuthButton from './auth/GoogleOAuthButton';
+import AuthModal from './auth/AuthModal';
+// import FacebookOAuthButton from './auth/FacebookOAuthButton';
+// import GoogleOAuthButton from './auth/GoogleOAuthButton';
 
 class NavBar extends Component {
 
@@ -14,8 +14,8 @@ class NavBar extends Component {
         return;
       case false:
         return [
-          <li key={1}><GoogleOAuthButton /></li>,
-          <li key={2}><FacebookOAuthButton /></li>
+          <li key={1}><AuthModal modalType="Sign Up" /></li>,
+          <li key={2}><AuthModal modalType="Login" /></li>
         ];
       default:
         return (
