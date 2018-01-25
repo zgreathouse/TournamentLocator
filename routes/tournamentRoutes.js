@@ -41,7 +41,6 @@ module.exports = app => {
       series: req.body.series,
       forum: []
     })
-
     
   });
 
