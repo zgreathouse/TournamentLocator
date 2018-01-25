@@ -1,3 +1,9 @@
+const mongoose = require('mongoose');
+
+const requireLogin = ('../middlewares/requireLogin');
+
+const Tournament = mongoose.model('tournaments');
+
 module.exports = app => {
 /*
   Scafolding for Routes
