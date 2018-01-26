@@ -27,10 +27,10 @@ class NavBar extends Component {
   render() {
     return (
       <nav>
-        <div className="nav-wrapper" style={{ backgroundColor: '#403f42'}}>
+        <div className="nav-wrapper" style={{ backgroundColor: "#403f42"}}>
             <div
               className="left brand-logo"
-              style={{paddingLeft: '10px', fontSize: '20px'}}
+              style={{paddingLeft: "10px", fontSize: "20px"}}
             >
               Tournament Locator
             </div>

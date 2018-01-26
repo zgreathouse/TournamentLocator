@@ -7,7 +7,10 @@ import GoogleOAuthButton from './GoogleOAuthButton';
 const AuthModalBody = ({modalType}) => {
   return (
     <div className="container">
-      <div className="center-align">
+      <div
+        className="center-align"
+        style={{ fontSize: "20px", margin: "80px 0 60px 0"}}
+      >
         {modalType} with Google or Facebook!
       </div>
       <GoogleOAuthButton modalType={modalType}/>

@@ -40,6 +40,8 @@ class AuthModal extends Component {
       <div>
         <button
           onClick={this.toggleModal}
+          className="waves-effect waves-light btn"
+          style={{marginRight: "20px"}}
         >
           {modalType}
         </button>
@@ -49,7 +51,10 @@ class AuthModal extends Component {
           style={customStyles}
           contentLabel="Auth Modal"
         >
-          <button onClick={this.closeModal}> X </button>
+          <button
+            onClick={this.closeModal}
+            className="hoverable right btn"
+          > X </button>
           <AuthModalBody modalType={modalType}/>
         </Modal>
       </div>
