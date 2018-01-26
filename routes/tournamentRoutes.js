@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const requireLogin = ('../middlewares/requireLogin');
+const requireHosting = ('../middlewares/requireHosting');
 
 const Tournament = mongoose.model('tournaments');
 
@@ -41,16 +42,25 @@ module.exports = app => {
       series: req.body.series,
       forum: []
     })
-    
+
+    try {
+      await tournament.save();
+
+    } catch (err) {
+      res.status(422).send(err)
+    }
+
   });
 
 /*
   // Update (edit) an existing tournament
-  app.patch('/api/tournaments', );
+  app.patch('/api/tournaments', requireHosting );
 
 
   // Delete an existing tournament
-  app.delete('/api/tournaments', );
+  app.delete('/api/tournaments', requireHosting, (req, res) => {
+
+  });
 
 */
 }
