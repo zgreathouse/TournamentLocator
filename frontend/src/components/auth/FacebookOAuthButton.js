@@ -4,7 +4,7 @@ const FacebookOAuthButton = ({ modalType }) => {
   return (
     <a
       href='auth/facebook'
-      className="waves-effect waves-light btn social facebook"
+      className="z-depth-5 btn social facebook"
       style={{backgroundColor: "#3b5998"}}
     >
     <i className="fa fa-facebook"></i> {modalType} with facebook</a>

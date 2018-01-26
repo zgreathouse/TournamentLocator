@@ -12,8 +12,8 @@ const customStyles = {
     bottom           : 'auto',
     marginRight      : '-50%',
     transform        : 'translate(-50%, -50%)',
-    width            : '400px',
-    height           : '450px',
+    width            : '475px',
+    height           : '550px',
   }
 };
 
@@ -38,7 +38,11 @@ class AuthModal extends Component {
 
     return (
       <div>
-        <button onClick={this.toggleModal}>{modalType}</button>
+        <button
+          onClick={this.toggleModal}
+        >
+          {modalType}
+        </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
