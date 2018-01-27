@@ -52,7 +52,7 @@ class AuthModal extends Component {
           contentLabel="Auth Modal"
         >
           <button
-            onClick={this.closeModal}
+            onClick={this.toggleModal}
             className="hoverable right btn"
           > X </button>
           <AuthModalBody modalType={modalType}/>
