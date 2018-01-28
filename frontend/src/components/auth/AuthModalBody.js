@@ -9,7 +9,7 @@ const AuthModalBody = ({modalType}) => {
     <div className="container">
       <div
         className="center-align"
-        style={{ fontSize: "20px", margin: "80px 0 60px 0"}}
+        style={{ fontSize: "20px", fontWeight: "bold", margin: "130px 0 70px 0"}}
       >
         {modalType} with Google or Facebook!
       </div>

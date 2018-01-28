@@ -6,14 +6,14 @@ import AuthModalBody from './AuthModalBody';
 
 const customStyles = {
   content : {
-    top              : '50%',
-    left             : '50%',
-    right            : 'auto',
-    bottom           : 'auto',
-    marginRight      : '-50%',
-    transform        : 'translate(-50%, -50%)',
-    width            : '475px',
-    height           : '550px',
+    top              : "38%",
+    left             : "50%",
+    right            : "auto",
+    bottom           : "auto",
+    marginRight      : "-50%",
+    transform        : "translate(-50%, -50%)",
+    width            : "480px",
+    height           : "530px"
   }
 };
 
