@@ -19,7 +19,7 @@ class Header extends Component {
         ];
       default:
         return (
-          <li key={3}><a href="/api/logout">Logout</a></li>
+          <li key={3}><a href="/api/logout" style={{ marginRight: "10px"}}>Logout</a></li>
         );
     }
   }
