@@ -6,7 +6,7 @@ import AuthModal from './auth/AuthModal';
 // import FacebookOAuthButton from './auth/FacebookOAuthButton';
 // import GoogleOAuthButton from './auth/GoogleOAuthButton';
 
-class NavBar extends Component {
+class Header extends Component {
 
   renderContent() {
     switch (this.props.auth) {
@@ -47,4 +47,4 @@ function mapStateToProps ({auth}) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(Header);

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
 
 //components
-import NavBar from './NavBar';
+import Header from './Header';
+import Footer from './Footer';
 
 class App extends Component {
   componentDidMount() {
@@ -13,7 +14,8 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <NavBar />
+        <Header />
+        <Footer />
       </div>
     );
   }
