@@ -6,7 +6,7 @@ import AuthModalBody from './AuthModalBody';
 
 const customStyles = {
   content : {
-    top              : "38%",
+    top              : "45%",
     left             : "50%",
     right            : "auto",
     bottom           : "auto",
