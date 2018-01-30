@@ -26,11 +26,11 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <nav style={{width: "100%", minWidth: "100%"}}>
         <div className="nav-wrapper" style={{ backgroundColor: "#403f42"}}>
             <div
               className="left brand-logo"
-              style={{paddingLeft: "10px", fontSize: "20px"}}
+              style={{paddingLeft: "10px", fontSize: "20px", minWidth: "600px"}}
             >
               Tournament Locator
             </div>

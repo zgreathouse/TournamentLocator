@@ -3,44 +3,47 @@ import React from 'react';
 const customStyles = {
   marginRight      : "5px",
   textAlign   : "center",
-  color: "#2bbbad"
+  color: "#2bbbad",
+
 }
 
 const Footer = (props) => {
+
+
   return (
     <footer
       className="page-footer"
       style={{
-        backgroundColor: "#403f42",
-        position: "absolute",
-        bottom: "0",
-        width: "70%"
+        backgroundColor   : "#403f42",
+        position          : "relative",
+        bottom            : "0",
+        boxShadow         : "0 0 5px 0 grey, 0 0 5px 0 grey"
       }}
     >
       <div className="container">
         <div className="row">
           <div className="col s3 offset-s9">
             <p className="grey-text text-lighten-4" style={{fontSize: "18px"}}>Developers</p>
-            <p className="grey-text text-lighten-4">
-              <a className="fa fa-linkedin"
+            <p className="grey-text text-lighten-4" style={{minWidth: "150px"}}>
+              <a
                 href="https://www.linkedin.com/in/zachary-greathouse-11345813b/"
                 style={customStyles}
-              ></a>
-              <a className="fa fa-github"
+              ><i className="fa fa-linkedin"></i></a>
+              <a
                 href="https://github.com/zgreathouse"
-                style={customStyles}>
-              </a>
+                style={customStyles}
+              ><i className="fa fa-github"></i></a>
               Zach Greathouse
             </p>
-            <p className="grey-text text-lighten-4">
-              <a className="fa fa-linkedin"
+            <p className="grey-text text-lighten-4" style={{minWidth: "150px"}}>
+              <a
                 href="https://www.linkedin.com/in/stone-ryan-a5460095/"
-                style={customStyles}>
-              </a>
-              <a className="fa fa-github"
+                style={customStyles}
+              ><i className="fa fa-linkedin"></i></a>
+              <a
                 href="https://github.com/Stone-Ryan"
-                style={customStyles}>
-              </a>
+                style={customStyles}
+              ><i className="fa fa-github"></i></a>
               Stone Ryan
             </p>
           </div>
