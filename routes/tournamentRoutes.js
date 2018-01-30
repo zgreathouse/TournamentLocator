@@ -7,16 +7,19 @@ const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments (and current)
-  app.get('/api/tournaments', requireLogin, (req, res) => {
-    res.send(req.user.tournaments);
+  app.get('/api/tournaments', async (req, res) => {
+    try {
+      const results = await Tournament.find({});
+      res.send(results);
+    } catch (err) {
+      throw err;
+    }
   });
 
 
   // Get an index of all the tournaments created by a user
   app.get('/api/:userId/tournaments/', requireLogin, async (req, res) => {
-    const tournaments = await Tournament.find({ _user: req.user.id })
-
-    res.send(tournaments);
+    res.send(req.user.tournaments);
   });
 
 
@@ -44,8 +47,10 @@ module.exports = app => {
     })
 
     try {
+      req.user.tournaments.push(tournament);
       await tournament.save();
-
+      const user = await req.user.save();
+      res.send(user);
     } catch (err) {
       res.status(422).send(err)
     }
@@ -55,14 +60,15 @@ module.exports = app => {
 /*
   // Update (edit) an existing tournament
   app.patch('/api/tournaments', requireHosting );
+*/
 
 
   // Delete an existing tournament
   app.delete('/api/tournaments', requireHosting, (req, res) => {
-
+    Tournament.findByIdAndRemove(req.tournament.id, (err) => {});
+    res.redirect('/');
   });
 
-*/
 }
 
 /*
