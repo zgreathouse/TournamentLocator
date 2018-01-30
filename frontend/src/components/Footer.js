@@ -15,7 +15,6 @@ const Footer = (props) => {
       className="page-footer"
       style={{
         backgroundColor   : "#403f42",
-        position          : "relative",
         bottom            : "0",
         boxShadow         : "0 0 5px 0 grey, 0 0 5px 0 grey"
       }}
