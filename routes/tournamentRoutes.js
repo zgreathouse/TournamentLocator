@@ -7,7 +7,7 @@ const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments (and current)
-  app.get('/api/tournaments', requireLogin, async (req, res) => {
+  app.get('/api/tournaments', async (req, res) => {
     try {
       const results = await Tournament.find({});
       res.send(results);
@@ -55,15 +55,33 @@ module.exports = app => {
      }
   });
 
-/*
   // Update (edit) an existing tournament
-  app.patch('/api/tournaments', requireHosting );
-*/
+  app.patch('/api/tournaments', requireHosting, (req, res) => {
+    Tournament.findOne({ _id: req.tournament.id }, (err, doc) => {
+      doc.title = req.body.title;
+      doc.game = req.body.game;
+      doc.tags = req.body.tags;
+      doc.description = req.body.description;
+      doc.streamLink = req.body.streamLink;
+      doc.twitterLink = req.body.twitterLink;
+      doc.startTime = req.body.startTime;
+      doc.endTime = req.body.endTime;
+      doc.venueAddress = req.body.venueAddress;
+      doc.venueFee = req.body.venueFee;
+      doc.entryFee = req.body.entryFee;
+      doc.sponsors = req.body.sponsors;
+      doc.potBonus = req.body.potBonus;
+      doc.maxEntrants = req.body.maxEntrants;
+      doc.bannerImage = req.body.bannerImage;
+      doc.series = req.body.series;
+      doc.save();
+    })
+  });
 
 
   // Delete an existing tournament
   app.delete('/api/tournaments', requireHosting, (req, res) => {
-    Tournament.findByIdAndRemove(req.tournament.id, (err) => {});
+    Tournament.findByIdAndRemove(req.tournament.id);
     res.redirect('/');
   });
 };
