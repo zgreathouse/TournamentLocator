@@ -29,9 +29,9 @@ class Header extends Component {
         <div className="nav-wrapper" style={{ backgroundColor: "#403f42"}}>
             <div
               className="left brand-logo"
-              style={{paddingLeft: "10px", fontSize: "20px", minWidth: "600px"}}
+              style={{marginLeft: "30px", fontSize: "20px", minWidth: "600px"}}
             >
-              Tournament Locator
+              <a href="/">Tournament Locator</a>
             </div>
             <ul className="right">
               {this.renderContent()}

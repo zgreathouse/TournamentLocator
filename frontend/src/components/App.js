@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
 
 //components
-import Header from './Header';
-import Footer from './Footer';
+import Header from './headerComponents';
+import Footer from './footerComponents';
 
 class App extends Component {
   componentDidMount() {
