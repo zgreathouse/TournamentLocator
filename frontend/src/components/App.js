@@ -1,5 +1,6 @@
 //modules
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
 
@@ -14,10 +15,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header />
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header />
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }
