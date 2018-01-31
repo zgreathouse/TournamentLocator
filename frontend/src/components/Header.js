@@ -1,10 +1,9 @@
+//modules
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //components
 import AuthModal from './auth/AuthModal';
-// import FacebookOAuthButton from './auth/FacebookOAuthButton';
-// import GoogleOAuthButton from './auth/GoogleOAuthButton';
 
 class Header extends Component {
 

@@ -1,13 +1,16 @@
+//css libraries
 import 'materialize-css/dist/css/materialize.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'materialize-social/materialize-social.less';
+
+// modules
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 
-//components
+// Root Component and Root Reducer
 import App from './components/App';
 import reducers from './reducers';
 
