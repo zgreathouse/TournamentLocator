@@ -1,6 +1,6 @@
 // import {  } from '../actions/tournamentActions';
 
-const tournamentsReducer = (state = {}, action) => {
+const tournamentsReducer = (state = [], action) => {
   switch(action.type) {
     case FETCH_TOURNAMENTS:
       return action.payload;
