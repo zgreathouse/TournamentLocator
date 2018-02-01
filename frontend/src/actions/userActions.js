@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //constants
-export const FETCH_USER = 'fetch_user';
+export const FETCH_USER = 'FETCH_USER';
 
 //action fetches the current user
 export const fetchUser = () => async dispatch => {
