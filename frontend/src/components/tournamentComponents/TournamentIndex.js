@@ -13,7 +13,7 @@ class TournamentIndex extends Component {
   renderTournaments() {
     return this.props.tournaments.map(tournament => {
       return (
-        <li key={tournament.title}>
+        <li key={tournament.title} className="list-group-item">
           <TournamentIndexItem tournament={tournament} />
         </li>
       )
@@ -21,10 +21,9 @@ class TournamentIndex extends Component {
   }
 
   render() {
-    console.log(this.props.tournaments);
     return (
       <div>
-        <h3>Tournaments</h3>
+        <h4>Tournaments</h4>
         <ul className="list-group" style={{marginTop: "20px", marginBottom: "50px"}}>
           {this.renderTournaments()}
         </ul>
