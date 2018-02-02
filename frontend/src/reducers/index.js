@@ -2,8 +2,9 @@ import { combineReducers } from 'redux';
 
 //reducers
 import authReducer from './authReducer';
-// import tournamentsReducers from './tournamentsReducer';
+import tournamentsReducer from './tournamentsReducer';
 
 export default combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  tournaments: tournamentsReducer
 });
