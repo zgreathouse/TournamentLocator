@@ -22,9 +22,16 @@ class TournamentIndex extends Component {
 
   render() {
     return (
-      <div className="row" style={{backgroundColor: "#403f42", color: "#fff", minWidth: "40em", width: "40%", marginLeft: "5%"}}>
-        <p className="flow-text" style={{ textAlign: "center"}}>Tournaments</p>
-        <ul className="col s5" style={{marginBottom: "30px"}}>
+      <div className="row" style={{
+        backgroundColor     : "#403f42",
+        color               : "#fff",
+        minWidth            : "40em",
+        width               : "40%",
+        marginLeft          : "5%",
+        boxShadow           : "0 0 5px 0 grey, 0 0 5px 0 grey"
+      }}>
+        <h5 className="center brand-logo" style={{paddingTop: "10px"}}>Tournaments</h5>
+        <ul className="col s5" style={{marginBottom: "10px"}}>
           {this.renderTournamentList()}
         </ul>
       </div>
