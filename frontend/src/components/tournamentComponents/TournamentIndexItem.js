@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TournamentIndexItem extends Component {
-  render() {
-    return (
-      <div>Tournament Index item</div>
-    )
-  }
+const TournamentIndexItem = ({ tournament }) => {
+  return (
+    <div className="list-group-item">
+      {tournament.title}
+    </div>
+  )
 }
 
 export default TournamentIndexItem;

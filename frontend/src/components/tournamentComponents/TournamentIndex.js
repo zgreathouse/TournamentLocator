@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTournaments } from '../../actions/tournamentActions';
 
+//components
+import TournamentIndexItem from './TournamentIndexItem';
+
 class TournamentIndex extends Component {
   componentDidMount() {
     this.props.fetchTournaments();
-    console.log(this.props.tournaments);
   }
 
   renderTournaments() {
     return this.props.tournaments.map(tournament => {
       return (
-        <li
-          key={tournament.title}
-          className="list-group-item"
-        >
-          {tournament.title}
+        <li key={tournament.title}>
+          <TournamentIndexItem tournament={tournament} />
         </li>
       )
     })
   }
 
   render() {
+    console.log(this.props.tournaments);
     return (
       <div>
         <h3>Tournaments</h3>
