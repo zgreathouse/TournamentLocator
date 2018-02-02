@@ -6,11 +6,11 @@ import { fetchTournaments } from '../../actions/tournamentActions';
 import TournamentIndexItem from './TournamentIndexItem';
 
 class TournamentIndex extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchTournaments();
   }
 
-  renderTournaments() {
+  renderTournamentList() {
     return this.props.tournaments.map(tournament => {
       return (
         <li key={tournament.title} className="list-group-item">
@@ -22,10 +22,10 @@ class TournamentIndex extends Component {
 
   render() {
     return (
-      <div>
-        <h4>Tournaments</h4>
-        <ul className="list-group" style={{marginTop: "20px", marginBottom: "50px"}}>
-          {this.renderTournaments()}
+      <div className="row" style={{backgroundColor: "#403f42", color: "#fff", minWidth: "40em", width: "40%", marginLeft: "5%"}}>
+        <p className="flow-text" style={{ textAlign: "center"}}>Tournaments</p>
+        <ul className="col s5" style={{marginBottom: "30px"}}>
+          {this.renderTournamentList()}
         </ul>
       </div>
     )

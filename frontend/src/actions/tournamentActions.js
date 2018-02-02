@@ -14,13 +14,13 @@ export const fetchTournaments = () => dispatch => {
       _user: 1,
       title: "Smash of the Titans",
       game: ["Super Smash Bros for WiiU"],
-      tags: ["Smash", "Smash 4", "Foundry", "Showdown"],
+      date: "2/1/18",
       description: "Do your best!"
     }, {
       _user: 4,
       title: "Versus",
       game: ["Super Smash Bros for WiiU"],
-      tags: ["Smash", "Smash 4"],
+      date: "2/5/18",
       description: "Do your best!"
     }
   ];
