@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Path = require('path-parser');
+const { URL } = require('url');
 
 const requireLogin = require('../middlewares/requireLogin');
 const requireHosting = require('../middlewares/requireHosting');
@@ -21,6 +23,14 @@ module.exports = app => {
      res.send(req.user.tournaments);
    });
 
+  //Get page for a specific tournament
+  app.get('/api/tournaments/:tournamentId', async (req, res) => {
+    const p = new Path('/api/tournaments/:tournamentId')
+    const match = p.test(req.url);
+
+    const tournament = await Tournament.find({ _id: match.tournamentId })
+    res.send(tournament);
+  })
 
    // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
