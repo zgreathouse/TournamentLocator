@@ -1,12 +1,13 @@
 //modules
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
 
 //components
 import Header from './headerComponents';
 import Footer from './footerComponents';
+import TournamentIndex from './tournamentComponents/TournamentIndex';
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Header />
+          <Route exact path="/" component={TournamentIndex} />
           <Footer />
         </div>
       </BrowserRouter>
