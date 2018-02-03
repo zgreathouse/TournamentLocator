@@ -8,8 +8,8 @@ class TournamentShow extends Component {
   }
 
   render() {
-
     const { tournament } = this.props
+    
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
