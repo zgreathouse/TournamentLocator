@@ -66,26 +66,43 @@ module.exports = app => {
   });
 
   // Update (edit) an existing tournament
-  app.patch('/api/tournaments', requireHosting, (req, res) => {
-    Tournament.findOne({ _id: req.tournament.id }, (err, doc) => {
-      doc.title = req.body.title;
-      doc.game = req.body.game;
-      doc.tags = req.body.tags;
-      doc.description = req.body.description;
-      doc.streamLink = req.body.streamLink;
-      doc.twitterLink = req.body.twitterLink;
-      doc.startTime = req.body.startTime;
-      doc.endTime = req.body.endTime;
-      doc.venueAddress = req.body.venueAddress;
-      doc.venueFee = req.body.venueFee;
-      doc.entryFee = req.body.entryFee;
-      doc.sponsors = req.body.sponsors;
-      doc.potBonus = req.body.potBonus;
-      doc.maxEntrants = req.body.maxEntrants;
-      doc.bannerImage = req.body.bannerImage;
-      doc.series = req.body.series;
-      doc.save();
-    })
+  app.patch('/api/tournaments/:tournamentId', async (req, res) => {
+    const p = new Path('/api/tournaments/:tournamentId')
+    const match = p.test(req.url);
+
+    const tournament = await Tournament.findOne({ _id: match.tournamentId })
+
+    // console.log(req.user.tournaments);
+    // console.log(tournament[0]);
+    //
+    // if(!req.user.tournaments.includes(tournament[0])) {
+    //   return res.status(401).send({ error: "You can't delete this tournament."});
+    // }
+
+    Tournament.update({
+      _id: tournament.id },
+      { $set: {
+          title: req.body.title,
+          game: req.body.game,
+          tags: req.body.tags,
+          description: req.body.description,
+          streamLink: req.body.streamLink,
+          twitterLink: req.body.twitterLink,
+          startTime: req.body.startTime,
+          endTime: req.body.endTime,
+          venueAddress: req.body.venueAddress,
+          venueFee: req.body.venueFee,
+          entryFee: req.body.entryFee,
+          sponsors: req.body.sponsors,
+          potBonus: req.body.potBonus,
+          maxEntrants: req.body.maxEntrants,
+          bannerImage: req.body.bannerImage,
+          series: req.body.series
+        }
+      }
+    ).exec();
+
+    res.send(req.user);
   });
 
 
