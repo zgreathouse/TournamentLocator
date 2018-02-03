@@ -99,8 +99,13 @@ module.exports = app => {
           bannerImage: req.body.bannerImage,
           series: req.body.series
         }
+      },
+      (err, raw) => {
+        if(err) {
+          res.status(422).send(err);
+        }
       }
-    ).exec();
+    )
 
     res.send(req.user);
   });
