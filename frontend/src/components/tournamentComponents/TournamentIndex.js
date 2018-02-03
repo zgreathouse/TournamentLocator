@@ -6,7 +6,7 @@ import { fetchTournaments } from '../../actions/tournamentActions';
 import TournamentIndexItem from './TournamentIndexItem';
 
 class TournamentIndex extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTournaments();
   }
 
@@ -21,6 +21,12 @@ class TournamentIndex extends Component {
   }
 
   render() {
+    if(!this.props.tournaments) {
+      return (
+        <div></div>
+      )
+    }
+
     return (
       <div className="row" style={{
         backgroundColor     : "#403f42",
