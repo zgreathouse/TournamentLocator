@@ -15,7 +15,11 @@ const Footer = () => {
         boxShadow         : "0 0 5px 0 grey, 0 0 5px 0 grey"
       }}
     >
-      <FooterTop pClassName="grey-text text-lighten-4" iClassName1="fa fa-linkedin" iClassName2="fa fa-github" />
+      <FooterTop
+        pClassName="grey-text text-lighten-4"
+        iClassName1="fa fa-linkedin"
+        iClassName2="fa fa-github"
+      />
       <FooterBottom pClassName="grey-text text-lighten-4" />
     </footer>
   )

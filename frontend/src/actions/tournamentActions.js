@@ -21,3 +21,24 @@ export const fetchTournament = id => dispatch => {
     payload: id
   });
 };
+
+// export const createTournament = tournament => dispatch => {
+//
+//   dispatch({
+//     type: CREATE_TOURNAMENT
+//   })
+// }
+//
+// export const editTournament = tournament => dispatch => {
+//
+//   dispatch({
+//     type: EDIT_TOURNAMENT
+//   })
+// }
+//
+// export const deleteTournament = tournament => dispatch => {
+//
+//   dispatch({
+//     type: DELETE_TOURNAMENT
+//   })
+// }
