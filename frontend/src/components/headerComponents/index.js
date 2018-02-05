@@ -1,6 +1,5 @@
 //modules
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //components
@@ -32,7 +31,7 @@ class Header extends Component {
               className="left brand-logo"
               style={{marginLeft: "30px", fontSize: "20px", minWidth: "600px"}}
             >
-              <Link to="/" >Tournament Locator</Link>
+              <a href="/" >Tournament Locator</a>
             </div>
             <ul className="right">
               {this.renderContent()}

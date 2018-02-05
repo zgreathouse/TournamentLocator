@@ -1,6 +1,5 @@
 //modules
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const FooterBottom = ({ pClassName }) => {
   return (
@@ -15,7 +14,7 @@ const FooterBottom = ({ pClassName }) => {
       }}>
         <a className={pClassName} href="#!">Terms of Service</a>
         <p className={pClassName}>|</p>
-        <Link className={pClassName} to="/">Home</Link>
+        <a className={pClassName} href="/">Home</a>
         <p className={pClassName}>|</p>
         <a
           className={pClassName}
