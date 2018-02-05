@@ -72,11 +72,8 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-    // console.log(req.user.tournaments);
-    // console.log(tournament[0]);
-    //
-    // if(!req.user.tournaments.includes(tournament[0])) {
-    //   return res.status(401).send({ error: "You can't delete this tournament."});
+    // if(!req.user || !req.user.tournaments.includes(tournament)) {
+    //   return res.status(401).send({ error: "You can't change this tournament."});
     // }
 
     Tournament.update({
@@ -112,9 +109,22 @@ module.exports = app => {
 
 
   // Delete an existing tournament
-  app.delete('/api/tournaments', requireHosting, (req, res) => {
-    Tournament.findByIdAndRemove(req.tournament.id);
-    res.redirect('/');
+  app.delete('/api/tournaments/:tournamentId', async (req, res) => {
+    const p = new Path('/api/tournaments/:tournamentId')
+    const match = p.test(req.url);
+
+    const tournament = await Tournament.findOne({ _id: match.tournamentId })
+
+    // if(!req.user || !req.user.tournaments.includes(tournament)) {
+    //   return res.status(401).send({ error: "You can't change this tournament."});
+    // }
+
+    Tournament.findByIdAndRemove(tournament.id, (err, raw) => {
+      if(err) {
+        res.status(422).send(err);
+      }
+    });
+    res.send({})
   });
 };
 /*
