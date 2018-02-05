@@ -66,13 +66,13 @@ module.exports = app => {
   });
 
   // Update (edit) an existing tournament
-  app.patch('/api/tournaments/:tournamentId', async (req, res) => {
+  app.patch('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
     const p = new Path('/api/tournaments/:tournamentId')
     const match = p.test(req.url);
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-    // if(!req.user || !req.user.tournaments.includes(tournament)) {
+    // if(!req.user.tournaments.includes(tournament)) {
     //   return res.status(401).send({ error: "You can't change this tournament."});
     // }
 
@@ -109,13 +109,13 @@ module.exports = app => {
 
 
   // Delete an existing tournament
-  app.delete('/api/tournaments/:tournamentId', async (req, res) => {
+  app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
     const p = new Path('/api/tournaments/:tournamentId')
     const match = p.test(req.url);
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-    // if(!req.user || !req.user.tournaments.includes(tournament)) {
+    // if(!req.user.tournaments.includes(tournament)) {
     //   return res.status(401).send({ error: "You can't change this tournament."});
     // }
 
@@ -127,21 +127,3 @@ module.exports = app => {
     res.send({})
   });
 };
-/*
-const { title,
-        game,
-        tags,
-        description,
-        streamLink,
-        twitterLink,
-        startTime,
-        endTime,
-        venueAddress,
-        venueFee,
-        entryFee,
-        sponsors,
-        potBonus,
-        maxEntrants,
-        bannerImage,
-        series } = req.body;
-*/
