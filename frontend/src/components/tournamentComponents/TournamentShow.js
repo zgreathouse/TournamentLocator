@@ -9,15 +9,15 @@ class TournamentShow extends Component {
 
   render() {
     const { tournament } = this.props
-    
+
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
         <div style={{marginLeft: "40px"}}>
-          <h6>{tournament[0].title}</h6>
-          <p>Game: {tournament[0].game}</p>
-          <p>Date: {tournament[0].date}</p>
-          <p>Description: {tournament[0].description}</p>
+          <h6>{tournament.title}</h6>
+          <p>Game: {tournament.game}</p>
+          <p>Date: {tournament.date}</p>
+          <p>Description: {tournament.description}</p>
         </div>
       </div>
     )

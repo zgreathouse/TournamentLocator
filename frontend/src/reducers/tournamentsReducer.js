@@ -1,14 +1,15 @@
 import { FETCH_TOURNAMENTS, FETCH_TOURNAMENT } from '../actions/tournamentActions';
 
-const defaultState = [
-  {
+const defaultState = {
+  12: {
     id: 12,
     _user: 1,
     title: "Smash of the Titans",
     game: ["Super Smash Bros for WiiU"],
     date: "2/1/18",
     description: "San Francisco weekly tournament!"
-  }, {
+  },
+  2: {
     id: 2,
     _user: 4,
     title: "Versus",
@@ -16,7 +17,7 @@ const defaultState = [
     date: "2/5/18",
     description: "Weekly Tournament"
   },
-  {
+  6: {
     id: 6,
     _user: 3,
     title: "Capcom Cup",
@@ -24,7 +25,7 @@ const defaultState = [
     date: "3/25/18",
     description: "World Street Fighter Tournament"
   },
-  {
+  1: {
     id: 1,
     _user: 9,
     title: "Genesis 5",
@@ -32,14 +33,15 @@ const defaultState = [
     date: "1/24/18",
     description: "World Smash Tournament"
   }
-];
+};
 
 const tournamentsReducer = (state = defaultState, action) => {
   switch(action.type) {
     case FETCH_TOURNAMENTS:
       return state;
     case FETCH_TOURNAMENT:
-      let tournament = defaultState.filter(tournament => tournament.id === action.payload);
+      let id = action.payload;
+      let tournament = defaultState[id];
       return tournament;
     default:
       return state;

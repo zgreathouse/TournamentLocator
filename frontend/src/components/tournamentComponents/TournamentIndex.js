@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTournaments } from '../../actions/tournamentActions';
+
 
 //components
 import TournamentIndexItem from './TournamentIndexItem';
@@ -11,13 +13,13 @@ class TournamentIndex extends Component {
   }
 
   renderTournamentList() {
-    return this.props.tournaments.map(tournament => {
+    return _.map(this.props.tournaments, (tournament => {
       return (
         <li key={tournament.title} className="list-group-item">
           <TournamentIndexItem tournament={tournament} />
         </li>
       )
-    })
+    }))
   }
 
   render() {
