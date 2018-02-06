@@ -6,6 +6,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireHosting = require('../middlewares/requireHosting');
 
 const Tournament = mongoose.model('tournaments');
+const User = mongoose.model('users');
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments (and current)
@@ -72,7 +73,20 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-    if(!req.user.tournaments.includes(tournament)) {
+  // //testing logs for hosting validation
+  //     console.log('tournament is');
+  //     const tournamentId = tournament._id.toString();
+  //     console.log(typeof tournamentId);
+  //     const hostedId = req.user.tournaments[0]._id.toString();
+  //     console.log('user tournaments is');
+  //     console.log(typeof hostedId);
+  //     console.log("=");
+  //     console.log(hostedId == tournamentId);
+
+    const hostedIds = req.user.tournaments.map(ele => (
+            ele._id.toString()
+    ))
+    if(!hostedIds.includes(tournament._id.toString())) {
       return res.status(401).send({ error: "You can't change this tournament."});
     }
 
@@ -103,6 +117,7 @@ module.exports = app => {
         }
       }
     )
+    
 
     res.send(req.user);
   });
@@ -115,16 +130,13 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-//testing logs for hosting validation
-    // console.log('tournament is');
-    // console.log(tournament);
-    // console.log('user tournaments is');
-    // console.log(req.user.tournaments);
-
 //hosting validation
-    // if(!req.user.tournaments.includes(tournament)) {
-    //   return res.status(401).send({ error: "You can't change this tournament."});
-    // }
+    const hostedIds = req.user.tournaments.map(ele => (
+            ele._id.toString()
+    ))
+    if(!hostedIds.includes(tournament._id.toString())) {
+      return res.status(401).send({ error: "You can't change this tournament."});
+    }
 
     try {
       //creates new array of tournaments a user is hosting without tournament to be deleted
@@ -132,7 +144,6 @@ module.exports = app => {
         return ele._id != tournament.id
       })
 
-      // console.log(updatedHostingList);
       //removes tournament
       Tournament.findByIdAndRemove(tournament.id).exec();
 
