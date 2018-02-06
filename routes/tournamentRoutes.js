@@ -6,7 +6,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireHosting = require('../middlewares/requireHosting');
 
 const Tournament = mongoose.model('tournaments');
-const User = mongoose.model('users');
+
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments (and current)
@@ -117,7 +117,7 @@ module.exports = app => {
         }
       }
     )
-    
+
 
     res.send(req.user);
   });
