@@ -33,7 +33,7 @@ module.exports = app => {
     res.send(tournament);
   })
 
-   // Create a new tournament in the database
+  // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
      const tournament = new Tournament({
        _user: req.user.id,
@@ -55,7 +55,7 @@ module.exports = app => {
        series: req.body.series,
        forum: []
      })
-
+     //adds tournament to user hosting array. saves and sends
      try {
        req.user.tournaments.push(tournament);
        await tournament.save();
@@ -68,21 +68,13 @@ module.exports = app => {
 
   // Update (edit) an existing tournament
   app.patch('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
+    //gets id from wildcard in url
     const p = new Path('/api/tournaments/:tournamentId')
     const match = p.test(req.url);
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-  // //testing logs for hosting validation
-  //     console.log('tournament is');
-  //     const tournamentId = tournament._id.toString();
-  //     console.log(typeof tournamentId);
-  //     const hostedId = req.user.tournaments[0]._id.toString();
-  //     console.log('user tournaments is');
-  //     console.log(typeof hostedId);
-  //     console.log("=");
-  //     console.log(hostedId == tournamentId);
-
+    //Hosting validation
     const hostedIds = req.user.tournaments.map(ele => (
             ele._id.toString()
     ))
@@ -90,6 +82,7 @@ module.exports = app => {
       return res.status(401).send({ error: "You can't change this tournament."});
     }
 
+    // Updates tournament
     Tournament.update({
       _id: tournament.id },
       { $set: {
@@ -130,7 +123,7 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-//hosting validation
+    //Hosting validation
     const hostedIds = req.user.tournaments.map(ele => (
             ele._id.toString()
     ))
