@@ -8,7 +8,7 @@ import { fetchUser } from '../actions/userActions';
 import Header from './headerComponents';
 import Footer from './footerComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
-import TournamentShow from './tournamentComponents/TournamentShow';
+import TournamentShow from './tournamentComponents/tournamentShow';
 
 class App extends Component {
   componentDidMount() {

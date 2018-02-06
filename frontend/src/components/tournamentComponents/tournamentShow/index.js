@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTournament, fetchTournaments } from '../../actions/tournamentActions';
+import { fetchTournament } from '../../../actions/tournamentActions';
+
+//components
+import TournamentDetail from './TournamentDetail';
+import ForumButton from './forumButton';
 
 class TournamentShow extends Component {
   componentDidMount() {
@@ -13,12 +17,8 @@ class TournamentShow extends Component {
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
-        <div style={{marginLeft: "40px"}}>
-          <h6>{selectedTournament.title}</h6>
-          <p>Game: {selectedTournament.game}</p>
-          <p>Date: {selectedTournament.date}</p>
-          <p>Description: {selectedTournament.description}</p>
-        </div>
+        <TournamentDetail tournament={selectedTournament}/>
+        <ForumButton/>
       </div>
     )
   }
@@ -30,4 +30,4 @@ const mapStateToProps = (state, ownProps) => ({
   state
 })
 
-export default connect(mapStateToProps, { fetchTournament, fetchTournaments })(TournamentShow);
+export default connect(mapStateToProps, { fetchTournament })(TournamentShow);
