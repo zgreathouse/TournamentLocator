@@ -26,8 +26,7 @@ class TournamentShow extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   selectedTournament: state.tournaments.selectedTournament,
-  id: (ownProps.match.params.id) - "",
-  state
+  id: ownProps.match.params.id
 })
 
 export default connect(mapStateToProps, { fetchTournament })(TournamentShow);

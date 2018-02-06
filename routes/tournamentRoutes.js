@@ -31,7 +31,7 @@ module.exports = app => {
     const p = new Path('/api/tournaments/:tournamentId');
     const match = p.test(req.url);
 
-    const tournament = await Tournament.find({ _id: match.tournamentId });
+    const tournament = await Tournament.findOne({ _id: match.tournamentId });
 
     res.send(tournament);
   });
