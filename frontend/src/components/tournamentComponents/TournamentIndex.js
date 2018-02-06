@@ -8,6 +8,7 @@ import { fetchTournaments } from '../../actions/tournamentActions';
 import TournamentIndexItem from './TournamentIndexItem';
 
 class TournamentIndex extends Component {
+
   componentDidMount() {
     this.props.fetchTournaments();
   }

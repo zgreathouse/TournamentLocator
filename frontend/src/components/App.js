@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
+import { fetchTournaments } from '../actions/tournamentActions';
 
 //components
 import Header from './headerComponents';
@@ -13,6 +14,7 @@ import TournamentShow from './tournamentComponents/tournamentShow';
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchTournaments();
   }
 
   render() {
@@ -29,4 +31,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, { fetchUser })(App);
+const mapStateToProps = state => ({
+  state
+});
+
+export default connect(mapStateToProps, { fetchUser, fetchTournaments })(App);
