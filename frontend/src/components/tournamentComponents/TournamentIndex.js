@@ -13,7 +13,7 @@ class TournamentIndex extends Component {
   }
 
   renderTournamentList() {
-    return _.map(this.props.tournaments, (tournament => {
+    return _.map(this.props.tournaments.entities, (tournament => {
       return (
         <li key={tournament.title} className="list-group-item">
           <TournamentIndexItem tournament={tournament} />
