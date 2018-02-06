@@ -94,11 +94,12 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 
 | Route                           | Type          | Purpose                                                             |
 | --------------------------------|:-------------:| :-------------------------------------------------------------------|
-| ‘/api/tournaments’              | GET           | Get an index of all the up and coming tournaments (and current)     |
+| ‘/api/tournaments’              | GET           | Get an index of all the up and coming tournaments                   |
 | ‘/api/:userId/tournaments/’     | GET           | Get an index of all the tournaments created by a user               |
+| ‘/api/tournaments/:tournamentId'| GET           | Get a single tournament by id                                       |
 | ‘/api/tournaments’              | POST          | Create a new tournament in the database                             |
-| ‘/api/tournaments’              | PATCH         | Update (edit) an existing tournament                                |
-| ‘/api/tournaments’              | DELETE        | Delete an existing tournament                                       |
+| ‘/api/tournaments/:tournamentId’| PATCH         | Update (edit) an existing tournament                                |
+| ‘/api/tournaments/:tournamentId'| DELETE        | Delete an existing tournament                                       |
 
 #### Post Routes
 

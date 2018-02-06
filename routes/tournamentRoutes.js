@@ -3,37 +3,38 @@ const Path = require('path-parser');
 const { URL } = require('url');
 
 const requireLogin = require('../middlewares/requireLogin');
-const requireHosting = require('../middlewares/requireHosting');
 
 const Tournament = mongoose.model('tournaments');
 
 
 module.exports = app => {
-  // Get an index of all the up and coming tournaments (and current)
+  // Get an index of all the up and coming tournaments
   app.get('/api/tournaments', async (req, res) => {
     try {
-      const results = await Tournament.find({});
-      res.send(results);
+      const allTournaments = await Tournament.find({});
+      res.send(allTournaments);
     } catch (err) {
-      res.status(422).send(err)
+      res.status(422).send(err);
     }
   });
 
   //Get an index of all the tournaments created by a user
   app.get('/api/:userId/tournaments', requireLogin, async (req, res) => {
-    const tournaments = await Tournament.find({ _user: req.user.id })
+    const tournaments = await Tournament.find({ _user: req.user.id });
 
     res.send(tournaments);
-   });
+  });
 
   //Get page for a specific tournament
   app.get('/api/tournaments/:tournamentId', async (req, res) => {
-    const p = new Path('/api/tournaments/:tournamentId')
+    //creates POJO as { nameOfWildcard: valueOfWildcard } from url
+    const p = new Path('/api/tournaments/:tournamentId');
     const match = p.test(req.url);
 
-    const tournament = await Tournament.find({ _id: match.tournamentId })
+    const tournament = await Tournament.find({ _id: match.tournamentId });
+
     res.send(tournament);
-  })
+  });
 
   // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
@@ -56,16 +57,15 @@ module.exports = app => {
        bannerImage: req.body.bannerImage,
        series: req.body.series,
        forum: []
-     })
-     //adds tournament to user hosting array. saves and sends
+     });
+     //saves tournament and adds to user hosting array. Sends back updated user
      try {
-       console.log(typeof tournament._id);
        req.user.tournaments.push(tournament._id);
        await tournament.save();
        const user = await req.user.save();
        res.send(user);
      } catch (err) {
-       res.status(422).send(err)
+       res.status(422).send(err);
      }
   });
 
@@ -78,14 +78,11 @@ module.exports = app => {
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
     //Hosting validation
-    const hostedIds = req.user.tournaments.map(ele => (
-            ele.toString()
-    ))
-    if(!hostedIds.includes(tournament._id.toString())) {
-      return res.status(401).send({ error: "You can't change this tournament."});
+    if(!req.user.tournaments.includes(tournament._id.toString())) {
+      return res.status(401).send({ error: "You can't edit this tournament."});
     }
 
-    // Updates tournament
+    // finds tournament by id and updates in db
     Tournament.update({
       _id: tournament.id },
       { $set: {
@@ -106,18 +103,16 @@ module.exports = app => {
           bannerImage: req.body.bannerImage,
           series: req.body.series
         }
-      },
-      (err, raw) => {
+      },//callback for error handling and immediate execution
+      (err) => {
         if(err) {
           res.status(422).send(err);
         }
       }
     )
 
-
     res.send(req.user);
   });
-
 
   // Delete an existing tournament
   app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
@@ -127,18 +122,15 @@ module.exports = app => {
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
     //Hosting validation
-    const hostedIds = req.user.tournaments.map(ele => (
-            ele.toString()
-    ))
-    if(!hostedIds.includes(tournament._id.toString())) {
-      return res.status(401).send({ error: "You can't change this tournament."});
+    if(!req.user.tournaments.includes(tournament._id.toString())) {
+      return res.status(401).send({ error: "You can't edit this tournament."});
     }
 
+    //creates new array of tournament ids a user is hosting without tournament to be deleted
     try {
-      //creates new array of tournament ids a user is hosting without tournament to be deleted
       let updatedHostingList = req.user.tournaments.filter(ele => {
-        return ele != tournament.id
-      })
+        return ele !== tournament.id.toString();
+      });
 
       //removes tournament
       Tournament.findByIdAndRemove(tournament.id).exec();
@@ -150,6 +142,5 @@ module.exports = app => {
     } catch (err) {
       res.status(422).send(err);
     }
-
   });
 };
