@@ -1,7 +1,4 @@
 module.exports = app => {
-/*
-  Scafolding for Routes
-
   // Get an index of all the the posts for a given tournament
   app.get('/api/posts', );
 
@@ -15,6 +12,4 @@ module.exports = app => {
 
   // Delete an existing post
   app.delete('/api/posts', );
-
-*/
 }
