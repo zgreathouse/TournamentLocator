@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const tournamentSchema = require('./Tournament');
-
 //User Schema
 const userSchema = new Schema({
   username: String,                                                     // the user's username
@@ -14,8 +12,7 @@ const userSchema = new Schema({
   followedGames: [String],                                              // an array of the games the user follows
   followedSeries: [String],                                             // an array of different tournament series the user follows
   finishAccountSetup: { type: Boolean, default: false },                // boolean for whether or not the user has finished setting up their account
-  tournaments: [ tournamentSchema ]                                     // an array of tournaments created/run by the user
+  tournaments: [String]                                                 // an array of tournament IDs created/run by the user
 });
-
 
 mongoose.model('users', userSchema);
