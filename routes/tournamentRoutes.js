@@ -20,8 +20,10 @@ module.exports = app => {
   });
 
   //Get an index of all the tournaments created by a user
-  app.get('/api/:userId/tournaments', requireLogin, (req, res) => {
-     res.send(req.user.tournaments);
+  app.get('/api/:userId/tournaments', requireLogin, async (req, res) => {
+    const tournaments = await Tournament.find({ _user: req.user.id })
+
+    res.send(tournaments);
    });
 
   //Get page for a specific tournament
@@ -57,7 +59,8 @@ module.exports = app => {
      })
      //adds tournament to user hosting array. saves and sends
      try {
-       req.user.tournaments.push(tournament);
+       console.log(typeof tournament._id);
+       req.user.tournaments.push(tournament._id);
        await tournament.save();
        const user = await req.user.save();
        res.send(user);
@@ -76,7 +79,7 @@ module.exports = app => {
 
     //Hosting validation
     const hostedIds = req.user.tournaments.map(ele => (
-            ele._id.toString()
+            ele.toString()
     ))
     if(!hostedIds.includes(tournament._id.toString())) {
       return res.status(401).send({ error: "You can't change this tournament."});
@@ -125,16 +128,16 @@ module.exports = app => {
 
     //Hosting validation
     const hostedIds = req.user.tournaments.map(ele => (
-            ele._id.toString()
+            ele.toString()
     ))
     if(!hostedIds.includes(tournament._id.toString())) {
       return res.status(401).send({ error: "You can't change this tournament."});
     }
 
     try {
-      //creates new array of tournaments a user is hosting without tournament to be deleted
+      //creates new array of tournament ids a user is hosting without tournament to be deleted
       let updatedHostingList = req.user.tournaments.filter(ele => {
-        return ele._id != tournament.id
+        return ele != tournament.id
       })
 
       //removes tournament
