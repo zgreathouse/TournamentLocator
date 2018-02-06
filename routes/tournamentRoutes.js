@@ -72,9 +72,9 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
-    // if(!req.user.tournaments.includes(tournament)) {
-    //   return res.status(401).send({ error: "You can't change this tournament."});
-    // }
+    if(!req.user.tournaments.includes(tournament)) {
+      return res.status(401).send({ error: "You can't change this tournament."});
+    }
 
     Tournament.update({
       _id: tournament.id },
@@ -115,15 +115,38 @@ module.exports = app => {
 
     const tournament = await Tournament.findOne({ _id: match.tournamentId })
 
+//testing logs for hosting validation
+    // console.log('tournament is');
+    // console.log(tournament);
+    // console.log('user tournaments is');
+    // console.log(req.user.tournaments);
+
+//hosting validation
     // if(!req.user.tournaments.includes(tournament)) {
     //   return res.status(401).send({ error: "You can't change this tournament."});
     // }
 
-    Tournament.findByIdAndRemove(tournament.id, (err, raw) => {
-      if(err) {
-        res.status(422).send(err);
-      }
-    });
-    res.send({})
+    try {
+      //creates new array of tournaments a user is hosting without tournament to be deleted
+      let updatedHostingList = req.user.tournaments.filter(ele => {
+        console.log(ele);
+        console.log(typeof ele._id);//object
+        console.log(typeof tournament.id);//string
+        console.log(ele._id == tournament.id);
+        return ele._id != tournament.id
+      })
+
+      // console.log(updatedHostingList);
+      //removes tournament
+      Tournament.findByIdAndRemove(tournament.id).exec();
+
+      //updates user document with new hosting list
+      req.user.tournaments = updatedHostingList;
+      const user = await req.user.save();
+      res.send(user);
+    } catch (err) {
+      res.status(422).send(err);
+    }
+
   });
 };
