@@ -129,10 +129,6 @@ module.exports = app => {
     try {
       //creates new array of tournaments a user is hosting without tournament to be deleted
       let updatedHostingList = req.user.tournaments.filter(ele => {
-        console.log(ele);
-        console.log(typeof ele._id);//object
-        console.log(typeof tournament.id);//string
-        console.log(ele._id == tournament.id);
         return ele._id != tournament.id
       })
 
