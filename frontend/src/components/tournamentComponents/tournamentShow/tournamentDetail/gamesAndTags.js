@@ -1,5 +1,18 @@
 import React from 'react';
 
+const convertToReadable = array => {
+  if (array) {
+    let newArray = array;
+
+    newArray = newArray.map(item => {
+      return item = " " + item;
+    });
+
+    let convertedArray = newArray.toString();
+    return convertedArray
+  }
+}
+
 const GamesAndTags = ({ tournament }) => {
   const { game, tags } = tournament;
 
@@ -10,8 +23,8 @@ const GamesAndTags = ({ tournament }) => {
       border: "solid black 1px",
       boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
     }}>
-      <div>Game: {game}</div>
-      <div>Tags: {tags}</div>
+      <div>Game: {convertToReadable(game)}</div>
+      <div>Tags: {convertToReadable(tags)}</div>
     </div>
   )
 }

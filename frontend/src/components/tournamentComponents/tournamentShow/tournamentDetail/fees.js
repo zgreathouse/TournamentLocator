@@ -2,7 +2,7 @@ import React from 'react';
 
 const Fees = ({ tournament }) => {
   const { venueFee, entryFee, potBonus } = tournament;
-  
+
   return (
     <div style={{
       margin: "15px",

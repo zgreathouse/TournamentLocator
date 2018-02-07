@@ -9,7 +9,6 @@ import ForumButton from './forumButton';
 class TournamentShow extends Component {
 
   componentDidMount() {
-    this.props.fetchTournaments();
     this.props.fetchTournament(this.props.id);
   }
 
@@ -17,6 +16,8 @@ class TournamentShow extends Component {
     const { selectedTournament } = this.props;
 
     if (!selectedTournament) {
+      this.props.fetchTournaments();
+      this.props.fetchTournament(this.props.id);
       return <div className="center brand-logo" style={{padding: "50px", fontSize: "24px"}}>
         Loading Tournament...
       </div>

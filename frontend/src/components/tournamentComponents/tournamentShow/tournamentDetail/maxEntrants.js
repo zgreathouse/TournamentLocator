@@ -2,7 +2,7 @@ import React from 'react';
 
 const MaxEntrants = ({ tournament }) => {
   const { maxEntrants } = tournament;
-  
+
   return (
     <div style={{
       margin: "15px",
