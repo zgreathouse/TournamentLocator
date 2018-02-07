@@ -17,13 +17,13 @@ class TournamentShow extends Component {
     const { selectedTournament } = this.props;
 
     if (!selectedTournament) {
-      return <div className="center brand-logo" style={{height: "20em", padding: "50px", fontSize: "24px"}}>
+      return <div className="center brand-logo" style={{padding: "50px", fontSize: "24px"}}>
         Loading Tournament...
       </div>
     }
 
     return (
-      <div className="container" style={{height: "650px"}}>
+      <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton/>

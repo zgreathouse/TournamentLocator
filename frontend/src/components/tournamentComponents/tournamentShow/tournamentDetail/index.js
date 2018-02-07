@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 
+//components
+import GamesAndTags from './gamesAndTags';
+import TournamentLinks from './tournamentLinks';
+import Sponsors from './sponsors';
+import MaxEntrants from './maxEntrants';
+import Fees from './fees';
+import DateAndTime from './dateAndTime';
+import VenueAddress from './venueAddress';
+import Description from './description';
+
 class TournamentDetail extends Component {
   render() {
     const tournament = this.props.tournament;
@@ -12,24 +22,14 @@ class TournamentDetail extends Component {
         boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
       }}>
         <h5>{tournament.title}</h5>
-        <div style={{margin: "10px"}}>
-          <div>Game: {tournament.game}</div>
-          <div>Tags: {tournament.tags}</div>
-        </div>
-
-        <div style={{margin: "10px"}}>
-          <div>Stream: {tournament.streamLink}</div>
-          <div>Twitter: {tournament.twitterLink}</div>
-        </div>
-
-        <div style={{margin: "10px"}}>
-          <div>Date: {tournament.date}</div>
-        </div>
-
-        <div style={{margin: "10px"}}>
-          <div>Description: {tournament.description}</div>
-        </div>
-
+        <GamesAndTags tournament={tournament} />
+        <TournamentLinks tournament={tournament} />
+        <Sponsors tournament={tournament} />
+        <MaxEntrants tournament={tournament} />
+        <Fees tournament={tournament}/>
+        <DateAndTime tournament={tournament}/>
+        <VenueAddress tournament={tournament} />
+        <Description tournament={tournament}/>
       </div>
     )
   }
