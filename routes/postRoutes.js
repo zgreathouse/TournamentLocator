@@ -32,7 +32,9 @@ module.exports = app => {
     const p = new Path('/api/posts/:tournamentId');
     const match = p.test(req.url);
 
-    const tournament = await Tournament.findOne({ _id: match.tournamentId });
+    const tournament = await Tournament.findOne({ _id: match.tournamentId }, (err) => {
+      res.status(422).send(err);
+    });
 
     const post = new Post({
       _user: req.user.id,
@@ -58,8 +60,8 @@ module.exports = app => {
     const p = new Path('/api/posts/:postId')
     const match = p.test(req.url);
 
-    const post = await Post.findOne({ _id: match.postId })
     try {
+      const post = await Post.findOne({ _id: match.postId })
       //author validation
       let userId = post._user.toString();
       if(req.user.id !== userId) {
@@ -86,8 +88,12 @@ module.exports = app => {
     const p = new Path('/api/posts/:postId')
     const match = p.test(req.url);
 
-    const post = await Post.findOne({ _id: match.postId })
-    const tournament = await Tournament.findOne({ _id: post._tournament })
+    try{
+      const post = await Post.findOne({ _id: match.postId })
+      const tournament = await Tournament.findOne({ _id: post._tournament })
+    } catch (err) {
+      res.status(422).send(err);
+    }
 
     //author validation
     let userId = post._user.toString();
