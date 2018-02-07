@@ -15,11 +15,12 @@ module.exports = app => {
     const match = p.test(req.url);
 
     try {
-      const allPosts = await Post.find({ _tournament: match.tournamentId })
+      const allPosts = await Post.find({ _tournament: match.tournamentId });
 
       if(allPosts.length === 0){
-        res.send({emptyMessage: "No Post Yet"})
+        res.send({emptyMessage: "No Posts Yet"})
       }
+      //allPosts.reverse to send posts with newest first
       res.send(allPosts.reverse());
     } catch(err){
       res.status(422).send(err);
@@ -41,6 +42,7 @@ module.exports = app => {
       datePosted: new Date(),
       comments: []
     });
+    //saves new post to database and saves id to tournament document
     try {
       tournament.forum.unshift(post.id);
       await post.save();
@@ -58,6 +60,7 @@ module.exports = app => {
 
     const post = await Post.findOne({ _id: match.postId })
     try {
+      //author validation
       let userId = post._user.toString();
       if(req.user.id !== userId) {
         return res.status(401).send({ error: "You can't edit this post."});
@@ -78,7 +81,6 @@ module.exports = app => {
     }
   });
 
-
   // Delete an existing post
   app.delete('/api/posts/:postId', requireLogin, async (req, res) => {
     const p = new Path('/api/posts/:postId')
@@ -87,16 +89,19 @@ module.exports = app => {
     const post = await Post.findOne({ _id: match.postId })
     const tournament = await Tournament.findOne({ _id: post._tournament })
 
+    //author validation
     let userId = post._user.toString();
     if(req.user.id !== userId) {
       return res.status(401).send({ error: "You can't edit this post."});
     }
 
     try {
+      //new tournament.forum array without post to be deleted's id
       let updatedPostList = tournament.forum.filter(ele => {
         return ele !== post.id.toString();
       });
 
+      //removes post from database and reassigns forum array
       Post.findByIdAndRemove(post.id).exec();
       tournament.forum = updatedPostList;
       const newTournament = await tournament.save();
