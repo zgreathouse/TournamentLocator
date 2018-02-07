@@ -52,4 +52,7 @@ const mapStateToProps = state => ({
   tournaments: state.tournaments
 });
 
-export default connect(mapStateToProps, { fetchTournaments })(TournamentIndex);
+export default connect(
+  mapStateToProps,
+  { fetchTournaments }
+)(TournamentIndex);

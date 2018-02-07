@@ -38,4 +38,7 @@ const mapStateToProps = (state, ownProps) => ({
   id: ownProps.match.params.id
 })
 
-export default connect(mapStateToProps, { fetchTournament, fetchTournaments })(TournamentShow);
+export default connect(
+  mapStateToProps,
+  { fetchTournament, fetchTournaments }
+)(TournamentShow);

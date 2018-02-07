@@ -35,4 +35,7 @@ const mapStateToProps = state => ({
   state
 });
 
-export default connect(mapStateToProps, { fetchUser, fetchTournaments })(App);
+export default connect(
+  mapStateToProps,
+  { fetchUser, fetchTournaments }
+)(App);

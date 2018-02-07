@@ -7,7 +7,7 @@ export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
 // export const EDIT_TOURNAMENT    = 'EDIT_TOURNAMENT';
 // export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
 
-//action which fetches all of the tournaments
+//action which fetches all of the tournaments from the database
 export const fetchTournaments = () => async dispatch => {
   const res = await axios.get('/api/tournaments');
 
@@ -17,7 +17,7 @@ export const fetchTournaments = () => async dispatch => {
   });
 };
 
-//action which fetches a single tournament
+//action which fetches a single tournament from the database
 export const fetchTournament = id => async dispatch => {
   const res = await axios.get(`/api/tournaments/${id}`);
 
