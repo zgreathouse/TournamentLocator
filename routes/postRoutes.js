@@ -14,15 +14,15 @@ module.exports = app => {
     const p = new Path('/api/posts/:tournamentId');
     const match = p.test(req.url);
 
-    try {
-      const allPosts = await Post.find({ _tournament: match.tournamentId });
+    const allPosts = await Post.find({ _tournament: match.tournamentId });
 
+    try {
       if(allPosts.length === 0){
         res.send({emptyMessage: "No Posts Yet"})
       }
       //allPosts.reverse to send posts with newest first
       res.send(allPosts.reverse());
-    } catch(err){
+    } catch (err) {
       res.status(422).send(err);
     }
   });
