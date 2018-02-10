@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTournaments } from '../../actions/tournamentActions';
 
-
 //components
 import TournamentIndexItem from './TournamentIndexItem';
 
