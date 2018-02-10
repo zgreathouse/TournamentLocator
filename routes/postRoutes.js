@@ -18,7 +18,7 @@ module.exports = app => {
 
     try {
       if(allPosts.length === 0){
-        res.send({emptyMessage: "No Posts Yet"})
+        res.send({ emptyMessage: "No Posts Yet" })
       }
       //allPosts.reverse to send posts with newest first
       res.send(allPosts.reverse());
@@ -63,7 +63,7 @@ module.exports = app => {
       //author validation
       let userId = post._user.toString();
       if(req.user.id !== userId) {
-        return res.status(401).send({ error: "You can't edit this post."});
+        return res.status(401).send({ error: "You can't edit this post." });
       }
 
       Post.update({
@@ -92,7 +92,7 @@ module.exports = app => {
     //author validation
     let userId = post._user.toString();
     if(req.user.id !== userId) {
-      return res.status(401).send({ error: "You can't edit this post."});
+      return res.status(401).send({ error: "You can't edit this post." });
     }
 
     try {
