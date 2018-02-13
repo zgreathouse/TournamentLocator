@@ -22,6 +22,10 @@ class TournamentIndex extends Component {
   }
 
   render() {
+    if(!this.props.tournaments) {
+      return <div>Loading Tournaments...</div>
+    }
+    
     return (
       <div className="row" style={{
         backgroundColor     : "#403f42",

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTournament, fetchTournaments } from '../../../actions/tournamentActions';
+import { fetchTournament } from '../../../actions/tournamentActions';
 
 //components
 import TournamentDetail from './tournamentDetail';
@@ -16,8 +16,6 @@ class TournamentShow extends Component {
     const { selectedTournament } = this.props;
 
     if (!selectedTournament) {
-      this.props.fetchTournaments();
-      this.props.fetchTournament(this.props.id);
       return (
         <div
           className="center brand-logo"
@@ -47,6 +45,5 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 export default connect(
-  mapStateToProps,
-  { fetchTournament, fetchTournaments }
+  mapStateToProps, { fetchTournament }
 )(TournamentShow);
