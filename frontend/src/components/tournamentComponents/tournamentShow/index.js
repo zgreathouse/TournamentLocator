@@ -31,7 +31,7 @@ class TournamentShow extends Component {
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
-        <EditTournamentButton />
+        <EditTournamentButton tournament={selectedTournament} />
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton/>
       </div>
