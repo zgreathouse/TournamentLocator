@@ -49,8 +49,7 @@ module.exports = app => {
       } catch (err) {
         res.status(422).send(err);
       }
-    }
-    else{
+    } else {
       res.status(422).send({ emptyMessage: 'Must include comment body' });
     }
   });
