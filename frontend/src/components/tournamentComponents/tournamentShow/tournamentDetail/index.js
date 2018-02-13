@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 //components
 import GamesAndTags from './gamesAndTags';
+import SeriesIcon from './seriesIcon';
 import TournamentLinks from './tournamentLinks';
 import Sponsors from './sponsors';
 import MaxEntrants from './maxEntrants';
@@ -23,6 +24,7 @@ class TournamentDetail extends Component {
       }}>
         <h5>{tournament.title}</h5>
         <GamesAndTags tournament={tournament} />
+        <SeriesIcon tournament={tournament} />
         <TournamentLinks tournament={tournament} />
         <Sponsors tournament={tournament} />
         <MaxEntrants tournament={tournament} />
