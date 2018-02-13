@@ -18,12 +18,9 @@ class TournamentShow extends Component {
 
     if (!selectedTournament) {
       return (
-        <div
-          className="center brand-logo"
-          style={{
+        <div className="center brand-logo" style={{
             padding: "50px", fontSize: "24px"
-          }}
-        >
+        }}>
           Loading Tournament...
         </div>
       )
