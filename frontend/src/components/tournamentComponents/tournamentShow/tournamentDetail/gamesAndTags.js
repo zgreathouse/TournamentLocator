@@ -1,18 +1,5 @@
 import React from 'react';
-
-//function takes array value and seperates elements by commas and spaces
-const convertToReadable = array => {
-  if (array) {
-    let newArray = array;
-
-    newArray = newArray.map(item => {
-      return item = " " + item;
-    });
-
-    let convertedArray = newArray.toString();
-    return convertedArray
-  }
-}
+import { convertToReadable } from "../../../../util/helperFunctions";
 
 const GamesAndTags = ({ tournament }) => {
   const { game, tags } = tournament;

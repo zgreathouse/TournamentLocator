@@ -1,4 +1,5 @@
 import React from 'react';
+import { convertToReadable } from "../../../../util/helperFunctions";
 
 const Sponsors = ({ tournament }) => {
   const { sponsors } = tournament;
@@ -12,7 +13,7 @@ const Sponsors = ({ tournament }) => {
       }}
     >
       <div>
-        Sponsors: {sponsors}
+        Sponsors: {convertToReadable(sponsors)}
       </div>
     </div>
   )
