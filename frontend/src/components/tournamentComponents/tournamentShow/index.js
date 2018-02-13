@@ -5,6 +5,7 @@ import { fetchTournament, fetchTournaments } from '../../../actions/tournamentAc
 //components
 import TournamentDetail from './tournamentDetail';
 import ForumButton from './forumButton';
+import EditTournamentButton from './editTournamentButton';
 
 class TournamentShow extends Component {
 
@@ -26,6 +27,7 @@ class TournamentShow extends Component {
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
+        <EditTournamentButton />
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton/>
       </div>

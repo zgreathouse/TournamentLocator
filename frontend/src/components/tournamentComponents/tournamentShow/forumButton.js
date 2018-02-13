@@ -7,11 +7,9 @@ const ForumButton = () => {
       justifyContent: "center",
       margin: "30px",
     }}>
-      <button style={{
+      <button className="btn" style={{
         width: "50%",
         height: "4em",
-        color: "#403f42",
-        boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
       }}>Forum</button>
     </div>
   )
