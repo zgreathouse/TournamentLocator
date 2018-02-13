@@ -11,30 +11,26 @@ import DateAndTime from './dateAndTime';
 import VenueAddress from './venueAddress';
 import Description from './description';
 
-class TournamentDetail extends Component {
-  render() {
-    const tournament = this.props.tournament;
-
-    return (
-      <div style={{
-        margin: "40px",
-        padding: "20px",
-        border: "solid black 1px",
-        boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
-      }}>
-        <h5>{tournament.title}</h5>
-        <GamesAndTags tournament={tournament} />
-        <SeriesIcon tournament={tournament} />
-        <TournamentLinks tournament={tournament} />
-        <Sponsors tournament={tournament} />
-        <MaxEntrants tournament={tournament} />
-        <Fees tournament={tournament}/>
-        <DateAndTime tournament={tournament}/>
-        <VenueAddress tournament={tournament} />
-        <Description tournament={tournament}/>
-      </div>
-    )
-  }
+const TournamentDetail = ({ tournament }) => {
+  return (
+    <div style={{
+      margin: "40px",
+      padding: "20px",
+      border: "solid black 1px",
+      boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
+    }}>
+      <h5>{tournament.title}</h5>
+      <GamesAndTags tournament={tournament} />
+      <SeriesIcon tournament={tournament} />
+      <TournamentLinks tournament={tournament} />
+      <Sponsors tournament={tournament} />
+      <MaxEntrants tournament={tournament} />
+      <Fees tournament={tournament}/>
+      <DateAndTime tournament={tournament}/>
+      <VenueAddress tournament={tournament} />
+      <Description tournament={tournament}/>
+    </div>
+  )
 }
 
 export default TournamentDetail;
