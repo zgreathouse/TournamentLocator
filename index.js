@@ -37,6 +37,7 @@ app.use(passport.session());
 //routes
 require('./routes/authRoutes')(app);
 require('./routes/tournamentRoutes')(app);
+require('./routes/postRoutes')(app);
 
 //dynamic port binding
 const PORT = process.env.PORT || 5000;

@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const postSchema = require('./Post');
-
 //Tournament Schema
 const tournamentSchema = new Schema({
   _user: { type: Schema.Types.ObjectId, ref: 'User' },                  // id of user who created the tournament
@@ -23,7 +21,7 @@ const tournamentSchema = new Schema({
   maxEntrants: Number,                                                  // max number of entrants (tournament size)
   bannerImage: String,                                                  // url to the cdn where the user uploaded banner will be saved
   series: Boolean,                                                      // whether or not the tournament is a series (ex: weekly tournament)
-  forum: [postSchema]                                                   // array of posts users have posted on the tournament
+  forum: [String]                                                       // array of IDs of posts users have posted on the tournament
 });
 
 mongoose.model('tournaments', tournamentSchema);
