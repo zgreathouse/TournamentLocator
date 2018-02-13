@@ -1,3 +1,13 @@
+const mongoose = require('mongoose');
+const Path = require('path-parser');
+const { URL } = require('url');
+
+const requireLogin = require('../middlewares/requireLogin');
+const requireUsername = require('../middlewares/requireUsername');
+
+const Comment = mongoose.model('comments');
+const Post = mongoose.model('posts');
+
 module.exports = app => {
 /*
   Scafolding for Routes
