@@ -9,12 +9,25 @@ const Comment = mongoose.model('comments');
 const Post = mongoose.model('posts');
 
 module.exports = app => {
-/*
-  Scafolding for Routes
 
   // Get an index of all the the comments for a given post
-  app.get('/api/comments', );
+  app.get('/api/comments/:postId', await (req, res) => {
+    const p = new Path('/api/comments/:postId');
+    const match = p.test(req.url);
 
+    const allComments = await Comment.find({ _post: match.postId })
+
+    try {
+      if (allComments.length === 0){
+        res.send({ emptyMessage: "No Responses Yet" })
+      }
+      //allComments.reverse to send newest comments first
+      res.send(allComments.reverse());
+    } catch (err) {
+      res.status(422).send(err);
+    }
+  });
+/*
   // 	Create a new post to be added to a post’s collection of comments
   app.post('/api/comments', );
 
