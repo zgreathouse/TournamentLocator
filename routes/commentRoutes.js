@@ -5,7 +5,6 @@ const { URL } = require('url');
 const requireLogin = require('../middlewares/requireLogin');
 const requireUsername = require('../middlewares/requireUsername');
 
-const Comment = mongoose.model('comments');
 const Post = mongoose.model('posts');
 
 module.exports = app => {
@@ -15,14 +14,14 @@ module.exports = app => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
-    const allComments = await Comment.find({ _post: match.postId })
+    const post = await Post.find({ _post: match.postId });
+    const allComments = post.comments;
 
     try {
       if (allComments.length === 0){
         res.send({ emptyMessage: "No Responses Yet" })
       }
-      //allComments.reverse to send newest comments first
-      res.send(allComments.reverse());
+      res.send(allComments);
     } catch (err) {
       res.status(422).send(err);
     }
