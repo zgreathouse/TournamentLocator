@@ -1,6 +1,9 @@
 import _ from 'lodash';
 
-import { FETCH_TOURNAMENTS, FETCH_TOURNAMENT } from '../actions/tournamentActions';
+import {
+  FETCH_TOURNAMENTS,
+  FETCH_TOURNAMENT
+} from '../actions/tournamentActions';
 
 const initialState = {
   entities: {},
@@ -26,6 +29,7 @@ const tournamentsReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       const tournament = action.payload;
       newState.selectedTournament = tournament;
+
       return newState;
 
     default:
