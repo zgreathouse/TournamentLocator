@@ -35,7 +35,7 @@ module.exports = app => {
     post = await Post.findOne({ _id: match.postId });
 
     const comment = new Comment({
-      _user: req.user,
+      _user: req.user.id,
       _post: post.id,
       body: req.body.body,
       dateSubmitted: new Date()
