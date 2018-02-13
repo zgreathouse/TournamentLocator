@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
-import { fetchTournaments } from '../actions/tournamentActions';
 
 //components
 import Header from './headerComponents';
@@ -30,11 +29,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  state
-});
-
-export default connect(
-  mapStateToProps,
-  { fetchUser, fetchTournaments }
-)(App);
+export default connect(null, { fetchUser })(App);

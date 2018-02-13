@@ -8,7 +8,6 @@ import ForumButton from './forumButton';
 import EditTournamentButton from './editTournamentButton';
 
 class TournamentShow extends Component {
-
   componentDidMount() {
     this.props.fetchTournament(this.props.id);
   }
