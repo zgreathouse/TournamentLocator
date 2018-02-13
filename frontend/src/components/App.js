@@ -14,7 +14,6 @@ import TournamentShow from './tournamentComponents/tournamentShow';
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
-    this.props.fetchTournaments();
   }
 
   render() {
