@@ -42,7 +42,7 @@ module.exports = app => {
     })
 
     try {
-      post.comments.unshift(comment);
+      post.comments.push(comment);
       const newPost = await post.save();
       res.send(newPost);
     } catch (err) {
