@@ -15,6 +15,7 @@ const tournamentsReducer = (state = initialState, action) => {
   let newState;
 
   switch(action.type) {
+
     case FETCH_TOURNAMENTS:
       const tournaments = action.payload.reverse();
       const tournamentsObject = {};
@@ -27,8 +28,7 @@ const tournamentsReducer = (state = initialState, action) => {
 
     case FETCH_TOURNAMENT:
       newState = Object.assign({}, state);
-      const tournament = action.payload;
-      newState.selectedTournament = tournament;
+      newState.selectedTournament = action.payload;
 
       return newState;
 
