@@ -26,11 +26,32 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
-/*
+
   // 	Create a new post to be added to a post’s collection of comments
-  app.post('/api/comments', );
+  app.post('/api/comments/:postId', requireLogin, requireUsername,  async (req, res) => {
+    const p = new Path('/api/comments/:postId');
+    const match = p.test(req.url);
+
+    post = await Post.findOne({ _id: match.postId });
+
+    const comment = new Comment({
+      _user: req.user,
+      _post: post.id,
+      body: req.body.body,
+      dateSubmitted: new Date()
+    })
+
+    try {
+      post.comments.unshift(comment);
+      const newPost = await post.save();
+      res.send(newPost);
+    } catch (err) {
+      res.status(422).send(err);
+    }
+  });
 
 
+  /*
   // Update (edit) an existing comment
   app.patch('/api/comments', );
 
