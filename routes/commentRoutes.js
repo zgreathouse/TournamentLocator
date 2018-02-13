@@ -6,11 +6,12 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireUsername = require('../middlewares/requireUsername');
 
 const Post = mongoose.model('posts');
+const Comment = mongoose.model('comments');
 
 module.exports = app => {
 
   // Get an index of all the the comments for a given post
-  app.get('/api/comments/:postId', await (req, res) => {
+  app.get('/api/comments/:postId', async (req, res) => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
@@ -28,12 +29,11 @@ module.exports = app => {
   });
 
   // 	Create a new post to be added to a post’s collection of comments
-  app.post('/api/comments/:postId', requireLogin, requireUsername,  async (req, res) => {
+  app.post('/api/comments/:postId', requireLogin, requireUsername, async (req, res) => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
     post = await Post.findOne({ _id: match.postId });
-
     const comment = new Comment({
       _user: req.user.id,
       _post: post.id,
@@ -41,21 +41,29 @@ module.exports = app => {
       dateSubmitted: new Date()
     })
 
-    try {
-      post.comments.push(comment);
-      const newPost = await post.save();
-      res.send(newPost);
-    } catch (err) {
-      res.status(422).send(err);
+    if (comment.body) {
+      try {
+        post.comments.push(comment);
+        const newPost = await post.save();
+        res.send(newPost);
+      } catch (err) {
+        res.status(422).send(err);
+      }
+    }
+    else{
+      res.status(422).send({ emptyMessage: 'Must include comment body' });
     }
   });
 
 
-  /*
   // Update (edit) an existing comment
-  app.patch('/api/comments', );
+  app.patch('/api/comments/:commentId', async (req, res) => {
+    const p = new Path('/api/comments/:commentId');
+    const match = p.test(req.url);
+  });
 
 
+  /*
   // Delete an existing comment
   app.delete('/api/comments', );
 
