@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { fetchTournament } from '../../../actions/tournamentActions';
 
 //components
+import TournamentBanner from './tournamentBanner';
+import EditTournamentButton from './editTournamentButton';
 import TournamentDetail from './tournamentDetail';
 import ForumButton from './forumButton';
-import EditTournamentButton from './editTournamentButton';
 
 class TournamentShow extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class TournamentShow extends Component {
 
     return (
       <div className="container">
-        <h5 className="brand-logo">TournamentShow</h5>
+        <TournamentBanner tournament={selectedTournament} />
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton/>
@@ -40,8 +41,8 @@ class TournamentShow extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  selectedTournament: state.tournaments.selectedTournament,
   id: ownProps.match.params.id,
+  selectedTournament: state.tournaments.selectedTournament,
   currentUser: state.auth
 })
 

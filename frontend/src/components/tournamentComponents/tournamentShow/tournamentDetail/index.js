@@ -14,7 +14,7 @@ import Description from './description';
 const TournamentDetail = ({ tournament }) => {
   return (
     <div style={{
-      margin: "60px",
+      margin: "50px",
       padding: "20px",
       boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
     }}>

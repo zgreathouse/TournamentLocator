@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const EditTournamentButton = ({ tournament, currentUser }) => {
   if(!currentUser) {
     return <div></div>
@@ -8,7 +7,7 @@ const EditTournamentButton = ({ tournament, currentUser }) => {
 
   if(tournament._user === currentUser._id) {
     return (
-      <button className="btn right">
+      <button className="btn right" style={{alignItem: "baseline"}}>
         Edit
       </button>
     )
