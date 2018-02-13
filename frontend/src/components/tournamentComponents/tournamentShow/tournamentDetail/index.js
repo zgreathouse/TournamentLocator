@@ -16,7 +16,6 @@ const TournamentDetail = ({ tournament }) => {
     <div style={{
       margin: "40px",
       padding: "20px",
-      border: "solid black 1px",
       boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
     }}>
       <h5>{tournament.title}</h5>

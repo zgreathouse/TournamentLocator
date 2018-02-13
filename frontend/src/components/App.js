@@ -18,7 +18,10 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="container" style={{
+          backgroundColor: "#FFF",
+          boxShadow : "0 0 10px 0 grey, 0 0 10px 0 grey"
+        }}>
           <Header />
           <Route exact path="/" component={TournamentIndex} />
           <Route path="/tournaments/:id" component={TournamentShow} />

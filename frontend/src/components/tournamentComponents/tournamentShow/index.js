@@ -14,14 +14,20 @@ class TournamentShow extends Component {
 
   render() {
     const { selectedTournament } = this.props;
-    console.log(selectedTournament);
 
     if (!selectedTournament) {
       this.props.fetchTournaments();
       this.props.fetchTournament(this.props.id);
-      return <div className="center brand-logo" style={{padding: "50px", fontSize: "24px"}}>
-        Loading Tournament...
-      </div>
+      return (
+        <div
+          className="center brand-logo"
+          style={{
+            padding: "50px", fontSize: "24px"
+          }}
+        >
+          Loading Tournament...
+        </div>
+      )
     }
 
     return (
