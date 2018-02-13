@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
 
-class EditTournamentButton extends Component {
-  render() {
-    const { tournament, currentUser } = this.props;
-
-    if(tournament._user === currentUser._id) {
-      return (
-        <button className="btn right">
-          Edit
-        </button>
-      )
-    } else {
-      return (
-        <div></div>
-      )
-    }
-
+const EditTournamentButton = ({ tournament, currentUser }) => {
+  if(!currentUser) {
+    return <div></div>
   }
+
+  if(tournament._user === currentUser._id) {
+    return (
+      <button className="btn right">
+        Edit
+      </button>
+    )
+  }
+
+  return <div></div>
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.auth
-});
-
-export default connect(mapStateToProps)(EditTournamentButton);
+export default EditTournamentButton;

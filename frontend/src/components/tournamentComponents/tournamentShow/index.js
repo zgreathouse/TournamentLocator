@@ -13,7 +13,7 @@ class TournamentShow extends Component {
   }
 
   render() {
-    const { selectedTournament } = this.props;
+    const { selectedTournament, currentUser } = this.props;
 
     if (!selectedTournament) {
       return (
@@ -31,7 +31,7 @@ class TournamentShow extends Component {
     return (
       <div className="container">
         <h5 className="brand-logo">TournamentShow</h5>
-        <EditTournamentButton tournament={selectedTournament} />
+        <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton/>
       </div>
@@ -41,7 +41,8 @@ class TournamentShow extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   selectedTournament: state.tournaments.selectedTournament,
-  id: ownProps.match.params.id
+  id: ownProps.match.params.id,
+  currentUser: state.auth
 })
 
 export default connect(
