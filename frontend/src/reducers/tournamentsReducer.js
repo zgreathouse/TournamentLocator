@@ -24,7 +24,7 @@ const tournamentsReducer = (state = initialState, action) => {
 
     case FETCH_TOURNAMENT:
       newState = Object.assign({}, state);
-      const tournament = newState.entities[action.payload._id];
+      const tournament = action.payload;
       newState.selectedTournament = tournament;
       return newState;
 

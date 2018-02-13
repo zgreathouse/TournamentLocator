@@ -14,6 +14,7 @@ class TournamentShow extends Component {
 
   render() {
     const { selectedTournament } = this.props;
+    console.log(selectedTournament);
 
     if (!selectedTournament) {
       this.props.fetchTournaments();
