@@ -41,7 +41,7 @@ class AuthModal extends Component {
       <div>
         <button
           onClick={this.toggleModal}
-          className="waves-effect waves-light btn"
+          className="hoverable btn"
           style={{marginRight: "20px"}}
         >
           {modalType}
