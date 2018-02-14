@@ -3,6 +3,9 @@ import axios from 'axios';
 //constants
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
 export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
+export const CREATE_TOURNAMENT = 'CREATE_TOURNAMENT';
+export const UPDATE_TOURNAMENT = 'UPDATE_TOURNAMENT';
+export const DELETE_TOURNAMENT = 'DELETE_TOURNAMENT';
 
 //action which fetches all of the tournaments from the database
 export const fetchTournaments = () => async dispatch => {
