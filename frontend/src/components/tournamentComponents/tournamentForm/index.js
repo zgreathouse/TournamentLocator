@@ -29,19 +29,22 @@ class TournamentForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form
-        onSubmit={handleSubmit(this.onSubmit.bind(this))}
-        style={{margin: "50px 0 80px 0"}}
-      >
-        {this.renderFields()}
-        <SubmitButton />
-        <CancelButton />
-      </form>
+      <div>
+        <h5 className="brand-logo center" style={{margin: "30px"}}>Tournament Form</h5>
+        <form
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          style={{margin: "50px 0 80px 0"}}
+          >
+            {this.renderFields()}
+            <SubmitButton />
+            <CancelButton />
+          </form>
+      </div>
     )
   }
 }
 
-
+//form validations
 const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);

@@ -24,9 +24,9 @@ class App extends Component {
         }}>
           <Header />
           <Switch>
-            <Route path="/tournaments/new" component={TournamentForm} />
-            <Route path="/tournaments/:id" component={TournamentShow} />
-            <Route path="/" component={TournamentIndex} />
+            <Route exact path="/tournaments/new" component={TournamentForm} />
+            <Route exact path="/tournaments/:id" component={TournamentShow} />
+            <Route exact path="/" component={TournamentIndex} />
           </Switch>
           <Footer />
         </div>

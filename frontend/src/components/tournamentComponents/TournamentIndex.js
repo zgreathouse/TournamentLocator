@@ -5,6 +5,7 @@ import { fetchTournaments } from '../../actions/tournamentActions';
 
 //components
 import TournamentIndexItem from './TournamentIndexItem';
+import NewTournamentButton from './newTournamentButton';
 
 class TournamentIndex extends Component {
   componentDidMount() {
@@ -25,20 +26,23 @@ class TournamentIndex extends Component {
     if(!this.props.tournaments) {
       return <div>Loading Tournaments...</div>
     }
-    
+
     return (
-      <div className="row" style={{
-        backgroundColor     : "#403f42",
-        color               : "#fff",
-        minWidth            : "40em",
-        width               : "40%",
-        marginLeft          : "5%",
-        boxShadow           : "0 0 5px 0 grey, 0 0 5px 0 grey"
-      }}>
-        <h5 className="center brand-logo" style={{paddingTop: "10px"}}>Tournaments</h5>
-        <ul className="col s5" style={{marginBottom: "10px"}}>
-          {this.renderTournamentList()}
-        </ul>
+      <div style={{marginTop: "60px", display: "flex", justifyContent: "space-around"}}>
+        <div className="row" style={{
+          backgroundColor     : "#403f42",
+          color               : "#fff",
+          minWidth            : "40em",
+          width               : "40%",
+          marginLeft          : "5%",
+          boxShadow           : "0 0 5px 0 grey, 0 0 5px 0 grey"
+        }}>
+          <h5 className="center brand-logo" style={{paddingTop: "10px"}}>Tournaments</h5>
+          <ul className="col s5" style={{marginBottom: "10px"}}>
+            {this.renderTournamentList()}
+          </ul>
+        </div>
+        <NewTournamentButton />
       </div>
     )
   }
