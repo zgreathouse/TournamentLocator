@@ -96,7 +96,7 @@ const validate = values => {
 
 export default reduxForm({
   fields: _.keys(FIELDS),
-  form: 'PostsNewForm',
+  form: 'TournamentNewForm',
   validate
 })(
   connect(null, { createTournament })(TournamentForm)
