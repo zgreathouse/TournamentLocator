@@ -26,3 +26,14 @@ export const fetchTournament = id => async dispatch => {
     payload: res.data
   });
 };
+
+//action which creates a new tournament document in the database
+export const createTournament = (tournament, callback) => async dispatch => {
+  const res = await axios.post('/api/tournaments', tournament)
+    .then(() => callback());
+
+  dispatch({
+    type: CREATE_TOURNAMENT,
+    payload: res.data
+  })
+}

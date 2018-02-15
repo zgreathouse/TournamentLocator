@@ -2,7 +2,8 @@ import _ from 'lodash';
 
 import {
   FETCH_TOURNAMENTS,
-  FETCH_TOURNAMENT
+  FETCH_TOURNAMENT,
+  CREATE_TOURNAMENT
 } from '../actions/tournamentActions';
 
 const initialState = {
