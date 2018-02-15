@@ -61,8 +61,7 @@ export const FIELDS = {
   description: {
     label: 'Description',
     name: 'description',
-    type: 'textarea',
-    errorMessage: 'some content'
+    type: 'textarea'
   }
 };
 
@@ -75,3 +74,5 @@ Still need the following fields:
   bannerImage   (file upload)
   series        (two radio buttons)
 */
+
+export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'description'];
