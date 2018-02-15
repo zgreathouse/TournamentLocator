@@ -4,7 +4,7 @@ const TournamentBanner = ({ tournament }) => {
   return (
     <div style={{
       border: "solid black 1px",
-      margin: "40px 0 0 190px",
+      margin: "3em 0 0 6em",
       padding: "10px",
       width: "35em",
       height: "7em"
