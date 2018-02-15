@@ -33,7 +33,7 @@ class TournamentForm extends Component {
         <h5 className="brand-logo center" style={{margin: "30px"}}>Tournament Form</h5>
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          style={{margin: "50px 0 80px 0"}}
+          style={{margin: "50px 40px 100px 40px"}}
           >
             {this.renderFields()}
             <SubmitButton />
