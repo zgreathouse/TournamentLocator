@@ -25,4 +25,11 @@ export const requireCommas = (list) => {
   return;
 };
 
-//function which converts string separated by commas and spaces into an array of strings
+//function which converts string separated by commas into an array of strings
+export const convertListToArray = (list) => {
+  const listArray = list
+    .split(",")
+    .map(list => list.trim()); //remove all whitespace
+
+  return listArray;
+}
