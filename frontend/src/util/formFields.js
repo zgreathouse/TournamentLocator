@@ -57,22 +57,18 @@ export const FIELDS = {
     label: 'Twitter Link',
     name: 'twitterLink',
     type: 'input'
-  },
-  description: {
-    label: 'Description',
-    name: 'description',
-    type: 'textarea'
   }
 };
 
 /*
-Some fields will not be simply input or textareas field types
+Some fields will not be simply input field types
 Still need the following fields:
   date,         (calender input)
   startTime,    (time input)
   endTime,      (time input)
   bannerImage   (file upload)
   series        (two radio buttons)
+  description   (textarea, needs to be larger than input fields)
 */
 
 export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'description'];
