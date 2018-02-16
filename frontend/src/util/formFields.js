@@ -6,10 +6,10 @@ export const FIELDS = {
     errorMessage: 'a title'
   },
   game: {
-    label: 'Featured Game',
+    label: 'Game',
     name: 'game',
     type: 'input',
-    errorMessage: 'at least one game'
+    errorMessage: 'the featured game'
   },
   tags: {
     label: 'Tags',
@@ -20,7 +20,7 @@ export const FIELDS = {
     label: 'Address',
     name: 'venueAddress',
     type: 'input',
-    errorMessage: 'an address'
+    errorMessage: 'the address where this tournament will be held'
   },
   venueFee: {
     label: 'Venue Fee',
