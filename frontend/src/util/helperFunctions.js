@@ -11,3 +11,18 @@ export const convertToReadable = array => {
     return convertedArray
   }
 }
+
+//function which sets up requirement for certain fields to be separated by commas and spaces
+export const requireCommas = (list) => {
+  const listArray = list
+    .split(",")
+    .map(list => list.trim()); //remove all whitespace
+
+  if (listArray.length === 1 && list.indexOf(" ") !== -1) {
+    return `Please separate all items with commas`;
+  }
+
+  return;
+};
+
+//function which converts string separated by commas and spaces into an array of strings
