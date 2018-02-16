@@ -18,29 +18,29 @@ export const FIELDS = {
   },
   venueAddress: {
     label: 'Address',
-    name: 'address',
+    name: 'venueAddress',
     type: 'input',
     errorMessage: 'an address'
   },
   venueFee: {
     label: 'Venue Fee',
-    name: 'venue fee',
+    name: 'venueFee',
     type: 'input'
   },
   entryFee: {
     label: 'Entry Fee',
-    name: 'entry fee',
+    name: 'entryFee',
     type: 'input'
   },
   maxEntrants: {
     label: 'Max Entrants',
-    name: 'max entrants',
+    name: 'maxEntrants',
     type: 'input',
     errorMessage: 'a max number of entrants'
   },
   potBonus: {
     label: 'Pot Bonus',
-    name: 'pot bonus',
+    name: 'potBonus',
     type: 'input'
   },
   sponsors: {
@@ -50,12 +50,12 @@ export const FIELDS = {
   },
   streamLink: {
     label: 'Stream Link',
-    name: 'stream link',
+    name: 'streamLink',
     type: 'input'
   },
   twitterLink: {
     label: 'Twitter Link',
-    name: 'twitter link',
+    name: 'twitterLink',
     type: 'input'
   },
   description: {

@@ -28,8 +28,12 @@ export const fetchTournament = id => async dispatch => {
 };
 
 //action which creates a new tournament document in the database
-export const createTournament = (tournament, callback) => async dispatch => {
-  const res = await axios.post('/api/tournaments', tournament)
+export const createTournament = (values, callback) => async dispatch => {
+  //logic for parsing the values from the submitted form and converting
+  //the datatypes happens here
+  console.log(values);
+
+  const res = await axios.post('/api/tournaments', values)
     .then(() => callback());
 
   dispatch({

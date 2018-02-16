@@ -34,11 +34,11 @@ class TournamentForm extends Component {
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
           style={{margin: "50px 40px 100px 40px"}}
-          >
-            {this.renderFields()}
-            <SubmitButton />
-            <CancelButton />
-          </form>
+        >
+          {this.renderFields()}
+          <SubmitButton />
+          <CancelButton />
+        </form>
       </div>
     )
   }
