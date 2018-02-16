@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import axios from 'axios';
+import { convertListToArray } from '../util/helperFunctions';
 
 //constants
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
@@ -33,7 +35,17 @@ export const createTournament = (values, callback) => async dispatch => {
   //the datatypes happens here
   console.log(values);
 
-  const res = await axios.post('/api/tournaments', values)
+  const newTournament = _.map(values, value => {
+    const { game, tags, sponsors } = value;
+
+    if (value === game || value === tags || value === sponsors) {
+      return convertListToArray(value);
+    }
+
+    return value;
+  });
+
+  const res = await axios.post('/api/tournaments', newTournament)
     .then(() => callback());
 
   dispatch({
