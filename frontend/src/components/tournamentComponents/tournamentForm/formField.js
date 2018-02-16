@@ -2,12 +2,12 @@ import React from 'react';
 
 const FormField = (field) => {
   const { touched, error } = field.meta;
-  const className = `form-group ${touched && error ? 'has-danger' : ''}`
+  const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
   return (
-    <div className={className} style={{margin: "0 50px 10px 50px"}}>
+    <div className={className} style={{margin: "0 250px 10px 130px"}}>
       <label>{field.label}</label>
-      <input className="form-control" type="text" {...field.input}/>
+      <input className="form-control" type="text" color="#403f42" {...field.input}/>
       <div className="text-help" style={{fontStyle: "italic", color: "#2bbbad"}}>
         {touched && error}
       </div>
