@@ -36,9 +36,9 @@ export const createTournament = (values, callback) => async dispatch => {
   console.log(values);
 
   const newTournament = _.map(values, value => {
-    const { game, tags, sponsors } = value;
+    const { tags, sponsors } = value;
 
-    if (value === game || value === tags || value === sponsors) {
+    if (value === tags || value === sponsors) {
       return convertListToArray(value);
     }
 

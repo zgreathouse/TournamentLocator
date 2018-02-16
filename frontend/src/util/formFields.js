@@ -6,7 +6,7 @@ export const FIELDS = {
     errorMessage: 'a title'
   },
   game: {
-    label: 'Game(s)',
+    label: 'Featured Game',
     name: 'game',
     type: 'input',
     errorMessage: 'at least one game'

@@ -50,7 +50,6 @@ const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);
 
-  errors.game = requireCommas(values.game || '');
   errors.tags = requireCommas(values.tags || '');
   errors.sponsors = requireCommas(values.sponsors || '');
 
