@@ -1,6 +1,5 @@
-import _ from 'lodash';
 import axios from 'axios';
-import { convertListToArray } from '../util/helperFunctions';
+import { convertToDatabaseWritable } from '../util/helperFunctions';
 
 //constants
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
@@ -31,19 +30,7 @@ export const fetchTournament = id => async dispatch => {
 
 //action which creates a new tournament document in the database
 export const createTournament = (values, callback) => async dispatch => {
-  //logic for parsing the values from the submitted form and converting
-  //the datatypes happens here
-  console.log(values);
-
-  const newTournament = _.map(values, value => {
-    const { tags, sponsors } = value;
-
-    if (value === tags || value === sponsors) {
-      return convertListToArray(value);
-    }
-
-    return value;
-  });
+  const newTournament = convertToDatabaseWritable(values);
 
   const res = await axios.post('/api/tournaments', newTournament)
     .then(() => callback());

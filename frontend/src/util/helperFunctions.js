@@ -33,3 +33,14 @@ export const convertListToArray = (list) => {
 
   return listArray;
 }
+
+//function which converts a form values object to be writable to our database
+export const convertToDatabaseWritable = (values) => {
+  for (let value in values) {
+    if (value === "tags" || value === "sponsors") {
+      values[value] = convertListToArray(values[value]);
+    }
+  }
+
+  return values;
+}

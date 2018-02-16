@@ -10,7 +10,7 @@ const GamesAndTags = ({ tournament }) => {
         padding: "10px",
         boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
     }}>
-      <div>Game: {convertToReadable(game)}</div>
+      <div>Game: {game}</div>
       <div>Tags: {convertToReadable(tags)}</div>
     </div>
   )
