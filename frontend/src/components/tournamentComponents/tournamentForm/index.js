@@ -22,6 +22,7 @@ class TournamentForm extends Component {
 
   onSubmit(values) {
     this.props.createTournament(values, () => {
+      //TODO current going to the dashboard, will adjust to go to the new tournament's show page
       this.props.history.push('/');
     });
   }
