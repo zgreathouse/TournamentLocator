@@ -5,7 +5,7 @@ const NewTournamentButton = () => {
   return (
     <div>
       <Link to="/tournaments/new" className="btn btn-primary right" style={{marginTop: "15px"}}>
-        Create Tournament
+        Create Tournament!
       </Link>
     </div>
   )
