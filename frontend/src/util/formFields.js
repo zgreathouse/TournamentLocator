@@ -1,4 +1,4 @@
-export const FIELDS = {
+export const FORM_TEXT_INPUTS = {
   title: {
     label: 'Title',
     name: 'title',
@@ -45,12 +45,33 @@ export const FIELDS = {
   }
 };
 
+export const FORM_DATE_INPUT = {
+  date: {
+    label: 'Date',
+    name: 'date',
+    type: 'input',
+    errorMessage: 'the date he tournament will be held'
+  }
+}
+
+export const FORM_TIME_INPUTS = {
+  startTime: {
+    label: 'Start',
+    name: 'startTime',
+    type: 'input',
+    errorMessage: 'a start time'
+  },
+  endTime: {
+    label: 'End',
+    name: 'endTime',
+    type: 'input',
+    errorMessage: 'an end time'
+  }
+}
+
 /*
 Some fields will not be simply input field types
 Still need the following fields:
-  date,         (calender input)
-  startTime,    (time input)
-  endTime,      (time input)
   bannerImage   (file upload)
   series        (two radio buttons)
   description   (textarea, needs to be larger than input fields)
