@@ -54,17 +54,36 @@ module.exports = app => {
     }
   });
 
+  /*
 
   // Update (edit) an existing comment
   app.patch('/api/comments/:commentId', async (req, res) => {
-    const p = new Path('/api/comments/:commentId');
-    const match = p.test(req.url);
+  const p = new Path('/api/:postId/:commentId');
+  const match = p.test(req.url);
+
+  const post = await Post.findOne({ _id: match.postId });
+
+//possible refactor
+  const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
+
+  console.log(comment);
+  res.send(req.user);
   });
 
+  */
 
-  /*
   // Delete an existing comment
-  app.delete('/api/comments', );
+  app.delete('/api/:postId/:commentId', requireLogin, requireUsername, async (req, res) => {
+    const p = new Path('/api/:postId/:commentId');
+    const match = p.test(req.url);
 
-*/
+    const post = await Post.findOne({ _id: match.postId });
+
+//possible refactor
+    const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
+
+    console.log(comment);
+    res.send(req.user);
+  });
+
 }
