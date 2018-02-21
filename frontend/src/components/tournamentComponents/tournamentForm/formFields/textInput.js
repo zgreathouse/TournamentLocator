@@ -8,8 +8,8 @@ const TextInput = (field) => {
   return (
     <div className={className} style={{margin: "0 250px 10px 130px"}}>
       <label>{field.label}</label>
-      <input className="form-control" type="text" color="#403f42" {...field.input}/>
-      <div className="text-help" style={{fontStyle: "italic", color: "#2bbbad"}}>
+      <input type="text" color="#403f42" {...field.input}/>
+      <div style={{fontStyle: "italic", color: "#2bbbad"}}>
         {touched && error}
       </div>
     </div>

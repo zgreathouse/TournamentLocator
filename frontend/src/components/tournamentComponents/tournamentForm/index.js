@@ -13,6 +13,7 @@ import {
 import TextInput from './formFields/textInput';
 import DateInput from './formFields/dateInput';
 import TimeInput from './formFields/timeInput';
+import MoneyInput from './formFields/moneyInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -26,6 +27,10 @@ class TournamentForm extends Component {
       //render time inputs
       if (name === 'startTime' || name === 'endTime') {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
+      }
+
+      if (name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
+        return <Field key={name} component={MoneyInput} type={type} label={label} name={name} />
       }
 
       //render standard text inputes
