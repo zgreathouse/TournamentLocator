@@ -17,34 +17,21 @@ import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
-  renderFormTextInputs() {
+  renderFields() {
     return _.map(FIELDS, ({ label, name, type }) => {
+      //render date input
       if (name === 'date') {
         return <Field key={name} component={DateInput} type={type} label={label} name={name} />
       }
-
+      //render time inputs
       if (name === 'startTime' || name === 'endTime') {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
       }
 
+      //render standard text inputes
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }
-
-  // renderFormDateInput() {
-  //   const { label, name, type } = DATE_INPUT;
-  //   return (
-  //     <Field component={DateInput} type={type} label={label} name={name} />
-  //   );
-  // }
-
-  // renderFormTimeInputs() {
-  //   return _.map(TIME_INPUTS, ({ label, name, type }) => {
-  //     return (
-  //       <Field key={name} component={TimeInput} type={type} label={label} name={name} />
-  //     );
-  //   });
-  // }
 
   onSubmit(values) {
     this.props.createTournament(values, () => {
@@ -63,9 +50,7 @@ class TournamentForm extends Component {
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
           style={{margin: "50px 40px 100px 40px"}}
         >
-          {this.renderFormTextInputs()}
-          {/* {this.renderFormDateInput()} */}
-          {/* {this.renderFormTimeInputs()} */}
+          {this.renderFields()}
           <SubmitButton />
           <CancelButton />
         </form>
@@ -81,6 +66,7 @@ const validate = values => {
 
   errors.tags = requireCommas(values.tags || '');
   errors.sponsors = requireCommas(values.sponsors || '');
+
 
   //validate inputs
   _.each(requiredFields, ({name, errorMessage}) => {
