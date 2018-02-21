@@ -25,7 +25,7 @@ export const requireCommas = (list) => {
   }
 
   return;
-};
+}
 
 //function which converts string separated by commas into an array of strings
 export const convertListToArray = (list) => {
@@ -55,6 +55,5 @@ export const convertToDatabaseWritable = (values) => {
   }
 
   const tournament = _.omit(values, ['date']);
-
   return tournament;
 }
