@@ -80,6 +80,11 @@ export const FIELDS = {
     name: 'potBonus',
     type: 'input'
   },
+  description: {
+    label: 'Description',
+    name: 'description',
+    type: 'input'
+  },
 };
 
 /*

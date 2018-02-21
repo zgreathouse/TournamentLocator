@@ -56,7 +56,7 @@ export const convertToDatabaseWritable = (values) => {
     }
 
     if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
-      values[value] = parseInt(values[value], 10);
+      values[value] = parseFloat(values[value], 10);
     }
   }
 
