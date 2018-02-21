@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 import { createTournament } from '../../../actions/tournamentActions';
 import { requireCommas } from '../../../util/helperFunctions';
 import {
-  FORM_TEXT_INPUTS,
-  FORM_DATE_INPUT,
-  FORM_TIME_INPUTS,
+  FIELDS,
   unrequiredFields
 } from '../../../util/formFields';
 
@@ -20,27 +18,33 @@ import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
   renderFormTextInputs() {
-    return _.map(FORM_TEXT_INPUTS, ({ label, name, type }) => {
-      return (
-        <Field key={name} component={TextInput} type={type} label={label} name={name} />
-      );
+    return _.map(FIELDS, ({ label, name, type }) => {
+      if (name === 'date') {
+        return <Field key={name} component={DateInput} type={type} label={label} name={name} />
+      }
+
+      if (name === 'startTime' || name === 'endTime') {
+        return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
+      }
+
+      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }
 
-  renderFormDateInput() {
-    const { label, name, type } = FORM_DATE_INPUT;
-    return (
-      <Field key={name} component={DateInput} type={type} label={label} name={name} />
-    );
-  }
+  // renderFormDateInput() {
+  //   const { label, name, type } = DATE_INPUT;
+  //   return (
+  //     <Field component={DateInput} type={type} label={label} name={name} />
+  //   );
+  // }
 
-  renderFormTimeInputs() {
-    return _.map(FORM_TIME_INPUTS, ({ label, name, type }) => {
-      return (
-        <Field key={name} component={TimeInput} type={type} label={label} name={name} />
-      );
-    });
-  }
+  // renderFormTimeInputs() {
+  //   return _.map(TIME_INPUTS, ({ label, name, type }) => {
+  //     return (
+  //       <Field key={name} component={TimeInput} type={type} label={label} name={name} />
+  //     );
+  //   });
+  // }
 
   onSubmit(values) {
     this.props.createTournament(values, () => {
@@ -60,8 +64,8 @@ class TournamentForm extends Component {
           style={{margin: "50px 40px 100px 40px"}}
         >
           {this.renderFormTextInputs()}
-          {this.renderFormDateInput()}
-          {this.renderFormTimeInputs()}
+          {/* {this.renderFormDateInput()} */}
+          {/* {this.renderFormTimeInputs()} */}
           <SubmitButton />
           <CancelButton />
         </form>
@@ -73,7 +77,7 @@ class TournamentForm extends Component {
 //form validations
 const validate = values => {
   const errors = {};
-  const requiredFields = _.omit(FORM_TEXT_INPUTS, unrequiredFields);
+  const requiredFields = _.omit(FIELDS, unrequiredFields);
 
   errors.tags = requireCommas(values.tags || '');
   errors.sponsors = requireCommas(values.sponsors || '');
@@ -89,7 +93,7 @@ const validate = values => {
 }
 
 export default reduxForm({
-  fields: _.keys(FORM_TEXT_INPUTS),
+  fields: _.keys(FIELDS),
   form: 'TournamentNewForm',
   validate
 })(

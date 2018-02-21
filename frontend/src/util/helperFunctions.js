@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 //function takes array value and seperates elements by commas and spaces
 export const convertToReadable = array => {
   if (array) {
@@ -34,13 +36,25 @@ export const convertListToArray = (list) => {
   return listArray;
 }
 
+//function which takes date and time strings and creates a date object
+export const convertToDateObject = (date, time) => {
+  const newDate = `${date} ${time}`;
+  return new Date(newDate);
+}
+
 //function which converts a form values object to be writable to our database
 export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
     if (value === "tags" || value === "sponsors") {
       values[value] = convertListToArray(values[value]);
     }
+
+    if (value === "startTime" || value === "endTime") {
+      values[value] = convertToDateObject(values.date, values[value]);
+    }
   }
 
-  return values;
+  const tournament = _.omit(values, ['date']);
+
+  return tournament;
 }

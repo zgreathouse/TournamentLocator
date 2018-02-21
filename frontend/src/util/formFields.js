@@ -1,4 +1,5 @@
-export const FORM_TEXT_INPUTS = {
+export const FIELDS = {
+  //standard text inputs
   title: {
     label: 'Title',
     name: 'title',
@@ -42,19 +43,15 @@ export const FORM_TEXT_INPUTS = {
     label: 'Twitter Link',
     name: 'twitterLink',
     type: 'input'
-  }
-};
-
-export const FORM_DATE_INPUT = {
+  },
+  //date input
   date: {
     label: 'Date',
     name: 'date',
     type: 'input',
     errorMessage: 'the date he tournament will be held'
-  }
-}
-
-export const FORM_TIME_INPUTS = {
+  },
+  //time inputs
   startTime: {
     label: 'Start',
     name: 'startTime',
@@ -66,8 +63,24 @@ export const FORM_TIME_INPUTS = {
     name: 'endTime',
     type: 'input',
     errorMessage: 'an end time'
-  }
-}
+  },
+  // money inputs
+  venueFee: {
+    label: 'Venue Fee',
+    name: 'venueFee',
+    type: 'input'
+  },
+  entryFee: {
+    label: 'Entry Fee',
+    name: 'entryFee',
+    type: 'input'
+  },
+  potBonus: {
+    label: 'Pot Bonus',
+    name: 'potBonus',
+    type: 'input'
+  },
+};
 
 /*
 Some fields will not be simply input field types
