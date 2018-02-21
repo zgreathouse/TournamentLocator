@@ -13,7 +13,7 @@ import {
 import TextInput from './formFields/textInput';
 import DateInput from './formFields/dateInput';
 import TimeInput from './formFields/timeInput';
-import MoneyInput from './formFields/moneyInput';
+import NumberInput from './formFields/numberInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -29,8 +29,8 @@ class TournamentForm extends Component {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
       }
 
-      if (name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
-        return <Field key={name} component={MoneyInput} type={type} label={label} name={name} />
+      if (name === 'maxEntrants' || name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
+        return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
       }
 
       //render standard text inputes
@@ -71,7 +71,6 @@ const validate = values => {
 
   errors.tags = requireCommas(values.tags || '');
   errors.sponsors = requireCommas(values.sponsors || '');
-
 
   //validate inputs
   _.each(requiredFields, ({name, errorMessage}) => {

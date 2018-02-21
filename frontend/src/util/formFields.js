@@ -88,27 +88,6 @@ Still need the following fields:
   bannerImage   (file upload)
   series        (two radio buttons)
   description   (textarea, needs to be larger than input fields)
-  venueFee      (special number value field with money sign)
-  entryFee      (special number value field with money sign)
-  potBonus      (special number value field with money sign)
-*/
-
-/*
-venueFee: {
-  label: 'Venue Fee',
-  name: 'venueFee',
-  type: 'input'
-},
-entryFee: {
-  label: 'Entry Fee',
-  name: 'entryFee',
-  type: 'input'
-},
-potBonus: {
-  label: 'Pot Bonus',
-  name: 'potBonus',
-  type: 'input'
-},
 */
 
 export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'description'];

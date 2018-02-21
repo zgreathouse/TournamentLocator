@@ -38,7 +38,7 @@ export const convertListToArray = (list) => {
 
 //function which takes date and time strings and creates a date object
 export const convertToDateObject = (date, time) => {
-  const newDate = `${date} ${time}`;
+  const newDate = `${date} ${time} UTC`;
   return new Date(newDate);
 }
 
@@ -50,7 +50,13 @@ export const convertToDatabaseWritable = (values) => {
     }
 
     if (value === "startTime" || value === "endTime") {
+      console.log(values.date);
+      console.log(values[value]);
       values[value] = convertToDateObject(values.date, values[value]);
+    }
+
+    if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
+      values[value] = parseInt(values[value], 10);
     }
   }
 
