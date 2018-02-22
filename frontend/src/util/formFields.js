@@ -80,11 +80,16 @@ export const FIELDS = {
     name: 'potBonus',
     type: 'input'
   },
-  description: {
-    label: 'Description',
-    name: 'description',
+  series: {
+    label: 'Is your tournament held weekly?',
+    name: 'series',
     type: 'input'
-  },
+  }
+  // description: {
+  //   label: 'Description',
+  //   name: 'description',
+  //   type: 'input'
+  // },
 };
 
 /*
@@ -95,4 +100,4 @@ Still need the following fields:
   description   (textarea, needs to be larger than input fields)
 */
 
-export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'description'];
+export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'series', 'description'];

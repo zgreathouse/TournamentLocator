@@ -14,6 +14,7 @@ import TextInput from './formFields/textInput';
 import DateInput from './formFields/dateInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
+import SeriesInput from './formFields/seriesInput';
 // import TextareaInput from './formFields/textareaInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
@@ -30,8 +31,14 @@ class TournamentForm extends Component {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
       }
 
+      //render number inputs
       if (name === 'maxEntrants' || name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
+      }
+
+      //render series radio button
+      if (name === 'series') {
+        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
       }
 
       // if (name === 'description') {
