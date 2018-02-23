@@ -4,10 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
 import { createTournament } from '../../../actions/tournamentActions';
 import { requireCommas } from '../../../util/helperFunctions';
-import {
-  FIELDS,
-  unrequiredFields
-} from '../../../util/formFields';
+import { FIELDS, unrequiredFields } from '../../../util/formFields';
 
 //components
 import TextInput from './formFields/textInput';
@@ -15,7 +12,7 @@ import DateInput from './formFields/dateInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import SeriesInput from './formFields/seriesInput';
-// import TextareaInput from './formFields/textareaInput';
+import TextareaInput from './formFields/textareaInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -26,6 +23,17 @@ class TournamentForm extends Component {
       if (name === 'date') {
         return <Field key={name} component={DateInput} type={type} label={label} name={name} />
       }
+
+      //render textarea input
+      if (name === 'description') {
+        return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
+      }
+
+      //render series radio button
+      if (name === 'series') {
+        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
+      }
+
       //render time inputs
       if (name === 'startTime' || name === 'endTime') {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
@@ -35,15 +43,6 @@ class TournamentForm extends Component {
       if (name === 'maxEntrants' || name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
       }
-
-      //render series radio button
-      if (name === 'series') {
-        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
-      }
-
-      // if (name === 'description') {
-      //   return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
-      // }
 
       //render standard text inputes
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
@@ -90,6 +89,8 @@ const validate = values => {
       errors[name] = `Please enter ${errorMessage}.`;
     }
   });
+
+
 
   return errors;
 }

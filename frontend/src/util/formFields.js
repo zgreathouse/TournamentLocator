@@ -1,5 +1,4 @@
 export const FIELDS = {
-  //standard text inputs
   title: {
     label: 'Title',
     name: 'title',
@@ -83,21 +82,29 @@ export const FIELDS = {
   series: {
     label: 'Is your tournament held weekly?',
     name: 'series',
+    type: 'input',
+    errorMessage: 'yes or no'
+  },
+  description: {
+    label: 'Description',
+    name: 'description',
     type: 'input'
   }
-  // description: {
-  //   label: 'Description',
-  //   name: 'description',
-  //   type: 'input'
-  // },
 };
 
 /*
 Some fields will not be simply input field types
 Still need the following fields:
   bannerImage   (file upload)
-  series        (two radio buttons)
-  description   (textarea, needs to be larger than input fields)
 */
 
-export const unrequiredFields = ['tags', 'venueFee', 'entryFee', 'potBonus', 'sponsors', 'streamLink', 'twitterLink', 'series', 'description'];
+export const unrequiredFields = [
+  'tags',
+  'venueFee',
+  'entryFee',
+  'potBonus',
+  'sponsors',
+  'streamLink',
+  'twitterLink',
+  'description'
+];
