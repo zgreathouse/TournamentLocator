@@ -7,12 +7,13 @@ import { requireCommas } from '../../../util/helperFunctions';
 import { FIELDS, unrequiredFields } from '../../../util/formFields';
 
 //components
-import TextInput from './formFields/textInput';
 import DateInput from './formFields/dateInput';
+import TextareaInput from './formFields/textareaInput';
+import SeriesInput from './formFields/seriesInput';
+import FileInput from './formFields/fileInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
-import SeriesInput from './formFields/seriesInput';
-import TextareaInput from './formFields/textareaInput';
+import TextInput from './formFields/textInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -32,6 +33,11 @@ class TournamentForm extends Component {
       //render series radio button
       if (name === 'series') {
         return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
+      }
+
+      //render file input
+      if (name === 'bannerImage') {
+        return <Field key={name} component={FileInput} type={type} label={label} name={name} />
       }
 
       //render time inputs

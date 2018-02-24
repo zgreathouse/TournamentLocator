@@ -85,6 +85,11 @@ export const FIELDS = {
     type: 'input',
     errorMessage: 'yes or no'
   },
+  bannerImage: {
+    label: 'Upload a tournament banner:',
+    name: 'bannerImage',
+    type: 'input'
+  },
   description: {
     label: 'Description',
     name: 'description',
