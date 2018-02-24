@@ -19,39 +19,33 @@ import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
   renderFields() {
+    const timeInputs = ['startTime', 'endTime'];
+    const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
+    const textInputs = ['title', 'game', 'tags', 'address', 'streamLink', 'twitterLink'];
+
     return _.map(FIELDS, ({ label, name, type }) => {
-      //render date input
-      if (name === 'date') {
+      if (textInputs.indexOf(name) !== -1) {
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} />
+
+      } else if (name === 'date') {
         return <Field key={name} component={DateInput} type={type} label={label} name={name} />
-      }
 
-      //render textarea input
-      if (name === 'description') {
-        return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
-      }
-
-      //render series radio button
-      if (name === 'series') {
-        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
-      }
-
-      //render file input
-      if (name === 'bannerImage') {
-        return <Field key={name} component={FileInput} type={type} label={label} name={name} />
-      }
-
-      //render time inputs
-      if (name === 'startTime' || name === 'endTime') {
+      } else if (timeInputs.indexOf(name) !== -1) {
         return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
-      }
 
-      //render number inputs
-      if (name === 'maxEntrants' || name === 'venueFee' || name === 'entryFee' || name === 'potBonus') {
+      } else if (numberInputs.indexOf(name) !== -1) {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
-      }
 
-      //render standard text inputes
-      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
+      } else if (name === 'series') {
+        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
+
+      } else if (name === 'bannerImage') {
+        return <Field key={name} component={FileInput} type={type} label={label} name={name} />
+
+      } else if (name === 'description') {
+        return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
+
+      }
     });
   }
 

@@ -97,12 +97,6 @@ export const FIELDS = {
   }
 };
 
-/*
-Some fields will not be simply input field types
-Still need the following fields:
-  bannerImage   (file upload)
-*/
-
 export const unrequiredFields = [
   'tags',
   'venueFee',
