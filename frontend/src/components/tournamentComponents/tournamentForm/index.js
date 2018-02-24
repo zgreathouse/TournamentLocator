@@ -90,8 +90,6 @@ const validate = values => {
     }
   });
 
-
-
   return errors;
 }
 
@@ -99,6 +97,4 @@ export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'TournamentNewForm',
   validate
-})(
-  connect(null, { createTournament })(TournamentForm)
-);
+})(connect(null, { createTournament })(TournamentForm));

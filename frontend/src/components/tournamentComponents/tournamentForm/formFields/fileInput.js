@@ -10,7 +10,7 @@ import React from 'react';
 
 const FileInput = (field) => {
   return (
-    <div style={{margin: "0 250px 5px 130px"}}>
+    <div style={{margin: "0 250px 15px 130px"}}>
       <label htmlFor="banner" style={{marginRight: "10px"}}>
         {field.label}
       </label>
