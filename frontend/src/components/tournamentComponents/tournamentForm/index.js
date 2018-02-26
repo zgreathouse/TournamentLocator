@@ -44,14 +44,13 @@ class TournamentForm extends Component {
 
       } else if (name === 'description') {
         return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
-
       }
     });
   }
 
   onSubmit(values) {
     this.props.createTournament(values, () => {
-      //TODO current going to the dashboard, will adjust to go to the new tournament's show page
+      //TODO currently router to the dashboard, will adjust to go to the new tournament's show page
       this.props.history.push('/');
     });
   }
@@ -80,6 +79,7 @@ const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);
 
+  //require how list input values are formatted to be converted to arrays later
   errors.tags = requireCommas(values.tags || '');
   errors.sponsors = requireCommas(values.sponsors || '');
 
