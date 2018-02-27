@@ -50,8 +50,6 @@ export const convertToDatabaseWritable = (values) => {
     }
 
     if (value === "startTime" || value === "endTime") {
-      console.log(values.date);
-      console.log(values[value]);
       values[value] = convertToDateObject(values.date, values[value]);
     }
 

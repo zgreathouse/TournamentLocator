@@ -10,7 +10,7 @@ import { FIELDS, unrequiredFields } from '../../../util/formFields';
 import DateInput from './formFields/dateInput';
 import TextareaInput from './formFields/textareaInput';
 import SeriesInput from './formFields/seriesInput';
-import FileInput from './formFields/fileInput';
+// import FileInput from './formFields/fileInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import TextInput from './formFields/textInput';
@@ -21,7 +21,7 @@ class TournamentForm extends Component {
   renderFields() {
     const timeInputs = ['startTime', 'endTime'];
     const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
-    const textInputs = ['title', 'game', 'tags', 'address', 'streamLink', 'twitterLink'];
+    const textInputs = ['title', 'game', 'tags', 'address', 'sponsors', 'streamLink', 'twitterLink'];
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (textInputs.indexOf(name) !== -1) {
@@ -39,8 +39,9 @@ class TournamentForm extends Component {
       } else if (name === 'series') {
         return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
 
-      } else if (name === 'bannerImage') {
-        return <Field key={name} component={FileInput} type={type} label={label} name={name} />
+      //TODO will add/ create file input once we have the CDN set up
+      // } else if (name === 'bannerImage') {
+      //   return <Field key={name} component={FileInput} type={type} label={label} name={name} />
 
       } else if (name === 'description') {
         return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
