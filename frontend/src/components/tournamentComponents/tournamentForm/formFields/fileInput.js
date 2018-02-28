@@ -2,8 +2,7 @@
 TODO this input is currently broken
 issue: not setting file after selection
 
-maybe try making this a class component and adding a helper method
-to handle change?
+add a helper method to handle updating the value of the field on file select
 */
 
 import React from 'react';
