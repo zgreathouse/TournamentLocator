@@ -9,8 +9,8 @@ import { FIELDS, unrequiredFields } from '../../../util/formFields';
 //components
 import DateInput from './formFields/dateInput';
 import TextareaInput from './formFields/textareaInput';
-import SeriesInput from './formFields/seriesInput';
-// import FileInput from './formFields/fileInput';
+import SeriesInput from './formFields/SeriesInput';
+// import FileInput from './formFields/FileInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import TextInput from './formFields/textInput';
