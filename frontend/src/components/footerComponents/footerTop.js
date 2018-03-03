@@ -17,11 +17,13 @@ const FooterTop = ({ pClassName, iClassName1, iClassName2}) => {
             <a
               href="https://www.linkedin.com/in/zachary-greathouse-11345813b/"
               style={customStyles}
+              rel="noopener noreferrer"
               target="_blank"
             ><i className={iClassName1}></i></a>
             <a
               href="https://github.com/zgreathouse"
               style={customStyles}
+              rel="noopener noreferrer"
               target="_blank"
             ><i className={iClassName2}></i></a>
             Zach Greathouse
@@ -30,11 +32,13 @@ const FooterTop = ({ pClassName, iClassName1, iClassName2}) => {
             <a
               href="https://www.linkedin.com/in/stone-ryan-a5460095/"
               style={customStyles}
+              rel="noopener noreferrer"
               target="_blank"
             ><i className={iClassName1}></i></a>
             <a
               href="https://github.com/Stone-Ryan"
               style={customStyles}
+              rel="noopener noreferrer"
               target="_blank"
             ><i className={iClassName2}></i></a>
             Stone Ryan
