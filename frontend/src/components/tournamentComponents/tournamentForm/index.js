@@ -1,3 +1,5 @@
+//TODO figure out how to pull value from radio button or if another tag would be better
+
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
