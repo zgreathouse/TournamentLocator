@@ -1,3 +1,4 @@
+//input for the user to set the start and end times
 import React from 'react';
 
 const TimeInput = (field) => {

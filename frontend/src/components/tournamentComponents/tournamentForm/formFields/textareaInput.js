@@ -1,3 +1,4 @@
+//input for user to add a description containing additional details
 import React from 'react';
 
 const TextareaInput = (field) => {

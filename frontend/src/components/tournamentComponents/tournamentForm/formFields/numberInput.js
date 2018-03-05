@@ -1,3 +1,4 @@
+//input which expects numbers
 import React from 'react';
 
 const NumberInput = (field) => {
