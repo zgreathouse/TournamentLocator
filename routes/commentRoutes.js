@@ -15,7 +15,7 @@ module.exports = app => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
-    const post = await Post.find({ _post: match.postId });
+    const post = await Post.findById(match.postId);
     const allComments = post.comments;
 
     try {
@@ -72,18 +72,19 @@ module.exports = app => {
 
   */
 
-  // Delete an existing comment
-  app.delete('/api/:postId/:commentId', requireLogin, requireUsername, async (req, res) => {
-    const p = new Path('/api/:postId/:commentId');
-    const match = p.test(req.url);
-
-    const post = await Post.findOne({ _id: match.postId });
-
-//possible refactor
-    const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
-
-    console.log(comment);
-    res.send(req.user);
-  });
+//   // Delete an existing comment
+//   app.delete('/api/:postId/:commentId', requireLogin, requireUsername, async (req, res) => {
+//     const p = new Path('/api/:postId/:commentId');
+//     const match = p.test(req.url);
+//
+//     const post = await Post.findOne({ _id: match.postId });
+//
+// // possible refactor
+//     const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
+//
+//     console.log(comment);
+//
+//     res.send(req.user);
+//   });
 
 }
