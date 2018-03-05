@@ -8,7 +8,7 @@ const TextareaInput = (field) => {
         placeholder="Anything you'd like to add?"
         rows="8"
         cols="80"
-        style={{resize: "none", height: "auto", padding: "10px"}}
+        style={{resize: "none", height: "auto", padding: "10px", marginBottom: "30px"}}
         {...field.input}
       />
     </div>
