@@ -12,7 +12,7 @@ import { FIELDS, unrequiredFields } from '../../../util/formFields';
 import DateInput from './formFields/dateInput';
 import TextareaInput from './formFields/textareaInput';
 import SeriesInput from './formFields/SeriesInput';
-import FileInput from './formFields/FileInput';
+// import FileInput from './formFields/FileInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import TextInput from './formFields/textInput';
@@ -42,8 +42,8 @@ class TournamentForm extends Component {
         return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
 
       //TODO will add/ create file input once we have the CDN set up
-      } else if (name === 'bannerImage') {
-        return <Field key={name} component={FileInput} type={type} label={label} name={name} />
+      // } else if (name === 'bannerImage') {
+      //   return <Field key={name} component={FileInput} type={type} label={label} name={name} />
 
       } else if (name === 'description') {
         return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
