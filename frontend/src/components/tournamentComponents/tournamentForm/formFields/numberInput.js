@@ -6,7 +6,9 @@ const NumberInput = (field) => {
   //change styling based on whether the input has been selected for required field
   const className = `${touched && error ? 'has-danger' : ''}`;
 
-  let placeholder = '0.00';
+  //logic to change the place holder based on whether the input expects
+  //a number or a dollar amount
+  let placeholder = '$0.00';
 
   if (field.label === 'Max Entrants') {
     placeholder = '0';
