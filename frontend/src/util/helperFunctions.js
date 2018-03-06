@@ -58,6 +58,9 @@ export const convertToDatabaseWritable = (values) => {
     }
   }
 
+  //the date value is ommitted because it is not a field in our tournament
+  //schema and the date string was only needed in creating the startTime
+  //and endTime date objects
   const tournament = _.omit(values, ['date']);
   return tournament;
 }
