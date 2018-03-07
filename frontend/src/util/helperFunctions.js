@@ -56,6 +56,8 @@ export const convertToDatabaseWritable = (values) => {
     if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
       values[value] = parseFloat(values[value], 10);
     }
+
+    //TODO convert description to serve up new lines properly
   }
 
   //the date value is ommitted because it is not a field in our tournament
