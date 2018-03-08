@@ -1,5 +1,3 @@
-//TODO figure out how to pull value from radio button or if another tag would be better
-
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
@@ -11,7 +9,7 @@ import { FIELDS, unrequiredFields } from '../../../util/formFields';
 //components
 import DateInput from './formFields/dateInput';
 import TextareaInput from './formFields/textareaInput';
-import SeriesInput from './formFields/SeriesInput';
+// import SeriesInput from './formFields/SeriesInput';
 // import FileInput from './formFields/FileInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
@@ -38,10 +36,11 @@ class TournamentForm extends Component {
       } else if (numberInputs.indexOf(name) !== -1) {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
 
-      } else if (name === 'series') {
-        return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
+      //TODO will add input on series feature branch
+      // } else if (name === 'series') {
+      //   return <Field key={name} component={SeriesInput} type={type} label={label} name={name} />
 
-      //TODO will add/ create file input once we have the CDN set up
+      //TODO will add input on CDN feature branch
       // } else if (name === 'bannerImage') {
       //   return <Field key={name} component={FileInput} type={type} label={label} name={name} />
 

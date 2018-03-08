@@ -42,6 +42,22 @@ export const convertToDateObject = (date, time) => {
   return new Date(newDate);
 }
 
+//function which extracts the time from a date object
+export const extractTime = dateString => {
+  let date = new Date(dateString);
+  let timeString = date.toLocaleTimeString('en-US'); //"1:00:00 pm"
+
+  return timeString.slice(0, 4) + timeString.slice(7) //"1:00 pm"
+}
+
+//function which extracts the day, month, and year from a Date object
+export const extractDate = dateString => {
+  let date = new Date(dateString);
+  return date.toDateString().slice(4);
+  //"Wed Jul 28 1993"
+
+}
+
 //function which converts a form values object to be writable to our database
 export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
