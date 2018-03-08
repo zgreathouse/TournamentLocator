@@ -21,7 +21,7 @@ class TournamentForm extends Component {
   renderFields() {
     const timeInputs = ['startTime', 'endTime'];
     const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
-    const textInputs = ['title', 'game', 'tags', 'address', 'sponsors', 'streamLink', 'twitterLink'];
+    const textInputs = ['title', 'game', 'tags', 'venueAddress', 'sponsors', 'streamLink', 'twitterLink'];
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (textInputs.indexOf(name) !== -1) {
