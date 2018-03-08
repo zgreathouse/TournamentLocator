@@ -45,9 +45,8 @@ export const convertToDateObject = (date, time) => {
 //function which extracts the time from a date object
 export const extractTime = dateString => {
   let date = new Date(dateString);
-  let timeString = date.toLocaleTimeString('en-US'); //"1:00:00 pm"
-
-  return timeString.slice(0, 4) + timeString.slice(7) //"1:00 pm"
+  let timeString = date.toLocaleTimeString('en-US');
+  return timeString.slice(0, 4) + timeString.slice(7);
 }
 
 //function which extracts the day, month, and year from a Date object
