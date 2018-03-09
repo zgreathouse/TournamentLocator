@@ -4,13 +4,9 @@ import { extractTime, extractDate } from '../../../../util/helperFunctions';
 const DateAndTime = ({ tournament }) => {
   const { startTime, endTime } = tournament;
 
-  let date = extractDate(startTime);
-  let start = extractTime(startTime);
-  let end = extractTime(endTime);
-
-  console.log(date);
-  console.log(start);
-  console.log(end);
+  const date = extractDate(startTime);
+  const start = extractTime(startTime);
+  const end = extractTime(endTime);
 
   return (
     <div style={{
