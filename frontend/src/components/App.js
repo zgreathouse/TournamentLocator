@@ -20,7 +20,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="container" style={{
           backgroundColor: "#FFF",
-          boxShadow : "0 0 10px 0 grey, 0 0 10px 0 grey"
+          border: "1px solid #403f42"
         }}>
           <Header />
           <Switch>

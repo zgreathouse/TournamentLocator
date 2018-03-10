@@ -34,8 +34,7 @@ class TournamentIndex extends Component {
           color               : "#fff",
           minWidth            : "40em",
           width               : "40%",
-          marginLeft          : "5%",
-          boxShadow           : "0 0 5px 0 grey, 0 0 5px 0 grey"
+          marginLeft          : "5%"
         }}>
           <h5 className="center brand-logo" style={{paddingTop: "10px"}}>Tournaments</h5>
           <ul className="col s5" style={{marginBottom: "10px"}}>

@@ -12,7 +12,7 @@ const DateAndTime = ({ tournament }) => {
     <div style={{
         margin: "15px",
         padding: "10px",
-        boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
+        border: "1px solid #403f42"
     }}>
       <div>Date: {date}</div>
       <div>
