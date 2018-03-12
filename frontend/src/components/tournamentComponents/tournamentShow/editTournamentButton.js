@@ -1,3 +1,4 @@
+//a button which navigates the user to the edit tournamentpage
 import React from 'react';
 
 const EditTournamentButton = ({ tournament, currentUser }) => {
