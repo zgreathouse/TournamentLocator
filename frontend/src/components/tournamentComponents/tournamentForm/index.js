@@ -16,6 +16,10 @@ import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
+  componentWillUnmount() {
+    this.props.history.push(`/tournaments/${this.props.newTournament._id}`);
+  }
+
   renderFields() {
     const timeInputs = ['startTime', 'endTime'];
     const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
@@ -41,10 +45,15 @@ class TournamentForm extends Component {
   }
 
   onSubmit(values) {
+    // const { newTournament, createTournament } = this.props;
+    // console.log(newTournament);
+    // createTournament(values).then(console.log(newTournament));
+      // .then(this.props.history.push(`/`));
+
     this.props.createTournament(values, () => {
-      //TODO currently router to the dashboard, will adjust to go to the new tournament's show page
       this.props.history.push('/');
     });
+
   }
 
   render() {
@@ -85,8 +94,12 @@ const validate = values => {
   return errors;
 }
 
+const mapStateToProps = (state) => ({
+  newTournament: state.tournaments.selectedTournament
+});
+
 export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'TournamentNewForm',
   validate
-})(connect(null, { createTournament })(TournamentForm));
+})(connect(mapStateToProps, { createTournament })(TournamentForm));

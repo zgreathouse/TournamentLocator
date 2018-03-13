@@ -4,7 +4,6 @@ import { convertToDatabaseWritable } from '../util/helperFunctions';
 //constants
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
 export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
-export const CREATE_TOURNAMENT = 'CREATE_TOURNAMENT';
 export const UPDATE_TOURNAMENT = 'UPDATE_TOURNAMENT';
 export const DELETE_TOURNAMENT = 'DELETE_TOURNAMENT';
 
@@ -31,12 +30,11 @@ export const fetchTournament = id => async dispatch => {
 //action which creates a new tournament document in the database
 export const createTournament = (values, callback) => async dispatch => {
   const newTournament = convertToDatabaseWritable(values);
-
   const res = await axios.post('/api/tournaments', newTournament);
-  await callback(res.data._id);
+  await callback();
 
   dispatch({
-    type: CREATE_TOURNAMENT,
+    type: FETCH_TOURNAMENT,
     payload: res.data
   })
 }
