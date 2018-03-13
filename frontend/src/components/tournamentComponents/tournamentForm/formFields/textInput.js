@@ -1,9 +1,7 @@
-//standard text input
 import React from 'react';
 
 const TextInput = (field) => {
   const { touched, error } = field.meta;
-  //change styling based on whether the input has been selected
   const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
   return (

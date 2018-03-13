@@ -48,7 +48,7 @@ export const FIELDS = {
     label: 'Date',
     name: 'date',
     type: 'input',
-    errorMessage: 'the date he tournament will be held'
+    errorMessage: 'the date the tournament will be held'
   },
   //time inputs
   startTime: {
