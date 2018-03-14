@@ -37,7 +37,7 @@ export const createTournament = (values, callback) => async dispatch => {
   dispatch({
     type: CREATE_TOURNAMENT,
     payload: res.data
-  })
+  });
 }
 
 //action which deletes a specific tournament document in the database
@@ -48,5 +48,5 @@ export const deleteTournament = (id, callback) => async dispatch => {
   dispatch({
     type: DELETE_TOURNAMENT,
     payload: id
-  })
+  });
 }
