@@ -15,8 +15,7 @@ const TournamentDetail = ({ tournament }) => {
   return (
     <div style={{
       margin: "50px",
-      padding: "20px",
-      boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
+      padding: "20px"
     }}>
       <h5>{tournament.title}</h5>
       <GamesAndTags tournament={tournament} />

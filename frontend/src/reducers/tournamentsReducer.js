@@ -2,7 +2,8 @@ import _ from 'lodash';
 
 import {
   FETCH_TOURNAMENTS,
-  FETCH_TOURNAMENT
+  FETCH_TOURNAMENT,
+  DELETE_TOURNAMENT
 } from '../actions/tournamentActions';
 
 const initialState = {
@@ -29,8 +30,10 @@ const tournamentsReducer = (state = initialState, action) => {
     case FETCH_TOURNAMENT:
       newState = Object.assign({}, state);
       newState.selectedTournament = action.payload;
-
       return newState;
+
+    case DELETE_TOURNAMENT:
+      return _.omit(state.entities, action.payload);
 
     default:
       return state;

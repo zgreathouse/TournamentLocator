@@ -1,18 +1,23 @@
 import React from 'react';
+import { extractTime, extractDate } from '../../../../util/helperFunctions';
 
 const DateAndTime = ({ tournament }) => {
-  const { date, startTime, endTime } = tournament;
+  const { startTime, endTime } = tournament;
+
+  const date = extractDate(startTime);
+  const start = extractTime(startTime);
+  const end = extractTime(endTime);
 
   return (
     <div style={{
         margin: "15px",
         padding: "10px",
-        boxShadow : "0 0 5px 0 grey, 0 0 5px 0 grey"
+        border: "1px solid #403f42"
     }}>
       <div>Date: {date}</div>
       <div>
-        <div>Start: {startTime} </div>
-        <div>End: {endTime} </div>
+        <div>Start: {start} </div>
+        <div>End: {end} </div>
       </div>
     </div>
   )

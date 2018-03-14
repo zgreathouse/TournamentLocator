@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions/userActions';
 
@@ -8,6 +8,7 @@ import Header from './headerComponents';
 import Footer from './footerComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
+import TournamentForm from './tournamentComponents/tournamentForm';
 
 class App extends Component {
   componentDidMount() {
@@ -19,11 +20,14 @@ class App extends Component {
       <BrowserRouter>
         <div className="container" style={{
           backgroundColor: "#FFF",
-          boxShadow : "0 0 10px 0 grey, 0 0 10px 0 grey"
+          border: "1px solid #403f42"
         }}>
           <Header />
-          <Route exact path="/" component={TournamentIndex} />
-          <Route path="/tournaments/:id" component={TournamentShow} />
+          <Switch>
+            <Route exact path="/tournaments/new" component={TournamentForm} />
+            <Route exact path="/tournaments/:id" component={TournamentShow} />
+            <Route exact path="/" component={TournamentIndex} />
+          </Switch>
           <Footer />
         </div>
       </BrowserRouter>

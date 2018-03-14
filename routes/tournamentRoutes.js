@@ -63,7 +63,7 @@ module.exports = app => {
        req.user.tournaments.push(tournament._id);
        await tournament.save();
        const user = await req.user.save();
-       res.send(user);
+       res.send(tournament);
      } catch (err) {
        res.status(422).send(err);
      }
