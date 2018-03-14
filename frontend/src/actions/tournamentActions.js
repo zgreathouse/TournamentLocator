@@ -4,8 +4,9 @@ import { convertToDatabaseWritable } from '../util/helperFunctions';
 //constants
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
 export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
-export const UPDATE_TOURNAMENT = 'UPDATE_TOURNAMENT';
-export const DELETE_TOURNAMENT = 'DELETE_TOURNAMENT';
+export const CREATE_TOURNAMENT  = 'CREATE_TOURNAMENT';
+export const UPDATE_TOURNAMENT  = 'UPDATE_TOURNAMENT';
+export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
 
 //action which fetches all of the tournaments from the database
 export const fetchTournaments = () => async dispatch => {
@@ -34,7 +35,7 @@ export const createTournament = (values, callback) => async dispatch => {
   await callback();
 
   dispatch({
-    type: FETCH_TOURNAMENT,
+    type: CREATE_TOURNAMENT,
     payload: res.data
   })
 }
