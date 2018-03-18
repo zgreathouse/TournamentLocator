@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CancelButton = (props) => {
   return (
-    <Link to="/" className="btn right" style={{marginRight: "50px"}}>
-      Cancel
-    </Link>
+    <Link to="/">Cancel</Link>
   )
 }
 

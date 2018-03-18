@@ -11,16 +11,16 @@ const NumberInput = (field) => {
   }
 
   return (
-    <div style={{margin: "0 250px 5px 130px"}}>
+    <div>
       <label>{field.label}</label>
       <input
         className={className}
         type="number"
         min='0'
         placeholder={`${placeholder}`}
-        color="#403f42" {...field.input}
+        {...field.input}
       />
-      <div style={{fontStyle: "italic", color: "#2bbbad"}}>
+      <div>
         {touched && error}
       </div>
     </div>

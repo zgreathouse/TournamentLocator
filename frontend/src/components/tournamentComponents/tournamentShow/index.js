@@ -18,16 +18,14 @@ class TournamentShow extends Component {
 
     if (!selectedTournament) {
       return (
-        <div className="center brand-logo" style={{
-            padding: "50px", fontSize: "24px"
-        }}>
+        <div>
           Loading Tournament...
         </div>
       )
     }
 
     return (
-      <div className="container">
+      <div>
         <TournamentBanner tournament={selectedTournament} />
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>

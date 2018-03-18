@@ -52,11 +52,8 @@ class TournamentForm extends Component {
 
     return (
       <div>
-        <h5 className="brand-logo center" style={{margin: "30px"}}>Tournament Form</h5>
-        <form
-          onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          style={{margin: "100px 40px"}}
-        >
+        <h5>Tournament Form</h5>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           {this.renderFields()}
           <SubmitButton />
           <CancelButton />

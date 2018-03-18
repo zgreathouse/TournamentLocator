@@ -13,10 +13,7 @@ import Description from './description';
 
 const TournamentDetail = ({ tournament }) => {
   return (
-    <div style={{
-      margin: "50px",
-      padding: "20px"
-    }}>
+    <div>
       <h5>{tournament.title}</h5>
       <GamesAndTags tournament={tournament} />
       <SeriesIcon tournament={tournament} />

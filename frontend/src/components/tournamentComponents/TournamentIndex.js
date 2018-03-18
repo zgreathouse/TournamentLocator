@@ -15,7 +15,7 @@ class TournamentIndex extends Component {
   renderTournamentList() {
     return _.map(this.props.tournaments.entities, (tournament => {
       return (
-        <li key={tournament._id} className="list-group-item">
+        <li key={tournament._id}>
           <TournamentIndexItem tournament={tournament} />
         </li>
       )
@@ -28,16 +28,10 @@ class TournamentIndex extends Component {
     }
 
     return (
-      <div style={{marginTop: "60px", display: "flex", justifyContent: "space-around"}}>
-        <div className="row" style={{
-          backgroundColor     : "#403f42",
-          color               : "#fff",
-          minWidth            : "40em",
-          width               : "40%",
-          marginLeft          : "5%"
-        }}>
-          <h5 className="center brand-logo" style={{paddingTop: "10px"}}>Tournaments</h5>
-          <ul className="col s5" style={{marginBottom: "10px"}}>
+      <div>
+        <div>
+          <h5>Tournaments</h5>
+          <ul>
             {this.renderTournamentList()}
           </ul>
         </div>
