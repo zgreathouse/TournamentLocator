@@ -26,16 +26,16 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div>
+      <header>
+        <nav>
             <div>
               <Link to="/" >Tournament Locator</Link>
             </div>
             <ul>
               {this.renderContent()}
             </ul>
-        </div>
-      </nav>
+        </nav>
+      </header>
     )
   }
 }
