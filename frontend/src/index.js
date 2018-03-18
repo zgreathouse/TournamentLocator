@@ -2,6 +2,7 @@
 import 'normalize.css/normalize.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'materialize-social/materialize-social.less';
+import './style/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
