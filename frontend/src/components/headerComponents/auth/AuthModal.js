@@ -5,19 +5,6 @@ import Modal from 'react-modal';
 //components
 import AuthModalBody from './AuthModalBody';
 
-const customStyles = {
-  content : {
-    top              : "45%",
-    left             : "50%",
-    right            : "auto",
-    bottom           : "auto",
-    marginRight      : "-50%",
-    transform        : "translate(-50%, -50%)",
-    width            : "480px",
-    height           : "530px"
-  }
-};
-
 class AuthModal extends Component {
   constructor(props) {
     super(props);
@@ -39,23 +26,15 @@ class AuthModal extends Component {
 
     return (
       <div>
-        <button
-          onClick={this.toggleModal}
-          className="hoverable btn"
-          style={{marginRight: "20px"}}
-        >
+        <button onClick={this.toggleModal}>
           {modalType}
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
-          style={customStyles}
           contentLabel="Auth Modal"
         >
-          <button
-            onClick={this.toggleModal}
-            className="hoverable right btn"
-          > X </button>
+          <button onClick={this.toggleModal}> X </button>
           <AuthModalBody modalType={modalType}/>
         </Modal>
       </div>

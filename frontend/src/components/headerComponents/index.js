@@ -19,22 +19,19 @@ class Header extends Component {
         ];
       default:
         return (
-          <li key={3}><a href="/api/logout" style={{ marginRight: "10px"}}>Logout</a></li>
+          <li key={3}><a href="/api/logout">Logout</a></li>
         );
     }
   }
 
   render() {
     return (
-      <nav style={{width: "100%", minWidth: "100%"}}>
-        <div className="nav-wrapper" style={{ backgroundColor: "#403f42"}}>
-            <div
-              className="left brand-logo"
-              style={{marginLeft: "30px", fontSize: "20px", minWidth: "600px"}}
-            >
+      <nav>
+        <div>
+            <div>
               <Link to="/" >Tournament Locator</Link>
             </div>
-            <ul className="right">
+            <ul>
               {this.renderContent()}
             </ul>
         </div>
