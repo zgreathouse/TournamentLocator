@@ -26,7 +26,7 @@ class AuthModal extends Component {
 
     return (
       <div>
-        <button onClick={this.toggleModal}>
+        <button className="auth-button" onClick={this.toggleModal}>
           {modalType}
         </button>
         <Modal

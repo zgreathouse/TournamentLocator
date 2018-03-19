@@ -9,38 +9,104 @@
 /* ----------------------------------------------------------- */
 
 * {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    color: #555;
-    font-family: 'Raleway', 'Arial', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    text-rendering: optimizeLegibility;
+  color: #403f42;
+  font-family: 'Raleway', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  background-color: #e8e8e8;
+}
+
+#root {
+  max-width: 1050px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding-top: 1px;
 }
 
 .clearfix {zoom: 1}
 .clearfix:after {
-    content: '.';
-    clear: both;
-    display: block;
-    height:0;
-    visibility: hidden;
+  content: '.';
+  clear: both;
+  display: block;
+  height:0;
+  visibility: hidden;
 }
 
 /* ----------------------------------------------------------- */
 /*                     Reusable Components                     */
 /* ----------------------------------------------------------- */
 
+/*-------------- Headings --------------*/
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
 
 /* ----------------------------------------------------------- */
 /*                           Header                            */
 /* ----------------------------------------------------------- */
 
+header {
+  background-color: #403f42;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 76px;
+}
+
+.main-logo {
+  width: 30%;
+  margin: 0;
+  padding: 2%;
+  text-decoration: none;
+  border: 0;
+  color: #fff;
+  float: left;
+}
+
+.main-nav {
+  margin: 15px 0 12px 0;
+  padding: 0;
+  float: right;
+  list-style: none;
+  padding: 1%;
+  width: 20%;
+}
+
+.main-nav li {
+  display: inline-block; /*side by side*/
+  margin-left: 23px;
+}
+
+.main-nav li:last-child {
+  margin-right: 5px;
+}
+
+.auth-button {
+  padding-bottom: 6px;
+  width: 100%;
+  font-size: 90%;
+  font-weight: 100;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s;
+}
+
+.auth-button:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #2bbbad;
+}
 
 /* ----------------------------------------------------------- */
 /*                         Auth Modal                          */
