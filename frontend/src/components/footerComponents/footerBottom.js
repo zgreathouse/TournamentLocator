@@ -3,8 +3,8 @@ import React from 'react';
 
 const FooterBottom = () => {
   return (
-    <div>
-      <div >
+    <div className="legal-nav-container">
+      <div className="legal-nav">
         <a href="#!">Terms of Service</a>
         <p>|</p>
         <a href="/">Home</a>
