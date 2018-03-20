@@ -75,7 +75,7 @@ h1, h2, h3 {
 .modal-greeting {
   text-align: center;
   margin-top: 140px;
-  margin-bottom: 80px;
+  margin-bottom: 55px;
 }
 
 .oauth-buttons-container {
@@ -124,8 +124,6 @@ h1, h2, h3 {
 .fa-facebook {
   margin-right: 15px;
 }
-
-
 
 /* ----------------------------------------------------------- */
 /*                           Header                            */
