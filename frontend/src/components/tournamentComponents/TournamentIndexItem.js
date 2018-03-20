@@ -9,7 +9,7 @@ const TournamentIndexItem = ({ tournament }) => {
     <div>
       <Link to={`/tournaments/${tournament._id}`}>
         <div className="tournament-list-item">
-          <h5>{tournament.title}</h5>
+          <h3>{tournament.title}</h3>
           <p>Game: {tournament.game}</p>
           <p>{date}</p>
         </div>
