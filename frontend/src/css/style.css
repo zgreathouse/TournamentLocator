@@ -67,68 +67,6 @@ h1, h2, h3 {
   float: right;
 }
 
-.modal-exit-button:hover {
-  cursor: pointer;
-  color: #2bbbad
-}
-
-.modal-content {
-  margin: 20% 10% 0 10%;
-}
-
-.modal-greeting {
-  text-align: center;
-  margin-top: 140px;
-  margin-bottom: 55px;
-}
-
-.oauth-buttons-container {
-  display: flex;
-  align-items: center;
-}
-
-.oauth-button {
-  height: 50px;
-  margin: 10px 0 10px 20px;
-  width: 300px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  border-radius: 5px
-}
-
-.oauth-button a,
-.oauth-button i {
-  margin-left: 10px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.oauth-button a {
-  font-size: 90%;
-}
-
-.oauth-button i {
-  font-size: 130%;
-}
-
-.google {
-  background-color: #dd4b39;
-}
-
-.facebook {
-  background-color: #3b5998;
-}
-
-.fa-google {
-  margin-right: 10px;
-}
-
-.fa-facebook {
-  margin-right: 15px;
-}
-
 /* ----------------------------------------------------------- */
 /*                           Header                            */
 /* ----------------------------------------------------------- */
@@ -200,10 +138,85 @@ header {
 /*                         Auth Modal                          */
 /* ----------------------------------------------------------- */
 
+.modal-exit-button:hover {
+  cursor: pointer;
+  color: #2bbbad
+}
 
+.modal-content {
+  margin: 20% 10% 0 10%;
+}
+
+.modal-greeting {
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: 55px;
+}
+
+.oauth-buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.oauth-button {
+  height: 50px;
+  margin: 10px 0 10px 20px;
+  width: 300px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px
+}
+
+.oauth-button a,
+.oauth-button i {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.oauth-button a {
+  font-size: 90%;
+}
+
+.oauth-button i {
+  font-size: 130%;
+}
+
+.google {
+  background-color: #dd4b39;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.fa-google {
+  margin-right: 10px;
+}
+
+.fa-facebook {
+  margin-right: 15px;
+}
 
 /* ----------------------------------------------------------- */
-/*                          Footer                             */
+/*                      Tournament Index                       */
+/* ----------------------------------------------------------- */
+
+.tournament-list {
+  list-style: none;
+}
+
+.tournament-list li {
+  width: 30%;
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid #403f42;
+}
+
+/* ----------------------------------------------------------- */
+/*                           Footer                            */
 /* ----------------------------------------------------------- */
 
 footer {
