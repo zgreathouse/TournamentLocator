@@ -53,7 +53,6 @@ export const extractTime = dateString => {
 export const extractDate = dateString => {
   let dateObj = new Date(dateString);
   let date = dateObj.toLocaleString('en-US').split(",");
-  console.log(date[0]);
   return date[0];
 }
 
