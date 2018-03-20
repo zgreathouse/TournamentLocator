@@ -5,6 +5,19 @@ import Modal from 'react-modal';
 //components
 import AuthModalBody from './AuthModalBody';
 
+const customStyles = {
+  content : {
+    top              : "40%",
+    left             : "50%",
+    right            : "auto",
+    bottom           : "auto",
+    marginRight      : "-50%",
+    transform        : "translate(-50%, -50%)",
+    width            : "420px",
+    height           : "520px"
+  }
+};
+
 class AuthModal extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +45,7 @@ class AuthModal extends Component {
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.toggleModal}
+          style={customStyles}
           contentLabel="Auth Modal"
         >
           <button className="modal-exit-button" onClick={this.toggleModal}> X </button>

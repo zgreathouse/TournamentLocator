@@ -51,6 +51,82 @@ h1, h2, h3 {
   letter-spacing: 1px;
 }
 
+/*-------------- Buttons ---------------*/
+
+.modal-exit-button {
+  color: #403f42;
+  background-color: transparent;
+  border: 0;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+  align-self: flex-end;
+  float: right;
+}
+
+.modal-exit-button:hover {
+  cursor: pointer;
+  color: #2bbbad
+}
+
+.modal-content {
+  margin: 20% 10% 0 10%;
+}
+
+.modal-greeting {
+  text-align: center;
+  margin-top: 140px;
+  margin-bottom: 80px;
+}
+
+.oauth-buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.oauth-button {
+  height: 50px;
+  margin: 10px 0 10px 20px;
+  width: 300px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border-radius: 5px
+}
+
+.oauth-button a,
+.oauth-button i {
+  margin-left: 10px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.oauth-button a {
+  font-size: 90%;
+}
+
+.oauth-button i {
+  font-size: 130%;
+}
+
+.google {
+  background-color: #dd4b39;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.fa-google {
+  margin-right: 10px;
+}
+
+.fa-facebook {
+  margin-right: 15px;
+}
+
+
+
 /* ----------------------------------------------------------- */
 /*                           Header                            */
 /* ----------------------------------------------------------- */
@@ -123,6 +199,7 @@ header {
 /* ----------------------------------------------------------- */
 
 
+
 /* ----------------------------------------------------------- */
 /*                          Footer                             */
 /* ----------------------------------------------------------- */
@@ -162,7 +239,7 @@ footer {
 .fa-linkedin,
 .fa-github {
   font-size: 130%;
-  color: #fff;
+  color: #eaeaea;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
@@ -195,7 +272,7 @@ footer {
 
 .legal-nav a:link,
 .legal-nav a:visited {
-  color: #fff;
+  color: #eaeaea;
   text-decoration: none;
   border: 0;
 }
