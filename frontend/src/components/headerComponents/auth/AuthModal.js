@@ -34,7 +34,7 @@ class AuthModal extends Component {
           onRequestClose={this.toggleModal}
           contentLabel="Auth Modal"
         >
-          <button onClick={this.toggleModal}> X </button>
+          <button className="modal-exit-button" onClick={this.toggleModal}> X </button>
           <AuthModalBody modalType={modalType}/>
         </Modal>
       </div>

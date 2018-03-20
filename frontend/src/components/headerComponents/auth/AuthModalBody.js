@@ -7,7 +7,7 @@ import GoogleOAuthButton from './GoogleOAuthButton';
 
 const AuthModalBody = ({modalType}) => {
   return (
-    <div>
+    <div className="container">
       <div>
         {modalType} with Google or Facebook!
       </div>

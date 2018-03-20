@@ -3,8 +3,11 @@ import React from 'react';
 
 const FooterTop = () => {
   return (
-    <div>
-      <div className="social-links">
+    <div className="row">
+      <div className="col span-3-of-4 main-logo-big">
+
+      </div>
+      <div className="col span-1-of-4 social-links">
         <h3>Developers</h3>
         <p>
           <a

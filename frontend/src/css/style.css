@@ -80,20 +80,24 @@ header {
   list-style: none;
   padding: 1%;
   width: 20%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .main-nav li {
   display: inline-block; /*side by side*/
-  margin-left: 23px;
+  margin-left: 15px;
 }
 
 .main-nav li:last-child {
   margin-right: 5px;
 }
 
-.auth-button {
+.auth-button,
+.auth-button-logout {
   padding-bottom: 6px;
   width: 100%;
+  text-decoration: none;
   font-size: 90%;
   font-weight: 100;
   background-color: transparent;
@@ -104,7 +108,12 @@ header {
   transition: border-bottom 0.3s;
 }
 
-.auth-button:hover {
+.auth-button-logout {
+  margin-right: 10px;
+}
+
+.auth-button:hover,
+.auth-button-logout:hover {
   cursor: pointer;
   border-bottom: 2px solid #2bbbad;
 }
@@ -126,12 +135,44 @@ footer {
   height: 177px;
 }
 
+.main-logo-big {
+  /* Big logo styling here */
+}
+
 .social-links {
-  font-size: 85%;
+  font-size: 75%;
 }
 
 .social-links h3 {
   margin-right: 80px
+}
+
+.social-links a {
+  margin-left: 7px;
+}
+
+.social-links a:last-of-type {
+  margin-right: 10px;
+}
+
+.social-links p {
+  margin-left: 5px;
+}
+
+.fa-linkedin,
+.fa-github {
+  font-size: 130%;
+  color: #fff;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.fa-linkedin:hover {
+  color: #0077B5;
+}
+
+.fa-github:hover {
+  color: #4078c0;
 }
 
 .legal-nav-container {
@@ -161,6 +202,7 @@ footer {
 
 .legal-nav a:active,
 .legal-nav a:hover {
-  text-decoration: none;
-  border: 0;
+  color: #2bbbad;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
 }
