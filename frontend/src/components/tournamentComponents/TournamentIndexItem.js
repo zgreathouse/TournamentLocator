@@ -6,12 +6,15 @@ const TournamentIndexItem = ({ tournament }) => {
   const date = extractDate(tournament.startTime);
 
   return (
-    <div>
+    <div className="tournament-list-item">
       <Link to={`/tournaments/${tournament._id}`}>
-        <div className="tournament-list-item">
-          <h3>{tournament.title}</h3>
-          <p>Game: {tournament.game}</p>
-          <p>{date}</p>
+        <h3 className="tournament-list-item-title">{tournament.title}</h3>
+        <div className="item-detail">
+            <div className="item-detail-banner"></div>
+            <div className="item-detail-info">
+              <p>{tournament.game}</p>
+              <p>{date}</p>
+            </div>
         </div>
       </Link>
     </div>

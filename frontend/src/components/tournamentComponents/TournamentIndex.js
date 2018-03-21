@@ -30,7 +30,7 @@ class TournamentIndex extends Component {
     return (
       <div>
         <div>
-          <h5>Tournaments</h5>
+          <h3>Tournaments near you!</h3>
           <ul className="tournament-list">
             {this.renderTournamentList()}
           </ul>
