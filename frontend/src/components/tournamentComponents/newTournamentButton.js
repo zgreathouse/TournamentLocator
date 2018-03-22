@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 
 const NewTournamentButton = () => {
   return (
-    <div>
+    <div className="create-tournament-link">
       <Link to="/tournaments/new">
-        <button className="create-tournament-button">
           Create Tournament!
-        </button>
       </Link>
     </div>
   )

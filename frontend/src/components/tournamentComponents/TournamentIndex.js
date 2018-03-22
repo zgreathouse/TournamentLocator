@@ -29,8 +29,10 @@ class TournamentIndex extends Component {
 
     return (
       <div>
-        <div>
-          <h3>Tournaments near you!</h3>
+        <h2 className="tournaments-greeting">
+          Tournaments near you!
+        </h2>
+        <div className="tournaments-heading">
           <NewTournamentButton />
         </div>
         <ul className="tournament-list">
