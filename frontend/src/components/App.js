@@ -23,7 +23,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/tournaments/new" component={TournamentForm} />
             <Route exact path="/tournaments/:id" component={TournamentShow} />
-            <Route exact path="/" component={TournamentIndex} />
+            <Route exact path="/tournaments" component={TournamentIndex} />
           </Switch>
           <Footer />
         </div>

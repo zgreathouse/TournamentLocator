@@ -31,11 +31,11 @@ class TournamentIndex extends Component {
       <div>
         <div>
           <h3>Tournaments near you!</h3>
-          <ul className="tournament-list">
-            {this.renderTournamentList()}
-          </ul>
+          <NewTournamentButton />
         </div>
-        <NewTournamentButton />
+        <ul className="tournament-list">
+          {this.renderTournamentList()}
+        </ul>
       </div>
     )
   }

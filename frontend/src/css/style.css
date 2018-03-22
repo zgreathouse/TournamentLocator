@@ -160,7 +160,7 @@ header {
 
 .oauth-button {
   height: 50px;
-  margin: 10px 0 10px 20px;
+  margin: 30px 0 10px 15px;
   width: 300px;
   text-decoration: none;
   display: flex;
@@ -204,17 +204,41 @@ header {
 /*                      Tournament Index                       */
 /* ----------------------------------------------------------- */
 
+.create-tournament-button {
+  color: #403f42;
+  font-size: 90%;
+  letter-spacing: 1px;
+  border: 1px solid #403f42;
+  width: 13%;
+  margin-right: 120px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: .9;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.create-tournament-button:focus { outline:0; }
+.create-tournament-button:hover {
+  opacity: 1;
+}
+
 .tournament-list {
   list-style: none;
+  margin-left: 28px;
 }
 
 .tournament-list li {
   width: 28%;
   margin: 15px;
+  display: inline-block;
 }
 
 .tournament-list-item {
   color: #403f42;
+  padding: 1%;
 }
 
 .tournament-list-item-title {
@@ -224,16 +248,15 @@ header {
 
 .item-detail {
   border: 1px solid #e8e8e8;
-  opacity: .8;
+  opacity: .6;
   box-shadow: 0;
   border-radius: 0 0 15px 0;
-  -webkit-transition: opacity 0.3s, box-shadow 0.3s;
-  transition: opacity 0.3s, box-shadow 0.3s;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
 }
 
 .item-detail:hover {
   opacity: 1;
-  box-shadow: 0 1px 4px #2bbbad;
 }
 
 .item-detail-banner {

@@ -6,7 +6,9 @@ const NewTournamentButton = () => {
   return (
     <div>
       <Link to="/tournaments/new">
-        Create Tournament!
+        <button className="create-tournament-button">
+          Create Tournament!
+        </button>
       </Link>
     </div>
   )
