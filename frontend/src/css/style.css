@@ -111,6 +111,7 @@ header {
 
 .auth-button,
 .auth-button-logout {
+  letter-spacing: 1px;
   padding-bottom: 6px;
   width: 100%;
   text-decoration: none;
@@ -123,6 +124,9 @@ header {
   -webkit-transition: border-bottom 0.3s;
   transition: border-bottom 0.3s;
 }
+
+.auth-button,
+.auth-button-logout:focus { outline:0; }
 
 .auth-button-logout {
   margin-right: 10px;
@@ -205,7 +209,6 @@ header {
 
 .create-tournament-link {
   color: #403f42;
-  font-size: 95%;
   padding-bottom: 6px;
   background-color: transparent;
   letter-spacing: 1px;
@@ -216,9 +219,7 @@ header {
 }
 
 .create-tournament-link:focus { outline:0; }
-.create-tournament-link:hover {
-  border-bottom: 2px solid #2bbbad;
-}
+.create-tournament-link:hover { border-bottom: 2px solid #2bbbad; }
 
 .tournament-list {
   list-style: none;
@@ -243,16 +244,14 @@ header {
 
 .item-detail {
   border: 1px solid #e4e4e4;
-  opacity: .6;
+  opacity: .5;
   box-shadow: 0;
   border-radius: 0 0 15px 0;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
 
-.item-detail:hover {
-  opacity: 1;
-}
+.item-detail:hover { opacity: 1; }
 
 .item-detail-banner {
   height: 140px;
@@ -271,6 +270,7 @@ header {
   display: inline-block;
   padding: 2px 13px;
   color: #403f42;
+  letter-spacing: 1px;
 }
 
 /* ----------------------------------------------------------- */
@@ -289,24 +289,17 @@ footer {
   /* Big logo styling here */
 }
 
-.social-links {
-  font-size: 75%;
-}
+.social-links { font-size: 75%; }
 
-.social-links h3 {
-  margin-right: 80px
-}
+.social-links h3 { margin-right: 80px }
 
-.social-links a {
-  margin-left: 7px;
-}
+.social-links a { margin-left: 7px; }
 
-.social-links a:last-of-type {
-  margin-right: 10px;
-}
+.social-links a:last-of-type { margin-right: 10px; }
 
 .social-links p {
   margin-left: 5px;
+  letter-spacing: 1px;
 }
 
 .fa-linkedin,
@@ -317,17 +310,11 @@ footer {
   transition: color 0.4s;
 }
 
-.fa-linkedin:hover {
-  color: #0077B5;
-}
+.fa-linkedin:hover { color: #0077B5; }
 
-.fa-github:hover {
-  color: #4078c0;
-}
+.fa-github:hover { color: #4078c0; }
 
-.legal-nav-container {
-  background-color: #2a292b;
-}
+.legal-nav-container { background-color: #2a292b; }
 
 .legal-nav {
   font-size: 70%;
@@ -339,9 +326,7 @@ footer {
 }
 
 .legal-nav p,
-.legal-nav a {
-  display: inline-block;
-}
+.legal-nav a { display: inline-block; }
 
 .legal-nav a:link,
 .legal-nav a:visited {
