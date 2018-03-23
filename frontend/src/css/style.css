@@ -103,6 +103,7 @@ header {
 .main-nav li {
   display: inline-block; /*side by side*/
   margin-left: 15px;
+  font-size: 90%;
 }
 
 .main-nav li:last-child {
