@@ -8,12 +8,14 @@ const TournamentIndexItem = ({ tournament }) => {
   return (
     <div className="tournament-list-item">
       <Link to={`/tournaments/${tournament._id}`}>
-        <h3 className="tournament-list-item-title">{tournament.title}</h3>
+        <h3 className="tournament-list-item-title">
+          {tournament.title}
+        </h3>
         <div className="item-detail">
             <div className="item-detail-banner"></div>
             <div className="item-detail-info">
               <p>{tournament.game}</p>
-              <p>{date}</p>
+              <p className="item-detail-info-date">{date}</p>
             </div>
         </div>
       </Link>

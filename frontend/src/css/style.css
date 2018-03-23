@@ -266,11 +266,15 @@ header {
 
 .item-detail-info p {
   margin: 0;
-  font-size: 80%;
+  font-size: 75%;
   display: inline-block;
   padding: 2px 13px;
   color: #403f42;
   letter-spacing: 1px;
+}
+
+.item-detail-info-date {
+  align-self: flex-start;
 }
 
 /* ----------------------------------------------------------- */
