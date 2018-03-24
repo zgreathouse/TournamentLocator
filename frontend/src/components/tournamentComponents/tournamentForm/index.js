@@ -44,7 +44,6 @@ class TournamentForm extends Component {
     this.props.createTournament(values, () => {
       this.props.history.push('/');
     });
-
   }
 
   render() {
