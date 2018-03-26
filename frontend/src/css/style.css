@@ -209,14 +209,17 @@ header {
 }
 
 .create-tournament-link {
-  color: #403f42;
   padding-bottom: 6px;
   background-color: transparent;
-  letter-spacing: 1px;
-  text-align: right;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.3s;
   transition: border-bottom 0.3s;
+}
+
+.create-tournament-link a {
+  color: #403f42;
+  letter-spacing: 1px;
+  text-align: right;
 }
 
 .create-tournament-link:focus { outline:0; }
