@@ -60,19 +60,18 @@ module.exports = app => {
     const match = p.test(req.url);
 
     const post = await Post.findById(match.postId);
-
-  // possible refactor
     const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
 
-    let commentIdx = post.comments.indexOf(comment);
-    let newComment = {
-      _user: req.user.id,
-      _post: match.postId,
-      body: req.body.body,
-      dateSubmitted: comment.dateSubmitted
+    comment.body = req.body.body;
+
+    try {
+      const updatedPost = await Post.findByIdAndUpdate(match.postId, {
+        $set: { "comments": comment }
+      }).exec();
+    } catch (err) {
+      res.status(422).send(err);
     }
 
-    const updatedPost = await Post.findByIdAndUpdate(match.postId, { $set: { "comments": comment }}).exec();
     res.send(updatedPost);
   });
 
