@@ -18,15 +18,12 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container" style={{
-          backgroundColor: "#FFF",
-          border: "1px solid #403f42"
-        }}>
+        <div>
           <Header />
           <Switch>
             <Route exact path="/tournaments/new" component={TournamentForm} />
             <Route exact path="/tournaments/:id" component={TournamentShow} />
-            <Route exact path="/" component={TournamentIndex} />
+            <Route exact path="/tournaments" component={TournamentIndex} />
           </Switch>
           <Footer />
         </div>

@@ -1,7 +1,8 @@
 //css libraries
-import 'materialize-css/dist/css/materialize.min.css';
+import 'normalize.css/normalize.css';
+import './css/vendor/grid.css';
 import 'font-awesome/css/font-awesome.min.css';
-import 'materialize-social/materialize-social.less';
+import './css/style.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

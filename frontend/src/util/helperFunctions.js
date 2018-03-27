@@ -51,8 +51,9 @@ export const extractTime = dateString => {
 
 //function which extracts the day, month, and year from a Date object
 export const extractDate = dateString => {
-  let date = new Date(dateString);
-  return date.toLocaleString('en-US').slice(0,10);
+  let dateObj = new Date(dateString);
+  let date = dateObj.toLocaleString('en-US').split(",");
+  return date[0].slice(0, -5);
 }
 
 //function which converts a form values object to be writable to our database

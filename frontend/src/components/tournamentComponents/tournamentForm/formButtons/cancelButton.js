@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const CancelButton = (props) => {
   return (
-    <Link to="/" className="btn right" style={{marginRight: "50px"}}>
-      Cancel
-    </Link>
+    <div>
+      <Link className="cancel-button" to="/tournaments">Cancel</Link>
+    </div>
   )
 }
 

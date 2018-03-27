@@ -9,11 +9,7 @@ const DateAndTime = ({ tournament }) => {
   const end = extractTime(endTime);
 
   return (
-    <div style={{
-        margin: "15px",
-        padding: "10px",
-        border: "1px solid #403f42"
-    }}>
+    <div>
       <div>Date: {date}</div>
       <div>
         <div>Start: {start} </div>

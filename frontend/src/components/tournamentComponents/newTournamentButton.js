@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const NewTournamentButton = () => {
   return (
-    <div>
-      <Link to="/tournaments/new" className="btn btn-primary right" style={{marginTop: "15px"}}>
-        Create Tournament!
+    <div className="create-tournament-link">
+      <Link to="/tournaments/new">
+          Create Tournament!
       </Link>
     </div>
   )

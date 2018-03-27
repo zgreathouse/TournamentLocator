@@ -5,10 +5,11 @@ const TimeInput = (field) => {
   const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
   return (
-    <div className={className} style={{margin: "0 250px 5px 130px"}}>
+    <div className={className}>
       <label>{field.label}</label>
-      <input type="time" color="#403f42" {...field.input}/>
-      <div style={{fontStyle: "italic", color: "#2bbbad"}}>
+      <br/>
+      <input type="time" {...field.input}/>
+      <div>
         {touched && error}
       </div>
     </div>

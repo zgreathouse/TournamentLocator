@@ -44,22 +44,23 @@ class TournamentForm extends Component {
     this.props.createTournament(values, () => {
       this.props.history.push('/');
     });
-
   }
 
   render() {
     const { handleSubmit } = this.props;
 
     return (
-      <div>
-        <h5 className="brand-logo center" style={{margin: "30px"}}>Tournament Form</h5>
+      <div className="tournament-form-container">
+        <h2>Tournament Form</h2>
         <form
+          className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
-          style={{margin: "100px 40px"}}
         >
           {this.renderFields()}
-          <SubmitButton />
-          <CancelButton />
+          <div className="form-buttons">
+            <SubmitButton />
+            <CancelButton />
+          </div>
         </form>
       </div>
     )
