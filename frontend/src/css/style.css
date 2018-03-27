@@ -41,9 +41,7 @@ html {
   visibility: hidden;
 }
 
-a {
-  text-decoration: none;
-}
+a { text-decoration: none; }
 
 /* ----------------------------------------------------------- */
 /*                     Reusable Components                     */
@@ -106,9 +104,7 @@ header {
   font-size: 90%;
 }
 
-.main-nav li:last-child {
-  margin-right: 5px;
-}
+.main-nav li:last-child { margin-right: 5px; }
 
 .auth-button,
 .auth-button-logout {
@@ -129,9 +125,7 @@ header {
 .auth-button,
 .auth-button-logout:focus { outline:0; }
 
-.auth-button-logout {
-  margin-right: 10px;
-}
+.auth-button-logout { margin-right: 10px; }
 
 .auth-button:hover,
 .auth-button-logout:hover {
@@ -363,9 +357,7 @@ input:focus { outline:0; }
   margin: 40px 0;
 }
 
-.tournament-form div {
-  margin: 5px 0;
-}
+.tournament-form div { margin: 5px 0; }
 
 .form-buttons {
   display: flex;
@@ -405,9 +397,7 @@ input:focus { outline:0; }
   transition: opacity 0.4s;
 }
 
-.cancel-button:hover {
-  opacity: 1;
-}
+.cancel-button:hover { opacity: 1; }
 
 
 /* ----------------------------------------------------------- */
