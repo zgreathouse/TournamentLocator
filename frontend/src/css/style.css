@@ -277,9 +277,75 @@ header {
   letter-spacing: 1px;
 }
 
-.item-detail-info-date {
-  align-self: flex-start;
+.item-detail-info-date { align-self: flex-start; }
+
+/* ----------------------------------------------------------- */
+/*                      Tournament Form                        */
+/* ----------------------------------------------------------- */
+
+label {
+  margin-right: 10px;
+  text-align: right;
 }
+
+input:focus { outline:0; }
+
+.tournament-form-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tournament-form-container h2 {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.tournament-form div {
+  margin: 5px 0;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.submit-button {
+  background-color: #2bbbad;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  opacity: 0.75;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.cancel-button {
+  background-color: #403f42;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 100;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  opacity: 0.9;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.cancel-button:hover {
+  opacity: 1;
+}
+
 
 /* ----------------------------------------------------------- */
 /*                           Footer                            */

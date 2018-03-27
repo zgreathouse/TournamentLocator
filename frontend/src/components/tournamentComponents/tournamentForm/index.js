@@ -50,12 +50,17 @@ class TournamentForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div>
-        <h5>Tournament Form</h5>
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <div className="tournament-form-container">
+        <h2>Tournament Form</h2>
+        <form
+          className="tournament-form"
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+        >
           {this.renderFields()}
-          <SubmitButton />
-          <CancelButton />
+          <div className="form-buttons">
+            <SubmitButton />
+            <CancelButton />
+          </div>
         </form>
       </div>
     )

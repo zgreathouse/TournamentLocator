@@ -7,6 +7,7 @@ const TimeInput = (field) => {
   return (
     <div className={className}>
       <label>{field.label}</label>
+      <br/>
       <input type="time" {...field.input}/>
       <div>
         {touched && error}

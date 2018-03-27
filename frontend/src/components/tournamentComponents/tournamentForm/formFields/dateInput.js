@@ -8,6 +8,7 @@ const DateInput = (field) => {
   return (
     <div className={className}>
       <label>{field.label}</label>
+      <br/>
       <input type="date" {...field.input}/>
       <div>
         {touched && error}

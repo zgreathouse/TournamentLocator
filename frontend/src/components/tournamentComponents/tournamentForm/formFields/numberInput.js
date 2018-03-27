@@ -13,6 +13,7 @@ const NumberInput = (field) => {
   return (
     <div>
       <label>{field.label}</label>
+      <br/>
       <input
         className={className}
         type="number"

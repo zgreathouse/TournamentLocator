@@ -3,9 +3,11 @@ import React from 'react';
 
 const SubmitButton = (props) => {
   return (
-    <button type="submit" text="submit">
-      Submit
-    </button>
+    <div>
+      <button className="submit-button" type="submit" text="submit">
+        Submit
+      </button>
+    </div>
   )
 }
 

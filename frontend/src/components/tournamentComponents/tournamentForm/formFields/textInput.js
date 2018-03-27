@@ -7,6 +7,7 @@ const TextInput = (field) => {
   return (
     <div className={className}>
       <label>{field.label}</label>
+      <br/>
       <input type="text" {...field.input}/>
       <div>
         {touched && error}
