@@ -8,9 +8,10 @@ const EditTournamentButton = ({ tournament, currentUser }) => {
 
   if(tournament._user === currentUser._id) {
     return (
-      <button>
-        Edit
-      </button>
+      <div className="edit-button-container">
+        <button className="edit-button">Edit</button>
+      </div>
+
     )
   }
 

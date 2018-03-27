@@ -13,17 +13,19 @@ import Description from './description';
 
 const TournamentDetail = ({ tournament }) => {
   return (
-    <div>
-      <h5>{tournament.title}</h5>
-      <GamesAndTags tournament={tournament} />
-      <SeriesIcon tournament={tournament} />
-      <TournamentLinks tournament={tournament} />
-      <Sponsors tournament={tournament} />
-      <MaxEntrants tournament={tournament} />
-      <Fees tournament={tournament}/>
-      <DateAndTime tournament={tournament}/>
-      <VenueAddress tournament={tournament} />
-      <Description tournament={tournament}/>
+    <div className="tournament-detail-container">
+      <h2>{tournament.title}</h2>
+      <div className="tournament-detail">
+        <GamesAndTags tournament={tournament} />
+        <SeriesIcon tournament={tournament} />
+        <TournamentLinks tournament={tournament} />
+        <Sponsors tournament={tournament} />
+        <MaxEntrants tournament={tournament} />
+        <Fees tournament={tournament}/>
+        <DateAndTime tournament={tournament}/>
+        <VenueAddress tournament={tournament} />
+        <Description tournament={tournament}/>
+      </div>
     </div>
   )
 }

@@ -4,9 +4,7 @@ const Description = ({ tournament }) => {
   const { description } = tournament;
 
   return (
-    <div>
-      <div>Description: {description}</div>
-    </div>
+    <div>Description: {description}</div>
   )
 }
 

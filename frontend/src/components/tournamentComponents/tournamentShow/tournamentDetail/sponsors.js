@@ -6,9 +6,7 @@ const Sponsors = ({ tournament }) => {
 
   return (
     <div>
-      <div>
-        Sponsors: {convertToReadable(sponsors)}
-      </div>
+      Sponsors: {convertToReadable(sponsors)}
     </div>
   )
 }

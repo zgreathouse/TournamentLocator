@@ -5,7 +5,7 @@ const MaxEntrants = ({ tournament }) => {
 
   return (
     <div>
-      <div>Size: {maxEntrants} entrants</div>
+      Size: {maxEntrants} entrants
     </div>
   )
 }

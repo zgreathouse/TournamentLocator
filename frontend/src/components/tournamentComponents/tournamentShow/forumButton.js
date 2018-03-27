@@ -3,8 +3,8 @@ import React from 'react';
 
 const ForumButton = () => {
   return (
-    <div>
-      <button>
+    <div className="forum-button-container">
+      <button className="forum-button">
         Forum
       </button>
     </div>
