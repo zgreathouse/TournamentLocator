@@ -8,7 +8,9 @@ const postsReducer = (state = {}, action) => {
 
   switch(action.type) {
 
-    case FETCH_TOURNAMENTS:
+    case FETCH_POSTS:
+      const posts = action.payload;
+      console.log(posts);
 
     default:
       return state;
