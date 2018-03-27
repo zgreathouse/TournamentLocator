@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchTournament } from '../../../actions/tournamentActions';
 
 //components
-import TournamentBanner from './tournamentBanner';
+// import TournamentBanner from './tournamentBanner';
 import EditTournamentButton from './editTournamentButton';
 import TournamentDetail from './tournamentDetail';
 import ForumButton from './forumButton';
