@@ -399,6 +399,30 @@ input:focus { outline:0; }
 
 .cancel-button:hover { opacity: 1; }
 
+/* ----------------------------------------------------------- */
+/*                      Tournament Forum                       */
+/* ----------------------------------------------------------- */
+
+.forum-container {
+  width: 86%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.posts-index {
+  margin: 20px;
+  color: #fff;
+  padding: 15px;
+  background-color: #403f42;
+  height: 400px;
+}
+
+.posts-index h3 {
+  font-size: 95%;
+  font-weight: 100;
+  margin: 0;
+}
+
 
 /* ----------------------------------------------------------- */
 /*                           Footer                            */

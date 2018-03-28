@@ -1,6 +1,6 @@
 import { FETCH_POSTS } from '../actions/postActions';
 
-const postsReducer = (state = {}, action) => {
+const postsReducer = (state = [], action) => {
   Object.freeze(state);
 
   switch(action.type) {
