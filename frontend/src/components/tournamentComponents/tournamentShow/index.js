@@ -29,7 +29,7 @@ class TournamentShow extends Component {
         {/* <TournamentBanner tournament={selectedTournament} /> */}
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
-        <ForumButton/>
+        <ForumButton tournamentID={selectedTournament._id}/>
       </div>
     )
   }

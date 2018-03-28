@@ -1,12 +1,14 @@
 //a button which navigates the user to forum page
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ForumButton = () => {
+const ForumButton = ({tournamentID}) => {
   return (
     <div className="forum-button-container">
-      <button className="forum-button">
-        Forum
-      </button>
+      <Link
+        to={`/tournaments/${tournamentID}/forum`}
+        className="forum-button"
+      >Forum</Link>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Footer from './footerComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './tournamentComponents/tournamentForm';
+import Forum from './forumComponents';
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/tournaments/new" component={TournamentForm} />
             <Route exact path="/tournaments/:id" component={TournamentShow} />
+            <Route exact path="/tournaments/:id/forum" component={Forum} />
             <Route exact path="/tournaments" component={TournamentIndex} />
           </Switch>
           <Footer />
