@@ -1,32 +1,26 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchPosts } from '../../../actions/postActions';
 
 //components
 import PostIndexItem from './postIndexItem';
 
 class PostIndex extends Component {
-  componentDidMount() {
-    const { fetchPosts, selectedTournament } = this.props;
-    fetchPosts(selectedTournament._id);
-  }
 
   renderPosts() {
     return _.map(this.props.posts, (post => {
       return (
         <li key={post._id}>
-          <PostIndexItem post={post} />
+          <PostIndexItem post={post} currentUser={this.props.currentUser} />
         </li>
       )
     }))
   }
 
   render() {
-    if(this.props.posts.length === 0) {
+    if(!this.props.posts) {
       return (
         <div className="posts-index">
-          <h3>There are no posts yet...</h3>
+          <h3>Loading Posts...</h3>
         </div>
       )
     }
@@ -42,11 +36,4 @@ class PostIndex extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: state.posts,
-  selectedTournament: state.tournaments.selectedTournament
-});
-
-export default connect(
-  mapStateToProps, { fetchPosts }
-)(PostIndex);
+export default PostIndex;
