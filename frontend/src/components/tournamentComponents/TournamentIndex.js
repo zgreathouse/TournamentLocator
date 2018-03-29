@@ -13,7 +13,7 @@ class TournamentIndex extends Component {
   }
 
   renderTournamentList() {
-    return _.map(this.props.tournaments.entities, (tournament => {
+    return _.map(this.props.tournaments, (tournament => {
       return (
         <li key={tournament._id}>
           <TournamentIndexItem tournament={tournament} />
@@ -44,7 +44,7 @@ class TournamentIndex extends Component {
 }
 
 const mapStateToProps = state => ({
-  tournaments: state.tournaments
+  tournaments: state.tournaments.entities
 });
 
 export default connect(
