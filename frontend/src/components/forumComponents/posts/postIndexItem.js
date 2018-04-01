@@ -5,11 +5,13 @@ const PostIndexItem = ({post}) => {
   // if it is, allow them to delete or edit the post
     // if(post._user === currentUser) {}
 
+  console.log(post);
+
   return (
     <div>
-      <h3>{post.title}</h3>
-      <p>{post.body}</p>
-      <p>{post.datePosted}</p>
+      <h3>title: {post.title}</h3>
+      <p>body: {post.body}</p>
+      <p>date: {post.datePosted}</p>
     </div>
   )
 }

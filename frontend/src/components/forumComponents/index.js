@@ -9,14 +9,15 @@ TODO
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/postActions';
+import { fetchTournament } from '../../actions/tournamentActions';
 
 //components
 import PostIndex from './posts/PostIndex';
 
 class Forum extends Component {
   componentDidMount() {
-    const { fetchPosts, selectedTournament } = this.props;
-    fetchPosts(selectedTournament._id);
+    const { fetchPosts } = this.props;
+    fetchPosts(this.props.match.params.id);
   }
 
   render() {
@@ -33,10 +34,9 @@ class Forum extends Component {
 
 const mapStateToProps = state => ({
   posts: state.posts,
-  currentUser: state.auth,
-  selectedTournament: state.tournaments.selectedTournament
+  currentUser: state.auth
 });
 
 export default connect(
-  mapStateToProps, { fetchPosts }
+  mapStateToProps, { fetchPosts, fetchTournament }
 )(Forum);

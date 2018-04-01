@@ -17,9 +17,9 @@ module.exports = app => {
     const allPosts = await Post.find({ _tournament: match.tournamentId });
 
     try {
-      if(allPosts.length === 0){
-        res.send({ emptyMessage: "No Posts Yet" })
-      }
+      // if(allPosts.length === 0){
+      //   res.send({ emptyMessage: "No Posts Yet" })
+      // }
       //allPosts.reverse to send posts with newest first
       res.send(allPosts.reverse());
     } catch (err) {
