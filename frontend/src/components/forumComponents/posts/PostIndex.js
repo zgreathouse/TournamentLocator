@@ -26,6 +26,7 @@ class PostIndex extends Component {
     return (
       <div className="posts-index">
         <h3>Posts</h3>
+        
         <ul>
           {this.renderPosts()}
         </ul>

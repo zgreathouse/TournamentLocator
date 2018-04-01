@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
-import { createTournament } from '../../../actions/tournamentActions';
-import { requireCommas } from '../../../util/helperFunctions';
-import { FIELDS, unrequiredFields } from '../../../util/formFields';
+import { createTournament } from '../../actions/tournamentActions';
+import { requireCommas } from '../../util/helperFunctions';
+import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
 
 //components
 import DateInput from './formFields/dateInput';
