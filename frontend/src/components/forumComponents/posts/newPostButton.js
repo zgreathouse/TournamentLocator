@@ -1,8 +1,8 @@
-//a button which navigates the user to the tournament form page
+//a button which navigates the user to the post form page
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NewPostButton = ({tournamentID}) => {
+const NewPostButton = ({ tournamentID }) => {
   return (
     <div className="create-tournament-link">
       <Link to={`/tournaments/${tournamentID}/forum/new`}>

@@ -414,7 +414,6 @@ input:focus { outline:0; }
   color: #fff;
   padding: 15px;
   background-color: #403f42;
-  height: 400px;
 }
 
 .posts-index h3 {
@@ -422,7 +421,6 @@ input:focus { outline:0; }
   font-weight: 100;
   margin: 0;
 }
-
 
 /* ----------------------------------------------------------- */
 /*                           Footer                            */

@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const PostIndexItem = ({post}) => {
+//components
+import EditPostButton from './editPostButton';
+
+class PostIndexItem extends Component {
   // logic for determining if the author of the post is the current user
   // if it is, allow them to delete or edit the post
-    // if(post._user === currentUser) {}
 
-  return (
-    <div>
-      <h3>title: {post.title}</h3>
-      <p>body: {post.body}</p>
-      <p>date: {post.datePosted}</p>
-    </div>
-  )
+  renderEditButton() {
+    const { post, currentUser } = this.props;
+
+    if (post._user === currentUser._id) {
+      return <EditPostButton post={post}/>
+    }
+  }
+
+  render() {
+    const { post, currentUser } = this.props;
+
+    if (!currentUser) {
+      return <div></div>
+    }
+
+    return (
+      <div>
+        <h3>title: {post.title}</h3>
+        <p>body: {post.body}</p>
+        <p>date: {post.datePosted}</p>
+        {this.renderEditButton()}
+      </div>
+    )
+  }
 }
 
 export default PostIndexItem;

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 
 //components
@@ -5,7 +6,7 @@ import PostIndexItem from './postIndexItem';
 
 class PostIndex extends Component {
   renderPosts() {
-    return this.props.posts.map(post => {
+    return _.map(this.props.posts, post => {
       return (
         <li key={post._id}>
           <PostIndexItem post={post} currentUser={this.props.currentUser} />
@@ -15,7 +16,7 @@ class PostIndex extends Component {
   }
 
   render() {
-    if(this.props.posts.length === 0) {
+    if(!this.props.posts) {
       return (
         <div className="posts-index">
           <h3>No posts yet...</h3>
