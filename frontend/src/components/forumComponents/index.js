@@ -18,7 +18,9 @@ class Forum extends Component {
     return (
       <div className="forum-container">
         <h2>Forum</h2>
-        <NewPostButton tournamentID={this.props.match.params.id}/>
+        <div className="tournaments-heading">
+          <NewPostButton tournamentID={this.props.match.params.id}/>
+        </div>
         <PostIndex posts={posts} currentUser={currentUser}/>
       </div>
     )

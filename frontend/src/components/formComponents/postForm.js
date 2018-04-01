@@ -23,8 +23,10 @@ class PostForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values, () => {
-      this.props.history.push('/');
+    console.log(values);
+    this.props.createPost(this.props.match.params.id, values, () => {
+      // this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
+      this.props.history.push(`/tournaments`);
     });
   }
 
