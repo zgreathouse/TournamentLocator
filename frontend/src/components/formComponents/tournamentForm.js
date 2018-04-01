@@ -59,7 +59,7 @@ class TournamentForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton />
+            <CancelButton route="/tournaments"/>
           </div>
         </form>
       </div>

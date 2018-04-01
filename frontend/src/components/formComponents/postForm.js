@@ -7,7 +7,7 @@ import { FIELDS } from '../../util/postFormFields';
 
 //components
 import TextInput from './formFields/textInput';
-import TextareaInput from './formFields/textareaInput';
+import RequiredTextareaInput from './formFields/requiredTextareaInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -17,13 +17,13 @@ class PostForm extends Component {
       if (name === 'title') {
         return <Field key={name} component={TextInput} type={type} label={label} name={name} />
       } else if (name === 'body') {
-        return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
+        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
       }
     });
   }
 
   onSubmit(values) {
-    this.props.createTournament(values, () => {
+    this.props.createPost(values, () => {
       this.props.history.push('/');
     });
   }
@@ -41,7 +41,7 @@ class PostForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton />
+            <CancelButton route={`/tournaments/${this.props.match.params.id}/forum`}/>
           </div>
         </form>
       </div>

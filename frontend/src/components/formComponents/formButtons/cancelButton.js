@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CancelButton = (props) => {
+const CancelButton = ({ route }) => {
   return (
     <div>
-      <Link className="cancel-button" to="/tournaments">Cancel</Link>
+      <Link className="cancel-button" to={`${route}`}>Cancel</Link>
     </div>
   )
 }
