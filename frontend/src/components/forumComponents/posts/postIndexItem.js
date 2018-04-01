@@ -23,11 +23,13 @@ class PostIndexItem extends Component {
     }
 
     return (
-      <div>
+      <div className="post-index-item">
         <h3>title: {post.title}</h3>
-        <p>body: {post.body}</p>
-        <p>date: {post.datePosted}</p>
-        {this.renderEditButton()}
+        <div className="post-content">
+          <p>body: {post.body}</p>
+          <p>date: {post.datePosted}</p>
+          {this.renderEditButton()}
+        </div>
       </div>
     )
   }

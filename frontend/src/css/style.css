@@ -422,6 +422,22 @@ input:focus { outline:0; }
   margin: 0;
 }
 
+.posts-index ul {
+  list-style: none;
+  padding: 0 30px;
+}
+
+.post-index-item {
+  margin: 10px 0;
+}
+
+.post-content {
+  padding: 10px;
+  color: #403f42;
+  background-color: #fff;
+  font-size: 85%;
+}
+
 /* ----------------------------------------------------------- */
 /*                           Footer                            */
 /* ----------------------------------------------------------- */
