@@ -17,11 +17,7 @@ export const fetchPosts = tournamentID => async dispatch => {
 
 //action which creates a new post for a specific tournament
 export const createPost = (tournamentID, values, callback) => async dispatch => {
-  //logic for setting the _tournament field to be the tournamentID
-  const newPost = Object.assign({}, values, {_tournament: tournamentID});
-  console.log(newPost);
-
-  const res = await axios.post(`api/posts/${tournamentID}`, newPost);
+  const res = await axios.post(`/api/posts/${tournamentID}`, values);
   await callback();
 
   dispatch({
