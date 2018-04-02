@@ -10,6 +10,7 @@ import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './formComponents/tournamentForm';
 import PostForm from './formComponents/postForm';
+import EditPostForm from './formComponents/editPostForm';
 import Forum from './forumComponents';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path="/tournaments/:id" component={TournamentShow} />
             <Route exact path="/tournaments/:id/forum" component={Forum} />
             <Route exact path="/tournaments/:id/forum/new" component={PostForm} />
+            <Route exact path="/tournaments/:id/forum/:postID/edit" component={EditPostForm} />
             <Route exact path="/tournaments" component={TournamentIndex} />
           </Switch>
           <Footer />
