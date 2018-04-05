@@ -42,7 +42,7 @@ class TournamentForm extends Component {
 
   onSubmit(values) {
     this.props.createTournament(values, () => {
-      this.props.history.push('/');
+      this.props.history.push('/tournaments');
     });
   }
 

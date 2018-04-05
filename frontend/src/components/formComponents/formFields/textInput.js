@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TextInput = (field) => {
-  console.log(field.input);
   const { touched, error } = field.meta;
   const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
