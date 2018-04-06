@@ -58,7 +58,7 @@ module.exports = app => {
 
     try{
       let userId = comment._user.toString();
-      if (req.user.id !== userId) {
+      if (req.user.id !== userId ) {
         return res.status(401).send({ error: "You can't edit this comment"});
       }
 
@@ -79,11 +79,12 @@ module.exports = app => {
 
     const comment = await Comment.findOne({ _id: match.commentId });
     const post = await Post.findOne({ _id: comment._post });
+    const tournament = await Tournament.findOne({ _id: post._tournament });
 
     let userId = comment._user.toString();
-    let authorId = post._user.toString();
+    let toId = tournament._user.toString();
 
-    if(req.user.id !== userId && req.user.id !== authorId) {
+    if(req.user.id !== userId && req.user.id !== toId) {
       return res.status(401).send({ error: "You can't edit this post." });
     }
 
