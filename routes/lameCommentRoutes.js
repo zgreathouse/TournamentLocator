@@ -58,7 +58,7 @@ module.exports = app => {
 
     try{
       let userId = comment._user.toString();
-      if (req.user.id !== userId ) {
+      if (req.user.id !== userId) {
         return res.status(401).send({ error: "You can't edit this comment"});
       }
 
