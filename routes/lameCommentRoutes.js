@@ -80,14 +80,16 @@ module.exports = app => {
     const comment = await Comment.findOne({ _id: match.commentId });
     const post = await Post.findOne({ _id: comment._post });
 
-    let userId = post._user.toString();
-    if(req.user.id !== userId) {
+    let userId = comment._user.toString();
+    let authorId = post._user.toString();
+
+    if(req.user.id !== userId && req.user.id !== authorId) {
       return res.status(401).send({ error: "You can't edit this post." });
     }
 
     try {
       let updatedCommentList = post.comments.filter(ele => {
-        return ele !== post.id.toSting();
+        return ele !== post.id.toString();
       });
 
       Comment.findByIdAndRemove(comment.id).exec();
@@ -95,6 +97,7 @@ module.exports = app => {
       const newPost = await post.save();
       res.send(newPost);
     } catch (err) {
+      console.log(err);
       res.status(422).send(err)
     }
   });
