@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const _ = require('lodash');
 const Path = require('path-parser');
 const { URL } = require('url');
 
@@ -6,7 +7,6 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireUsername = require('../middlewares/requireUsername');
 
 const Post = mongoose.model('posts');
-const Comment = mongoose.model('comments');
 
 module.exports = app => {
 
@@ -54,26 +54,28 @@ module.exports = app => {
     }
   });
 
-  // Update (edit) an existing comment
-  app.patch('/api/:postId/:commentId', async (req, res) => {
-    const p = new Path('/api/:postId/:commentId');
-    const match = p.test(req.url);
+// TODO: FIX THIS ROUTE LATER ###########################################################
+//      then revert changes to Post Schema from 'comments: [String]' to 'comments: [commentSchema]'
+//      and remove 'lame' from commentRoute import statement from ./index
 
-    const post = await Post.findById(match.postId);
-    const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
-
-    comment.body = req.body.body;
-
-    try {
-      const updatedPost = await Post.findByIdAndUpdate(match.postId, {
-        $set: { "comments": comment }
-      }).exec();
-    } catch (err) {
-      res.status(422).send(err);
-    }
-
-    res.send(updatedPost);
-  });
+  //Update (edit) an existing comment
+  // app.patch('/api/:postId/:commentId', async (req, res) => {
+  //   const p = new Path('/api/:postId/:commentId');
+  //   const match = p.test(req.url);
+  //
+  //   const post = await Post.findById(match.postId);
+  //   const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
+  //
+  //   try {
+  //     const updatedPost = await Post.findByIdAndUpdate(match.postId, {
+  //       $set: { "comments.$.body": req.body.body }
+  //     }).exec();
+  //
+  //     res.send(updatedPost)
+  //   } catch (err) {
+  //     res.status(422).send(err);
+  //   }
+  // });
 
   // Delete an existing comment
   app.delete('/api/:postId/:commentId', requireLogin, requireUsername, async (req, res) => {
@@ -85,7 +87,12 @@ module.exports = app => {
 // possible refactor
     const comment = post.comments.filter(comment => comment._id.toString() === match.commentId)[0];
 
-    const updatedPost = await Post.findByIdAndUpdate(match.postId, { $pull: { "comments": comment }}).exec();
+    try{
+      const updatedPost = await Post.findByIdAndUpdate(match.postId, { $pull: { "comments": comment }}).exec();
+    } catch (err) {
+      res.status(422).send(err);
+    }
+
     res.send(updatedPost);
   });
 
