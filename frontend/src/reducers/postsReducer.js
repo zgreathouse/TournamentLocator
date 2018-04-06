@@ -3,12 +3,14 @@ import { FETCH_POSTS, DELETE_POST } from '../actions/postActions';
 
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
+  let posts;
+  let postsObject;
 
   switch(action.type) {
 
     case FETCH_POSTS:
-      const posts = action.payload;
-      const postsObject = {};
+      posts = action.payload;
+      postsObject = {};
 
       for(let post of posts) {
         postsObject[post._id] = post;

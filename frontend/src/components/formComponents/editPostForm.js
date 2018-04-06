@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { deletePost } from '../../actions/postActions';
+// import { editPost } from '../../actions/postActions';
 import { FIELDS } from '../../util/postFormFields';
 
 //components
@@ -10,6 +10,7 @@ import TextInput from './formFields/textInput';
 import RequiredTextareaInput from './formFields/requiredTextareaInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
+// import DeleteButton from './formButtons/deleteButton';
 
 class EditPostForm extends Component {
   renderFields() {
@@ -41,19 +42,19 @@ class EditPostForm extends Component {
   //   this.props.initialize(initialData);
   // }
 
-  onSubmit(values) {
-    //TODO change this to logic for editing an existing post on submit
-    this.props.createPost(this.props.match.params.id, values, () => {
-      this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
-    });
-  }
+  // onSubmit(values) {
+  //   //TODO change this to logic for editing an existing post on submit
+  //   this.props.editPost(this.props.match.params.id, values, () => {
+  //     this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
+  //   });
+  // }
 
   render() {
     const { handleSubmit } = this.props;
 
     return (
       <div className="tournament-form-container">
-        <h2>Tournament Form</h2>
+        <h2>Edit Post</h2>
         <form
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
@@ -87,4 +88,4 @@ export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'PostEditForm',
   validate
-})(connect(null, { deletePost })(EditPostForm));
+})(connect(null /*, { editPost }*/)(EditPostForm));

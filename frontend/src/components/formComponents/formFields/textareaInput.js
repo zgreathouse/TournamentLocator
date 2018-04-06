@@ -3,7 +3,7 @@ import React from 'react';
 const TextareaInput = (field) => {
 
   return (
-    <div>
+    <div className="input-container">
       <label>{field.label}</label>
       <br/>
       <textarea

@@ -33,7 +33,7 @@ class PostForm extends Component {
 
     return (
       <div className="tournament-form-container">
-        <h2>Tournament Form</h2>
+        <h2>Post Form</h2>
         <form
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

@@ -21,7 +21,7 @@ class Forum extends Component {
         <div className="tournaments-heading">
           <NewPostButton tournamentID={this.props.match.params.id}/>
         </div>
-        <PostIndex posts={posts} currentUser={currentUser}/>
+        <PostIndex posts={posts} currentUser={currentUser} />
       </div>
     )
   }

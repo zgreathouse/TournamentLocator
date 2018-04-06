@@ -2,10 +2,9 @@ import React from 'react';
 
 const RequiredTextareaInput = (field) => {
   const { touched, error } = field.meta;
-  const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
   return (
-    <div className={className}>
+    <div className="input-container">
       <label>{field.label}</label>
       <br/>
       <textarea

@@ -28,7 +28,7 @@ export const createPost = (tournamentID, values, callback) => async dispatch => 
 
 //action which deletes a specific post from the database
 export const deletePost = id => async dispatch => {
-  await axios.delete(`/api/posts/${id}`)
+  await axios.delete(`/api/posts/${id}`);
 
   dispatch({
     type: DELETE_POST,

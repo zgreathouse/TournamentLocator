@@ -9,7 +9,11 @@ class PostIndex extends Component {
     return _.map(this.props.posts, post => {
       return (
         <li key={post._id}>
-          <PostIndexItem post={post} currentUser={this.props.currentUser} />
+          <PostIndexItem
+            post={post}
+            currentUser={this.props.currentUser}
+            id={post._id}
+          />
         </li>
       )
     })

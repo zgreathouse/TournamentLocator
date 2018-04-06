@@ -1,18 +1,33 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { deletePost } from '../../../actions/postActions';
 
 //components
 import EditPostButton from './editPostButton';
 
 class PostIndexItem extends Component {
-  // logic for determining if the author of the post is the current user
-  // if it is, allow them to delete or edit the post
-
   renderEditButton() {
     const { post, currentUser } = this.props;
 
     if (post._user === currentUser._id) {
       return <EditPostButton post={post}/>
     }
+  }
+
+  renderDeleteButton() {
+    const { post, currentUser } = this.props;
+
+    if (post._user === currentUser._id) {
+      return (
+        <div className="delete-button-container">
+          <button className="delete-button" onClick={this.onDelete.bind(this)}> X </button>
+        </div>
+      )
+    }
+  }
+
+  onDelete() {
+    this.props.deletePost(this.props.id);
   }
 
   render() {
@@ -29,6 +44,7 @@ class PostIndexItem extends Component {
           <p>date: {post.datePosted}</p>
         </div>
         <div className="post-content">
+          {this.renderDeleteButton()}
           <p>body: {post.body}</p>
           {this.renderEditButton()}
         </div>
@@ -37,4 +53,4 @@ class PostIndexItem extends Component {
   }
 }
 
-export default PostIndexItem;
+export default connect(null, { deletePost })(PostIndexItem);
