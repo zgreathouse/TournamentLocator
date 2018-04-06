@@ -48,7 +48,7 @@ module.exports = app => {
       await post.save();
       const newTournament = await tournament.save();
       res.send(newTournament)
-    } catch(err){
+    } catch (err){
       res.status(422).send(err);
     }
   });
