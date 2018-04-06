@@ -27,7 +27,7 @@ class PostIndexItem extends Component {
   }
 
   onDelete() {
-    this.props.deletePost(this.props.id);
+    this.props.deletePost(this.props.post._id);
   }
 
   render() {

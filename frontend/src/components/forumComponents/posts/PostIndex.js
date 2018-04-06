@@ -6,14 +6,11 @@ import PostIndexItem from './postIndexItem';
 
 class PostIndex extends Component {
   renderPosts() {
+    const { currentUser } = this.props;
     return _.map(this.props.posts, post => {
       return (
         <li key={post._id}>
-          <PostIndexItem
-            post={post}
-            currentUser={this.props.currentUser}
-            id={post._id}
-          />
+          <PostIndexItem post={post} currentUser={currentUser} />
         </li>
       )
     })
