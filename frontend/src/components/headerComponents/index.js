@@ -1,7 +1,7 @@
 //modules
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 //components
 import AuthModal from './auth/AuthModal';
@@ -19,26 +19,21 @@ class Header extends Component {
         ];
       default:
         return (
-          <li key={3}><a href="/api/logout" style={{ marginRight: "10px"}}>Logout</a></li>
+          <li key={3}><a className="auth-button-logout" href="/api/logout">Logout</a></li>
         );
     }
   }
 
   render() {
     return (
-      <nav style={{width: "100%", minWidth: "100%"}}>
-        <div className="nav-wrapper" style={{ backgroundColor: "#403f42"}}>
-            <div
-              className="left brand-logo"
-              style={{marginLeft: "30px", fontSize: "20px", minWidth: "600px"}}
-            >
-              <Link to="/" >Tournament Locator</Link>
-            </div>
-            <ul className="right">
-              {this.renderContent()}
-            </ul>
-        </div>
-      </nav>
+      <header>
+        <Link to="/" >
+          <h2 className="main-logo">Tournament Locator</h2>
+        </Link>
+          <ul className="main-nav">
+            {this.renderContent()}
+          </ul>
+      </header>
     )
   }
 }

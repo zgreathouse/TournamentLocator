@@ -19,6 +19,7 @@
     "lodash": "^4.17.4",
     "materialize-css": "^0.100.2",
     "materialize-social": "^1.0.3",
+    "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-modal": "^3.1.11",
@@ -26,6 +27,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
     "redux": "^3.7.2",
+    "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {

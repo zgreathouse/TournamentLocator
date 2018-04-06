@@ -7,14 +7,14 @@ import AuthModalBody from './AuthModalBody';
 
 const customStyles = {
   content : {
-    top              : "45%",
+    top              : "40%",
     left             : "50%",
     right            : "auto",
     bottom           : "auto",
     marginRight      : "-50%",
     transform        : "translate(-50%, -50%)",
-    width            : "480px",
-    height           : "530px"
+    width            : "400px",
+    height           : "480px"
   }
 };
 
@@ -39,11 +39,7 @@ class AuthModal extends Component {
 
     return (
       <div>
-        <button
-          onClick={this.toggleModal}
-          className="waves-effect waves-light btn"
-          style={{marginRight: "20px"}}
-        >
+        <button className="auth-button" onClick={this.toggleModal}>
           {modalType}
         </button>
         <Modal
@@ -52,10 +48,7 @@ class AuthModal extends Component {
           style={customStyles}
           contentLabel="Auth Modal"
         >
-          <button
-            onClick={this.toggleModal}
-            className="hoverable right btn"
-          > X </button>
+          <button className="modal-exit-button" onClick={this.toggleModal}> X </button>
           <AuthModalBody modalType={modalType}/>
         </Modal>
       </div>
