@@ -42,7 +42,7 @@ export const createTournament = (values, callback) => async dispatch => {
 
 //action which deletes a specific tournament document in the database
 export const deleteTournament = (id, callback) => async dispatch => {
-  await axios.delete(`/api/tournament/${id}`)
+  await axios.delete(`/api/tournaments/${id}`)
   await callback();
 
   dispatch({

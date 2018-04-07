@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTournament } from '../../../actions/tournamentActions';
+import { fetchTournament, deleteTournament } from '../../../actions/tournamentActions';
 
 //components
 // import TournamentBanner from './tournamentBanner';
@@ -11,6 +11,13 @@ import ForumButton from './forumButton';
 class TournamentShow extends Component {
   componentDidMount() {
     this.props.fetchTournament(this.props.id);
+  }
+
+
+  onDelete() {
+    this.props.deleteTournament(this.props.id, () => {
+      this.props.history.push(`/tournaments`);
+    });
   }
 
   render() {
@@ -27,7 +34,10 @@ class TournamentShow extends Component {
     return (
       <div>
         {/* <TournamentBanner tournament={selectedTournament} /> */}
-        <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
+        <div>
+          <button className="delete-tournament-button" onClick={this.onDelete.bind(this)}></button>
+          <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
+        </div>
         <TournamentDetail tournament={selectedTournament}/>
         <ForumButton tournamentID={selectedTournament._id}/>
       </div>
@@ -42,5 +52,5 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 export default connect(
-  mapStateToProps, { fetchTournament }
+  mapStateToProps, { fetchTournament, deleteTournament }
 )(TournamentShow);

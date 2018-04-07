@@ -38,15 +38,15 @@ export const convertListToArray = (list) => {
 
 //function which takes date and time strings and creates a date object
 export const convertToDateObject = (date, time) => {
-  const newDate = `${date} ${time} UTC`;
+  const newDate = `${date} ${time}`;
   return new Date(newDate);
 }
 
 //function which extracts the time from a date object
 export const extractTime = dateString => {
   let date = new Date(dateString);
-  let timeString = date.toLocaleTimeString('en-US');
-  return timeString.slice(0, 4) + timeString.slice(7);
+  let timeString = date.toLocaleTimeString('PST');
+  return `${timeString.slice(0, 4)} ${timeString.slice(7)}`;
 }
 
 //function which extracts the day, month, and year from a Date object
