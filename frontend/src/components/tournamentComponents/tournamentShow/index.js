@@ -13,6 +13,20 @@ class TournamentShow extends Component {
     this.props.fetchTournament(this.props.id);
   }
 
+  renderDeleteButton() {
+    const { selectedTournament, currentUser } = this.props;
+
+    if (currentUser._id === selectedTournament._user) {
+      return (
+        <div className="delete-tournament-button-container">
+          <button
+            className="delete-tournament-button"
+            onClick={this.onDelete.bind(this)}
+          >Delete Tournament</button>
+        </div>
+      )
+    }
+  }
 
   onDelete() {
     this.props.deleteTournament(this.props.id, () => {
@@ -23,7 +37,7 @@ class TournamentShow extends Component {
   render() {
     const { selectedTournament, currentUser } = this.props;
 
-    if (!selectedTournament) {
+    if (!selectedTournament || !currentUser) {
       return (
         <div>
           Loading Tournament...
@@ -36,13 +50,8 @@ class TournamentShow extends Component {
         {/* <TournamentBanner tournament={selectedTournament} /> */}
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
-        <div className="delete-tournament-button-container">
-          <button
-            className="delete-tournament-button"
-            onClick={this.onDelete.bind(this)}
-          >Delete Tournament</button>
-        </div>
-          <ForumButton tournamentID={selectedTournament._id}/>
+        {this.renderDeleteButton()}
+        <ForumButton tournamentID={selectedTournament._id}/>
       </div>
     )
   }
