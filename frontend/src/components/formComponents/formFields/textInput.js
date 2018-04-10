@@ -7,7 +7,7 @@ const TextInput = (field) => {
     <div className="input-container">
       <label>{field.label}</label>
       <br/>
-      <input type="text" value={field.input.value} {...field.input}/>
+      <input type="text" {...field.input}/>
       <div>{touched && error}</div>
     </div>
   )

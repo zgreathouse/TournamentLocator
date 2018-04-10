@@ -10,54 +10,28 @@ import TextInput from './formFields/textInput';
 import RequiredTextareaInput from './formFields/requiredTextareaInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
-// import DeleteButton from './formButtons/deleteButton';
 
 class EditPostForm extends Component {
-  componentWillMount() {
-
-  }
-
   renderFields() {
     //TODO need to figure out how to set initial values on a Field
-    let a = "nope"
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (name === 'title') {
-        return <Field key={name} component={TextInput} type={type} label={label} name={name} value={a} />
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} />
       } else if (name === 'body') {
-        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} value={a} />
+        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
       }
     });
   }
 
-  //TODO
-  // set up a selectedPost to grab post data during a component will mount
-  // set up the handle initialize function below and run function in a componentWillMount
-
-  // componentWillMount() {
-  //   this.handleInitialize();
-  // }
-
-
-  // handleInitialize() {
-  //   const initialData = {
-  //     "title": this.props.currentPost.title,
-  //     "body": this.props.currentPost.body
-  //   };
-  //
-  //   this.props.initialize(initialData);
-  // }
-
   onSubmit(values) {
-    //TODO change this to logic for editing an existing post on submit
-    this.props.editPost(this.props.selectedPost, values, () => {
+    this.props.editPost(this.props.postID, values, () => {
       this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
     });
   }
 
   render() {
-    const { handleSubmit, selectedPost } = this.props;
-    console.log(selectedPost);
+    const { handleSubmit } = this.props;
 
     return (
       <div className="tournament-form-container">
@@ -92,8 +66,7 @@ const validate = values => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  selectedPost: ownProps.match.params.postID,
-  posts: state.posts
+  postID: ownProps.match.params.postID,
 })
 
 export default reduxForm({
