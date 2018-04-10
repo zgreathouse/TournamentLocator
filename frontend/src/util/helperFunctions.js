@@ -68,13 +68,9 @@ export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
     if (value === "tags" || value === "sponsors") {
       values[value] = convertListToArray(values[value]);
-    }
-
-    if (value === "startTime" || value === "endTime") {
+    } else if (value === "startTime" || value === "endTime") {
       values[value] = convertToDateObject(values.date, values[value]);
-    }
-
-    if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
+    } else if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
       values[value] = parseFloat(values[value], 10);
     }
   }
