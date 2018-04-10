@@ -352,7 +352,7 @@ header {
   padding: 10px 20px;
   border-radius: 10px;
   border: 0;
-  opacity: 0.9;
+  opacity: 0.5;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
@@ -372,10 +372,37 @@ header {
 
 .tournament-detail { padding: 5px 20px; }
 
+.delete-tournament-button-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 0 0;
+}
+
+.delete-tournament-button {
+  color: #f00;
+  background-color: #fff;
+  border: 1px solid #f00;
+  font-size: 95%;
+  font-weight: 100;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+}
+
+.delete-tournament-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.delete-tournament-button:focus { outline: 0 }
+
 .forum-button-container {
   display: flex;
   justify-content: center;
-  margin: 60px 0;
+  margin: 30px 0 60px 0;
 }
 
 .forum-button {
@@ -384,7 +411,7 @@ header {
   font-size: 120%;
   background-color: #403f42;
   color: #fff;
-  padding: 15px 120px;
+  padding: 20px 160px;
   border-radius: 10px;
   opacity: 0.9;
   -webkit-transition: opacity 0.4s;

@@ -34,12 +34,15 @@ class TournamentShow extends Component {
     return (
       <div>
         {/* <TournamentBanner tournament={selectedTournament} /> */}
-        <div>
-          <button className="delete-tournament-button" onClick={this.onDelete.bind(this)}></button>
-          <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
-        </div>
+        <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
-        <ForumButton tournamentID={selectedTournament._id}/>
+        <div className="delete-tournament-button-container">
+          <button
+            className="delete-tournament-button"
+            onClick={this.onDelete.bind(this)}
+          >Delete Tournament</button>
+        </div>
+          <ForumButton tournamentID={selectedTournament._id}/>
       </div>
     )
   }
