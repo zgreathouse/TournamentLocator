@@ -16,9 +16,9 @@ class PostForm extends Component {
     return _.map(FIELDS, ({ label, name, type }) => {
       if (name === 'title') {
         return <Field key={name} component={TextInput} type={type} label={label} name={name} />
-      } else if (name === 'body') {
-        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
       }
+
+      return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
     });
   }
 

@@ -18,9 +18,9 @@ class EditPostForm extends Component {
     return _.map(FIELDS, ({ label, name, type }) => {
       if (name === 'title') {
         return <Field key={name} component={TextInput} type={type} label={label} name={name} />
-      } else if (name === 'body') {
-        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
       }
+
+      return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
     });
   }
 
@@ -31,7 +31,8 @@ class EditPostForm extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, initialValues } = this.props;
+    console.log(initialValues);
 
     return (
       <div className="tournament-form-container">
@@ -66,7 +67,7 @@ const validate = values => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  postID: ownProps.match.params.postID,
+  postID: ownProps.match.params.postID
 })
 
 export default reduxForm({
