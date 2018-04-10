@@ -51,8 +51,15 @@ export const extractTime = dateString => {
 
 //function which extracts the day, month, and year from a Date object
 export const extractDate = dateString => {
-  let dateObj = new Date(dateString);
-  let date = dateObj.toLocaleString('en-US').split(",");
+  let date = new Date(dateString).toLocaleString('en-US').split(",");
+  let newDate = new Date().toLocaleString('en-US').split(",");
+
+  if (date[0].slice(-2) !== newDate[0].slice(-2)) {
+    //date with year included
+    return `${date[0].slice(0, -4)}${date[0].slice(-2)}` ;
+  }
+
+  //date without the year included
   return date[0].slice(0, -5);
 }
 
