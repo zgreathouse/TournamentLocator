@@ -26,6 +26,17 @@ export const createPost = (tournamentID, values, callback) => async dispatch => 
   });
 };
 
+//action which edits an existing post in the database
+export const editPost = (postID, values, callback) => async dispatch => {
+  const res = await axios.patch(`/api/posts/${postID}`, values);
+  await callback();
+
+  dispatch({
+    type: UPDATE_POST,
+    payload: res.data
+  })
+}
+
 //action which deletes a specific post from the database
 export const deletePost = id => async dispatch => {
   await axios.delete(`/api/posts/${id}`);

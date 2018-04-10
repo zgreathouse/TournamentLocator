@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-// import { editPost } from '../../actions/postActions';
+import { editPost } from '../../actions/postActions';
 import { FIELDS } from '../../util/postFormFields';
 
 //components
@@ -13,13 +13,19 @@ import CancelButton from './formButtons/cancelButton';
 // import DeleteButton from './formButtons/deleteButton';
 
 class EditPostForm extends Component {
+  componentWillMount() {
+
+  }
+
   renderFields() {
     //TODO need to figure out how to set initial values on a Field
+    let a = "nope"
+
     return _.map(FIELDS, ({ label, name, type }) => {
       if (name === 'title') {
-        return <Field key={name} component={TextInput} type={type} label={label} name={name} />
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} value={a} />
       } else if (name === 'body') {
-        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} />
+        return <Field key={name} component={RequiredTextareaInput} type={type} label={label} name={name} value={a} />
       }
     });
   }
@@ -42,15 +48,16 @@ class EditPostForm extends Component {
   //   this.props.initialize(initialData);
   // }
 
-  // onSubmit(values) {
-  //   //TODO change this to logic for editing an existing post on submit
-  //   this.props.editPost(this.props.match.params.id, values, () => {
-  //     this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
-  //   });
-  // }
+  onSubmit(values) {
+    //TODO change this to logic for editing an existing post on submit
+    this.props.editPost(this.props.selectedPost, values, () => {
+      this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
+    });
+  }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, selectedPost } = this.props;
+    console.log(selectedPost);
 
     return (
       <div className="tournament-form-container">
@@ -84,8 +91,13 @@ const validate = values => {
   return errors;
 }
 
+const mapStateToProps = (state, ownProps) => ({
+  selectedPost: ownProps.match.params.postID,
+  posts: state.posts
+})
+
 export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'PostEditForm',
   validate
-})(connect(null /*, { editPost }*/)(EditPostForm));
+})(connect(mapStateToProps, { editPost })(EditPostForm));
