@@ -352,7 +352,7 @@ header {
   padding: 10px 20px;
   border-radius: 10px;
   border: 0;
-  opacity: 0.5;
+  opacity: 0.8;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }
@@ -370,7 +370,10 @@ header {
   margin: 20px auto;
 }
 
-.tournament-detail { padding: 5px 20px; }
+.tournament-detail {
+  padding: 15px;
+  border: 1px solid #403f42;
+}
 
 .delete-tournament-button-container {
   display: flex;
@@ -388,8 +391,8 @@ header {
   padding: 10px 20px;
   border-radius: 10px;
   opacity: 0.6;
-  -webkit-transition: opacity 0.4s;
-  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .delete-tournament-button:hover {
@@ -413,7 +416,7 @@ header {
   color: #fff;
   padding: 20px 160px;
   border-radius: 10px;
-  opacity: 0.9;
+  opacity: 0.8;
   -webkit-transition: opacity 0.4s;
   transition: opacity 0.4s;
 }

@@ -13,6 +13,12 @@ class TournamentShow extends Component {
     this.props.fetchTournament(this.props.id);
   }
 
+  onDelete() {
+    this.props.deleteTournament(this.props.id, () => {
+      this.props.history.push(`/tournaments`);
+    });
+  }
+
   renderDeleteButton() {
     const { selectedTournament, currentUser } = this.props;
 
@@ -26,12 +32,6 @@ class TournamentShow extends Component {
         </div>
       )
     }
-  }
-
-  onDelete() {
-    this.props.deleteTournament(this.props.id, () => {
-      this.props.history.push(`/tournaments`);
-    });
   }
 
   render() {
