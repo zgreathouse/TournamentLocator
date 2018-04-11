@@ -10,9 +10,10 @@ import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './formComponents/TournamentForm';
 import EditTournamentForm from './formComponents/EditTournamentForm';
+import Forum from './forumComponents';
+import PostDetail from './forumComponents/posts/PostDetail';
 import PostForm from './formComponents/PostForm';
 import EditPostForm from './formComponents/EditPostForm';
-import Forum from './forumComponents';
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/tournaments/:id/edit" component={EditTournamentForm} />
             <Route exact path="/tournaments/:id/forum" component={Forum} />
             <Route exact path="/tournaments/:id/forum/new" component={PostForm} />
+            <Route exact path="/tournaments/:id/forum/:postID" component={PostDetail} />
             <Route exact path="/tournaments/:id/forum/:postID/edit" component={EditPostForm} />
             <Route exact path="/tournaments" component={TournamentIndex} />
           </Switch>
