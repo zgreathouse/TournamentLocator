@@ -4,6 +4,7 @@ import { deletePost } from '../../../actions/postActions';
 
 //components
 import EditPostButton from './editPostButton';
+import CommentsIndex from '../comments/CommentsIndex';
 
 class PostIndexItem extends Component {
   renderEditButton() {
@@ -48,6 +49,7 @@ class PostIndexItem extends Component {
           <p>body: {post.body}</p>
           {this.renderEditButton()}
         </div>
+        <CommentsIndex postID={post._id}/>
       </div>
     )
   }

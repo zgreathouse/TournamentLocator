@@ -31,8 +31,7 @@ class EditPostForm extends Component {
   }
 
   render() {
-    const { handleSubmit, initialValues } = this.props;
-    console.log(initialValues);
+    const { handleSubmit } = this.props;
 
     return (
       <div className="tournament-form-container">

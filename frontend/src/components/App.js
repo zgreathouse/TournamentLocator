@@ -8,9 +8,9 @@ import Header from './headerComponents';
 import Footer from './footerComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
-import TournamentForm from './formComponents/tournamentForm';
-import PostForm from './formComponents/postForm';
-import EditPostForm from './formComponents/editPostForm';
+import TournamentForm from './formComponents/TournamentForm';
+import PostForm from './formComponents/PostForm';
+import EditPostForm from './formComponents/EditPostForm';
 import Forum from './forumComponents';
 
 class App extends Component {
