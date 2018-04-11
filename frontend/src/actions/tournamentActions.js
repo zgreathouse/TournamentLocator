@@ -8,6 +8,8 @@ export const CREATE_TOURNAMENT  = 'CREATE_TOURNAMENT';
 export const UPDATE_TOURNAMENT  = 'UPDATE_TOURNAMENT';
 export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
 
+let newTournament;
+
 //action which fetches all of the tournaments from the database
 export const fetchTournaments = () => async dispatch => {
   const res = await axios.get('/api/tournaments');
@@ -30,12 +32,25 @@ export const fetchTournament = id => async dispatch => {
 
 //action which creates a new tournament document in the database
 export const createTournament = (values, callback) => async dispatch => {
-  const newTournament = convertToDatabaseWritable(values);
+  newTournament = convertToDatabaseWritable(values);
   const res = await axios.post('/api/tournaments', newTournament);
   await callback();
 
   dispatch({
     type: CREATE_TOURNAMENT,
+    payload: res.data
+  });
+}
+
+//action which edits an existing tournament in the database
+export const editTournament = (id, values, callback) => async dispatch => {
+  newTournament = convertToDatabaseWritable(values);
+
+  const res = await axios.patch(`/api/tournaments/${id}`, newTournament);
+  await callback();
+
+  dispatch({
+    type: UPDATE_TOURNAMENT,
     payload: res.data
   });
 }

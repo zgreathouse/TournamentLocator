@@ -9,6 +9,7 @@ import Footer from './footerComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './formComponents/TournamentForm';
+import EditTournamentForm from './formComponents/EditTournamentForm';
 import PostForm from './formComponents/PostForm';
 import EditPostForm from './formComponents/EditPostForm';
 import Forum from './forumComponents';
@@ -26,6 +27,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/tournaments/new" component={TournamentForm} />
             <Route exact path="/tournaments/:id" component={TournamentShow} />
+            <Route exact path="/tournaments/:id/edit" component={EditTournamentForm} />
             <Route exact path="/tournaments/:id/forum" component={Forum} />
             <Route exact path="/tournaments/:id/forum/new" component={PostForm} />
             <Route exact path="/tournaments/:id/forum/:postID/edit" component={EditPostForm} />
