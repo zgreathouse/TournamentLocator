@@ -8,8 +8,8 @@ import CommentButton from './formButtons/commentButton';
 
 class NewCommentField extends Component {
 
-  onSubmit(values) {
-    this.props.createComment(this.props.postID, values);
+  onSubmit(value) {
+    this.props.createComment(this.props.postID, value);
   }
 
   render() {

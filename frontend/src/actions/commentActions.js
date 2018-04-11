@@ -5,7 +5,6 @@ export const CREATE_COMMENT  = 'CREATE_COMMENT';
 export const DELETE_COMMENT  = 'DELETE_COMMENT';
 
 export const createComment = (postID, value) => async dispatch => {
-  console.log(value);
   const res = await axios.post(`/api/comments/${postID}`, value);
 
   dispatch({

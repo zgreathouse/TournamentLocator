@@ -1,3 +1,4 @@
+import uuidv4 from 'uuid/v4';
 import React from 'react';
 
 //components
