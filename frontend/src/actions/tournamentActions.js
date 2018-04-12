@@ -10,22 +10,22 @@ export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
 
 let newTournament;
 
-//action which fetches all of the tournaments from the database
-export const fetchTournaments = () => async dispatch => {
-  const res = await axios.get('/api/tournaments');
-
-  dispatch({
-    type: FETCH_TOURNAMENTS,
-    payload: res.data
-  });
-};
-
 //action which fetches a single tournament from the database
 export const fetchTournament = id => async dispatch => {
   const res = await axios.get(`/api/tournaments/${id}`);
 
   dispatch({
     type: FETCH_TOURNAMENT,
+    payload: res.data
+  });
+};
+
+//action which fetches all of the tournaments from the database
+export const fetchTournaments = () => async dispatch => {
+  const res = await axios.get('/api/tournaments');
+
+  dispatch({
+    type: FETCH_TOURNAMENTS,
     payload: res.data
   });
 };

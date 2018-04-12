@@ -36,11 +36,9 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { post, state } = this.props;
+    const { post, currentUser } = this.props;
 
-    console.log(state);
-
-    if (!post) {
+    if (!post || !currentUser) {
       return <div></div>
     }
 
@@ -59,8 +57,7 @@ class PostDetail extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth,
-  post: state.post,
-  state
+  post: state.posts
 });
 
 export default connect(mapStateToProps, { deletePost, fetchPost })(PostDetail);

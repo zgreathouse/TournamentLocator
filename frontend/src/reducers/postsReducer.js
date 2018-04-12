@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_POSTS, DELETE_POST } from '../actions/postActions';
+import { FETCH_POST, FETCH_POSTS, DELETE_POST } from '../actions/postActions';
 
 const postsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,6 +7,9 @@ const postsReducer = (state = {}, action) => {
   let postsObject;
 
   switch(action.type) {
+
+    case FETCH_POST:
+      return action.payload;
 
     case FETCH_POSTS:
       posts = action.payload;

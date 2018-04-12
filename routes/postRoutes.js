@@ -12,16 +12,17 @@ module.exports = app => {
 
   // Get a specific post for a given tournament
   app.get('/api/post/:postId', async (req, res) => {
-    const p = new Path('/api/posts/:postId');
+    const p = new Path('/api/post/:postId');
     const match = p.test(req.url);
 
+    const post = await Post.findOne({ _id: match.postId });
+
     try {
-      const post = await Post.findOne({ _id: match.postId });
       res.send(post);
     } catch (err) {
       res.status(422).send(err);
     }
-  })
+  });
 
   // Get an index of all the the posts for a given tournament
   app.get('/api/posts/:tournamentId', async (req, res) => {
