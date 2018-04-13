@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../../../actions/postActions';
+import { Link } from 'react-router-dom';
 
 //components
 import EditPostButton from './editPostButton';
@@ -25,7 +26,9 @@ class PostDetail extends Component {
     if (post._user === currentUser._id) {
       return (
         <div className="delete-button-container">
-          <button className="delete-button" onClick={this.onDelete.bind(this)}> X </button>
+          <button className="delete-button" onClick={this.onDelete.bind(this)}>
+            Delete Post
+          </button>
         </div>
       )
     }
@@ -45,11 +48,20 @@ class PostDetail extends Component {
     }
 
     return (
-      <div>
-        <div className="post-content">
+      <div className="post-detail">
+        <div className="post-nav">
+          <Link
+            className="go-back-button"
+            to={`/tournaments/${this.props.match.params.id}/forum`}
+          >Go Back</Link>
           {this.renderDeleteButton()}
-          <p>body: {post.body}</p>
-          {this.renderEditButton()}
+        </div>
+        <div className="post-content">
+          <h2 className="post-title">{post.title}</h2>
+          <div className="post-body">
+            <p>{post.body}</p>
+            {this.renderEditButton()}
+          </div>
         </div>
         <CommentsIndex postID={post._id}/>
       </div>
