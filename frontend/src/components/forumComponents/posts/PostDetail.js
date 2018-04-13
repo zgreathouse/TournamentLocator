@@ -32,7 +32,9 @@ class PostDetail extends Component {
   }
 
   onDelete() {
-    this.props.deletePost(this.props.post._id);
+    this.props.deletePost(this.props.post._id, () => {
+      this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
+    });
   }
 
   render() {

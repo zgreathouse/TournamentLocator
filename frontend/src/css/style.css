@@ -476,32 +476,40 @@ header {
   background-color: #403f42;
 }
 
-.posts-index h3 {
+.posts-index-empty {
   font-size: 95%;
+  letter-spacing: 1px;
   font-weight: 100;
-  margin: 0;
+  color: #fff;
 }
 
 .posts-index ul {
   list-style: none;
-  padding: 0 30px;
+  padding: 0 25px;
 }
 
-.post-index-item { margin: 10px 0; }
-
-.post-header {
+.post-index-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
+  width: 70%;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
 }
 
-.post-header h3,
-.post-header p {
+.post-index-item:hover { color: #2bbbad; }
+
+.post-index-item h3,
+.post-index-item p {
   font-weight: 100;
+  font-size: 90%;
+  margin: 4px 5px;
 }
 
-.post-header p {
-  font-size: 80%;
+.post-index-item p {
+  display: inline-block;
+  font-size: 90%;
 }
 
 .post-content {
@@ -543,7 +551,10 @@ footer {
 
 .social-links { font-size: 75%; }
 
-.social-links h3 { margin-right: 80px }
+.social-links h3 {
+  margin-right: 80px;
+  letter-spacing: 2px;
+}
 
 .social-links a { margin-left: 7px; }
 
@@ -578,7 +589,10 @@ footer {
 }
 
 .legal-nav p,
-.legal-nav a { display: inline-block; }
+.legal-nav a {
+  display: inline-block;
+  letter-spacing: 1px;
+}
 
 .legal-nav a:link,
 .legal-nav a:visited {

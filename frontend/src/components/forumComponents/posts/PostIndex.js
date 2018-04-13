@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 
 //components
@@ -9,7 +10,7 @@ class PostIndex extends Component {
     const { currentUser } = this.props;
     return _.map(this.props.posts, post => {
       return (
-        <li key={post._id}>
+        <li key={uuidv4()}>
           <PostIndexItem post={post} currentUser={currentUser} />
         </li>
       )
@@ -17,17 +18,16 @@ class PostIndex extends Component {
   }
 
   render() {
-    if(!this.props.posts) {
+    if (Object.keys(this.props.posts).length === 0) {
       return (
         <div className="posts-index">
-          <h3>No posts yet...</h3>
+          <h3 className="posts-index-empty">No posts yet...</h3>
         </div>
       )
     }
 
     return (
       <div className="posts-index">
-        <h3>Posts</h3>
         <ul>
           {this.renderPosts()}
         </ul>

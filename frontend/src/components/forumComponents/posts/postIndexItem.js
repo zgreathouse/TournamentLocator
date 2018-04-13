@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { extractDate } from '../../../util/helperFunctions';
 
 class PostIndexItem extends Component {
   render() {
@@ -12,10 +13,8 @@ class PostIndexItem extends Component {
     return (
       <Link to={`/tournaments/${post._tournament}/forum/${post._id}`}>
         <div className="post-index-item">
-          <div className="post-header">
-            <h3>title: {post.title}</h3>
-            <p>date: {post.datePosted}</p>
-          </div>
+          <h3>{post.title}</h3>
+          <p>{extractDate(post.datePosted)}</p>
         </div>
       </Link>
     )

@@ -49,8 +49,9 @@ export const editPost = (postID, values, callback) => async dispatch => {
 }
 
 //action which deletes a specific post from the database
-export const deletePost = id => async dispatch => {
+export const deletePost = (id, callback) => async dispatch => {
   await axios.delete(`/api/posts/${id}`);
+  await callback();
 
   dispatch({
     type: DELETE_POST,
