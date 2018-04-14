@@ -27,7 +27,7 @@ class PostDetail extends Component {
       return (
         <div className="delete-button-container">
           <button className="delete-button" onClick={this.onDelete.bind(this)}>
-            Delete Post
+            X
           </button>
         </div>
       )
@@ -63,7 +63,7 @@ class PostDetail extends Component {
             {this.renderEditButton()}
           </div>
         </div>
-        <CommentsIndex postID={post._id}/>
+        <CommentsIndex postID={post._id} comments={post.comments}/>
       </div>
     )
   }

@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/commentActions';
 
-import TextInput from './formFields/textInput';
+import NewCommentInput from './formFields/newCommentInput';
 import CommentButton from './formButtons/commentButton';
 
 class NewCommentField extends Component {
@@ -20,7 +20,7 @@ class NewCommentField extends Component {
         className="comment-field"
         onSubmit={handleSubmit(this.onSubmit.bind(this))}
       >
-        <Field component={TextInput} type="input" name="body" />
+        <Field component={NewCommentInput} type="input" name="body" />
         <CommentButton />
       </form>
     )
