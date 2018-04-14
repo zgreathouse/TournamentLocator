@@ -571,6 +571,28 @@ header {
 .edit-post-link a:active,
 .edit-post-link a:hover { color: #2bbbad; }
 
+.comment-section {
+
+}
+
+.comment-field {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin: 0 44px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 86%;
+}
+
+.input-container input {
+  width: 100%;
+  font-size: 90%;
+}
+
 /* ----------------------------------------------------------- */
 /*                           Footer                            */
 /* ----------------------------------------------------------- */

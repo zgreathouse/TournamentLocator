@@ -17,10 +17,10 @@ class NewCommentField extends Component {
 
     return (
       <form
-        className="tournament-form"
+        className="comment-field"
         onSubmit={handleSubmit(this.onSubmit.bind(this))}
       >
-        <Field component={TextInput} type="input" label="New Comment" name="body" />
+        <Field component={TextInput} type="input" name="body" />
         <CommentButton />
       </form>
     )

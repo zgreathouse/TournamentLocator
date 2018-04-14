@@ -5,8 +5,6 @@ const NewCommentInput = (field) => {
 
   return (
     <div className="input-container">
-      <label>{field.label}</label>
-      <br/>
       <input type="text" className="new-comment" {...field.input}/>
       <div>{touched && error}</div>
     </div>
