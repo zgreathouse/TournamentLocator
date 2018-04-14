@@ -556,6 +556,7 @@ header {
   color: #fff;
   font-weight: 100;
   background-color: #403f42;
+  border-radius: 0 0 15px 0;
 }
 
 .edit-post-link a:link,
@@ -577,15 +578,17 @@ header {
 
 .comment-field {
   display: flex;
+  justify-content: center;
   align-items: center;
   align-content: center;
   margin: 0 44px;
+  height: 40px;
 }
 
 .input-container {
   display: flex;
   align-items: center;
-  width: 86%;
+  width: 70%;
 }
 
 .input-container input {
@@ -593,13 +596,27 @@ header {
   font-size: 90%;
 }
 
+.comment-button-container {
+  background-color: #403f42;
+  padding: 2px 15px;
+  font-size: 87%;
+  border-radius: 0 0 15px 0;
+}
+
 .comment-button {
   background-color: #403f42;
   color: #fff;
+  border: none;
   font-weight: 100;
   letter-spacing: 1px;
-  padding: 0 5px;
-  border: 1px solid #403f42;
+  border-radius: 0 0 15px 0;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.comment-button:hover {
+  cursor: pointer;
+  color: #2bbbad;
 }
 
 /* ----------------------------------------------------------- */
