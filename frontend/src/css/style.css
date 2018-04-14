@@ -555,6 +555,7 @@ header {
 .post-body {
   padding: 0 20px;
   margin: 0 20px;
+  font-size: 105%;
   color: #fff;
   font-weight: 100;
   background-color: #403f42;
@@ -565,6 +566,8 @@ header {
 .edit-post-link a:visited {
   float: right;
   font-weight: 100;
+  font-size: 95%;
+  letter-spacing: 1px;
   color: #fff;
   margin: 15px 0;
   -webkit-transition: color 0.4s;
@@ -597,6 +600,8 @@ header {
   width: 100%;
   font-size: 90%;
 }
+
+.comment-input-container input:focus { outline: none; }
 
 .comment-button-container {
   background-color: #403f42;

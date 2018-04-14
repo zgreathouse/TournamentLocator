@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 //components
 import EditPostButton from './editPostButton';
-import CommentsIndex from '../comments/CommentsIndex';
+import CommentIndex from '../comments/CommentIndex';
 
 class PostDetail extends Component {
   componentWillMount() {
@@ -63,7 +63,7 @@ class PostDetail extends Component {
             {this.renderEditButton()}
           </div>
         </div>
-        <CommentsIndex postID={post._id} comments={post.comments}/>
+        <CommentIndex postID={post._id} comments={post.comments} currentUser={currentUser}/>
       </div>
     )
   }
