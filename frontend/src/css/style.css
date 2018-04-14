@@ -571,9 +571,9 @@ header {
 .edit-post-link a:active,
 .edit-post-link a:hover { color: #2bbbad; }
 
-.comment-section {
+/*.comment-section {
 
-}
+}*/
 
 .comment-field {
   display: flex;
@@ -591,6 +591,15 @@ header {
 .input-container input {
   width: 100%;
   font-size: 90%;
+}
+
+.comment-button {
+  background-color: #403f42;
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 1px;
+  padding: 0 5px;
+  border: 1px solid #403f42;
 }
 
 /* ----------------------------------------------------------- */
