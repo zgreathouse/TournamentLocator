@@ -10,7 +10,6 @@ class NewCommentField extends Component {
 
   onSubmit(value) {
     const { createComment, postID, reset } = this.props;
-    console.log(this.props);
     createComment(postID, value).then(() => {
       reset();
     });
