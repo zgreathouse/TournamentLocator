@@ -103,13 +103,17 @@ h1, h2, h3 {
 .delete-button,
 .delete-button-small {
   color: #403f42;
-  background-color: #fff;
+  background-color: transparent;
   border: none;
   letter-spacing: 1px;
   font-weight: 100;
   padding: 5px 5px 7px 5px;
   -webkit-transition: color 0.6s;
   transition: color 0.6s;
+}
+
+.white {
+  color: #fff;
 }
 
 .delete-button:hover,
@@ -577,9 +581,9 @@ header {
 .edit-post-link a:active,
 .edit-post-link a:hover { color: #2bbbad; }
 
-/*.comment-section {
-
-}*/
+/* ----------------------------------------------------------- */
+/*                       Comment Section                       */
+/* ----------------------------------------------------------- */
 
 .comment-field {
   display: flex;
@@ -625,6 +629,35 @@ header {
   cursor: pointer;
   color: #2bbbad;
 }
+
+.comments-section ul {
+  border: 1px solid #403f42;
+  width: 80%;
+  margin: 25px auto 0 auto;
+  padding: 30px;
+  list-style: none;
+}
+
+.comment-index-item {
+  background-color: #403f42;
+  color: #fff;
+  font-weight: 100;
+  padding: 10px;
+  margin: 2px;
+  font-size: 85%;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-body {
+  margin: 5px 0;
+  padding: 0 20px;
+}
+
 
 /* ----------------------------------------------------------- */
 /*                           Footer                            */

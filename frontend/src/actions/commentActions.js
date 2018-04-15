@@ -23,3 +23,12 @@ export const createComment = (postID, value) => async dispatch => {
     payload: res.data
   });
 };
+
+export const deleteComment = (commentID) => async dispatch => {
+  await axios.delete(`/api/comments/${commentID}`);
+
+  dispatch({
+    type: DELETE_COMMENT,
+    payload: commentID
+  });
+}

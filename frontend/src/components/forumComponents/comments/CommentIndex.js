@@ -29,7 +29,7 @@ class CommentsIndex extends Component {
     return (
       <div className="comments-section">
         <NewCommentField postID={postID}/>
-        <ul>
+        <ul className="comments">
           {this.renderComments()}
         </ul>
       </div>

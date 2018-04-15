@@ -45,7 +45,7 @@ export const editPost = (postID, values, callback) => async dispatch => {
   dispatch({
     type: UPDATE_POST,
     payload: res.data
-  })
+  });
 }
 
 //action which deletes a specific post from the database
@@ -56,5 +56,5 @@ export const deletePost = (id, callback) => async dispatch => {
   dispatch({
     type: DELETE_POST,
     payload: id
-  })
+  });
 };
