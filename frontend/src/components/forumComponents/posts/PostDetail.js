@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../../../actions/postActions';
+import { fetchComments } from '../../../actions/commentActions';
 import { Link } from 'react-router-dom';
 
 //components
@@ -9,7 +10,9 @@ import CommentIndex from '../comments/CommentIndex';
 
 class PostDetail extends Component {
   componentWillMount() {
-    this.props.fetchPost(this.props.match.params.postID);
+    const { postID } = this.props.match.params;
+    this.props.fetchPost(postID);
+    this.props.fetchComments(postID);
   }
 
   renderEditButton() {
@@ -41,9 +44,9 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { post, currentUser } = this.props;
+    const { comments, post, currentUser } = this.props;
 
-    if (!post || !currentUser) {
+    if (!post || !currentUser || !comments) {
       return <div></div>
     }
 
@@ -63,7 +66,7 @@ class PostDetail extends Component {
             {this.renderEditButton()}
           </div>
         </div>
-        <CommentIndex postID={post._id} comments={post.comments} currentUser={currentUser}/>
+        <CommentIndex postID={post._id} comments={comments} currentUser={currentUser}/>
       </div>
     )
   }
@@ -71,7 +74,11 @@ class PostDetail extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth,
-  post: state.posts
+  post: state.posts,
+  comments: state.comments
 });
 
-export default connect(mapStateToProps, { deletePost, fetchPost })(PostDetail);
+export default connect(
+  mapStateToProps,
+  { deletePost, fetchPost, fetchComments }
+)(PostDetail);

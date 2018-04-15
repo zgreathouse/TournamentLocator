@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 
@@ -8,13 +9,12 @@ import CommentIndexItem from './commentIndexItem';
 class CommentsIndex extends Component {
   renderComments() {
     const { comments, currentUser } = this.props;
-    console.log(comments);
 
     if (!comments || comments.length === 0) {
       return <div>No Comments...</div>
     }
 
-    return comments.map(comment => {
+    return _.map(comments, comment => {
       return (
         <li key={uuidv4()}>
           <CommentIndexItem comment={comment} currentUser={currentUser} />

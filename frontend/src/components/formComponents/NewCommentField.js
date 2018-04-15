@@ -9,7 +9,7 @@ import CommentButton from './formButtons/commentButton';
 class NewCommentField extends Component {
 
   onSubmit(value) {
-    const { createComment, postID} = this.props;
+    const { createComment, postID } = this.props;
     createComment(postID, value);
   }
 

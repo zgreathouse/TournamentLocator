@@ -7,8 +7,9 @@ import PostIndexItem from './postIndexItem';
 
 class PostIndex extends Component {
   renderPosts() {
-    const { currentUser } = this.props;
-    return _.map(this.props.posts, post => {
+    const { currentUser, posts } = this.props;
+
+    return _.map(posts, post => {
       return (
         <li key={uuidv4()}>
           <PostIndexItem post={post} currentUser={currentUser} />

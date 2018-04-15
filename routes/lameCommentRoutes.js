@@ -15,8 +15,8 @@ module.exports = app => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
-    const allComments = await Comment.find({ _postId : match.postId });
-
+    const allComments = await Comment.find({ _post : match.postId });
+    
     try {
       res.send(allComments);
     } catch (err) {
