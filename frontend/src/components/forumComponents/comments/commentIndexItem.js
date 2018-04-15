@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteComment } from '../../../actions/commentActions';
+import { extractDate } from '../../../util/helperFunctions';
 
 class CommentIndexItem extends Component {
   renderDeleteButton() {
@@ -30,6 +31,7 @@ class CommentIndexItem extends Component {
           {this.renderDeleteButton()}
         </div>
         <p className="comment-body">{comment.body}</p>
+        <p >{extractDate(comment.dateSubmitted)}</p>
       </div>
     )
   }
