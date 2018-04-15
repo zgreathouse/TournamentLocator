@@ -9,6 +9,6 @@ TODO
 
   *Create comments section
     *add date in words on comments
-    *add error handling to comment field (so you can't comment nothing)
-    *DRY out the delete buttons used for deleting a post and deleting a comment
+
+  *Review all components and DRY out where necessary
 */
