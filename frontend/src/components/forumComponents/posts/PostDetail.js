@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../../../actions/postActions';
 import { fetchComments } from '../../../actions/commentActions';
-import { Link } from 'react-router-dom';
 
 //components
 import EditPostButton from './editPostButton';

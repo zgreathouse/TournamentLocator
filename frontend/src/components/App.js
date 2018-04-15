@@ -11,7 +11,6 @@ import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './formComponents/TournamentForm';
 import EditTournamentForm from './formComponents/EditTournamentForm';
 import Forum from './forumComponents';
-import PostDetail from './forumComponents/posts/PostDetail';
 import PostForm from './formComponents/PostForm';
 import EditPostForm from './formComponents/EditPostForm';
 
