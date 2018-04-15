@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const FETCH_POST      = 'FETCH_POST';
+export const FETCH_COMMENT  = 'FETCH_COMMENT';
 export const FETCH_COMMENTS  = 'FETCH_COMMENTS';
 export const DELETE_COMMENT  = 'DELETE_COMMENT';
 
@@ -15,9 +15,10 @@ export const fetchComments = postID => async dispatch => {
 
 export const createComment = (postID, value) => async dispatch => {
   const res = await axios.post(`/api/comments/${postID}`, value);
+  console.log(res.data);
 
   dispatch({
-    type: FETCH_COMMENTS,
+    type: FETCH_COMMENT,
     payload: res.data
   });
 };

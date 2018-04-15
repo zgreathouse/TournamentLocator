@@ -16,7 +16,7 @@ module.exports = app => {
     const match = p.test(req.url);
 
     const allComments = await Comment.find({ _post : match.postId });
-    
+
     try {
       res.send(allComments);
     } catch (err) {
@@ -42,7 +42,7 @@ module.exports = app => {
       await comment.save();
       post.comments.push(comment.id);
       const newPost = await post.save();
-      res.send(newPost);
+      res.send(comment);
     } catch (err){
       res.status(422).send(err);
     }
