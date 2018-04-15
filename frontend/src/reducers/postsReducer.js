@@ -1,25 +1,31 @@
 import _ from 'lodash';
 import { FETCH_POST, FETCH_POSTS, DELETE_POST } from '../actions/postActions';
 
-const postsReducer = (state = {}, action) => {
+const initialState = {
+  entities: {},
+  selectedPost: {}
+}
+
+const postsReducer = (state = initialState, action) => {
   Object.freeze(state);
-  let posts;
-  let postsObject;
+  let newState;
 
   switch(action.type) {
 
     case FETCH_POST:
-      return action.payload;
+      newState = Object.assign({}, state);
+      newState.selectedPost = action.payload;
+      return newState;
 
     case FETCH_POSTS:
-      posts = action.payload;
-      postsObject = {};
+      let posts = action.payload;
+      let postsObject = {};
 
       for(let post of posts) {
         postsObject[post._id] = post;
       }
 
-      return postsObject;
+      return _.merge({}, state, { entities: postsObject });
 
     case DELETE_POST:
       return _.omit(state, action.payload);

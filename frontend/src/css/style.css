@@ -469,11 +469,18 @@ header {
   padding: 40px 0;
 }
 
-.posts-index {
-  margin: 20px;
-  color: #fff;
-  padding: 15px;
-  background-color: #403f42;
+.forum-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.forum-header h2 {
+  align-self: center;
+}
+
+.forum-content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .posts-index-empty {
@@ -484,9 +491,18 @@ header {
   margin: 4px 5px;
 }
 
-.posts-index ul {
+.posts-index-container {
+  width: 25%;
+  display: flex;
+}
+
+.posts-index {
+  color: #fff;
+  padding: 15px;
+  width: 100%;
+  margin: 0;
+  background-color: #403f42;
   list-style: none;
-  padding: 0 25px;
 }
 
 .post-index-item {
@@ -521,6 +537,7 @@ header {
   width: 86%;
   margin: 0 auto;
   padding: 40px 0;
+  border: 1px solid black;
 }
 
 .post-content {

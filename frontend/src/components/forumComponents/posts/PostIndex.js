@@ -28,8 +28,8 @@ class PostIndex extends Component {
     }
 
     return (
-      <div className="posts-index">
-        <ul>
+      <div className="posts-index-container">
+        <ul className="posts-index">
           {this.renderPosts()}
         </ul>
       </div>

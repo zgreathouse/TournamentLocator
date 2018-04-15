@@ -10,9 +10,10 @@ import CommentIndex from '../comments/CommentIndex';
 
 class PostDetail extends Component {
   componentWillMount() {
-    const { postID } = this.props.match.params;
-    this.props.fetchPost(postID);
-    this.props.fetchComments(postID);
+    if (this.props.postID) {
+      this.props.fetchPost(this.props.postID);
+      this.props.fetchComments(this.props.postID);
+    }
   }
 
   renderEditButton() {
@@ -53,10 +54,6 @@ class PostDetail extends Component {
     return (
       <div className="post-detail">
         <div className="post-nav">
-          <Link
-            className="go-back-button"
-            to={`/tournaments/${this.props.match.params.id}/forum`}
-          >Go Back</Link>
           {this.renderDeleteButton()}
         </div>
         <div className="post-content">
@@ -74,7 +71,7 @@ class PostDetail extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth,
-  post: state.posts,
+  post: state.posts.selectedPost,
   comments: state.comments
 });
 
