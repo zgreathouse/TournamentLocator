@@ -591,13 +591,14 @@ header {
   align-items: center;
   align-content: center;
   margin: 0 44px;
-  height: 40px;
+  height: 60px;
 }
 
 .comment-input-container {
   display: flex;
   align-items: center;
   width: 70%;
+  flex-direction: column;
 }
 
 .comment-input-container input {
@@ -606,6 +607,15 @@ header {
 }
 
 .comment-input-container input:focus { outline: none; }
+
+.comment-error {
+  color: #f00;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 90%;
+  align-self: flex-start;
+  height:1px;
+}
 
 .comment-button-container {
   background-color: #403f42;
