@@ -11,10 +11,10 @@ const commentsReducer = (state = {}, action) => {
   switch(action.type) {
 
     case FETCH_COMMENT:
-      return { ...state, [action.payload._id]: action.payload };
+      return { [action.payload._id]: action.payload, ...state };
 
     case FETCH_COMMENTS:
-      let comments = action.payload;
+      let comments = action.payload.reverse();
       let commentsObject = {};
 
       for(let comment of comments) {
