@@ -1,18 +1,28 @@
 import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
-
-//components
-import PostIndexItem from './postIndexItem';
+import { connect } from 'react-redux';
+import { fetchPost } from '../../../actions/postActions';
+import { fetchComments } from '../../../actions/commentActions';
 
 class PostIndex extends Component {
+  fetchPostAndComments(postID) {
+    this.props.fetchPost(postID)
+      .then(this.props.fetchComments(postID));
+  }
+
   renderPosts() {
-    const { currentUser, posts } = this.props;
+    const { posts } = this.props;
 
     return _.map(posts, post => {
       return (
-        <li key={uuidv4()}>
-          <PostIndexItem post={post} currentUser={currentUser} />
+        <li
+          key={uuidv4()}
+          onClick={() => this.fetchPostAndComments(post._id)}
+        >
+          <div className="post-index-item">
+            <h3>{post.title}</h3>
+          </div>
         </li>
       )
     })
@@ -37,4 +47,6 @@ class PostIndex extends Component {
   }
 }
 
-export default PostIndex;
+
+
+export default connect(null, { fetchPost, fetchComments })(PostIndex);

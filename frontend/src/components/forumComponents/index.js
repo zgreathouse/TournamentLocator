@@ -16,8 +16,12 @@ class Forum extends Component {
   }
 
   renderPostDetail() {
-    if (this.props.match.params.postID) {
-      return <PostDetail postID={this.props.match.params.postID}/>
+    const { selectedPost } = this.props;
+
+    if (selectedPost && Object.keys(selectedPost).length > 0) {
+      return (
+        <PostDetail post={this.props.selectedPost}/>
+      )
     }
 
     return (
@@ -28,11 +32,7 @@ class Forum extends Component {
   }
 
   render() {
-    const { tournament, posts, currentUser } = this.props;
-
-    if (!tournament) {
-      return <div></div>
-    }
+    const { posts, currentUser } = this.props;
 
     return (
       <div className="forum-container">
@@ -49,9 +49,9 @@ class Forum extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   posts: state.posts.entities,
-  currentUser: state.auth,
+  selectedPost: state.posts.selectedPost,
   tournament: state.tournaments.selectedTournament
 });
 

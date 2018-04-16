@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const FETCH_POST   = 'FETCH_POST';
-export const FETCH_POSTS  = 'FETCH_POSTS';
-export const CREATE_POST  = 'CREATE_POST';
-export const UPDATE_POST  = 'UPDATE_POST';
-export const DELETE_POST  = 'DELETE_POST';
+export const FETCH_POST    = 'FETCH_POST';
+export const FETCH_POSTS   = 'FETCH_POSTS';
+export const CREATE_POST   = 'CREATE_POST';
+export const UPDATE_POST   = 'UPDATE_POST';
+export const DELETE_POST   = 'DELETE_POST';
 
 //action which fetches a specific post from the database
 export const fetchPost = postID => async dispatch => {
@@ -49,9 +49,8 @@ export const editPost = (postID, values, callback) => async dispatch => {
 }
 
 //action which deletes a specific post from the database
-export const deletePost = (id, callback) => async dispatch => {
+export const deletePost = id => async dispatch => {
   await axios.delete(`/api/posts/${id}`);
-  await callback();
 
   dispatch({
     type: DELETE_POST,

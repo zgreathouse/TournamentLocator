@@ -28,7 +28,12 @@ const postsReducer = (state = initialState, action) => {
       return _.merge({}, state, { entities: postsObject });
 
     case DELETE_POST:
-      return _.omit(state, action.payload);
+      newState = {
+        entities: _.omit(state.entities, action.payload),
+        selectePost: {}
+      };
+
+      return newState
 
     default:
       return state;

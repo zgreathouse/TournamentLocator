@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost } from '../../../actions/postActions';
-import { fetchComments } from '../../../actions/commentActions';
+import { deletePost } from '../../../actions/postActions';
 
 //components
 import EditPostButton from './editPostButton';
 import CommentIndex from '../comments/CommentIndex';
 
 class PostDetail extends Component {
-  componentWillMount() {
-    if (this.props.postID) {
-      this.props.fetchPost(this.props.postID);
-      this.props.fetchComments(this.props.postID);
-    }
-  }
-
   renderEditButton() {
     const { post, currentUser } = this.props;
 
@@ -29,24 +21,23 @@ class PostDetail extends Component {
     if (post._user === currentUser._id) {
       return (
         <div className="delete-button-container">
-          <button className="delete-button" onClick={this.onDelete.bind(this)}>
-            X
-          </button>
+          <button
+            className="delete-button"
+            onClick={this.onDelete.bind(this)}
+          >X</button>
         </div>
       )
     }
   }
 
   onDelete() {
-    this.props.deletePost(this.props.post._id, () => {
-      this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
-    });
+    this.props.deletePost(this.props.post._id);
   }
 
   render() {
     const { comments, post, currentUser } = this.props;
 
-    if (!post || !currentUser || !comments) {
+    if (!post) {
       return <div></div>
     }
 
@@ -74,7 +65,4 @@ const mapStateToProps = state => ({
   comments: state.comments
 });
 
-export default connect(
-  mapStateToProps,
-  { deletePost, fetchPost, fetchComments }
-)(PostDetail);
+export default connect(mapStateToProps,{ deletePost })(PostDetail);
