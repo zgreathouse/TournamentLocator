@@ -17,7 +17,6 @@ class PostDetail extends Component {
 
   renderDeleteButton() {
     const { post, currentUser } = this.props;
-    console.log(post);
 
     if (post._user === currentUser._id) {
       return (

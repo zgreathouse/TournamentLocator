@@ -25,7 +25,7 @@ const postsReducer = (state = initialState, action) => {
         postsObject[post._id] = post;
       }
 
-      return _.merge({}, state, { entities: postsObject });
+      return _.merge({}, { entities: postsObject }, state);
 
     case DELETE_POST:
       newState = {
