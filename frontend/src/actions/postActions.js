@@ -3,7 +3,6 @@ import axios from 'axios';
 export const FETCH_POST    = 'FETCH_POST';
 export const FETCH_POSTS   = 'FETCH_POSTS';
 export const CREATE_POST   = 'CREATE_POST';
-export const UPDATE_POST   = 'UPDATE_POST';
 export const DELETE_POST   = 'DELETE_POST';
 
 //action which fetches a specific post from the database
@@ -43,7 +42,7 @@ export const editPost = (postID, values, callback) => async dispatch => {
   await callback();
 
   dispatch({
-    type: UPDATE_POST,
+    type: FETCH_POST,
     payload: res.data
   });
 }

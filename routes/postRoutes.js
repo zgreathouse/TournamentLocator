@@ -70,7 +70,8 @@ module.exports = app => {
     const p = new Path('/api/posts/:postId')
     const match = p.test(req.url);
 
-    const post = await Post.findOne({ _id: match.postId })
+    let post = await Post.findOne({ _id: match.postId });
+
     try {
       //author validation
       let userId = post._user.toString();
@@ -87,7 +88,9 @@ module.exports = app => {
         }
       ).exec();
 
-      res.send(req.user);
+      post = await Post.findOne({ _id: match.postId });
+
+      res.send(post);
     } catch (err) {
       res.status(422).send(err);
     }
