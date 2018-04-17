@@ -10,7 +10,7 @@ class CommentIndexItem extends Component {
     if (comment._user === currentUser._id) {
       return (
         <div className="delete-button-container">
-          <button className="delete-button white" onClick={this.onDelete.bind(this)}>
+          <button className="delete-button" onClick={this.onDelete.bind(this)}>
             X
           </button>
         </div>
@@ -27,11 +27,12 @@ class CommentIndexItem extends Component {
     return (
       <div className="comment-index-item">
         <div className="comment-header">
-          {comment.author}
           {this.renderDeleteButton()}
         </div>
-        <p className="comment-body">{comment.body}</p>
-        <p >{extractDate(comment.dateSubmitted)}</p>
+        <p className="comment-body">
+          <strong>{comment.author}:</strong>  {comment.body}
+        </p>
+        <p className="comment-date">{extractDate(comment.dateSubmitted)}</p>
       </div>
     )
   }

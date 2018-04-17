@@ -30,11 +30,12 @@ class CommentsIndex extends Component {
       return (
         <div>
           <NewCommentField postID={postID}/>
-          <p className="comments-index-empty">No comments yet...</p>
+          <div className="comments-index-empty">
+            <p>No comments yet...</p>
+          </div>
         </div>
       )
     }
-
 
     return (
       <div className="comments-section">

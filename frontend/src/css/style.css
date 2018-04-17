@@ -538,10 +538,19 @@ header {
 /*                        Post Detail                          */
 /* ----------------------------------------------------------- */
 
-.post-detail {
+.post-detail,
+.default-post-detail {
   width: 72%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 15px 0 20px 0;
+}
+
+.default-post-detail {
+  display: flex;
+  justify-content: center;
+  font-size: 130%;
+  text-align: center;
+  line-height: 1.5;
 }
 
 .post-content {
@@ -557,10 +566,11 @@ header {
 
 .post-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  margin-bottom: 20px;
   font-size: 90%;
+  min-height: 35px;
+  padding-right: 40px;
 }
 
 .go-back-button {
@@ -665,24 +675,48 @@ header {
   color: #2bbbad;
 }
 
-.comments-section ul {
+.comments-section ul,
+.comments-index-empty {
   width: 80%;
+  min-height: 110px;
   margin: 0 auto;
   padding: 0px;
   list-style: none;
+  background-color: #403f42;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.comments-index-empty {
-  padding: 0 25px;
+.comments-index-empty p {
+  font-weight: 100;
+  letter-spacing: 1px;
+  font-size: 90%;
+  margin-left: 20px;
+  align-self: flex-start;
+}
+
+.comments-section ul li {
+  width: 85%;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+.comments-section ul li:last-child {
+  margin-bottom: 8px;
 }
 
 .comment-index-item {
-  background-color: #403f42;
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  color: #403f42;
   font-weight: 100;
-  padding: 10px;
+  padding: 10px 5px 2px 5px;
   margin: 2px;
-  font-size: 85%;
+  font-size: 80%;
+  border-radius: 5px;
 }
 
 .comment-header {
@@ -692,8 +726,13 @@ header {
 }
 
 .comment-body {
-  margin: 5px 0;
+  margin: 0;
   padding: 0 20px;
+}
+.comment-date {
+  padding: 5px;
+  margin: 0;
+  text-align: right;
 }
 
 

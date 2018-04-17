@@ -25,8 +25,11 @@ class Forum extends Component {
     }
 
     return (
-      <div>
-        Any questions or comments regarding the tournament? Post it here!
+      <div className="default-post-detail">
+        <p>
+          Questions or comments <br/>
+          Post it here!
+        </p>
       </div>
     )
   }
