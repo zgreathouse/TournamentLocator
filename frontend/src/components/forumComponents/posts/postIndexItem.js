@@ -12,7 +12,7 @@ class PostIndexItem extends Component {
     return (
       <Link to={`/tournaments/${post._tournament}/forum/${post._id}`}>
         <div className="post-index-item">
-          <h3>{post.title}</h3>
+          <p>{post.title}</p>
         </div>
       </Link>
     )

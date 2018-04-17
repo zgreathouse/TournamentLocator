@@ -25,10 +25,10 @@ class CommentsIndex extends Component {
 
   render() {
     const { postID } = this.props;
-    
+
     if (Object.keys(this.props.comments).length === 0) {
       return (
-        <div className="comments-index">
+        <div>
           <NewCommentField postID={postID}/>
           <p className="comments-index-empty">No comments yet...</p>
         </div>
@@ -39,7 +39,7 @@ class CommentsIndex extends Component {
     return (
       <div className="comments-section">
         <NewCommentField postID={postID}/>
-        <ul className="comments">
+        <ul>
           {this.renderComments()}
         </ul>
       </div>
