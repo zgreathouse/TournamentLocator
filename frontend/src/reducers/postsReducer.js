@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_POST, FETCH_POSTS, DELETE_POST } from '../actions/postActions';
+import { FETCH_POST, FETCH_POSTS, UPDATE_POST, DELETE_POST } from '../actions/postActions';
 
 const initialState = {
   entities: {},
@@ -15,6 +15,17 @@ const postsReducer = (state = initialState, action) => {
     case FETCH_POST:
       newState = Object.assign({}, state);
       newState.selectedPost = action.payload;
+      return newState;
+
+    case UPDATE_POST:
+      const post = action.payload;
+
+      newState = Object.assign({}, state);
+      newState.selectedPost = post;
+      newState.entities[post._id] = post;
+      // console.log(newState.selectedPost);
+      // console.log(newState.entities);
+
       return newState;
 
     case FETCH_POSTS:

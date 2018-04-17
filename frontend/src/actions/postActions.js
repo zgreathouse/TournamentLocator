@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export const FETCH_POST    = 'FETCH_POST';
-export const FETCH_POSTS   = 'FETCH_POSTS';
-export const CREATE_POST   = 'CREATE_POST';
-export const DELETE_POST   = 'DELETE_POST';
+export const FETCH_POST  = 'FETCH_POST';
+export const FETCH_POSTS = 'FETCH_POSTS';
+export const CREATE_POST = 'CREATE_POST';
+export const UPDATE_POST = 'UPDATE_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 //action which fetches a specific post from the database
 export const fetchPost = postID => async dispatch => {
@@ -42,7 +43,7 @@ export const editPost = (postID, values, callback) => async dispatch => {
   await callback();
 
   dispatch({
-    type: FETCH_POST,
+    type: UPDATE_POST,
     payload: res.data
   });
 }

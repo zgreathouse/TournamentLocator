@@ -70,7 +70,7 @@ module.exports = app => {
     const p = new Path('/api/posts/:postId')
     const match = p.test(req.url);
 
-    let post = await Post.findOne({ _id: match.postId });
+    const post = await Post.findOne({ _id: match.postId });
 
     try {
       //author validation
@@ -79,8 +79,8 @@ module.exports = app => {
         return res.status(401).send({ error: "You can't edit this post." });
       }
 
-      Post.update({
-        _id: post.id },
+      await Post.update({
+        _id: post._id },
         { $set: {
           title: req.body.title,
           body: req.body.body,
@@ -88,9 +88,9 @@ module.exports = app => {
         }
       ).exec();
 
-      post = await Post.findOne({ _id: match.postId });
+      const newPost = await Post.findOne({ _id: post._id });
 
-      res.send(post);
+      res.send(newPost);
     } catch (err) {
       res.status(422).send(err);
     }
