@@ -23,11 +23,10 @@ class CommentIndexItem extends Component {
   }
 
   render() {
-    const { comment, currentUser } = this.props;
+    const { comment } = this.props;
     return (
       <div className="comment-index-item">
         <div className="comment-header">
-          {currentUser.username}
           {this.renderDeleteButton()}
         </div>
         <p className="comment-body">{comment.body}</p>

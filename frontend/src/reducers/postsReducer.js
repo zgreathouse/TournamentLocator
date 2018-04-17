@@ -23,8 +23,6 @@ const postsReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.selectedPost = post;
       newState.entities[post._id] = post;
-      // console.log(newState.selectedPost);
-      // console.log(newState.entities);
 
       return newState;
 
