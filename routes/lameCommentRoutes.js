@@ -34,6 +34,7 @@ module.exports = app => {
     const comment = new Comment({
       _user: req.user.id,
       _post: post.id,
+      author: req.user.username,
       body: req.body.body,
       dateSubmitted: new Date()
     })

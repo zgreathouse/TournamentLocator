@@ -27,6 +27,7 @@ class CommentIndexItem extends Component {
     return (
       <div className="comment-index-item">
         <div className="comment-header">
+          {comment.author}
           {this.renderDeleteButton()}
         </div>
         <p className="comment-body">{comment.body}</p>
