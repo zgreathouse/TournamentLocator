@@ -485,17 +485,18 @@ header {
   box-shadow: 0px 0px 1px 0px #403f42;
 }
 
+.posts-index-container {
+  background-color: #403f42;
+  width: 28%;
+  display: flex;
+}
+
 .posts-index-empty {
   font-size: 95%;
   letter-spacing: 1px;
   font-weight: 100;
   color: #fff;
   margin: 4px 5px;
-}
-
-.posts-index-container {
-  width: 28%;
-  display: flex;
 }
 
 .posts-index {
@@ -591,7 +592,7 @@ header {
 .post-body {
   padding: 0 20px;
   margin: 0 20px;
-  min-height: 120px;
+  min-height: 160px;
   font-size: 105%;
   color: #fff;
   font-weight: 100;

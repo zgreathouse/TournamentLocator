@@ -10,8 +10,8 @@ class CommentsIndex extends Component {
   renderComments() {
     const { comments, currentUser } = this.props;
 
-    if (!comments || comments.length === 0) {
-      return <div>No Comments...</div>
+    if (!comments) {
+      return <div>Loading Comments...</div>
     }
 
     return _.map(comments, comment => {

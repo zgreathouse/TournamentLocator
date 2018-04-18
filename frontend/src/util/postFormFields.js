@@ -1,6 +1,6 @@
 export const FIELDS = {
   title: {
-    label: 'Title',
+    label: 'Subject',
     name: 'title',
     type: 'input',
     errorMessage: 'a title'

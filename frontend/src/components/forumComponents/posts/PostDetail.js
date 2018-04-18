@@ -15,6 +15,10 @@ class PostDetail extends Component {
     }
   }
 
+  onDelete() {
+    this.props.deletePost(this.props.post._id);
+  }
+
   renderDeleteButton() {
     const { post, currentUser } = this.props;
 
@@ -28,10 +32,6 @@ class PostDetail extends Component {
         </div>
       )
     }
-  }
-
-  onDelete() {
-    this.props.deletePost(this.props.post._id);
   }
 
   render() {
@@ -65,4 +65,6 @@ const mapStateToProps = state => ({
   comments: state.comments
 });
 
-export default connect(mapStateToProps,{ deletePost })(PostDetail);
+export default connect(
+  mapStateToProps, { deletePost }
+)(PostDetail);
