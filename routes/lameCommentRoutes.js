@@ -62,7 +62,7 @@ module.exports = app => {
         return res.status(401).send({ error: "You can't edit this comment"});
       }
 
-      Comment.update({
+      await Comment.update({
         _id: comment.id },
         { $set: { body: req.body.body }}
       ).exec();

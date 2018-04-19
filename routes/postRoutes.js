@@ -66,7 +66,7 @@ module.exports = app => {
         return res.status(401).send({ error: "You can't edit this post." });
       }
 
-      Post.update({
+      await Post.update({
         _id: post.id },
         { $set: {
           title: req.body.title,
@@ -75,7 +75,9 @@ module.exports = app => {
         }
       ).exec();
 
-      res.send(req.user);
+      const newPost = await Post.findOne({ _id: post._id });
+
+      res.send(newPost);
     } catch (err) {
       res.status(422).send(err);
     }
