@@ -54,6 +54,7 @@ module.exports = app => {
       datePosted: new Date(),
       comments: []
     });
+
     //saves new post to database and saves id to tournament document
     try {
       tournament.forum.unshift(post.id);
