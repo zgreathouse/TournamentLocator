@@ -22,15 +22,21 @@ const postsReducer = (state = initialState, action) => {
       newState.selectedPost = action.payload;
       return newState;
 
-      case FETCH_POSTS:
+    case FETCH_POSTS:
+      newState = Object.assign({}, state);
       let posts = action.payload;
       let postsObject = {};
 
-      for(let post of posts) {
+      if (posts.length === 0) {
+        newState.entities = "No posts yet";
+        return newState;
+      }
+
+      for (let post of posts) {
         postsObject[post._id] = post;
       }
 
-      return _.merge({}, { entities: postsObject }, state);
+      return _.merge({}, { entities: postsObject }, newState);
 
     case UPDATE_POST:
       const post = action.payload;

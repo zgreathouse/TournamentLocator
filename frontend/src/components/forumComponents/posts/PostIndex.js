@@ -29,10 +29,16 @@ class PostIndex extends Component {
   }
 
   render() {
-    if (Object.keys(this.props.posts).length === 0) {
+    if (this.props.posts === "No posts yet") {
       return (
         <div className="posts-index-container">
           <h3 className="posts-index-empty">No posts yet...</h3>
+        </div>
+      )
+    } else if (Object.keys(this.props.posts).length === 0) {
+      return (
+        <div className="posts-index-container">
+          <h3 className="posts-index-empty">Loading posts...</h3>
         </div>
       )
     }
