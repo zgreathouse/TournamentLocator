@@ -24,6 +24,7 @@ const postsReducer = (state = initialState, action) => {
 
     case FETCH_POSTS:
       newState = Object.assign({}, state);
+      newState.entities = {};
       let posts = action.payload;
       let postsObject = {};
 
