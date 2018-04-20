@@ -104,6 +104,7 @@ module.exports = app => {
       });
 
       //removes post from database and reassigns forum array
+      Comment.deleteMany({ _post: post.id }).exec();
       Post.findByIdAndRemove(post.id).exec();
       tournament.forum = updatedPostList;
       const newTournament = await tournament.save();
