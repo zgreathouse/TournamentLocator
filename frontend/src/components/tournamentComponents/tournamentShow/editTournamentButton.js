@@ -1,5 +1,6 @@
 //a button which navigates the user to the edit tournamentpage
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EditTournamentButton = ({ tournament, currentUser }) => {
   if(!currentUser) {
@@ -9,9 +10,8 @@ const EditTournamentButton = ({ tournament, currentUser }) => {
   if(tournament._user === currentUser._id) {
     return (
       <div className="edit-button-container">
-        <button className="edit-button">Edit</button>
+        <Link to={`/tournaments/${tournament._id}/edit`} className="edit-button">Edit</Link>
       </div>
-
     )
   }
 

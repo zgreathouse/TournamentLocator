@@ -8,15 +8,7 @@ export const CREATE_TOURNAMENT  = 'CREATE_TOURNAMENT';
 export const UPDATE_TOURNAMENT  = 'UPDATE_TOURNAMENT';
 export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
 
-//action which fetches all of the tournaments from the database
-export const fetchTournaments = () => async dispatch => {
-  const res = await axios.get('/api/tournaments');
-
-  dispatch({
-    type: FETCH_TOURNAMENTS,
-    payload: res.data
-  });
-};
+let newTournament;
 
 //action which fetches a single tournament from the database
 export const fetchTournament = id => async dispatch => {
@@ -28,9 +20,19 @@ export const fetchTournament = id => async dispatch => {
   });
 };
 
+//action which fetches all of the tournaments from the database
+export const fetchTournaments = () => async dispatch => {
+  const res = await axios.get('/api/tournaments');
+
+  dispatch({
+    type: FETCH_TOURNAMENTS,
+    payload: res.data
+  });
+};
+
 //action which creates a new tournament document in the database
 export const createTournament = (values, callback) => async dispatch => {
-  const newTournament = convertToDatabaseWritable(values);
+  newTournament = convertToDatabaseWritable(values);
   const res = await axios.post('/api/tournaments', newTournament);
   await callback();
 
@@ -40,9 +42,22 @@ export const createTournament = (values, callback) => async dispatch => {
   });
 }
 
+//action which edits an existing tournament in the database
+export const editTournament = (id, values, callback) => async dispatch => {
+  newTournament = convertToDatabaseWritable(values);
+
+  const res = await axios.patch(`/api/tournaments/${id}`, newTournament);
+  await callback();
+
+  dispatch({
+    type: UPDATE_TOURNAMENT,
+    payload: res.data
+  });
+}
+
 //action which deletes a specific tournament document in the database
 export const deleteTournament = (id, callback) => async dispatch => {
-  await axios.delete(`/api/tournament/${id}`)
+  await axios.delete(`/api/tournaments/${id}`)
   await callback();
 
   dispatch({

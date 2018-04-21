@@ -9,6 +9,21 @@ const Tournament = mongoose.model('tournaments');
 const Post = mongoose.model('posts');
 
 module.exports = app => {
+
+  // Get a specific post for a given tournament
+  app.get('/api/post/:postId', async (req, res) => {
+    const p = new Path('/api/post/:postId');
+    const match = p.test(req.url);
+
+    const post = await Post.findOne({ _id: match.postId });
+
+    try {
+      res.send(post);
+    } catch (err) {
+      res.status(422).send(err);
+    }
+  });
+
   // Get an index of all the the posts for a given tournament
   app.get('/api/posts/:tournamentId', async (req, res) => {
     const p = new Path('/api/posts/:tournamentId');
@@ -17,9 +32,6 @@ module.exports = app => {
     const allPosts = await Post.find({ _tournament: match.tournamentId });
 
     try {
-      if(allPosts.length === 0){
-        res.send({ emptyMessage: "No Posts Yet" })
-      }
       //allPosts.reverse to send posts with newest first
       res.send(allPosts.reverse());
     } catch (err) {
@@ -42,6 +54,7 @@ module.exports = app => {
       datePosted: new Date(),
       comments: []
     });
+
     //saves new post to database and saves id to tournament document
     try {
       tournament.forum.unshift(post.id);
@@ -58,7 +71,8 @@ module.exports = app => {
     const p = new Path('/api/posts/:postId')
     const match = p.test(req.url);
 
-    const post = await Post.findOne({ _id: match.postId })
+    const post = await Post.findOne({ _id: match.postId });
+
     try {
       //author validation
       let userId = post._user.toString();
@@ -66,8 +80,8 @@ module.exports = app => {
         return res.status(401).send({ error: "You can't edit this post." });
       }
 
-      Post.update({
-        _id: post.id },
+      await Post.update({
+        _id: post._id },
         { $set: {
           title: req.body.title,
           body: req.body.body,
@@ -75,7 +89,8 @@ module.exports = app => {
         }
       ).exec();
 
-      res.send(req.user);
+      const newPost = await Post.findOne({ _id: post._id });
+      res.send(newPost);
     } catch (err) {
       res.status(422).send(err);
     }

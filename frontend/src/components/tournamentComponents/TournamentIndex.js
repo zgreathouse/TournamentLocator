@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTournaments } from '../../actions/tournamentActions';
@@ -13,9 +14,9 @@ class TournamentIndex extends Component {
   }
 
   renderTournamentList() {
-    return _.map(this.props.tournaments.entities, (tournament => {
+    return _.map(this.props.tournaments, (tournament => {
       return (
-        <li key={tournament._id}>
+        <li key={uuidv4()}>
           <TournamentIndexItem tournament={tournament} />
         </li>
       )
@@ -44,7 +45,7 @@ class TournamentIndex extends Component {
 }
 
 const mapStateToProps = state => ({
-  tournaments: state.tournaments
+  tournaments: state.tournaments.entities
 });
 
 export default connect(

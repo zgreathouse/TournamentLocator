@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
-import { createTournament } from '../../../actions/tournamentActions';
-import { requireCommas } from '../../../util/helperFunctions';
-import { FIELDS, unrequiredFields } from '../../../util/formFields';
+import { editTournament } from '../../actions/tournamentActions';
+import { requireCommas } from '../../util/helperFunctions';
+import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
 
 //components
 import DateInput from './formFields/dateInput';
@@ -41,8 +41,8 @@ class TournamentForm extends Component {
   }
 
   onSubmit(values) {
-    this.props.createTournament(values, () => {
-      this.props.history.push('/');
+    this.props.editTournament(this.props.match.params.id, values, () => {
+      this.props.history.push(`/tournaments/${this.props.match.params.id}`);
     });
   }
 
@@ -59,7 +59,7 @@ class TournamentForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton />
+            <CancelButton route={`/tournaments/${this.props.match.params.id}`}/>
           </div>
         </form>
       </div>
@@ -90,4 +90,4 @@ export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'TournamentNewForm',
   validate
-})(connect(null, { createTournament })(TournamentForm));
+})(connect(null, { editTournament })(TournamentForm));

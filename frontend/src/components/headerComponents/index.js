@@ -27,7 +27,7 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Link to="/" >
+        <Link to="/tournaments" >
           <h2 className="main-logo">Tournament Locator</h2>
         </Link>
           <ul className="main-nav">
