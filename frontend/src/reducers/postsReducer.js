@@ -23,15 +23,8 @@ const postsReducer = (state = initialState, action) => {
       return newState;
 
     case FETCH_POSTS:
-      newState = Object.assign({}, state);
-      newState.entities = {};
       let posts = action.payload;
       let postsObject = {};
-
-      if (posts.length === 0) {
-        newState.entities = "No posts yet";
-        return newState;
-      }
 
       for (let post of posts) {
         postsObject[post._id] = post;
