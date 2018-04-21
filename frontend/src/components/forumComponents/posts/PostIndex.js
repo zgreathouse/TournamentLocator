@@ -32,7 +32,7 @@ class PostIndex extends Component {
     if (Object.keys(this.props.posts).length === 0) {
       return (
         <div className="posts-index-container">
-          <h3 className="posts-index-empty">Loading posts...</h3>
+          <h3 className="posts-index-empty">No posts yet...</h3>
         </div>
       )
     }
