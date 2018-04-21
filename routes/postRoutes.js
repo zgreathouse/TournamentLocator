@@ -61,7 +61,7 @@ module.exports = app => {
       await post.save();
       const newTournament = await tournament.save();
       res.send(newTournament)
-    } catch(err){
+    } catch (err){
       res.status(422).send(err);
     }
   });
@@ -90,7 +90,6 @@ module.exports = app => {
       ).exec();
 
       const newPost = await Post.findOne({ _id: post._id });
-
       res.send(newPost);
     } catch (err) {
       res.status(422).send(err);
