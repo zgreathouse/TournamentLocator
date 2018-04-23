@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -13,7 +14,7 @@ import CancelButton from './formButtons/cancelButton';
 class UserForm extends Component {
   renderFields() {
     return _.map(FIELDS, ({ label, name, type }) => {
-      <Field key={name} component={TextInput} type={type} label={label} name={name} />
+      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }
 
@@ -26,6 +27,8 @@ class UserForm extends Component {
   }
 
   render() {
+    const { handleSubmit } = this.props;
+
     return (
       <div className="tournament-form-container">
         <h2>User Form</h2>
