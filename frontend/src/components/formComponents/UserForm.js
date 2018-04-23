@@ -39,7 +39,7 @@ class UserForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton route="/tournaments"/>
+            <CancelButton route={`/user/profile/${this.props.user._id}`}/>
           </div>
         </form>
       </div>
@@ -66,8 +66,12 @@ const validate = values => {
   return errors;
 }
 
+const mapStateToProps = (state) => ({
+  user: state.auth
+})
+
 export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'UserForm',
   validate
-})(connect(null)(UserForm));
+})(connect(mapStateToProps)(UserForm));

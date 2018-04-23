@@ -178,6 +178,7 @@ header {
   font-weight: 100;
   background-color: transparent;
   color: #fff;
+  margin-left: 5px;
   border: 0;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.3s;

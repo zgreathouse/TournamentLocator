@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 
 //components
 import AuthModal from './auth/AuthModal';
+import UserProfileLink from './userProfileLink';
 
 class Header extends Component {
 
   renderContent() {
-    switch (this.props.auth) {
+    const { auth } = this.props;
+
+    switch (auth) {
       case null:
         return;
       case false:
@@ -18,9 +21,10 @@ class Header extends Component {
           <li key={2}><AuthModal modalType="Login" /></li>
         ];
       default:
-        return (
-          <li key={3}><a className="auth-button-logout" href="/api/logout">Logout</a></li>
-        );
+        return [
+          <li key={3}><UserProfileLink userID={auth._id}/></li>,
+          <li key={4}><a className="auth-button-logout" href="/api/logout">Logout</a></li>
+        ];
     }
   }
 
@@ -38,8 +42,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps ({auth}) {
-  return { auth };
-}
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
 
 export default connect(mapStateToProps)(Header);

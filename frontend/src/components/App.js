@@ -14,6 +14,7 @@ import UserForm from './formComponents/UserForm';
 import Forum from './forumComponents';
 import PostForm from './formComponents/PostForm';
 import EditPostForm from './formComponents/EditPostForm';
+import ProfilePage from './profileComponents';
 
 class App extends Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
             <Route exact path="/tournaments/:id/forum/:postID/edit" component={EditPostForm} />
             <Route exact path="/tournaments" component={TournamentIndex} />
             <Route exact path="/user/edit" component={UserForm} />
+            <Route exact path="/user/profile/:id" component={ProfilePage} />
           </Switch>
           <Footer />
         </div>
