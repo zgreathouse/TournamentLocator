@@ -34,6 +34,8 @@ module.exports = app => {
     try {
       Tournament.deleteMany({ _user: req.user.id }).exec();
       User.find({ id: req.user.id }).remove().exec();
+      req.logout();
+      res.redirect('/');
     } catch (err) {
       res.status(422).send(err)
     }
