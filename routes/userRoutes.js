@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
-// const Path = require('path-parser');
-// const { URL } = require('url');
 
 const requireLogin = require('../middlewares/requireLogin');
 
+
 const User = mongoose.model('users');
+const Tournament = mongoose.model('tournament');
 
 module.exports = app => {
   app.patch('/api/users/', requireLogin, async (req, res) =>{
     User.update({
       _id: req.user.id },
       { $set: {
-        username: req.body.username
-        title: req.body.title,                                                        // the user's title
+        username: req.body.username,
+        title: req.body.title,
         city: req.body.city,
         travelRange: req.body.travelRange,
         followedGames: req.body.followedGames,
@@ -29,8 +29,13 @@ module.exports = app => {
     )
     res.send(req.user);
   })
-
+//Deletes all tournaments created by curretUser then removes User from db
   app.delete('/api/users/', requireLogin, async (req, res) =>{
-
+    try {
+      Tournament.deleteMany({ _user: req.user.id }).exec();
+      User.find({ id: req.user.id }).remove().exec();
+    } catch (err) {
+      res.status(422).send(err)
+    }
   })
 };
