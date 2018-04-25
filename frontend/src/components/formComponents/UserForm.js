@@ -27,7 +27,11 @@ class UserForm extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, user } = this.props;
+
+    if (!user){
+      return <div></div>
+    }
 
     return (
       <div className="tournament-form-container">
