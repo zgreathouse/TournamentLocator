@@ -4,10 +4,10 @@ const requireLogin = require('../middlewares/requireLogin');
 
 
 const User = mongoose.model('users');
-const Tournament = mongoose.model('tournament');
+const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
-  app.patch('/api/users/', requireLogin, async (req, res) =>{
+  app.patch('/api/users/', requireLogin, (req, res) =>{
     User.update({
       _id: req.user.id },
       { $set: {
@@ -30,7 +30,7 @@ module.exports = app => {
     res.send(req.user);
   })
 //Deletes all tournaments created by curretUser then removes User from db
-  app.delete('/api/users/', requireLogin, async (req, res) =>{
+  app.delete('/api/users/', requireLogin, (req, res) =>{
     try {
       Tournament.deleteMany({ _user: req.user.id }).exec();
       User.find({ id: req.user.id }).remove().exec();
