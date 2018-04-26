@@ -11,13 +11,18 @@ class ProfilePage extends Component {
     }
 
     return (
-      <div>
+      <div className="tournament-detail-container">
         <h2>{user.username}</h2>
-        <Link to="/user/edit">Edit Profile</Link>
-        <p>City: {user.city}</p>
-        <p>Travel Radius: {user.travelRange} miles</p>
-        <p>Games: {user.followedGames}</p>
-        <p>Favorite Tournaments: {user.followedSeries}</p>
+        <div className="edit-button-container">
+          <Link
+            to="/user/edit"
+            className="edit-button"
+          >Edit Profile</Link>
+        </div>
+        <div>City: {user.city}</div>
+        <div>Travel Radius: {user.travelRange} miles</div>
+        <div>Games: {user.followedGames}</div>
+        <div>Favorite Tournaments: {user.followedSeries}</div>
       </div>
     )
   }
