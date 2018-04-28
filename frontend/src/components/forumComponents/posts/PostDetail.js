@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deletePost } from '../../../actions/postActions';
+import { renderBody } from '../../../util/helperFunctions';
 
 //components
 import EditPostButton from './editPostButton';
@@ -49,7 +51,9 @@ class PostDetail extends Component {
         <div className="post-content">
           <h2 className="post-title">{post.title}</h2>
           <div className="post-body">
-            <p>{post.body}</p>
+            <div className="body-text">
+              {renderBody(post.body)}
+            </div>
             {this.renderEditButton()}
           </div>
         </div>

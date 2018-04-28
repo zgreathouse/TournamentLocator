@@ -1,11 +1,22 @@
 import React from 'react';
+import { renderBody } from '../../../../util/helperFunctions';
 
 const Description = ({ tournament }) => {
   const { description } = tournament;
 
+  if (!description) {
+    return <div></div>
+  }
+
   return (
-    <div>Description: {description}</div>
+    <div>
+      Description: <br/>
+      <div className="body-text">
+        {renderBody(description)}
+      </div>
+    </div>
   )
+
 }
 
 export default Description;

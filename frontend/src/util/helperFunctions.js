@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import React from 'react';
 
 //function takes array value and seperates elements by commas and spaces
 export const convertToReadable = array => {
@@ -36,6 +37,17 @@ export const convertListToArray = (list) => {
   return listArray;
 }
 
+//function which assists in rendering multiline text (tournament description & post body)
+export const renderBody = (body) => {
+  const splitBody = body.replace(/\n/ig, '!').split("!");
+
+  return _.map(splitBody, row => {
+    return (
+      <p>{`${row}`} <br/></p>
+    )
+  });
+}
+
 //function which takes date and time strings and creates a date object
 export const convertToDateObject = (date, time) => {
   const newDate = `${date} ${time}`;
@@ -46,7 +58,7 @@ export const convertToDateObject = (date, time) => {
 export const extractTime = dateString => {
   let date = new Date(dateString);
   let timeString = date.toLocaleTimeString('PST');
-  return `${timeString.slice(0, 4)} ${timeString.slice(7)}`;
+  return `${timeString.slice(0, 4)}${timeString.slice(7)}`;
 }
 
 //function which extracts the day, month, and year from a Date object

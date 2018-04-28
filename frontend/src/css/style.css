@@ -600,6 +600,15 @@ header {
   border-radius: 0 0 15px 0;
 }
 
+.body-text {
+  margin: 20px 0 10px 15px;
+}
+
+.body-text p {
+  margin: 0;
+  font-size: 95%;
+}
+
 .edit-post-link a:link,
 .edit-post-link a:visited {
   float: right;

@@ -39,8 +39,8 @@ class TournamentShow extends Component {
 
     if (!selectedTournament || !currentUser) {
       return (
-        <div>
-          Loading Tournament...
+        <div style={{"minHeight": "700px", "padding": "30px"}}>
+          <h3>Loading Tournament...</h3>
         </div>
       )
     }
