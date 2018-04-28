@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const requireLogin = require('../middlewares/requireLogin');
 
-
 const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
@@ -30,14 +29,15 @@ module.exports = app => {
     res.send(req.user);
   })
 //Deletes all tournaments created by curretUser then removes User from db
+//#####Currently not working. Tries to make delete request to '/'######
   app.delete('/api/users/', requireLogin, (req, res) =>{
     try {
       Tournament.deleteMany({ _user: req.user.id }).exec();
-      User.find({ id: req.user.id }).remove().exec();
-      req.logout();
-      res.redirect('/');
+      User.find({ _id: req.user.id }).remove().exec();
     } catch (err) {
       res.status(422).send(err)
     }
+    req.method = 'GET';
+    res.redirect('/');
   })
 };
