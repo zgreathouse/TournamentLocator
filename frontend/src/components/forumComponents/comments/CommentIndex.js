@@ -8,7 +8,7 @@ import CommentIndexItem from './commentIndexItem';
 
 class CommentsIndex extends Component {
   renderComments() {
-    const { comments, currentUser } = this.props;
+    const { comments, currentUser, postID } = this.props;
 
     if (!comments) {
       return <div>Loading Comments...</div>
@@ -17,7 +17,7 @@ class CommentsIndex extends Component {
     return _.map(comments, comment => {
       return (
         <li key={uuidv4()}>
-          <CommentIndexItem comment={comment} currentUser={currentUser} />
+          <CommentIndexItem comment={comment} postID={postID} currentUser={currentUser} />
         </li>
       )
     })

@@ -39,12 +39,12 @@ export const convertListToArray = (list) => {
 
 //function which assists in rendering multiline text (tournament description & post body)
 export const renderBody = (body) => {
-  const splitBody = body.replace(/\n/ig, '!').split("!");
+  const splitBody = body.replace(/\n/ig, 'neverGunnaGiveYouUp').split('neverGunnaGiveYouUp');
+  let i = 0;
 
   return _.map(splitBody, row => {
-    return (
-      <p>{`${row}`} <br/></p>
-    )
+    i += 1;
+    return <p key={i}>{`${row}`} <br/></p>
   });
 }
 

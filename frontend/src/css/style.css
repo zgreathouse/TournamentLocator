@@ -375,6 +375,13 @@ header {
   border: 1px solid #403f42;
 }
 
+.tournament-description-container {
+  width: 90%;
+  margin: 10px auto;
+  padding: 15px;
+  border: 1px solid #403f42;
+}
+
 .delete-tournament-button-container {
   display: flex;
   justify-content: center;
@@ -606,7 +613,7 @@ header {
 
 .body-text p {
   margin: 0;
-  font-size: 95%;
+  font-size: 88%;
 }
 
 .edit-post-link a:link,

@@ -24,6 +24,8 @@ const TournamentDetail = ({ tournament }) => {
         <Fees tournament={tournament}/>
         <DateAndTime tournament={tournament}/>
         <VenueAddress tournament={tournament} />
+      </div>
+      <div className="tournament-description-container">
         <Description tournament={tournament}/>
       </div>
     </div>
