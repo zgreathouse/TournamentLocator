@@ -1,7 +1,7 @@
 /* ---------------------- */
   #2a292b
   #403f42
-  #2bbbad
+  cdef000
 /* ---------------------- */
 
 
@@ -66,7 +66,7 @@ h1, h2, h3 {
 }
 
 .submit-button {
-  background-color: #2bbbad;
+  background-color: #cdef00;
   letter-spacing: 1px;
   color: #fff;
   font-weight: 100;
@@ -193,7 +193,7 @@ header {
 .auth-button:hover,
 .auth-button-logout:hover {
   cursor: pointer;
-  border-bottom: 2px solid #2bbbad;
+  border-bottom: 2px solid #cdef00;
 }
 
 /* ----------------------------------------------------------- */
@@ -202,7 +202,7 @@ header {
 
 .modal-exit-button:hover {
   cursor: pointer;
-  color: #2bbbad;
+  color: #cdef00;
 }
 
 .modal-content { margin: 20% 10% 0 10%; }
@@ -280,7 +280,7 @@ header {
 }
 
 .create-tournament-link:focus { outline:0; }
-.create-tournament-link:hover { border-bottom: 2px solid #2bbbad; }
+.create-tournament-link:hover { border-bottom: 2px solid #eecdef00}
 
 .tournament-list {
   list-style: none;
@@ -519,7 +519,7 @@ header {
 }
 
 .post-index-item:hover {
-  color: #2bbbad;
+  color: #cdef00;
   cursor: pointer;
 }
 
@@ -586,7 +586,7 @@ header {
 }
 
 .go-back-button:hover {
-  border-bottom: 2px solid #2bbbad;
+  border-bottom: 2px solid #cdef00;
 }
 
 .post-body {
@@ -622,7 +622,7 @@ header {
 }
 
 .edit-post-link a:active,
-.edit-post-link a:hover { color: #2bbbad; }
+.edit-post-link a:hover { color: #eecdef00}
 
 /* ----------------------------------------------------------- */
 /*                       Comment Section                       */
@@ -682,7 +682,7 @@ header {
 
 .comment-button:hover {
   cursor: pointer;
-  color: #2bbbad;
+  color: #cdef00;
 }
 
 .comments-section ul,
@@ -816,7 +816,7 @@ footer {
 
 .legal-nav a:active,
 .legal-nav a:hover {
-  color: #2bbbad;
+  color: #cdef00;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
