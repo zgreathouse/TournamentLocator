@@ -39,6 +39,7 @@ require('./routes/authRoutes')(app);
 require('./routes/tournamentRoutes')(app);
 require('./routes/postRoutes')(app);
 require('./routes/lameCommentRoutes')(app);
+require('./routes/userRoutes')(app);
 
 //dynamic port binding
 const PORT = process.env.PORT || 5000;
