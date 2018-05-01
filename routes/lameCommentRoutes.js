@@ -9,16 +9,13 @@ const Tournament = mongoose.model('tournaments');
 const Post = mongoose.model('posts');
 const Comment = mongoose.model('comments');
 
-
 module.exports = app => {
-
-
   // Get an index of all the the comments for a given post
   app.get('/api/comments/:postId', async (req, res) => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
-    const allComments = await Comment.find({ _postId : match.postId });
+    const allComments = await Comment.find({ _post : match.postId });
 
     try {
       res.send(allComments);
@@ -26,6 +23,7 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
+
   // 	Create a new post to be added to a post’s collection of comments
   app.post('/api/comments/:postId', requireLogin, requireUsername, async (req, res) => {
     const p = new Path('/api/comments/:postId');
@@ -36,6 +34,7 @@ module.exports = app => {
     const comment = new Comment({
       _user: req.user.id,
       _post: post.id,
+      author: req.user.username,
       body: req.body.body,
       dateSubmitted: new Date()
     })
@@ -44,11 +43,12 @@ module.exports = app => {
       await comment.save();
       post.comments.push(comment.id);
       const newPost = await post.save();
-      res.send(newPost);
+      res.send(comment);
     } catch (err){
       res.status(422).send(err);
     }
   });
+
   // Update (edit) an existing comment
   app.patch('/api/comments/:commentId', requireLogin, async (req, res) => {
     const p = new Path('/api/comments/:commentId');
@@ -62,7 +62,11 @@ module.exports = app => {
         return res.status(401).send({ error: "You can't edit this comment"});
       }
 
+<<<<<<< HEAD
       await Comment.update({
+=======
+    await Comment.update({
+>>>>>>> 551f50f7c567f45568f944d152c9c4b267045c13
         _id: comment.id },
         { $set: { body: req.body.body }}
       ).exec();
@@ -72,6 +76,7 @@ module.exports = app => {
       res.stats(422).send(err)
     }
   });
+
   // Delete an existing comment
   app.delete('/api/comments/:commentId', requireLogin, async (req, res) => {
     const p = new Path('/api/comments/:commentId');
@@ -98,7 +103,6 @@ module.exports = app => {
       const newPost = await post.save();
       res.send(newPost);
     } catch (err) {
-      console.log(err);
       res.status(422).send(err)
     }
   });

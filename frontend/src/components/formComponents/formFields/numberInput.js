@@ -2,7 +2,6 @@ import React from 'react';
 
 const NumberInput = (field) => {
   const { touched, error } = field.meta;
-  const className = `${touched && error ? 'has-danger' : ''}`;
 
   let placeholder = '$0.00';
 
@@ -11,11 +10,10 @@ const NumberInput = (field) => {
   }
 
   return (
-    <div>
+    <div className="input-container">
       <label>{field.label}</label>
       <br/>
       <input
-        className={className}
         type="number"
         min='0'
         placeholder={`${placeholder}`}

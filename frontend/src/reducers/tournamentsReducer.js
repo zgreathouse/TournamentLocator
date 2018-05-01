@@ -1,5 +1,4 @@
 import _ from 'lodash';
-
 import {
   FETCH_TOURNAMENTS,
   FETCH_TOURNAMENT,
@@ -17,6 +16,11 @@ const tournamentsReducer = (state = initialState, action) => {
 
   switch(action.type) {
 
+    case FETCH_TOURNAMENT:
+      newState = Object.assign({}, state);
+      newState.selectedTournament = action.payload;
+      return newState;
+
     case FETCH_TOURNAMENTS:
       const tournaments = action.payload.reverse();
       const tournamentsObject = {};
@@ -26,11 +30,6 @@ const tournamentsReducer = (state = initialState, action) => {
       }
 
       return _.merge({}, state, { entities: tournamentsObject });
-
-    case FETCH_TOURNAMENT:
-      newState = Object.assign({}, state);
-      newState.selectedTournament = action.payload;
-      return newState;
 
     case DELETE_TOURNAMENT:
       return _.omit(state.entities, action.payload);
