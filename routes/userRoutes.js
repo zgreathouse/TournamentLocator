@@ -34,10 +34,9 @@ module.exports = app => {
     try {
       Tournament.deleteMany({ _user: req.user.id }).exec();
       User.find({ _id: req.user.id }).remove().exec();
+      res.status(200).send({})
     } catch (err) {
       res.status(422).send(err)
     }
-    req.method = 'GET';
-    res.redirect('/');
   })
 };
