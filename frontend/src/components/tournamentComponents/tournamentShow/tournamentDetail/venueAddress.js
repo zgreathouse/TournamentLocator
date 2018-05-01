@@ -1,9 +1,9 @@
 import React from 'react';
 
 const VenueAddress = ({ tournament }) => {
-  const { venueAddress } = tournament;
+  const { streetAddress, city } = tournament;
   return (
-    <div>Venue Address: {venueAddress}</div>
+    <div>Venue Address: {streetAddress}, {city}</div>
   )
 }
 

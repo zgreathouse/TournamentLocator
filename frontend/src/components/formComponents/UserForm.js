@@ -13,7 +13,13 @@ import CancelButton from './formButtons/cancelButton';
 
 class UserForm extends Component {
   renderFields() {
+    const { user } = this.props;
+
     return _.map(FIELDS, ({ label, name, type }) => {
+      if (user.username && name === "username") {
+        return <h3>{user.username}</h3>
+      }
+
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }

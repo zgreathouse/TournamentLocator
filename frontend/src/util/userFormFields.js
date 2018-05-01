@@ -21,11 +21,6 @@ export const FIELDS = {
     label: 'Favorite Games',
     name: 'followedGames',
     type: 'input'
-  },
-  followedSeries: {
-    label: 'Favorite Series',
-    name: 'followedSeries',
-    type: 'input'
   }
 };
 

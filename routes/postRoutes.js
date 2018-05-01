@@ -81,10 +81,10 @@ module.exports = app => {
       }
 
       await Post.update({
-        _id: post._id },
-        { $set: {
-          title: req.body.title,
-          body: req.body.body,
+        _id: post._id }, {
+          $set: {
+            title: req.body.title,
+            body: req.body.body,
           }
         }
       ).exec();

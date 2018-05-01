@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteUser } from '../../actions/userActions';
+import { convertToReadable } from '../../util/helperFunctions';
 
 class ProfilePage extends Component {
+  renderUsername(user) {
+    if (user.username) {
+      return <h2>{user.username}</h2>
+    }
+
+    return <h2>New User!</h2>
+  }
+
   onDelete() {
     this.props.deleteTournament(this.props.id, () => {
       this.props.history.push(`/tournaments`);
@@ -32,9 +41,10 @@ class ProfilePage extends Component {
       return <div>Loading User Info...</div>
     }
 
+
     return (
       <div className="tournament-detail-container">
-        <h2>{user.username}</h2>
+        {this.renderUsername(user)}
         <div className="edit-button-container">
           <Link
             to="/user/edit"
@@ -43,8 +53,7 @@ class ProfilePage extends Component {
         </div>
         <div>City: {user.city}</div>
         <div>Travel Radius: {user.travelRange} miles</div>
-        <div>Games: {user.followedGames}</div>
-        <div>Favorite Tournaments: {user.followedSeries}</div>
+        <div>Games: {convertToReadable(user.followedGames)}</div>
         {this.renderDeleteButton()}
       </div>
     )
