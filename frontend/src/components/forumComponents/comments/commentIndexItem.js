@@ -19,7 +19,7 @@ class CommentIndexItem extends Component {
   }
 
   onDelete() {
-    this.props.deleteComment(this.props.comment._id);
+    this.props.deleteComment(this.props.postID, this.props.comment._id);
   }
 
   render() {

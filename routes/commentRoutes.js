@@ -6,6 +6,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const requireUsername = require('../middlewares/requireUsername');
 
 const Post = mongoose.model('posts');
+const Comment = mongoose.model('comments');
 
 module.exports = app => {
 
@@ -18,9 +19,9 @@ module.exports = app => {
     const allComments = post.comments;
 
     try {
-      if (allComments.length === 0){
-        res.send({ emptyMessage: "No Responses Yet" })
-      }
+    //   if (allComments.length === 0){
+    //     res.send({ emptyMessage: "No Responses Yet" })
+    //   }
       res.send(allComments);
     } catch (err) {
       res.status(422).send(err);
@@ -32,10 +33,11 @@ module.exports = app => {
     const p = new Path('/api/comments/:postId');
     const match = p.test(req.url);
 
-    post = await Post.findOne({ _id: match.postId });
+    const post = await Post.findOne({ _id: match.postId });
     const comment = new Comment({
       _user: req.user.id,
       _post: post.id,
+      author: req.user.username,
       body: req.body.body,
       dateSubmitted: new Date()
     })
@@ -44,7 +46,7 @@ module.exports = app => {
       try {
         post.comments.push(comment);
         const newPost = await post.save();
-        res.send(newPost);
+        res.send(comment);
       } catch (err) {
         res.status(422).send(err);
       }
@@ -92,7 +94,7 @@ module.exports = app => {
       res.status(422).send(err);
     }
 
-    res.send(updatedPost);
+    res.send({});
   });
 
 }

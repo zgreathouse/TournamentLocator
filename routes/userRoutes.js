@@ -6,7 +6,7 @@ const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
-  app.patch('/api/users/', requireLogin, (req, res) =>{
+  app.patch('/api/currentUser', requireLogin, (req, res) =>{
     User.update({
       _id: req.user.id },
       { $set: {
@@ -30,7 +30,7 @@ module.exports = app => {
   })
 //Deletes all tournaments created by curretUser then removes User from db
 //#####Currently not working. Tries to make delete request to '/'######
-  app.delete('/api/users/', requireLogin, async (req, res) =>{
+  app.delete('/api/currentUser', requireLogin, async (req, res) =>{
     try {
       await Tournament.deleteMany({ _user: req.user.id }).exec();
       await User.find({ _id: req.user.id }).remove().exec();
