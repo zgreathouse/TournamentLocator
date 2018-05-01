@@ -30,10 +30,10 @@ module.exports = app => {
   })
 //Deletes all tournaments created by curretUser then removes User from db
 //#####Currently not working. Tries to make delete request to '/'######
-  app.delete('/api/users/', requireLogin, (req, res) =>{
+  app.delete('/api/users/', requireLogin, async (req, res) =>{
     try {
-      Tournament.deleteMany({ _user: req.user.id }).exec();
-      User.find({ _id: req.user.id }).remove().exec();
+      await Tournament.deleteMany({ _user: req.user.id }).exec();
+      await User.find({ _id: req.user.id }).remove().exec();
       res.status(200).send({})
     } catch (err) {
       res.status(422).send(err)
