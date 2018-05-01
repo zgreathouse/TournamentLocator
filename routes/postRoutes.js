@@ -81,23 +81,15 @@ module.exports = app => {
       }
 
       await Post.update({
-<<<<<<< HEAD
-        _id: post.id },
-=======
-        _id: post._id },
->>>>>>> 551f50f7c567f45568f944d152c9c4b267045c13
-        { $set: {
-          title: req.body.title,
-          body: req.body.body,
+        _id: post._id }, {
+          $set: {
+            title: req.body.title,
+            body: req.body.body,
           }
         }
       ).exec();
 
       const newPost = await Post.findOne({ _id: post._id });
-<<<<<<< HEAD
-
-=======
->>>>>>> 551f50f7c567f45568f944d152c9c4b267045c13
       res.send(newPost);
     } catch (err) {
       res.status(422).send(err);
