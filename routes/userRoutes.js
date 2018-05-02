@@ -11,13 +11,10 @@ module.exports = app => {
       _id: req.user.id },
       { $set: {
         username: req.body.username,
-        title: req.body.title,
         city: req.body.city,
         travelRange: req.body.travelRange,
         followedGames: req.body.followedGames,
-        followedSeries: req.body.followedSeries,
-        finishAccountSetup: req.body.finishAccountSetup,
-        tournaments: req.body.tournaments
+        finishAccountSetup: true
         }
       }, //callback for error handling and immediate execution
       (err) => {
