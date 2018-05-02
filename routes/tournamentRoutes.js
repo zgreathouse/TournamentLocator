@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 
 const Tournament = mongoose.model('tournaments');
+const Post = mongoose.model('posts');
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments
@@ -118,6 +119,8 @@ module.exports = app => {
         return ele !== tournament.id.toString();
       });
 
+      //removes that tournaments Posts
+      Post.deleteMany({ _tournament: tournament.id }).exec();
       //removes tournament
       Tournament.findByIdAndRemove(tournament.id).exec();
 
