@@ -26,35 +26,6 @@ module.exports = app => {
     }
   );
 
-//will test this route later, once the frontend is built out
-  // // Route for updating the user's attributes
-  // app.patch('/api/edituser', requireLogin, async (req, res) => {
-  //   //deconstruct fields from the request body
-  //   const { id, username, title, games, city } = req.body;
-  //
-  //   Todo.findById(req.body._id, (err, user) => {
-  //     // Handle any possible errors
-  //     if (err) {
-  //         res.status(500).send(err);
-  //     } else {
-  //       // Update each field with any possible field that may have been submitted in the body of the request
-  //       // If that field isn't in the request body, default back to whatever it was before.
-  //       user.username = username || user.username;
-  //       user.title = user.title;
-  //       user.games = user.games;
-  //       user.city = user.city;
-  //
-  //       // Save the updated document back to the database
-  //       user.save((err, user) => {
-  //           if (err) {
-  //               res.status(500).send(err)
-  //           }
-  //           res.status(200).send(user);
-  //       });
-  //     }
-  //   });
-  // });
-
   app.get('/auth/google',
     passport.authenticate('google', {
       scope: ['profile']
@@ -73,7 +44,7 @@ module.exports = app => {
   );
 
   // Get the current user
-  app.get('/api/current_user', (req, res) => {
+  app.get('/api/currentUser', (req, res) => {
     res.send(req.user);
   });
 
