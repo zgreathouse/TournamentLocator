@@ -6,11 +6,11 @@ const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
-  app.patch('/api/currentUser', requireLogin, (req, res) => {
-    User.update({
+  app.patch('/api/currentUser', requireLogin, async (req, res) => {
+    await User.update({
       _id: req.user.id },
       { $set: {
-        username: req.body.username,
+        username: req.user.username || req.body.username,
         city: req.body.city,
         travelRange: req.body.travelRange,
         followedGames: req.body.followedGames,
@@ -23,7 +23,10 @@ module.exports = app => {
         }
       }
     )
-    res.send(req.user);
+
+    const newUser = await User.findById(req.user.id);
+
+    res.send(newUser);
   })
 //Deletes all tournaments created by curretUser then removes User from db
   app.delete('/api/currentUser', requireLogin, async (req, res) => {
