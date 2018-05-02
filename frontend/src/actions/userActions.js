@@ -29,11 +29,12 @@ export const editUser = (values, callback) => async dispatch => {
 };
 
 //action which deletes the user in the database
-export const deleteUser = () => async dispatch => {
+export const deleteUser = callback => async dispatch => {
   const res = await axios.delete('/api/currentUser');
+  await callback();
 
   dispatch({
-    type: DELETE_USER,
+    type: FETCH_USER,
     payload: res.data
   });
 };

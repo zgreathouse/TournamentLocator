@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/postActions';
 import { fetchTournament } from '../../actions/tournamentActions';
+import { Link } from 'react-router-dom';
 
 //components
 import ForumHeader from './forumHeader';
@@ -16,7 +17,8 @@ class Forum extends Component {
   }
 
   renderPostDetail() {
-    const { selectedPost } = this.props;
+    const { selectedPost, tournament } = this.props;
+
 
     if (selectedPost && Object.keys(selectedPost).length > 0) {
       return (
@@ -26,10 +28,13 @@ class Forum extends Component {
 
     return (
       <div className="default-post-detail">
-        <p>
+        <Link
+          to={`/tournaments/${tournament._id}/forum/new`}
+          className="new-post-link"
+        >
           Questions or comments <br/>
           Post it here!
-        </p>
+        </Link>
       </div>
     )
   }

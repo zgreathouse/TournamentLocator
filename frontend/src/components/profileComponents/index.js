@@ -14,8 +14,8 @@ class ProfilePage extends Component {
   }
 
   onDelete() {
-    this.props.deleteTournament(this.props.id, () => {
-      this.props.history.push(`/tournaments`);
+    this.props.deleteUser(() => {
+      this.props.history.push(`/`);
     });
   }
 
