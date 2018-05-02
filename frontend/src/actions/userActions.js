@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { convertToDatabaseWritable } from '../util/helperFunctions';
 
 //constants
 export const FETCH_USER = 'FETCH_USER';
@@ -7,7 +8,7 @@ export const DELETE_USER = 'DELETE_USER';
 
 //action which fetches the current user
 export const fetchUser = () => async dispatch => {
-  const res = await axios.get('/api/current_user');
+  const res = await axios.get('/api/currentUser');
 
   dispatch({
     type: FETCH_USER,
@@ -16,8 +17,10 @@ export const fetchUser = () => async dispatch => {
 };
 
 //action which updates the current user
-export const editUser = () => async dispatch => {
-  const res = await axios.patch('/api/current_user');
+export const editUser = (values, callback) => async dispatch => {
+  const newUser = convertToDatabaseWritable(values);
+  const res = await axios.patch('/api/currentUser', newUser);
+  await callback();
 
   dispatch({
     type: UPDATE_USER,
@@ -27,7 +30,7 @@ export const editUser = () => async dispatch => {
 
 //action which deletes the user in the database
 export const deleteUser = () => async dispatch => {
-  const res = await axios.delete('/api/current_user');
+  const res = await axios.delete('/api/currentUser');
 
   dispatch({
     type: DELETE_USER,

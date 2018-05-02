@@ -2,12 +2,13 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-// import { editUser } from '../../actions/userActions';
+import { editUser } from '../../actions/userActions';
 import { requireCommas } from '../../util/helperFunctions';
 import { FIELDS, unrequiredFields } from '../../util/userFormFields';
 
 //components
 import TextInput from './formFields/textInput';
+import NumberInput from './formFields/numberInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -17,7 +18,11 @@ class UserForm extends Component {
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (user.username && name === "username") {
-        return <h3>{user.username}</h3>
+        return <h3 key={name}>{user.username}</h3>
+      }
+
+      if (name === 'travelRange') {
+        return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
       }
 
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
@@ -25,11 +30,9 @@ class UserForm extends Component {
   }
 
   onSubmit(values) {
-    // this.props.editUser(values, () => {
-    //   this.props.history.push('/tournaments');
-    // });
-    console.log(values);
-    console.log("submitted");
+    this.props.editUser(values, () => {
+      this.props.history.push(`/user/profile/${this.props.user._id}`);
+    });
   }
 
   render() {
@@ -84,4 +87,4 @@ export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'UserForm',
   validate
-})(connect(mapStateToProps)(UserForm));
+})(connect(mapStateToProps, { editUser })(UserForm));

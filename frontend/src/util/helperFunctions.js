@@ -78,11 +78,11 @@ export const extractDate = dateString => {
 //function which converts a form values object to be writable to our database
 export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
-    if (value === "tags" || value === "sponsors") {
+    if (value === "tags" || value === "sponsors" || value === "favoriteGames") {
       values[value] = convertListToArray(values[value]);
     } else if (value === "startTime" || value === "endTime") {
       values[value] = convertToDateObject(values.date, values[value]);
-    } else if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus") {
+    } else if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus" || value === "travelRange") {
       values[value] = parseFloat(values[value], 10);
     }
   }

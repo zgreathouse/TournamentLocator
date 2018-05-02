@@ -24,7 +24,4 @@ export const FIELDS = {
   }
 };
 
-export const unrequiredFields = [
-  'followedGames',
-  'followedSeries'
-];
+export const unrequiredFields = ['followedGames'];

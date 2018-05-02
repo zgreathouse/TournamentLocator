@@ -5,7 +5,7 @@ const NumberInput = (field) => {
 
   let placeholder = '$0.00';
 
-  if (field.label === 'Max Entrants') {
+  if (field.label === 'Max Entrants' || field.label === "Travel Range") {
     placeholder = '0';
   }
 

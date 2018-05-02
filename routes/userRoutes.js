@@ -7,31 +7,29 @@ const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
 module.exports = app => {
-  app.patch('/api/users/', requireLogin, (req, res) =>{
-    User.update({
+  app.patch('/api/currentUser', requireLogin, async (req, res) => {
+    await User.update({
       _id: req.user.id },
       { $set: {
-        username: req.body.username,
-        title: req.body.title,
-        city: req.body.city,
-        travelRange: req.body.travelRange,
-        followedGames: req.body.followedGames,
-        followedSeries: req.body.followedSeries,
-        finishAccountSetup: req.body.finishAccountSetup,
-        tournaments: req.body.tournaments
+          username: req.user.username || req.body.username,
+          city: req.body.city,
+          travelRange: req.body.travelRange,
+          followedGames: req.body.followedGames,
+          finishAccountSetup: true
         }
       }, //callback for error handling and immediate execution
       (err) => {
         if(err) {
           res.status(422).send(err);
         }
-      }
-    )
-    res.send(req.user);
-  })
+    });
+
+    const newUser = await User.findById(req.user.id);
+    res.send(newUser);
+  });
+
 //Deletes all tournaments created by curretUser then removes User from db
-//#####Currently not working. Tries to make delete request to '/'######
-  app.delete('/api/users/', requireLogin, async (req, res) =>{
+  app.delete('/api/currentUser', requireLogin, async (req, res) =>{
     try {
       await Tournament.deleteMany({ _user: req.user.id }).exec();
       await User.find({ _id: req.user.id }).remove().exec();
@@ -39,5 +37,5 @@ module.exports = app => {
     } catch (err) {
       res.status(422).send(err)
     }
-  })
+  });
 };
