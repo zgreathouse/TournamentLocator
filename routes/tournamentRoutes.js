@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
-const Path = require('path-parser');
-const { URL } = require('url');
 
 const requireLogin = require('../middlewares/requireLogin');
 
 const Tournament = mongoose.model('tournaments');
-
 
 module.exports = app => {
   // Get an index of all the up and coming tournaments
@@ -27,11 +24,7 @@ module.exports = app => {
 
   //Get page for a specific tournament
   app.get('/api/tournaments/:tournamentId', async (req, res) => {
-    //creates POJO as { nameOfWildcard: valueOfWildcard } from url
-    const p = new Path('/api/tournaments/:tournamentId');
-    const match = p.test(req.url);
-
-    const tournament = await Tournament.findOne({ _id: match.tournamentId });
+    const tournament = await Tournament.findOne({ _id: req.params.tournamentId });
 
     res.send(tournament);
   });
@@ -71,11 +64,7 @@ module.exports = app => {
 
   // Update (edit) an existing tournament
   app.patch('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
-    //gets id from wildcard in url
-    const p = new Path('/api/tournaments/:tournamentId')
-    const match = p.test(req.url);
-
-    const tournament = await Tournament.findOne({ _id: match.tournamentId })
+    const tournament = await Tournament.findOne({ _id: req.params.tournamentId })
 
     //Hosting validation
     if(!req.user.tournaments.includes(tournament._id.toString())) {
@@ -116,10 +105,7 @@ module.exports = app => {
 
   // Delete an existing tournament
   app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
-    const p = new Path('/api/tournaments/:tournamentId')
-    const match = p.test(req.url);
-
-    const tournament = await Tournament.findOne({ _id: match.tournamentId })
+    const tournament = await Tournament.findOne({ _id: req.params.tournamentId })
 
     //Hosting validation
     if(!req.user.tournaments.includes(tournament._id.toString())) {

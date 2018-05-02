@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const Path = require('path-parser');
-const { URL } = require('url');
 
 const requireLogin = require('../middlewares/requireLogin');
 const requireUsername = require('../middlewares/requireUsername');
@@ -12,10 +10,7 @@ module.exports = app => {
 
   // Get a specific post for a given tournament
   app.get('/api/post/:postId', async (req, res) => {
-    const p = new Path('/api/post/:postId');
-    const match = p.test(req.url);
-
-    const post = await Post.findOne({ _id: match.postId });
+    const post = await Post.findOne({ _id: req.params.postId });
 
     try {
       res.send(post);
@@ -26,10 +21,7 @@ module.exports = app => {
 
   // Get an index of all the the posts for a given tournament
   app.get('/api/posts/:tournamentId', async (req, res) => {
-    const p = new Path('/api/posts/:tournamentId');
-    const match = p.test(req.url);
-
-    const allPosts = await Post.find({ _tournament: match.tournamentId });
+    const allPosts = await Post.find({ _tournament: req.params.tournamentId });
 
     try {
       //allPosts.reverse to send posts with newest first
@@ -41,10 +33,7 @@ module.exports = app => {
 
   // Create a new post to be added to a Tournament’s collection of posts
   app.post('/api/posts/:tournamentId', requireLogin, requireUsername, async (req, res) => {
-    const p = new Path('/api/posts/:tournamentId');
-    const match = p.test(req.url);
-
-    const tournament = await Tournament.findOne({ _id: match.tournamentId });
+    const tournament = await Tournament.findOne({ _id: req.params.tournamentId });
 
     const post = new Post({
       _user: req.user.id,
@@ -61,17 +50,14 @@ module.exports = app => {
       await post.save();
       const newTournament = await tournament.save();
       res.send(newTournament)
-    } catch (err){
+    } catch (err) {
       res.status(422).send(err);
     }
   });
 
   // Update (edit) an existing post
   app.patch('/api/posts/:postId', requireLogin, async (req, res) => {
-    const p = new Path('/api/posts/:postId')
-    const match = p.test(req.url);
-
-    const post = await Post.findOne({ _id: match.postId });
+    const post = await Post.findOne({ _id: req.params.postId });
 
     try {
       //author validation
@@ -98,10 +84,7 @@ module.exports = app => {
 
   // Delete an existing post
   app.delete('/api/posts/:postId', requireLogin, async (req, res) => {
-    const p = new Path('/api/posts/:postId')
-    const match = p.test(req.url);
-
-    const post = await Post.findOne({ _id: match.postId })
+    const post = await Post.findOne({ _id: req.params.postId })
     const tournament = await Tournament.findOne({ _id: post._tournament })
 
     //author validation

@@ -5,6 +5,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
+//edits User in db
 module.exports = app => {
   app.patch('/api/currentUser', requireLogin, async (req, res) => {
     await User.update({
@@ -23,7 +24,7 @@ module.exports = app => {
         }
       }
     )
-
+    //gets updated user to send back to frontend
     const newUser = await User.findById(req.user.id);
 
     res.send(newUser);
