@@ -48,7 +48,7 @@ module.exports = app => {
   app.delete('/api/:postId/:commentId', requireLogin, requireUsername, async (req, res) => {
     const post = await Post.findById(req.params.postId);
 
-// possible refactor
+// possible refactor (.id method on documents not working )
     const comment = post.comments.filter(comment => comment._id.toString() === req.params.commentId)[0];
 
     try{
