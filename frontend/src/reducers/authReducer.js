@@ -8,8 +8,7 @@ const authReducer = (state = null, action) => {
       return action.payload || false;
 
     case UPDATE_USER:
-      console.log(action.payload);
-      return action.payload;
+      return action.payload || false;
 
     default:
       return state;
