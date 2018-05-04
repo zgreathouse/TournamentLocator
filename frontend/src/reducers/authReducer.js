@@ -7,6 +7,7 @@ const authReducer = (state = null, action) => {
     case FETCH_USER:
       return action.payload || false;
 
+    //create case that updates what is rendered in the header component
     case UPDATE_USER:
       return action.payload || false;
 
