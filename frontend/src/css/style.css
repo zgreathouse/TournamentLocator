@@ -564,6 +564,7 @@ header {
 
 .new-post-link:link,
 .new-post-link:visited {
+  margin-top: 80px;
   color: #403f42;
   height: 100px;
 }

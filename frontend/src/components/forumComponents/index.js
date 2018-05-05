@@ -16,9 +16,34 @@ class Forum extends Component {
     this.props.fetchTournament(this.props.match.params.id)
   }
 
+  generatePostDetailText() {
+    const { currentUser, tournament } = this.props;
+
+    if (currentUser.finishAccountSetup) {
+      return (
+        <Link
+          to={`/tournaments/${tournament._id}/forum/new`}
+          className="new-post-link"
+        >
+          Questions or comments <br/>
+          Post it here!
+        </Link>
+      )
+    }
+
+    return (
+      <Link
+        to={`/user/edit`}
+        className="new-post-link"
+      >
+        Finish setting up your account <br/>
+        to participate in the Forum!
+      </Link>
+    )
+  }
+
   renderPostDetail() {
     const { selectedPost, tournament } = this.props;
-
 
     if (selectedPost && Object.keys(selectedPost).length > 0) {
       return (
@@ -28,13 +53,7 @@ class Forum extends Component {
 
     return (
       <div className="default-post-detail">
-        <Link
-          to={`/tournaments/${tournament._id}/forum/new`}
-          className="new-post-link"
-        >
-          Questions or comments <br/>
-          Post it here!
-        </Link>
+        {this.generatePostDetailText()}
       </div>
     )
   }
@@ -42,11 +61,15 @@ class Forum extends Component {
   render() {
     const { posts, currentUser } = this.props;
 
+    if (!currentUser) {
+      return <div></div>
+    }
+
     return (
       <div className="forum-container">
         <ForumHeader route={`/tournaments/${this.props.match.params.id}`}/>
         <div className="tournaments-heading">
-          <NewPostButton tournamentID={this.props.match.params.id}/>
+          <NewPostButton tournamentID={this.props.match.params.id} user={currentUser}/>
         </div>
         <div className="forum-content">
           <PostIndex posts={posts} currentUser={currentUser} />
@@ -60,7 +83,8 @@ class Forum extends Component {
 const mapStateToProps = (state, ownProps) => ({
   posts: state.posts.entities,
   selectedPost: state.posts.selectedPost,
-  tournament: state.tournaments.selectedTournament
+  tournament: state.tournaments.selectedTournament,
+  currentUser: state.auth
 });
 
 export default connect(

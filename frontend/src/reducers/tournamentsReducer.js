@@ -22,7 +22,7 @@ const tournamentsReducer = (state = initialState, action) => {
       return newState;
 
     case FETCH_TOURNAMENTS:
-      const tournaments = action.payload.reverse();
+      const tournaments = action.payload;
       const tournamentsObject = {};
 
       for(let tournament of tournaments) {
