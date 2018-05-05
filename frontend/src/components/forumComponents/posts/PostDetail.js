@@ -17,7 +17,9 @@ class PostDetail extends Component {
   }
 
   onDelete() {
-    this.props.deletePost(this.props.post._id);
+    if (window.confirm("Are you sure you would like to delete this post?")) {
+      this.props.deletePost(this.props.post._id);
+    }
   }
 
   renderDeleteButton() {
