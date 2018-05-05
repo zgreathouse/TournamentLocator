@@ -1,4 +1,4 @@
-import { FETCH_USER, UPDATE_USER } from '../actions/userActions';
+import { FETCH_USER, DELETE_USER } from '../actions/userActions';
 
 const authReducer = (state = null, action) => {
   Object.freeze(state);
@@ -7,9 +7,8 @@ const authReducer = (state = null, action) => {
     case FETCH_USER:
       return action.payload || false;
 
-    //create case that updates what is rendered in the header component
-    case UPDATE_USER:
-      return action.payload || false;
+    case DELETE_USER:
+      return false;
 
     default:
       return state;

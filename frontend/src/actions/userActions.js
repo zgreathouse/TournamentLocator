@@ -23,7 +23,7 @@ export const editUser = (values, callback) => async dispatch => {
   await callback();
 
   dispatch({
-    type: UPDATE_USER,
+    type: FETCH_USER,
     payload: res.data
   });
 };
@@ -34,7 +34,7 @@ export const deleteUser = callback => async dispatch => {
   await callback();
 
   dispatch({
-    type: FETCH_USER,
+    type: DELETE_USER,
     payload: res.data
   });
 };
