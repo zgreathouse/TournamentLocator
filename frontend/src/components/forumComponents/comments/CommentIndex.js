@@ -23,13 +23,26 @@ class CommentsIndex extends Component {
     })
   }
 
+  renderCommentField() {
+    const { postID, currentUser } = this.props;
+
+    if (currentUser.finishAccountSetup) {
+      return <NewCommentField postID={postID}/>
+    }
+
+  }
+
   render() {
-    const { postID } = this.props;
+    const { postID, currentUser } = this.props;
+
+    if (!currentUser) {
+      return <div></div>
+    }
 
     if (Object.keys(this.props.comments).length === 0) {
       return (
         <div>
-          <NewCommentField postID={postID}/>
+          {this.renderCommentField()}
           <div className="comments-index-empty">
             <p>No comments yet...</p>
           </div>
@@ -39,7 +52,7 @@ class CommentsIndex extends Component {
 
     return (
       <div className="comments-section">
-        <NewCommentField postID={postID}/>
+        {this.renderCommentField()}
         <ul>
           {this.renderComments()}
         </ul>
