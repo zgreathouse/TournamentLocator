@@ -565,11 +565,13 @@ header {
 .new-post-link:link,
 .new-post-link:visited {
   color: #403f42;
+  height: 100px;
 }
 
 .new-post-link:active,
 .new-post-link:hover {
   color: #2bbbad;
+  height: 100px;
 }
 
 .post-content {
