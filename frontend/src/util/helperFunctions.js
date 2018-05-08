@@ -11,6 +11,11 @@ export const convertToReadable = array => {
     });
 
     let convertedArray = newArray.toString();
+
+    if (convertedArray[convertedArray.length - 1] === ",") {
+      return convertedArray.slice(0, -1);
+    }
+
     return convertedArray
   }
 }
