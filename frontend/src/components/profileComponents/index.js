@@ -14,9 +14,11 @@ class ProfilePage extends Component {
   }
 
   onDelete() {
-    this.props.deleteUser(() => {
-      this.props.history.push(`/`);
-    });
+    if (window.confirm("Are you sure you would like to delete your account? After account deletion we will not be able to recover your account. Additionally, any tournaments you have created will be deleted.")) {
+      this.props.deleteUser(() => {
+        this.props.history.push(`/`);
+      });
+    }
   }
 
   renderDeleteButton() {
