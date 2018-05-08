@@ -43,7 +43,7 @@ class Forum extends Component {
   }
 
   renderPostDetail() {
-    const { selectedPost, tournament } = this.props;
+    const { selectedPost } = this.props;
 
     if (selectedPost && Object.keys(selectedPost).length > 0) {
       return (

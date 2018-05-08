@@ -33,7 +33,7 @@ class CommentsIndex extends Component {
   }
 
   render() {
-    const { postID, currentUser } = this.props;
+    const { currentUser } = this.props;
 
     if (!currentUser) {
       return <div></div>
