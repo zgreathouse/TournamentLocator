@@ -19,9 +19,7 @@ const NumberInput = (field) => {
         placeholder={`${placeholder}`}
         {...field.input}
       />
-      <div>
-        {touched && error}
-      </div>
+      <div className="form-field-error">{touched && error}</div>
     </div>
   )
 }

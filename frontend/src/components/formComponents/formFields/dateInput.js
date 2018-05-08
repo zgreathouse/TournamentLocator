@@ -9,9 +9,7 @@ const DateInput = (field) => {
       <label>{field.label}</label>
       <br/>
       <input type="date" {...field.input}/>
-      <div>
-        {touched && error}
-      </div>
+      <div className="form-field-error">{touched && error}</div>
     </div>
   )
 }

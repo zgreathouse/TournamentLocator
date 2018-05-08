@@ -132,6 +132,16 @@ h1, h2, h3 {
 .delete-button:focus,
 .delete-button-small:focus { outline: 0; }
 
+/*--------------- Errors ---------------*/
+
+.form-field-error {
+  color: #f00;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 85%;
+  align-self: flex-start;
+}
+
 /* ----------------------------------------------------------- */
 /*                           Header                            */
 /* ----------------------------------------------------------- */
@@ -679,7 +689,7 @@ header {
   color: #f00;
   font-style: italic;
   font-weight: 100;
-  font-size: 90%;
+  font-size: 85%;
   align-self: flex-start;
   height:1px;
 }
