@@ -13,7 +13,6 @@ import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import TextInput from './formFields/textInput';
 import SubmitButton from './formButtons/submitButton';
-import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
   renderFields() {
@@ -40,6 +39,12 @@ class TournamentForm extends Component {
     });
   }
 
+  onCancel() {
+    if (window.confirm("Leaving this page before submitting will result in losing all progress made on this form. Are you sure you would like to cancel? ")) {
+      this.props.history.push('/tournaments');
+    }
+  }
+
   onSubmit(values) {
     this.props.createTournament(values, () => {
       this.props.history.push('/tournaments');
@@ -59,7 +64,7 @@ class TournamentForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton route="/tournaments"/>
+            <button className="cancel-button" onClick={this.onCancel.bind(this)}>Cancel</button>
           </div>
         </form>
       </div>

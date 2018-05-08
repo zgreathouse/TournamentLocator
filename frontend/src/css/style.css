@@ -98,7 +98,12 @@ h1, h2, h3 {
   transition: opacity 0.4s;
 }
 
-.cancel-button:hover { opacity: 1; }
+.cancel-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.cancel-button:focus { outline: 0; }
 
 .delete-button,
 .delete-button-small {
