@@ -6,11 +6,7 @@ import { convertToReadable } from '../../util/helperFunctions';
 
 class ProfilePage extends Component {
   renderUsername(user) {
-    if (user.username) {
-      return <h2>{user.username}</h2>
-    }
-
-    return <h2>New User!</h2>
+    return user.username ? <h2>{user.username}</h2> : <h2>New User!</h2>
   }
 
   onDelete() {
@@ -43,7 +39,6 @@ class ProfilePage extends Component {
       )
     }
 
-
     return (
       <div className="tournament-detail-container">
         {this.renderUsername(user)}
@@ -66,6 +61,4 @@ const mapStateToProps = (state) => ({
   user: state.auth
 });
 
-export default connect(
-  mapStateToProps, { deleteUser }
-)(ProfilePage);
+export default connect(mapStateToProps, { deleteUser })(ProfilePage);
