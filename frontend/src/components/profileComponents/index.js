@@ -22,25 +22,25 @@ class ProfilePage extends Component {
   }
 
   renderDeleteButton() {
-    const { user } = this.props;
-
-    if (user) {
-      return (
-        <div className="delete-tournament-button-container">
-          <button
-            className="delete-tournament-button"
-            onClick={this.onDelete.bind(this)}
-          >Delete My Account</button>
-        </div>
-      )
-    }
+    return (
+      <div className="delete-tournament-button-container">
+        <button
+          className="delete-tournament-button"
+          onClick={this.onDelete.bind(this)}
+        >Delete My Account</button>
+      </div>
+    )
   }
 
   render() {
     const { user } = this.props;
 
     if (!user) {
-      return <div>Loading User Info...</div>
+      return (
+        <div className="tournament-detail-container">
+          <h3>Loading User Info...</h3>
+        </div>
+      )
     }
 
 
