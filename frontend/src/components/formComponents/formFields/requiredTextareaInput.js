@@ -13,9 +13,7 @@ const RequiredTextareaInput = (field) => {
         cols="80"
         {...field.input}
       />
-      <div>
-        {touched && error}
-      </div>
+      <div className="form-field-error">{touched && error}</div>
     </div>
   )
 }

@@ -24,8 +24,8 @@ const TournamentDetail = ({ tournament }) => {
         <Fees tournament={tournament}/>
         <DateAndTime tournament={tournament}/>
         <VenueAddress tournament={tournament} />
-        <Description tournament={tournament}/>
       </div>
+      <Description tournament={tournament}/>
     </div>
   )
 }

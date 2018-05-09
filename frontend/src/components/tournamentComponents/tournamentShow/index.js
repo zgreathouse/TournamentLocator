@@ -14,9 +14,11 @@ class TournamentShow extends Component {
   }
 
   onDelete() {
-    this.props.deleteTournament(this.props.id, () => {
-      this.props.history.push(`/tournaments`);
-    });
+    if (window.confirm("Are you sure you would like to delete this Tournament? Once the Tournament has been deleted it cannot be recovered.")) {
+      this.props.deleteTournament(this.props.id, () => {
+        this.props.history.push(`/tournaments`);
+      });
+    }
   }
 
   renderDeleteButton() {
@@ -39,8 +41,8 @@ class TournamentShow extends Component {
 
     if (!selectedTournament || !currentUser) {
       return (
-        <div>
-          Loading Tournament...
+        <div style={{"minHeight": "700px", "padding": "30px"}}>
+          <h3>Loading Tournament...</h3>
         </div>
       )
     }

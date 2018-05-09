@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deletePost } from '../../../actions/postActions';
+import { renderBody } from '../../../util/helperFunctions';
 
 //components
 import EditPostButton from './editPostButton';
@@ -16,13 +17,15 @@ class PostDetail extends Component {
   }
 
   onDelete() {
-    this.props.deletePost(this.props.post._id);
+    if (window.confirm("Are you sure you would like to delete this post?")) {
+      this.props.deletePost(this.props.post._id);
+    }
   }
 
   renderDeleteButton() {
-    const { post, currentUser } = this.props;
+    const { post, currentUser, author } = this.props;
 
-    if (post._user === currentUser._id) {
+    if (post._user === currentUser._id || author === currentUser._id) {
       return (
         <div className="delete-button-container">
           <button
@@ -35,7 +38,7 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { comments, post, currentUser } = this.props;
+    const { comments, post, currentUser, tournamentAuthor } = this.props;
 
     if (!post) {
       return <div></div>
@@ -49,11 +52,18 @@ class PostDetail extends Component {
         <div className="post-content">
           <h2 className="post-title">{post.title}</h2>
           <div className="post-body">
-            <p>{post.body}</p>
+            <div className="body-text">
+              {renderBody(post.body)}
+            </div>
             {this.renderEditButton()}
           </div>
         </div>
-        <CommentIndex postID={post._id} comments={comments} currentUser={currentUser}/>
+        <CommentIndex
+          postID={post._id}
+          comments={comments}
+          author={tournamentAuthor}
+          currentUser={currentUser}
+        />
       </div>
     )
   }
@@ -61,6 +71,7 @@ class PostDetail extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth,
+  tournamentAuthor: state.tournaments.selectedTournament._user,
   post: state.posts.selectedPost,
   comments: state.comments
 });

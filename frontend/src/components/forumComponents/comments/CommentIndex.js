@@ -8,7 +8,7 @@ import CommentIndexItem from './commentIndexItem';
 
 class CommentsIndex extends Component {
   renderComments() {
-    const { comments, currentUser } = this.props;
+    const { comments, currentUser, postID, author } = this.props;
 
     if (!comments) {
       return <div>Loading Comments...</div>
@@ -17,19 +17,37 @@ class CommentsIndex extends Component {
     return _.map(comments, comment => {
       return (
         <li key={uuidv4()}>
-          <CommentIndexItem comment={comment} currentUser={currentUser} />
+          <CommentIndexItem
+            comment={comment}
+            postID={postID}
+            author={author}
+            currentUser={currentUser}
+          />
         </li>
       )
     })
   }
 
+  renderCommentField() {
+    const { postID, currentUser } = this.props;
+
+    if (currentUser.finishAccountSetup) {
+      return <NewCommentField postID={postID}/>
+    }
+
+  }
+
   render() {
-    const { postID } = this.props;
+    const { currentUser } = this.props;
+
+    if (!currentUser) {
+      return <div></div>
+    }
 
     if (Object.keys(this.props.comments).length === 0) {
       return (
         <div>
-          <NewCommentField postID={postID}/>
+          {this.renderCommentField()}
           <div className="comments-index-empty">
             <p>No comments yet...</p>
           </div>
@@ -39,7 +57,7 @@ class CommentsIndex extends Component {
 
     return (
       <div className="comments-section">
-        <NewCommentField postID={postID}/>
+        {this.renderCommentField()}
         <ul>
           {this.renderComments()}
         </ul>
