@@ -24,8 +24,8 @@ export const createComment = (postID, value) => async dispatch => {
   });
 };
 
-export const deleteComment = (commentID) => async dispatch => {
-  await axios.delete(`/api/comments/${commentID}`);
+export const deleteComment = (postID, commentID) => async dispatch => {
+  await axios.delete(`/api/${postID}/${commentID}`);
 
   dispatch({
     type: DELETE_COMMENT,

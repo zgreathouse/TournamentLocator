@@ -10,7 +10,7 @@ const postSchema = new Schema({
   title: String,                                                        // title of the post
   body: String,                                                         // body of the post
   datePosted: Date,                                                     // date the post was submitted
-  comments: [String]                                                    // array of comments which belong to the post
+  comments: [commentSchema]                                                    // array of comments which belong to the post
 });
 
 mongoose.model('posts', postSchema);
