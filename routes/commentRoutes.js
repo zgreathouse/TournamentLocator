@@ -33,7 +33,7 @@ module.exports = app => {
   // Only tries to save comment on Post doc if a body is included
     if (comment.body) {
       try {
-        post.comments.push(comment
+        post.comments.push(comment);
         const newPost = await post.save();
         res.send(comment);
       } catch (err) {
