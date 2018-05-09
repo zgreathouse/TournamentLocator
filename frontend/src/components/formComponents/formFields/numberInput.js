@@ -9,9 +9,19 @@ const NumberInput = (field) => {
     placeholder = '0';
   }
 
+  let fieldLabel = <label>{field.label}</label>
+
+  if (field.label === "Travel Range") {
+    fieldLabel = (
+      <label>
+        {field.label} <p className="message">(miles)</p>
+      </label>
+    )
+  }
+
   return (
     <div className="input-container">
-      <label>{field.label}</label>
+      {fieldLabel}
       <br/>
       <input
         type="number"
