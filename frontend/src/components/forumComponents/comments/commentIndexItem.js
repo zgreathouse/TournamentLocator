@@ -5,9 +5,10 @@ import { extractDate } from '../../../util/helperFunctions';
 
 class CommentIndexItem extends Component {
   renderDeleteButton() {
-    const { comment, currentUser } = this.props;
+    const { comment, currentUser, author } = this.props;
+    console.log(author);
 
-    if (comment._user === currentUser._id) {
+    if (comment._user === currentUser._id || currentUser._id === author) {
       return (
         <div className="delete-button-container">
           <button className="delete-button" onClick={this.onDelete.bind(this)}>

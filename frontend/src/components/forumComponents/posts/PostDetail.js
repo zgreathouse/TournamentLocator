@@ -38,7 +38,7 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { comments, post, currentUser } = this.props;
+    const { comments, post, currentUser, tournamentAuthor } = this.props;
 
     if (!post) {
       return <div></div>
@@ -58,7 +58,12 @@ class PostDetail extends Component {
             {this.renderEditButton()}
           </div>
         </div>
-        <CommentIndex postID={post._id} comments={comments} currentUser={currentUser}/>
+        <CommentIndex
+          postID={post._id}
+          comments={comments}
+          author={tournamentAuthor}
+          currentUser={currentUser}
+        />
       </div>
     )
   }
@@ -66,6 +71,7 @@ class PostDetail extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.auth,
+  tournamentAuthor: state.tournaments.selectedTournament._user,
   post: state.posts.selectedPost,
   comments: state.comments
 });
