@@ -47,7 +47,7 @@ class Forum extends Component {
 
     if (selectedPost && Object.keys(selectedPost).length > 0) {
       return (
-        <PostDetail post={this.props.selectedPost}/>
+        <PostDetail post={this.props.selectedPost} author={this.props.tournament._user}/>
       )
     }
 

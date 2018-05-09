@@ -6,7 +6,6 @@ import { extractDate } from '../../../util/helperFunctions';
 class CommentIndexItem extends Component {
   renderDeleteButton() {
     const { comment, currentUser, author } = this.props;
-    console.log(author);
 
     if (comment._user === currentUser._id || currentUser._id === author) {
       return (
