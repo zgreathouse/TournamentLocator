@@ -56,13 +56,13 @@ module.exports = app => {
 
     const comment = await Comment.findOne({ _id: match.commentId });
 
-    try{
+    try {
       let userId = comment._user.toString();
       if (req.user.id !== userId) {
         return res.status(401).send({ error: "You can't edit this comment"});
       }
 
-    await Comment.update({
+      await Comment.update({
         _id: comment.id },
         { $set: { body: req.body.body }}
       ).exec();
