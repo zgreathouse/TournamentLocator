@@ -105,8 +105,9 @@ module.exports = app => {
     const tournament = await Tournament.findOne({ _id: post._tournament })
 
     //author validation
-    let userId = post._user.toString();
-    if(req.user.id !== userId) {
+    let postAuthorId = post._user.toString();
+    let tournamentAuthorID = tournament._user.toString();
+    if(req.user.id !== postAuthorId && req.user.id !== tournamentAuthorID) {
       return res.status(401).send({ error: "You can't edit this post." });
     }
 
