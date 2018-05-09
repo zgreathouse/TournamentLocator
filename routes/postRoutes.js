@@ -60,7 +60,7 @@ module.exports = app => {
     const post = await Post.findOne({ _id: req.params.postId });
 
     try {
-      //author validation
+      // Author validation
       let userId = post._user.toString();
       if(req.user.id !== userId) {
         return res.status(401).send({ error: "You can't edit this post." });
@@ -87,19 +87,19 @@ module.exports = app => {
     const post = await Post.findOne({ _id: req.params.postId })
     const tournament = await Tournament.findOne({ _id: post._tournament })
 
-    //author validation
+    // Author validation
     let userId = post._user.toString();
     if(req.user.id !== userId) {
       return res.status(401).send({ error: "You can't edit this post." });
     }
 
     try {
-      //new tournament.forum array without post to be deleted's id
+      // New tournament.forum array without post to be deleted's id
       let updatedPostList = tournament.forum.filter(ele => {
         return ele !== post.id.toString();
       });
 
-      //removes post from database and reassigns forum array
+      // Removes post from database and reassigns forum array
       Comment.deleteMany({ _post: post.id }).exec();
       Post.findByIdAndRemove(post.id).exec();
       tournament.forum = updatedPostList;

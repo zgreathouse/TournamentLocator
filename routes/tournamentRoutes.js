@@ -16,14 +16,14 @@ module.exports = app => {
     }
   });
 
-  //Get an index of all the tournaments created by a user
+  // Get an index of all the tournaments created by a user
   app.get('/api/:userId/tournaments', requireLogin, async (req, res) => {
     const tournaments = await Tournament.find({ _user: req.user.id });
 
     res.send(tournaments);
   });
 
-  //Get page for a specific tournament
+  // Get page for a specific tournament
   app.get('/api/tournaments/:tournamentId', async (req, res) => {
     const tournament = await Tournament.findOne({ _id: req.params.tournamentId });
 
@@ -52,7 +52,7 @@ module.exports = app => {
        series: req.body.series,
        forum: []
      });
-     //saves tournament and adds to user hosting array. Sends back updated user
+     // Saves tournament and adds to user hosting array. Sends back updated user
      try {
        req.user.tournaments.push(tournament._id);
        await tournament.save();
@@ -67,12 +67,12 @@ module.exports = app => {
   app.patch('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
     const tournament = await Tournament.findOne({ _id: req.params.tournamentId })
 
-    //Hosting validation
+    // Hosting validation
     if(!req.user.tournaments.includes(tournament._id.toString())) {
       return res.status(401).send({ error: "You can't edit this tournament."});
     }
 
-    // finds tournament by id and updates in db
+    // Finds tournament by id and updates in db
     Tournament.update({
       _id: tournament.id },
       { $set: {
@@ -93,7 +93,7 @@ module.exports = app => {
           bannerImage: req.body.bannerImage,
           series: req.body.series
         }
-      },//callback for error handling and immediate execution
+      }, // Callback for error handling and immediate execution
       (err) => {
         if(err) {
           res.status(422).send(err);
@@ -108,23 +108,23 @@ module.exports = app => {
   app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {
     const tournament = await Tournament.findOne({ _id: req.params.tournamentId })
 
-    //Hosting validation
+    // Hosting validation
     if(!req.user.tournaments.includes(tournament._id.toString())) {
       return res.status(401).send({ error: "You can't edit this tournament."});
     }
 
-    //creates new array of tournament ids a user is hosting without tournament to be deleted
+    // Creates new array of tournament ids a user is hosting without tournament to be deleted
     try {
       let updatedHostingList = req.user.tournaments.filter(ele => {
         return ele !== tournament.id.toString();
       });
 
-      //removes that tournaments Posts
+      // Removes that tournaments Posts
       Post.deleteMany({ _tournament: tournament.id }).exec();
       //removes tournament
       Tournament.findByIdAndRemove(tournament.id).exec();
 
-      //updates user document with new hosting list
+      // Updates user document with new hosting list
       req.user.tournaments = updatedHostingList;
       const user = await req.user.save();
       res.send(user);

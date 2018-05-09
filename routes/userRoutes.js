@@ -5,7 +5,7 @@ const requireLogin = require('../middlewares/requireLogin');
 const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
-//edits User in db
+// Edits User in db
 module.exports = app => {
   app.patch('/api/currentUser', requireLogin, async (req, res) => {
     await User.update({
@@ -17,19 +17,19 @@ module.exports = app => {
         followedGames: req.body.followedGames,
         finishAccountSetup: true
         }
-      }, //callback for error handling and immediate execution
+      }, // Callback for error handling and immediate execution
       (err) => {
         if(err) {
           res.status(422).send(err);
         }
       }
     )
-    //gets updated user to send back to frontend
+    // Gets updated user to send back to frontend
     const newUser = await User.findById(req.user.id);
 
     res.send(newUser);
   })
-//Deletes all tournaments created by curretUser then removes User from db
+// Deletes all tournaments created by curretUser then removes User from db
   app.delete('/api/currentUser', requireLogin, async (req, res) => {
     try {
       await Tournament.deleteMany({ _user: req.user.id }).exec();
