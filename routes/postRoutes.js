@@ -87,16 +87,10 @@ module.exports = app => {
     const post = await Post.findOne({ _id: req.params.postId })
     const tournament = await Tournament.findOne({ _id: post._tournament })
 
-<<<<<<< HEAD
     // Author validation
-    let userId = post._user.toString();
-    if(req.user.id !== userId) {
-=======
-    //author validation
     let postAuthorId = post._user.toString();
     let tournamentAuthorID = tournament._user.toString();
     if(req.user.id !== postAuthorId && req.user.id !== tournamentAuthorID) {
->>>>>>> 76018ea1e78e5e50af1bde6b34b24ced09150773
       return res.status(401).send({ error: "You can't edit this post." });
     }
 
@@ -107,12 +101,12 @@ module.exports = app => {
       });
 
       // Removes post from database and reassigns forum array
-      Comment.deleteMany({ _post: post.id }).exec();
       Post.findByIdAndRemove(post.id).exec();
       tournament.forum = updatedPostList;
       const newTournament = await tournament.save();
       res.send(newTournament)
     } catch (err) {
+      console.log(err);
       res.status(422).send(err);
     }
   });
