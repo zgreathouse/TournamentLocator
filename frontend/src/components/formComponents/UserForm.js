@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { editUser } from '../../actions/userActions';
-import { requireCommas } from '../../util/helperFunctions';
 import { FIELDS, unrequiredFields } from '../../util/userFormFields';
 
 //components
 import TextInput from './formFields/textInput';
 import NumberInput from './formFields/numberInput';
+import ListInput from './formFields/listInput';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
@@ -23,6 +23,9 @@ class UserForm extends Component {
 
       if (name === 'travelRange') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
+
+      } else if (name === 'followedGames') {
+        return <Field key={name} component={ListInput} type={type} label={label} name={name} />
       }
 
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
@@ -64,10 +67,6 @@ class UserForm extends Component {
 const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);
-
-  //require how list input values are formatted to be converted to arrays later
-  errors.followedGames = requireCommas(values.followedGames || '');
-  errors.followedSeries = requireCommas(values.followedSeries || '');
 
   //validate inputs
   _.each(requiredFields, ({name, errorMessage}) => {

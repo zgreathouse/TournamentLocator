@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
 import { editTournament } from '../../actions/tournamentActions';
-import { requireCommas } from '../../util/helperFunctions';
 import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
 
 //components
@@ -71,10 +70,6 @@ class TournamentForm extends Component {
 const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);
-
-  //require how list input values are formatted to be converted to arrays later
-  errors.tags = requireCommas(values.tags || '');
-  errors.sponsors = requireCommas(values.sponsors || '');
 
   //validate inputs
   _.each(requiredFields, ({name, errorMessage}) => {

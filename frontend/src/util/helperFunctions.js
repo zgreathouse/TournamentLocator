@@ -7,44 +7,16 @@ export const convertToReadable = array => {
     let newArray = array;
 
     newArray = newArray.map(item => {
-      return item = " " + item;
+      return " " + item;
     });
 
-    let convertedArray = newArray.toString();
-
-    if (convertedArray[convertedArray.length - 1] === ",") {
-      return convertedArray.slice(0, -1);
-    }
-
-    return convertedArray
+    return newArray.toString();
   }
-}
-
-//function which sets up requirement for certain fields to be separated by commas and spaces
-export const requireCommas = (list) => {
-  const listArray = list
-    .split(",")
-    .map(list => list.trim()); //remove all whitespace
-
-  if (listArray.length === 1 && list.indexOf(" ") !== -1) {
-    return `Please separate all items with commas`;
-  }
-
-  return;
-}
-
-//function which converts string separated by commas into an array of strings
-export const convertListToArray = (list) => {
-  const listArray = list
-    .split(",")
-    .map(list => list.trim()); //remove all whitespace
-
-  return listArray;
 }
 
 //function which assists in rendering multiline text (tournament description & post body)
 export const renderBody = (body) => {
-  const splitBody = body.replace(/\n/ig, 'neverGunnaGiveYouUp').split('neverGunnaGiveYouUp');
+  const splitBody = body.replace(/\n/ig, 'neverGunna000GiveYouUp').split('neverGunna000GiveYouUp');
   let i = 0;
 
   return _.map(splitBody, row => {
@@ -84,7 +56,7 @@ export const extractDate = dateString => {
 export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
     if (value === "tags" || value === "sponsors" || value === "favoriteGames") {
-      values[value] = convertListToArray(values[value]);
+      values[value] = values[value].split(",");
     } else if (value === "startTime" || value === "endTime") {
       values[value] = convertToDateObject(values.date, values[value]);
     } else if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus" || value === "travelRange") {
