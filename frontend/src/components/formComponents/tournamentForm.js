@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
 import { createTournament } from '../../actions/tournamentActions';
-import { requireCommas } from '../../util/helperFunctions';
 import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
 
 //components
@@ -12,18 +11,22 @@ import TextareaInput from './formFields/textareaInput';
 import TimeInput from './formFields/timeInput';
 import NumberInput from './formFields/numberInput';
 import TextInput from './formFields/textInput';
+import ListInput from './formFields/listInput';
 import SubmitButton from './formButtons/submitButton';
-import CancelButton from './formButtons/cancelButton';
 
 class TournamentForm extends Component {
   renderFields() {
     const timeInputs = ['startTime', 'endTime'];
     const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
-    const textInputs = ['title', 'game', 'tags', 'venueAddress', 'sponsors', 'streamLink', 'twitterLink'];
+    const textInputs = ['title', 'game', 'city', 'streetAddress', 'streamLink', 'twitterLink'];
+    const listInputs = ['tags', 'sponsors'];
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (textInputs.indexOf(name) !== -1) {
         return <Field key={name} component={TextInput} type={type} label={label} name={name} />
+
+      } else if (listInputs.indexOf(name) !== -1) {
+        return <Field key={name} component={ListInput} type={type} label={label} name={name} />
 
       } else if (name === 'date') {
         return <Field key={name} component={DateInput} type={type} label={label} name={name} />
@@ -38,6 +41,12 @@ class TournamentForm extends Component {
         return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
       }
     });
+  }
+
+  onCancel() {
+    if (window.confirm("Leaving this page before submitting will result in losing all progress made on this form. Are you sure you would like to cancel? ")) {
+      this.props.history.push('/tournaments');
+    }
   }
 
   onSubmit(values) {
@@ -59,7 +68,7 @@ class TournamentForm extends Component {
           {this.renderFields()}
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton route="/tournaments"/>
+            <button className="cancel-button" onClick={this.onCancel.bind(this)}>Cancel</button>
           </div>
         </form>
       </div>
@@ -71,10 +80,6 @@ class TournamentForm extends Component {
 const validate = values => {
   const errors = {};
   const requiredFields = _.omit(FIELDS, unrequiredFields);
-
-  //require how list input values are formatted to be converted to arrays later
-  errors.tags = requireCommas(values.tags || '');
-  errors.sponsors = requireCommas(values.sponsors || '');
 
   //validate inputs
   _.each(requiredFields, ({name, errorMessage}) => {

@@ -13,7 +13,8 @@ const tournamentSchema = new Schema({
   date: Date,                                                           // date the tournament is taking place
   startTime: Date,                                                      // start time for tournament
   endTime: Date,                                                        // end time for tournament
-  venueAddress: String,                                                 // address of the venue
+  city: String,                                                         // city the venue is in
+  streetAddress: String,                                                // street address of the venue
   venueFee: Number,                                                     // fee to attend tournament
   entryFee: Number,                                                     // fee to compete in the tournament
   sponsors:[String],                                                    // sponsors for the tournament

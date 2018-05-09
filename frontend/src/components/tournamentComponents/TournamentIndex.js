@@ -24,8 +24,16 @@ class TournamentIndex extends Component {
   }
 
   render() {
-    if(!this.props.tournaments) {
-      return <div>Loading Tournaments...</div>
+    const { tournaments, currentUser } = this.props;
+
+    if(_.keys(tournaments).length < 1 || !currentUser) {
+      return (
+        <div>
+          <h2 className="tournaments-greeting">
+            Loading Tournaments...
+          </h2>
+        </div>
+      )
     }
 
     return (
@@ -34,7 +42,7 @@ class TournamentIndex extends Component {
           Tournaments near you!
         </h2>
         <div className="tournaments-heading">
-          <NewTournamentButton />
+          <NewTournamentButton user={currentUser}/>
         </div>
         <ul className="tournament-list">
           {this.renderTournamentList()}
@@ -45,7 +53,8 @@ class TournamentIndex extends Component {
 }
 
 const mapStateToProps = state => ({
-  tournaments: state.tournaments.entities
+  tournaments: state.tournaments.entities,
+  currentUser: state.auth
 });
 
 export default connect(

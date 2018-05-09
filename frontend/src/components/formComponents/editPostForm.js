@@ -13,8 +13,6 @@ import CancelButton from './formButtons/cancelButton';
 
 class EditPostForm extends Component {
   renderFields() {
-    //TODO need to figure out how to set initial values on a Field
-
     return _.map(FIELDS, ({ label, name, type }) => {
       if (name === 'title') {
         return <Field key={name} component={TextInput} type={type} label={label} name={name} />

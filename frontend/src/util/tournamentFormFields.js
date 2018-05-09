@@ -16,11 +16,17 @@ export const FIELDS = {
     name: 'tags',
     type: 'input'
   },
-  venueAddress: {
-    label: 'Address',
-    name: 'venueAddress',
+  city: {
+    label: 'City',
+    name: 'city',
     type: 'input',
-    errorMessage: 'the address where this tournament will be held'
+    errorMessage: 'the city where this tournament will be held'
+  },
+  streetAdress: {
+    label: 'Street Address',
+    name: 'streetAddress',
+    type: 'input',
+    errorMessage: 'the street address where this tournament will be held'
   },
   maxEntrants: {
     label: 'Max Entrants',

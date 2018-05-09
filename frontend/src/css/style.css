@@ -98,7 +98,12 @@ h1, h2, h3 {
   transition: opacity 0.4s;
 }
 
-.cancel-button:hover { opacity: 1; }
+.cancel-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.cancel-button:focus { outline: 0; }
 
 .delete-button,
 .delete-button-small {
@@ -126,6 +131,25 @@ h1, h2, h3 {
 
 .delete-button:focus,
 .delete-button-small:focus { outline: 0; }
+
+/*--------------- Errors ---------------*/
+
+.form-field-error {
+  color: #f00;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 85%;
+  align-self: flex-start;
+}
+
+.message {
+  color: #aaa;
+  font-size: 75%;
+  font-style: italic;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
 
 /* ----------------------------------------------------------- */
 /*                           Header                            */
@@ -178,6 +202,7 @@ header {
   font-weight: 100;
   background-color: transparent;
   color: #fff;
+  margin-left: 5px;
   border: 0;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.3s;
@@ -374,6 +399,13 @@ header {
   border: 1px solid #403f42;
 }
 
+.tournament-description-container {
+  width: 90%;
+  margin: 10px auto;
+  padding: 15px;
+  border: 1px solid #403f42;
+}
+
 .delete-tournament-button-container {
   display: flex;
   justify-content: center;
@@ -553,6 +585,20 @@ header {
   line-height: 1.5;
 }
 
+
+.new-post-link:link,
+.new-post-link:visited {
+  margin-top: 80px;
+  color: #403f42;
+  height: 100px;
+}
+
+.new-post-link:active,
+.new-post-link:hover {
+  color: #2bbbad;
+  height: 100px;
+}
+
 .post-content {
   display: flex;
   flex-direction: column;
@@ -599,6 +645,15 @@ header {
   border-radius: 0 0 15px 0;
 }
 
+.body-text {
+  margin: 20px 0 10px 15px;
+}
+
+.body-text p {
+  margin: 0;
+  font-size: 88%;
+}
+
 .edit-post-link a:link,
 .edit-post-link a:visited {
   float: right;
@@ -643,7 +698,7 @@ header {
   color: #f00;
   font-style: italic;
   font-weight: 100;
-  font-size: 90%;
+  font-size: 85%;
   align-self: flex-start;
   height:1px;
 }
