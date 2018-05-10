@@ -5,9 +5,8 @@ const requireLogin = require('../middlewares/requireLogin');
 const User = mongoose.model('users');
 const Tournament = mongoose.model('tournaments');
 
-// Edits User in db
 module.exports = app => {
-  app.patch('/api/users/', requireLogin, async (req, res) =>{
+  app.patch('/api/currentUser', requireLogin, async (req, res) =>{
     User.update({
       _id: req.user.id },
       { $set: {
