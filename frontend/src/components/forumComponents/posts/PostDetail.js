@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deletePost } from '../../../actions/postActions';
 import { renderBody } from '../../../util/helperFunctions';
+
+//actions
+import { deletePost } from '../../../actions/postActions';
 
 //components
 import EditPostButton from './editPostButton';

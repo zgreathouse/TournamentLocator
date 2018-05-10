@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+//actions
 import { fetchPosts } from '../../actions/postActions';
 import { fetchTournament } from '../../actions/tournamentActions';
-import { Link } from 'react-router-dom';
 
 //components
 import ForumHeader from './forumHeader';
@@ -30,7 +32,7 @@ class Forum extends Component {
         </Link>
       )
     }
-    
+
     return (
       <Link
         to={`/user/edit`}

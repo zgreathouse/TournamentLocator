@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TextareaInput = (field) => {
-
   return (
     <div className="input-container">
       <label>{field.label}</label>

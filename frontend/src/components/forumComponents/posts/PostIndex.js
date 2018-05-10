@@ -2,6 +2,8 @@ import _ from 'lodash';
 import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+//actions
 import { fetchPost } from '../../../actions/postActions';
 import { fetchComments } from '../../../actions/commentActions';
 

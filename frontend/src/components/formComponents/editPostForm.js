@@ -2,8 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { editPost } from '../../actions/postActions';
 import { FIELDS } from '../../util/postFormFields';
+
+//actions
+import { editPost } from '../../actions/postActions';
 
 //components
 import TextInput from './formFields/textInput';

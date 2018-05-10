@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+//actions
 import { deleteUser } from '../../actions/userActions';
 
 //components

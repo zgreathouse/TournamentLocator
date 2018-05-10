@@ -1,4 +1,3 @@
-//submit the form
 import React from 'react';
 
 const SubmitButton = (props) => {

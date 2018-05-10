@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+//actions
 import { fetchTournament, deleteTournament } from '../../../actions/tournamentActions';
 
 //components
-// import TournamentBanner from './tournamentBanner';
 import EditTournamentButton from './editTournamentButton';
 import TournamentDetail from './tournamentDetail';
 import ForumButton from './forumButton';

@@ -2,8 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { editUser } from '../../actions/userActions';
 import { FIELDS, unrequiredFields } from '../../util/userFormFields';
+
+//actions
+import { editUser } from '../../actions/userActions';
 
 //components
 import TextInput from './formFields/textInput';

@@ -1,5 +1,6 @@
 import React from 'react';
 
+//components
 import DeveloperLinks from './developerLinks';
 
 const FooterTop = () => {

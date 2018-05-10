@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DeveloperLink = ({ name, linkedIn, github }) => {
+const DeveloperLinks = ({ name, linkedIn, github }) => {
   return (
     <p>
       <a
@@ -18,4 +18,4 @@ const DeveloperLink = ({ name, linkedIn, github }) => {
   )
 }
 
-export default DeveloperLink;
+export default DeveloperLinks;

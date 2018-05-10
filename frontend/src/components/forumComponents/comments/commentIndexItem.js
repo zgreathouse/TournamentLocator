@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteComment } from '../../../actions/commentActions';
 import { extractDate } from '../../../util/helperFunctions';
+
+//actions
+import { deleteComment } from '../../../actions/commentActions';
 
 class CommentIndexItem extends Component {
   renderDeleteButton() {

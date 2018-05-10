@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+//actions
 import { fetchUser } from '../actions/userActions';
 
 //components

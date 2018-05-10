@@ -2,8 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
-import { editTournament } from '../../actions/tournamentActions';
 import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
+
+//actions
+import { editTournament } from '../../actions/tournamentActions';
 
 //components
 import DateInput from './formFields/dateInput';
