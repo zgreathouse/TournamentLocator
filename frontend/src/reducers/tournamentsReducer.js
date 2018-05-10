@@ -24,12 +24,14 @@ const tournamentsReducer = (state = initialState, action) => {
     case FETCH_TOURNAMENTS:
       const tournaments = action.payload;
       const tournamentsObject = {};
+      newState = Object.assign({}, state);
 
       for(let tournament of tournaments) {
         tournamentsObject[tournament._id] = tournament;
       }
 
-      return _.merge({}, state, { entities: tournamentsObject });
+      newState.entities = tournamentsObject;
+      return newState;
 
     case DELETE_TOURNAMENT:
       return _.omit(state.entities, action.payload);
