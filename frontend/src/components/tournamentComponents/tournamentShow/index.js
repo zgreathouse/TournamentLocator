@@ -49,7 +49,6 @@ class TournamentShow extends Component {
 
     return (
       <div>
-        {/* <TournamentBanner tournament={selectedTournament} /> */}
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
         {this.renderDeleteButton()}

@@ -16,7 +16,6 @@ const Description = ({ tournament }) => {
       </div>
     </div>
   )
-
 }
 
 export default Description;
