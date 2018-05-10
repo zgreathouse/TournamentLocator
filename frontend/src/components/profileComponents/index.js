@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteUser } from '../../actions/userActions';
-import { convertToReadable } from '../../util/helperFunctions';
+
+//components
+import UserDetail from './userDetail';
+import EditProfileButton from './editProfileButton';
 
 class ProfilePage extends Component {
   renderUsername(user) {
@@ -42,15 +45,8 @@ class ProfilePage extends Component {
     return (
       <div className="tournament-detail-container">
         {this.renderUsername(user)}
-        <div className="edit-button-container">
-          <Link
-            to="/user/edit"
-            className="edit-button"
-          >Edit Profile</Link>
-        </div>
-        <div>City: {user.city}</div>
-        <div>Travel Radius: {user.travelRange} miles</div>
-        <div>Games: {convertToReadable(user.followedGames)}</div>
+        <EditProfileButton />
+        <UserDetail user={user}/>
         {this.renderDeleteButton()}
       </div>
     )
