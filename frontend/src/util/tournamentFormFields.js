@@ -49,14 +49,12 @@ export const FIELDS = {
     name: 'twitterLink',
     type: 'input'
   },
-  //date input
   date: {
     label: 'Date',
     name: 'date',
     type: 'input',
     errorMessage: 'the date the tournament will be held'
   },
-  //time inputs
   startTime: {
     label: 'Start',
     name: 'startTime',
@@ -69,7 +67,6 @@ export const FIELDS = {
     type: 'input',
     errorMessage: 'an end time'
   },
-  // money inputs
   venueFee: {
     label: 'Venue Fee',
     name: 'venueFee',

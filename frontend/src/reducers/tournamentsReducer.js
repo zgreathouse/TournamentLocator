@@ -5,17 +5,13 @@ import {
   DELETE_TOURNAMENT
 } from '../actions/tournamentActions';
 
-const initialState = {
-  entities: {},
-  selectedTournament: {}
-};
+const initialState = { entities: {}, selectedTournament: {} };
 
 const tournamentsReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState;
 
   switch(action.type) {
-
     case FETCH_TOURNAMENT:
       newState = Object.assign({}, state);
       newState.selectedTournament = action.payload;

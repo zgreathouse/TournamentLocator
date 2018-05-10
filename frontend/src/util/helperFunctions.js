@@ -1,27 +1,24 @@
 import _ from 'lodash';
 import React from 'react';
+import uuidv4 from 'uuid/v4';
 
 //function takes array value and seperates elements by commas and spaces
 export const convertToReadable = array => {
-  if (array) {
-    let newArray = array;
+  let newArray = array.map(item => {
+    return " " + item;
+  });
 
-    newArray = newArray.map(item => {
-      return " " + item;
-    });
-
-    return newArray.toString();
-  }
+  return newArray.toString();
 }
 
 //function which assists in rendering multiline text (tournament description & post body)
 export const renderBody = (body) => {
-  const splitBody = body.replace(/\n/ig, 'neverGunna000GiveYouUp').split('neverGunna000GiveYouUp');
-  let i = 0;
+  const splitBody = body
+    .replace(/\n/ig, 'neverGunna000GiveYouUp')
+    .split('neverGunna000GiveYouUp');
 
   return _.map(splitBody, row => {
-    i += 1;
-    return <p key={i}>{`${row}`} <br/></p>
+    return <p key={uuidv4}>{`${row}`} <br/></p>
   });
 }
 
@@ -47,7 +44,6 @@ export const extractDate = dateString => {
     //date with year included
     return `${date[0].slice(0, -4)}${date[0].slice(-2)}` ;
   }
-
   //date without the year included
   return date[0].slice(0, -5);
 }
@@ -55,10 +51,13 @@ export const extractDate = dateString => {
 //function which converts a form values object to be writable to our database
 export const convertToDatabaseWritable = (values) => {
   for (let value in values) {
+
     if (value === "tags" || value === "sponsors" || value === "favoriteGames") {
       values[value] = values[value].split(",");
+
     } else if (value === "startTime" || value === "endTime") {
       values[value] = convertToDateObject(values.date, values[value]);
+
     } else if (value === "maxEntrants" || value === "entryFee" || value === "venueFee" || value === "potBonus" || value === "travelRange") {
       values[value] = parseFloat(values[value], 10);
     }
