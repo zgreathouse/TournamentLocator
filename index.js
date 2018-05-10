@@ -38,7 +38,7 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/tournamentRoutes')(app);
 require('./routes/postRoutes')(app);
-require('./routes/lameCommentRoutes')(app);
+require('./routes/commentRoutes')(app);
 require('./routes/userRoutes')(app);
 
 //dynamic port binding

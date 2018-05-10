@@ -8,7 +8,7 @@ import CommentIndexItem from './commentIndexItem';
 
 class CommentsIndex extends Component {
   renderComments() {
-    const { comments, currentUser, postID, author } = this.props;
+    const { comments, currentUser, postID, author } = this.props
 
     if (!comments) {
       return <div>Loading Comments...</div>
