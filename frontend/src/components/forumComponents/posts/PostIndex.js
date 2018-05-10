@@ -16,10 +16,7 @@ class PostIndex extends Component {
 
     return _.map(posts, post => {
       return (
-        <li
-          key={uuidv4()}
-          onClick={() => this.fetchPostAndComments(post._id)}
-        >
+        <li key={uuidv4()} onClick={() => this.fetchPostAndComments(post._id)}>
           <div className="post-index-item">
             <h3>{post.title}</h3>
           </div>
@@ -46,7 +43,5 @@ class PostIndex extends Component {
     )
   }
 }
-
-
 
 export default connect(null, { fetchPost, fetchComments })(PostIndex);

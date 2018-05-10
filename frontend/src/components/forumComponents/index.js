@@ -30,7 +30,7 @@ class Forum extends Component {
         </Link>
       )
     }
-
+    
     return (
       <Link
         to={`/user/edit`}

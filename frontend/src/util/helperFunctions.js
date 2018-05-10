@@ -18,7 +18,7 @@ export const renderBody = (body) => {
     .split('neverGunna000GiveYouUp');
 
   return _.map(splitBody, row => {
-    return <p key={uuidv4}>{`${row}`} <br/></p>
+    return <p key={uuidv4()}>{`${row}`} <br/></p>
   });
 }
 

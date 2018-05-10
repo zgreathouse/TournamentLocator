@@ -34,15 +34,10 @@ class CommentsIndex extends Component {
     if (currentUser.finishAccountSetup) {
       return <NewCommentField postID={postID}/>
     }
-
   }
 
   render() {
     const { currentUser } = this.props;
-
-    if (!currentUser) {
-      return <div></div>
-    }
 
     if (Object.keys(this.props.comments).length === 0) {
       return (

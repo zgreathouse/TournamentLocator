@@ -41,7 +41,7 @@ class PostDetail extends Component {
     const { comments, post, currentUser, tournamentAuthor } = this.props;
 
     if (!post) {
-      return <div></div>
+      return <div>Loading Post...</div>
     }
 
     return (
