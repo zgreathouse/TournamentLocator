@@ -19,7 +19,3 @@ const DeveloperLink = ({ name, linkedIn, github }) => {
 }
 
 export default DeveloperLink;
-
-//name="Zach Greathouse"
-//linkedIn="https://www.linkedin.com/in/zachary-greathouse-11345813b/"
-//github="https://github.com/zgreathouse"
