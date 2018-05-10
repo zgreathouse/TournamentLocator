@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//action types
 export const FETCH_COMMENT  = 'FETCH_COMMENT';
 export const FETCH_COMMENTS  = 'FETCH_COMMENTS';
 export const DELETE_COMMENT  = 'DELETE_COMMENT';
@@ -24,6 +25,7 @@ export const createComment = (postID, value) => async dispatch => {
   });
 };
 
+//action which deletes a specific comment in the database
 export const deleteComment = (postID, commentID) => async dispatch => {
   await axios.delete(`/api/${postID}/${commentID}`);
 

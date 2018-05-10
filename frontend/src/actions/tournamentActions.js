@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { convertToDatabaseWritable } from '../util/helperFunctions';
 
-//constants
+//action types
 export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
 export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
 export const CREATE_TOURNAMENT  = 'CREATE_TOURNAMENT';
