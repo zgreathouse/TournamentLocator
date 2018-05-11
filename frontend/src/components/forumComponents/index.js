@@ -14,8 +14,8 @@ import PostDetail from './posts/PostDetail';
 
 class Forum extends Component {
   componentDidMount() {
-    this.props.fetchPosts(this.props.match.params.id);
-    this.props.fetchTournament(this.props.match.params.id)
+    this.props.fetchPosts(this.props.match.params.id)
+      .then(this.props.fetchTournament(this.props.match.params.id));
   }
 
   generatePostDetailText() {
