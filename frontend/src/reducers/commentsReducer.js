@@ -10,7 +10,7 @@ const commentsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case FETCH_COMMENT:
-      return { [action.payload._id]: action.payload, ...state };
+      return { ...state, [action.payload._id]: action.payload };
 
     case FETCH_COMMENTS:
       let comments = action.payload;
