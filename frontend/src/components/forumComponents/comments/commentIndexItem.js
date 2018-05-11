@@ -7,9 +7,9 @@ import { deleteComment } from '../../../actions/commentActions';
 
 class CommentIndexItem extends Component {
   renderDeleteButton() {
-    const { comment, currentUser, author } = this.props;
+    const { comment, currentUser, tournamentOrganizer } = this.props;
 
-    if (currentUser._id === comment._user || currentUser._id === author) {
+    if (currentUser._id === comment._user || currentUser._id === tournamentOrganizer) {
       return (
         <div className="delete-button-container">
           <button className="delete-button" onClick={this.onDelete.bind(this)}>
