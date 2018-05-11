@@ -13,7 +13,6 @@ const NewTournamentButton = ({ user }) => {
   }
 
   return <div></div>
-
 }
 
 export default NewTournamentButton;
