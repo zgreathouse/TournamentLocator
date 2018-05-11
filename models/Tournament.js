@@ -10,7 +10,6 @@ const tournamentSchema = new Schema({
   description: String,                                                  // tournament description
   streamLink: String,                                                   // url for the stream
   twitterLink: String,                                                  // url for associated twitter
-  date: Date,                                                           // date the tournament is taking place
   startTime: Date,                                                      // start time for tournament
   endTime: Date,                                                        // end time for tournament
   city: String,                                                         // city the venue is in
