@@ -617,10 +617,12 @@ header {
 
 .go-back-button {
   font-weight: 100;
+  text-align: center;
   letter-spacing: 1px;
+  margin: 25px 0 0 25px;
   color: #403f42;
-  width: 10%;
-  padding: 10px;
+  width: 8%;
+  padding-bottom: 6px;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.4s;
   transition: border-bottom 0.4s;

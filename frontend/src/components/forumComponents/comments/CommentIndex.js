@@ -37,8 +37,6 @@ class CommentsIndex extends Component {
   }
 
   render() {
-    const { currentUser } = this.props;
-
     if (Object.keys(this.props.comments).length === 0) {
       return (
         <div>
