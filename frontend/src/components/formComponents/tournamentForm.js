@@ -1,16 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
-import {
-  FIELDS,
-  GENERAL_FIELDS,
-  LOCATION_FIELDS,
-  SOCIAL_FIELDS,
-  TIME_FIELDS,
-  FEES_FIELDS,
-  unrequiredFields
-} from '../../util/tournamentFormFields';
+import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
 
 //actions
 import { createTournament } from '../../actions/tournamentActions';

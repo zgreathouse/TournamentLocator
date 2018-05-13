@@ -27,7 +27,7 @@ export const GENERAL_FIELDS = {
   //   name: 'bannerImage',
   //   type: 'input'
   // }
-}
+};
 
 export const LOCATION_FIELDS = {
   city: {
@@ -42,7 +42,7 @@ export const LOCATION_FIELDS = {
     type: 'input',
     errorMessage: 'the street address where this tournament will be held'
   }
-}
+};
 
 export const SOCIAL_FIELDS = {
   sponsors: {
@@ -60,9 +60,9 @@ export const SOCIAL_FIELDS = {
     name: 'twitterLink',
     type: 'input'
   }
-}
+};
 
-export const TIME_FIELDS = {
+export const NON_SERIES_TIME_FIELDS = {
   date: {
     label: 'Date',
     name: 'date',
@@ -81,7 +81,28 @@ export const TIME_FIELDS = {
     type: 'input',
     errorMessage: 'an end time'
   }
-}
+};
+
+export const SERIES_TIME_FIELDS = {
+  seriesDay: {
+    label: 'Weekday',
+    name: 'seriesDay',
+    type: 'select',
+    errorMessage: 'the day of the week the tournament will be held on'
+  },
+  seriesStartTime: {
+    label: 'Start',
+    name: 'seriesStartTime',
+    type: 'input',
+    errorMessage: 'a start time'
+  },
+  seriesEndTime: {
+    label: 'End',
+    name: 'seriesEndTime',
+    type: 'input',
+    errorMessage: 'an end time'
+  }
+};
 
 export const FEES_FIELDS = {
   venueFee: {
@@ -99,9 +120,16 @@ export const FEES_FIELDS = {
     name: 'potBonus',
     type: 'input'
   }
-}
+};
 
-export const FIELDS = Object.assign({}, GENERAL_FIELDS, LOCATION_FIELDS, SOCIAL_FIELDS, TIME_FIELDS, FEES_FIELDS)
+export const FIELDS = Object.assign({},
+  GENERAL_FIELDS,
+  LOCATION_FIELDS,
+  SOCIAL_FIELDS,
+  NON_SERIES_TIME_FIELDS,
+  SERIES_TIME_FIELDS,
+  FEES_FIELDS
+);
 
 export const unrequiredFields = [
   'tags',

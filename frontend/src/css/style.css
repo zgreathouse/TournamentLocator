@@ -473,6 +473,10 @@ header {
   color: #403f42;
 }
 
+.input-container input {
+  height: 29px;
+}
+
 .input-container input:focus { outline: 0; }
 
 .tournament-form-container {
@@ -487,7 +491,22 @@ header {
 
 .tournament-form div { margin: 5px 0; }
 
-.fields-group { padding: 10px 40px; }
+.fields-group { padding: 10px 30px; }
+
+.time-fields-overview {
+  display: flex;
+  align-items: center;
+}
+
+.time-fields-overview p {
+  margin: 5px 10px 0 30px;
+}
+
+.bottom-time-fields {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
 
 .form-buttons {
   display: flex;

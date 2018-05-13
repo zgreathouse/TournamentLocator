@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
 
 //components
 import TextareaInput from '../formFields/textareaInput';

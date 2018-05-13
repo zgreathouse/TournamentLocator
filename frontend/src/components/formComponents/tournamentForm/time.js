@@ -1,40 +1,40 @@
-import React from 'react';
-import { TIME_FIELDS } from '../../../util/tournamentFormFields';
-import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
+import React, { Component } from 'react';
 
 //components
-import DateInput from '../formFields/dateInput';
-import TimeInput from '../formFields/timeInput';
+import NonSeriesTimeFields from './timeFields/nonSeriesTimeFields';
+import SeriesTimeFields from './timeFields/seriesTimeFields';
 
-const Time = () => {
-  const { date, startTime, endTime } = TIME_FIELDS;
 
-  return (
-    <section>
-      <h3>Time</h3>
-      <div className="fields-group">
-        <Field key={uuidv4()}
-          component={DateInput}
-          type={date.type}
-          label={date.label}
-          name={date.name}
-        />
-        <Field key={uuidv4()}
-          component={TimeInput}
-          type={startTime.type}
-          label={startTime.label}
-          name={startTime.name}
-        />
-        <Field key={uuidv4()}
-          component={TimeInput}
-          type={endTime.type}
-          label={endTime.label}
-          name={endTime.name}
-        />
-      </div>
-    </section>
-  )
+class Time extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { series: false }
+  }
+
+  renderFields() {
+    return this.state.series ? <SeriesTimeFields /> : <NonSeriesTimeFields />
+  }
+
+  toggleSeries() {
+    this.setState({series: !this.state.series, buttonText: !this.state.buttonText});
+  }
+
+  render() {
+    return (
+      <section>
+        <h3>Time</h3>
+        <div className="time-fields-overview">
+          <p>Is this tournament a weekly series?</p>
+          <label className="switch">
+            <input type="checkbox" onChange={this.toggleSeries.bind(this)}/>
+            <span className="slider round"></span>
+          </label>
+        </div>
+        {this.renderFields()}
+      </section>
+    )
+  }
 }
 
 export default Time;
