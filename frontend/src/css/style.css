@@ -322,6 +322,10 @@ header {
   padding: 1%;
 }
 
+.fa-trophy {
+  color: #2bbbad;
+}
+
 .tournament-list-item-title {
   margin: 5px 10px;
   color: #403f42;

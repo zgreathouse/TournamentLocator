@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { extractDate } from '../../util/helperFunctions';
+import 'font-awesome/css/font-awesome.min.css';
 
 const TournamentIndexItem = ({ tournament }) => {
   let date;
@@ -21,6 +22,7 @@ const TournamentIndexItem = ({ tournament }) => {
             <div className="item-detail-banner"></div>
             <div className="item-detail-info">
               <p>{tournament.game}</p>
+              {tournament.series ? <i className="fa fa-trophy"></i> : <i></i>}
               <p className="item-detail-info-date">{date}</p>
             </div>
         </div>
