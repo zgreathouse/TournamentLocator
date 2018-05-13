@@ -52,7 +52,9 @@ class EditTournamentForm extends Component {
           <Social />
           <Time />
           <Fees />
-          <Field key='description' component={TextareaInput} type='input' label='Description' name='description' />
+          <section>
+            <Field key='description' component={TextareaInput} type='input' label='Description' name='description' />
+          </section>
           <div className="form-buttons">
             <SubmitButton />
             <button className="cancel-button" onClick={this.onCancel.bind(this)}>Cancel</button>
