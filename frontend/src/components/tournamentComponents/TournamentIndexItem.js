@@ -7,12 +7,10 @@ const TournamentIndexItem = ({ tournament }) => {
 
   if (tournament.series) {
     date = tournament.seriesDay + 's!'
-    console.log('1');
   } else {
     date = extractDate(tournament.startTime);
-    console.log('2');
   }
-  
+
   return (
     <div className="tournament-list-item">
       <Link to={`/tournaments/${tournament._id}`}>
