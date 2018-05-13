@@ -40,6 +40,12 @@ html {
   visibility: hidden;
 }
 
+section {
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #403f42;
+}
+
 a { text-decoration: none; }
 
 /* ----------------------------------------------------------- */
@@ -479,6 +485,10 @@ header {
 }
 
 .tournament-form div { margin: 5px 0; }
+
+.fields-group {
+  padding: 10px 25px;
+}
 
 .form-buttons {
   display: flex;

@@ -1,4 +1,4 @@
-export const FIELDS = {
+export const PRIMARY_FIELDS = {
   title: {
     label: 'Title',
     name: 'title',
@@ -22,18 +22,29 @@ export const FIELDS = {
     type: 'input',
     errorMessage: 'a max number of entrants'
   },
+  // bannerImage: {
+  //   label: 'Upload a tournament banner:',
+  //   name: 'bannerImage',
+  //   type: 'input'
+  // }
+}
+
+export const LOCATION_FIELDS = {
   city: {
     label: 'City',
     name: 'city',
     type: 'input',
     errorMessage: 'the city where this tournament will be held'
   },
-  streetAdress: {
+  streetAddress: {
     label: 'Street Address',
     name: 'streetAddress',
     type: 'input',
     errorMessage: 'the street address where this tournament will be held'
-  },
+  }
+}
+
+export const SOCIAL_FIELDS = {
   sponsors: {
     label: 'Sponsors',
     name: 'sponsors',
@@ -48,7 +59,10 @@ export const FIELDS = {
     label: 'Twitter Link',
     name: 'twitterLink',
     type: 'input'
-  },
+  }
+}
+
+export const TIME_FIELDS = {
   date: {
     label: 'Date',
     name: 'date',
@@ -66,7 +80,10 @@ export const FIELDS = {
     name: 'endTime',
     type: 'input',
     errorMessage: 'an end time'
-  },
+  }
+}
+
+export const FEES_FIELDS = {
   venueFee: {
     label: 'Venue Fee',
     name: 'venueFee',
@@ -81,32 +98,19 @@ export const FIELDS = {
     label: 'Pot Bonus',
     name: 'potBonus',
     type: 'input'
-  },
-  series: {
-    label: 'Is your tournament held weekly?',
-    name: 'series',
-    type: 'input',
-    errorMessage: 'yes or no'
-  },
-  bannerImage: {
-    label: 'Upload a tournament banner:',
-    name: 'bannerImage',
-    type: 'input'
-  },
-  description: {
-    label: 'Description',
-    name: 'description',
-    type: 'input'
   }
-};
+}
+
+export const FIELDS = Object.assign({}, PRIMARY_FIELDS, LOCATION_FIELDS, SOCIAL_FIELDS, TIME_FIELDS, FEES_FIELDS)
 
 export const unrequiredFields = [
   'tags',
-  'venueFee',
-  'entryFee',
-  'potBonus',
+  'bannerImage',
   'sponsors',
   'streamLink',
   'twitterLink',
+  'venueFee',
+  'entryFee',
+  'potBonus',
   'description'
 ];

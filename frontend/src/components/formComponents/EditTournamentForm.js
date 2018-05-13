@@ -2,43 +2,33 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
-import { FIELDS, unrequiredFields } from '../../util/tournamentFormFields';
+import { FIELDS,
+  PRIMARY_FIELDS,
+  LOCATION_FIELDS,
+  SOCIAL_FIELDS,
+  TIME_FIELDS,
+  FEES_FIELDS,
+  unrequiredFields
+} from '../../util/tournamentFormFields';
 
 //actions
 import { editTournament } from '../../actions/tournamentActions';
 
 //components
-import DateInput from './formFields/dateInput';
+import PrimaryDetails from './tournamentForm/primaryDetails';
+import Location from './tournamentForm/location';
+import Social from './tournamentForm/social';
+import Time from './tournamentForm/time';
+import Fees from './tournamentForm/fees';
 import TextareaInput from './formFields/textareaInput';
-import TimeInput from './formFields/timeInput';
-import NumberInput from './formFields/numberInput';
-import TextInput from './formFields/textInput';
 import SubmitButton from './formButtons/submitButton';
-import CancelButton from './formButtons/cancelButton';
 
-class TournamentForm extends Component {
-  renderFields() {
-    const timeInputs = ['startTime', 'endTime'];
-    const numberInputs = ['maxEntrants', 'venueFee', 'entryFee', 'potBonus'];
-    const textInputs = ['title', 'game', 'tags', 'city', 'streetAddress', 'sponsors', 'streamLink', 'twitterLink'];
 
-    return _.map(FIELDS, ({ label, name, type }) => {
-      if (textInputs.indexOf(name) !== -1) {
-        return <Field key={name} component={TextInput} type={type} label={label} name={name} />
-
-      } else if (name === 'date') {
-        return <Field key={name} component={DateInput} type={type} label={label} name={name} />
-
-      } else if (timeInputs.indexOf(name) !== -1) {
-        return <Field key={name} component={TimeInput} type={type} label={label} name={name} />
-
-      } else if (numberInputs.indexOf(name) !== -1) {
-        return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
-
-      } else if (name === 'description') {
-        return <Field key={name} component={TextareaInput} type={type} label={label} name={name} />
-      }
-    });
+class EditTournamentForm extends Component {
+  onCancel() {
+    if (window.confirm("Leaving this page before submitting will result in losing all progress made on this form. Are you sure you would like to cancel? ")) {
+      this.props.history.push('/tournaments');
+    }
   }
 
   onSubmit(values) {
@@ -57,10 +47,15 @@ class TournamentForm extends Component {
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          {this.renderFields()}
+          <PrimaryDetails />
+          <Location />
+          <Social />
+          <Time />
+          <Fees />
+          <Field key='description' component={TextareaInput} type='input' label='Description' name='description' />
           <div className="form-buttons">
             <SubmitButton />
-            <CancelButton route={`/tournaments/${this.props.match.params.id}`}/>
+            <button className="cancel-button" onClick={this.onCancel.bind(this)}>Cancel</button>
           </div>
         </form>
       </div>
@@ -87,4 +82,4 @@ export default reduxForm({
   fields: _.keys(FIELDS),
   form: 'TournamentNewForm',
   validate
-})(connect(null, { editTournament })(TournamentForm));
+})(connect(null, { editTournament })(EditTournamentForm));
