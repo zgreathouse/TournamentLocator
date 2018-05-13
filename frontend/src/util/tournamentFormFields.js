@@ -1,4 +1,4 @@
-export const PRIMARY_FIELDS = {
+export const GENERAL_FIELDS = {
   title: {
     label: 'Title',
     name: 'title',
@@ -101,7 +101,7 @@ export const FEES_FIELDS = {
   }
 }
 
-export const FIELDS = Object.assign({}, PRIMARY_FIELDS, LOCATION_FIELDS, SOCIAL_FIELDS, TIME_FIELDS, FEES_FIELDS)
+export const FIELDS = Object.assign({}, GENERAL_FIELDS, LOCATION_FIELDS, SOCIAL_FIELDS, TIME_FIELDS, FEES_FIELDS)
 
 export const unrequiredFields = [
   'tags',

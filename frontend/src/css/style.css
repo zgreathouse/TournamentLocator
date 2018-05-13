@@ -41,9 +41,9 @@ html {
 }
 
 section {
-  margin: 5px;
+  margin: 15px;
   padding: 10px;
-  border: 1px solid #403f42;
+  border-bottom: 1px solid #403f42;
 }
 
 a { text-decoration: none; }
@@ -469,13 +469,14 @@ header {
 .input-container label {
   margin-right: 10px;
   text-align: right;
+  font-size: 95%;
   color: #403f42;
 }
 
 .input-container input:focus { outline: 0; }
 
 .tournament-form-container {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -486,9 +487,7 @@ header {
 
 .tournament-form div { margin: 5px 0; }
 
-.fields-group {
-  padding: 10px 25px;
-}
+.fields-group { padding: 10px 40px; }
 
 .form-buttons {
   display: flex;

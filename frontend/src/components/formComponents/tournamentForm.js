@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux'
 import {
   FIELDS,
-  PRIMARY_FIELDS,
+  GENERAL_FIELDS,
   LOCATION_FIELDS,
   SOCIAL_FIELDS,
   TIME_FIELDS,
@@ -16,12 +16,12 @@ import {
 import { createTournament } from '../../actions/tournamentActions';
 
 //components
-import PrimaryDetails from './tournamentForm/primaryDetails';
+import GeneralDetails from './tournamentForm/generalDetails';
 import Location from './tournamentForm/location';
 import Social from './tournamentForm/social';
 import Time from './tournamentForm/time';
 import Fees from './tournamentForm/fees';
-import TextareaInput from './formFields/textareaInput';
+import Description from './tournamentForm/description';
 import SubmitButton from './formButtons/submitButton';
 
 class TournamentForm extends Component {
@@ -47,17 +47,17 @@ class TournamentForm extends Component {
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          <PrimaryDetails />
+          <GeneralDetails />
           <Location />
           <Social />
           <Time />
           <Fees />
-          <section>
-            <Field key='description' component={TextareaInput} type='input' label='Description' name='description' />
-          </section>
+          <Description />
           <div className="form-buttons">
             <SubmitButton />
-            <button className="cancel-button" onClick={this.onCancel.bind(this)}>Cancel</button>
+            <button className="cancel-button"
+              onClick={this.onCancel.bind(this)}
+            >Cancel</button>
           </div>
         </form>
       </div>

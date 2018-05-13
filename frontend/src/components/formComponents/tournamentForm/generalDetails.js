@@ -1,19 +1,19 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import uuidv4 from 'uuid/v4';
-import { PRIMARY_FIELDS } from '../../../util/tournamentFormFields';
+import { GENERAL_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
 import TextInput from '../formFields/textInput';
 import ListInput from '../formFields/listInput';
 import NumberInput from '../formFields/numberInput';
 
-const PrimaryDetails = () => {
-  const { title, game, maxEntrants, tags } = PRIMARY_FIELDS;
+const GeneralDetails = () => {
+  const { title, game, maxEntrants, tags } = GENERAL_FIELDS;
 
   return (
     <section>
-      <h3>Primary Details</h3>
+      <h3>General Details</h3>
       <div className="fields-group">
         <Field key={uuidv4()}
           component={TextInput}
@@ -44,4 +44,4 @@ const PrimaryDetails = () => {
   )
 }
 
-export default PrimaryDetails;
+export default GeneralDetails;
