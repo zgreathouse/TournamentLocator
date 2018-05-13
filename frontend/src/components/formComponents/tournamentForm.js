@@ -39,12 +39,12 @@ class TournamentForm extends Component {
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          <GeneralDetails />
-          <Location />
-          <Social />
+          {/* <GeneralDetails /> */}
+          {/* <Location /> */}
+          {/* <Social /> */}
           <Time />
-          <Fees />
-          <Description />
+          {/* <Fees /> */}
+          {/* <Description /> */}
           <div className="form-buttons">
             <SubmitButton />
             <button className="cancel-button"
@@ -68,6 +68,10 @@ const validate = values => {
       errors[name] = `Please enter ${errorMessage}.`;
     }
   });
+
+  if (_.keys(values).indexOf("seriesDay") === -1) {
+    errors["seriesDay"] = `Please enter the day of the week your tournament will be held on.`;
+  }
 
   return errors;
 }

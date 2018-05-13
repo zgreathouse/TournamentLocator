@@ -13,12 +13,22 @@ const NonSeriesTimeFields = () => {
   return (
     <div className="fields-group">
       <div className="top-time-field">
+        <label>{seriesDay.label}</label>
+        <br/>
         <Field key={uuidv4()}
-          component={weekdaySelect}
+          component="select"
           type={seriesDay.type}
-          label={seriesDay.label}
           name={seriesDay.name}
-        />
+        >
+          <option value=""></option>
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+        </Field>
       </div>
       <div className="bottom-time-fields">
         <Field key={uuidv4()}
