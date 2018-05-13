@@ -10,8 +10,11 @@ const tournamentSchema = new Schema({
   description: String,                                                  // tournament description
   streamLink: String,                                                   // url for the stream
   twitterLink: String,                                                  // url for associated twitter
-  startTime: Date,                                                      // start time for tournament
-  endTime: { type: Date, expires: 60 },                                 // end time for tournament
+  startTime: Date,                                                      // start time for 'one off' tournament
+  endTime: { type: Date, expires: 60 },                                 // end time for 'one off' tournament
+  seriesStartTime: String,                                              // start time for series
+  seriesEndTime: String,                                                // end time for series
+  seriesDay: String,                                                    // day of the week for series
   city: String,                                                         // city the venue is in
   streetAddress: String,                                                // street address of the venue
   venueFee: Number,                                                     // fee to attend tournament
