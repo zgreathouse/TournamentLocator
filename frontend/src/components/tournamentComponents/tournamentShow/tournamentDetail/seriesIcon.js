@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SeriesIcon = ({ tournament }) => {
-  if(tournament.series) {
+  if(tournament.seriesStartTime) {
     return (
       <div>
         Series Icon!

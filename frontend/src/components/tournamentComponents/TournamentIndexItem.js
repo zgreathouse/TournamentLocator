@@ -6,7 +6,7 @@ import 'font-awesome/css/font-awesome.min.css';
 const TournamentIndexItem = ({ tournament }) => {
   let date;
 
-  if (tournament.series) {
+  if (tournament.seriesStartTime) {
     date = tournament.seriesDay + 's!'
   } else {
     date = extractDate(tournament.startTime);
@@ -19,7 +19,7 @@ const TournamentIndexItem = ({ tournament }) => {
           <h3 className="tournament-list-item-title">
             {tournament.title}
           </h3>
-          {tournament.series ? <i className="fa fa-trophy"></i> : <i></i>}
+          {tournament.seriesStartTime ? <i className="fa fa-trophy"></i> : <i></i>}
         </div>
         <div className="item-detail">
             <div className="item-detail-banner"></div>

@@ -23,7 +23,6 @@ const tournamentSchema = new Schema({
   potBonus: Number,                                                     // pot bonus (additional winnings provided by sponsors)
   maxEntrants: Number,                                                  // max number of entrants (tournament size)
   bannerImage: String,                                                  // url to the cdn where the user uploaded banner will be saved
-  series: Boolean,                                                      // whether or not the tournament is a series (ex: weekly tournament)
   forum: [String]                                                       // array of IDs of posts users have posted on the tournament
 });
 

@@ -16,7 +16,7 @@ const TournamentDetail = ({ tournament }) => {
     <div className="tournament-detail-container">
       <div className="tournament-detail-header">
         <h2>{tournament.title}</h2>
-        {tournament.series ? <i className="fa fa-trophy"></i> : <i></i>}
+        {tournament.seriesStartTime ? <i className="fa fa-trophy"></i> : <i></i>}
       </div>
 
       <div className="tournament-detail">

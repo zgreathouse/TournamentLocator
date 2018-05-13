@@ -53,7 +53,6 @@ module.exports = app => {
        potBonus: req.body.potBonus,
        maxEntrants: req.body.maxEntrants,
        bannerImage: req.body.bannerImage,
-       series: req.body.series,
        forum: []
      });
      // Saves tournament and adds to user hosting array. Sends back updated user
@@ -99,7 +98,6 @@ module.exports = app => {
           potBonus: req.body.potBonus,
           maxEntrants: req.body.maxEntrants,
           bannerImage: req.body.bannerImage,
-          series: req.body.series
         }
       }, // Callback for error handling and immediate execution
       (err) => {
