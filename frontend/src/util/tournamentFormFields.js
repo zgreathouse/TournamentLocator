@@ -16,6 +16,12 @@ export const FIELDS = {
     name: 'tags',
     type: 'input'
   },
+  maxEntrants: {
+    label: 'Max Entrants',
+    name: 'maxEntrants',
+    type: 'input',
+    errorMessage: 'a max number of entrants'
+  },
   city: {
     label: 'City',
     name: 'city',
@@ -27,12 +33,6 @@ export const FIELDS = {
     name: 'streetAddress',
     type: 'input',
     errorMessage: 'the street address where this tournament will be held'
-  },
-  maxEntrants: {
-    label: 'Max Entrants',
-    name: 'maxEntrants',
-    type: 'input',
-    errorMessage: 'a max number of entrants'
   },
   sponsors: {
     label: 'Sponsors',
