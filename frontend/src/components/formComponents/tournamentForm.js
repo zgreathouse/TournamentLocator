@@ -39,12 +39,12 @@ class TournamentForm extends Component {
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          {/* <GeneralDetails /> */}
-          {/* <Location /> */}
-          {/* <Social /> */}
+          <GeneralDetails />
+          <Location />
+          <Social />
           <Time />
-          {/* <Fees /> */}
-          {/* <Description /> */}
+          <Fees />
+          <Description />
           <div className="form-buttons">
             <SubmitButton />
             <button className="cancel-button"

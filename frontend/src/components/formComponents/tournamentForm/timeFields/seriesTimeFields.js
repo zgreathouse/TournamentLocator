@@ -4,7 +4,6 @@ import { Field } from 'redux-form';
 import uuidv4 from 'uuid/v4';
 
 //components
-import weekdaySelect from '../../formFields/weekdaySelect';
 import TimeInput from '../../formFields/timeInput';
 
 const NonSeriesTimeFields = () => {
