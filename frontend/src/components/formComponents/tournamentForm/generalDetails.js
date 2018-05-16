@@ -7,6 +7,7 @@ import { GENERAL_FIELDS } from '../../../util/tournamentFormFields';
 import TextInput from '../formFields/textInput';
 import ListInput from '../formFields/listInput';
 import NumberInput from '../formFields/numberInput';
+// import GeneralSection from './sectionTextGuides/generalSection';
 
 const GeneralDetails = () => {
   const { title, game, maxEntrants, tags } = GENERAL_FIELDS;
@@ -14,31 +15,34 @@ const GeneralDetails = () => {
   return (
     <section>
       <h3>General Details</h3>
-      <div className="fields-group">
-        <Field key={uuidv4()}
-          component={TextInput}
-          type={title.type}
-          label={title.label}
-          name={title.name}
-        />
-        <Field key={uuidv4()}
-          component={TextInput}
-          type={game.type}
-          label={game.label}
-          name={game.name}
-        />
-        <Field key={uuidv4()}
-          component={ListInput}
-          type={tags.type}
-          label={tags.label}
-          name={tags.name}
-        />
-        <Field key={uuidv4()}
-          component={NumberInput}
-          type={maxEntrants.type}
-          label={maxEntrants.label}
-          name={maxEntrants.name}
-        />
+      <div style={{'display': 'flex'}}>
+        <div className="fields-group">
+          <Field key={uuidv4()}
+            component={TextInput}
+            type={title.type}
+            label={title.label}
+            name={title.name}
+          />
+          <Field key={uuidv4()}
+            component={TextInput}
+            type={game.type}
+            label={game.label}
+            name={game.name}
+          />
+          <Field key={uuidv4()}
+            component={ListInput}
+            type={tags.type}
+            label={tags.label}
+            name={tags.name}
+          />
+          <Field key={uuidv4()}
+            component={NumberInput}
+            type={maxEntrants.type}
+            label={maxEntrants.label}
+            name={maxEntrants.name}
+          />
+        </div>
+        {/* <GeneralSection/> */}
       </div>
     </section>
   )
