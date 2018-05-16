@@ -5,6 +5,7 @@ import uuidv4 from 'uuid/v4';
 
 //components
 import TimeInput from '../../formFields/timeInput';
+import Errors from '../../formFields/errors';
 
 const NonSeriesTimeFields = () => {
   const { seriesDay, seriesStartTime, seriesEndTime } = SERIES_TIME_FIELDS;
@@ -18,6 +19,7 @@ const NonSeriesTimeFields = () => {
           component="select"
           type={seriesDay.type}
           name={seriesDay.name}
+          style={{'backgroundColor': '#fff'}}
         >
           <option value=""></option>
           <option value="Sunday">Sunday</option>
@@ -28,6 +30,11 @@ const NonSeriesTimeFields = () => {
           <option value="Friday">Friday</option>
           <option value="Saturday">Saturday</option>
         </Field>
+        <Field key={uuidv4()}
+          component={Errors}
+          type={seriesDay.type}
+          name={seriesDay.name}
+        />
       </div>
       <div className="bottom-time-fields">
         <Field key={uuidv4()}
