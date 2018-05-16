@@ -17,7 +17,7 @@ class Time extends Component {
   }
 
   toggleSeries() {
-    this.setState({series: !this.state.series, buttonText: !this.state.buttonText});
+    this.setState({ series: !this.state.series });
   }
 
   render() {
