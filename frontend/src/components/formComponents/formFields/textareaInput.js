@@ -6,7 +6,7 @@ const TextareaInput = (field) => {
       {field.label ? <label>{field.label}</label>: <div></div>}
       <br/>
       <textarea
-        placeholder="Anything you'd like to add?"
+        placeholder={field.placeholder}
         style={{"padding": "5px"}}
         rows="8"
         cols="80"

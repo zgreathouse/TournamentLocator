@@ -1,3 +1,4 @@
+//Component which renders the errors for required components
 import React from 'react';
 
 const Errors = (field) => {

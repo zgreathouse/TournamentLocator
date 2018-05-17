@@ -9,6 +9,7 @@ export const FIELDS = {
     label: 'Body',
     name: 'body',
     type: 'input',
+    placeholder: 'Questions or comments...',
     errorMessage: 'some content to be posted'
   }
 }

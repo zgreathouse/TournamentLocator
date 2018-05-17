@@ -15,6 +15,7 @@ const GeneralDetails = () => {
           type='input'
           label=''
           name='description'
+          placeholder="Anything you'd like to add?"
         />
       </div>
     </section>

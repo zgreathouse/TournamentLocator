@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -20,17 +21,17 @@ class UserForm extends Component {
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (user.username && name === "username") {
-        return <h3 key={name}>{user.username}</h3>
+        return <h3 key={uuidv4()}>{user.username}</h3>
       }
 
       if (name === 'travelRange') {
-        return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
+        return <Field key={uuidv4()} component={NumberInput} type={type} label={label} name={name} />
 
       } else if (name === 'followedGames') {
-        return <Field key={name} component={ListInput} type={type} label={label} name={name} />
+        return <Field key={uuidv4()} component={ListInput} type={type} label={label} name={name} />
       }
 
-      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
+      return <Field key={uuidv4()} component={TextInput} type={type} label={label} name={name} />
     });
   }
 
