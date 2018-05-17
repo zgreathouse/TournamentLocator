@@ -15,8 +15,6 @@ export const convertToReadable = array => {
   }
 
   return array.toString();
-
-
 }
 
 //function which assists in rendering multiline text (tournament description & post body)
