@@ -4,11 +4,19 @@ import uuidv4 from 'uuid/v4';
 
 //function takes array value and seperates elements by commas and spaces
 export const convertToReadable = array => {
-  let newArray = array.map(item => {
-    return " " + item;
-  });
+  if (array) {
+    let newArray = array;
 
-  return newArray.toString();
+    newArray = array.map(item => {
+      return " " + item;
+    });
+
+    return newArray.toString();
+  }
+
+  return array.toString();
+
+
 }
 
 //function which assists in rendering multiline text (tournament description & post body)
