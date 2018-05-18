@@ -1,12 +1,19 @@
 import React from 'react';
-import { extractTime, extractDate } from '../../../../util/helperFunctions';
+import {
+  extractTime,
+  extractDate,
+  convertTo12HourTime
+} from '../../../../util/helperFunctions';
 
 const DateAndTime = ({ tournament }) => {
-  const { startTime, endTime } = tournament;
+  const { startTime, endTime, seriesStartTime, seriesEndTime, seriesDay } = tournament;
+  let date;
+  let start;
+  let end;
 
-  const date = extractDate(startTime);
-  const start = extractTime(startTime);
-  const end = extractTime(endTime);
+  startTime ? date = extractDate(startTime) : date = seriesDay;
+  startTime ? start = extractTime(startTime) : start = convertTo12HourTime(seriesStartTime);
+  endTime ? end = extractTime(endTime) : end = convertTo12HourTime(seriesEndTime) ;
 
   return (
     <div>

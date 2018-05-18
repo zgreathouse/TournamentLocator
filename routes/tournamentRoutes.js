@@ -85,8 +85,11 @@ module.exports = app => {
           description: req.body.description,
           streamLink: req.body.streamLink,
           twitterLink: req.body.twitterLink,
-          startTime: req.body.startTime,
-          endTime: req.body.endTime,
+          startTime: req.body.startTime || null,
+          endTime: req.body.endTime || null,
+          seriesStartTime: req.body.seriesStartTime || null,
+          seriesEndTime: req.body.seriesEndTime || null,
+          seriesDay: req.body.seriesDay || null,
           city: req.body.city,
           streetAddress: req.body.streetAddress,
           venueFee: req.body.venueFee,
@@ -95,7 +98,6 @@ module.exports = app => {
           potBonus: req.body.potBonus,
           maxEntrants: req.body.maxEntrants,
           bannerImage: req.body.bannerImage,
-          series: req.body.series
         }
       }, // Callback for error handling and immediate execution
       (err) => {
@@ -107,6 +109,7 @@ module.exports = app => {
 
     res.send(req.user);
   });
+
 
   // Delete an existing tournament
   app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {

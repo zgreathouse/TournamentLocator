@@ -34,6 +34,36 @@ export const convertToDateObject = (date, time) => {
   return new Date(newDate);
 }
 
+export const convertTo12HourTime = (time) => {
+  if (time) {
+    let newTime = time;
+
+    let hour = newTime.slice(0,2);
+    let period = 'AM';
+
+    if ((hour - "") >= 12) {
+      period = 'PM';
+    }
+
+    if (hour === "00") {
+      hour = "12";
+      period = 'AM';
+    }
+
+    if (hour !== "12") {
+      hour = ((hour - "") % 12) + ""
+    }
+
+    newTime = `${hour}${newTime.slice(2)} ${period}`
+
+    if (newTime[0] === '0') {
+      newTime = newTime.slice(1);
+    }
+
+    return newTime;
+  }
+}
+
 //function which extracts the time from a date object
 export const extractTime = dateString => {
   let date = new Date(dateString);
