@@ -17,6 +17,19 @@ import Description from './description';
 import SubmitButton from '../formButtons/submitButton';
 
 class TournamentForm extends Component {
+  renderSections() {
+    return (
+      <div>
+        <GeneralDetails />
+        <Location />
+        <Social />
+        <Time />
+        <Fees />
+        <Description />
+      </div>
+    )
+  }
+
   onCancel() {
     if (window.confirm("Leaving this page before submitting will result in losing all progress made on this form. Are you sure you would like to cancel? ")) {
       this.props.history.push('/tournaments');
@@ -39,6 +52,7 @@ class TournamentForm extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+
     return (
       <div className="tournament-form-container">
         <h2>Tournament Form</h2>
@@ -46,12 +60,7 @@ class TournamentForm extends Component {
           className="tournament-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          <GeneralDetails />
-          <Location />
-          <Social />
-          <Time />
-          <Fees />
-          <Description />
+          {this.renderSections()}
           <div className="form-buttons">
             <SubmitButton />
             <button className="cancel-button"
@@ -75,10 +84,6 @@ const validate = values => {
       errors[name] = `Please enter ${errorMessage}.`;
     }
   });
-
-  if (_.keys(values).indexOf("seriesDay") === -1) {
-    errors["seriesDay"] = `Please enter the day of the week your tournament will be held on.`;
-  }
 
   return errors;
 }

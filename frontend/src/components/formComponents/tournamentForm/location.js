@@ -12,7 +12,7 @@ const Location = () => {
   return (
     <section>
       <h3>Location</h3>
-      <div className="fields-group">        
+      <div className="fields-group">
         <Field key={uuidv4()}
           component={TextInput}
           type={city.type}
