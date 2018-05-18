@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -19,13 +18,13 @@ class PostForm extends Component {
   renderFields() {
     return _.map(FIELDS, ({ label, name, type, placeholder }) => {
       if (name === 'title') {
-        return <Field key={uuidv4()} component={TextInput}
+        return <Field key={name} component={TextInput}
           type={type} label={label} name={name}
         />
       }
 
       return (
-        <div key={uuidv4()}>
+        <div key={name}>
           <Field component={TextareaInput}
             type={type} label={label} name={name} placeholder={placeholder}
           />
