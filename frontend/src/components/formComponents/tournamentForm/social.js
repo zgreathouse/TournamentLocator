@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
 import { SOCIAL_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
@@ -13,19 +12,19 @@ const Social = () => {
     <section>
       <h3>Social Information</h3>
       <div className="fields-group">
-        <Field key={uuidv4()}
+        <Field key={sponsors.name}
           component={TextInput}
           type={sponsors.type}
           label={sponsors.label}
           name={sponsors.name}
         />
-        <Field key={uuidv4()}
+        <Field key={streamLink.name}
           component={TextInput}
           type={streamLink.type}
           label={streamLink.label}
           name={streamLink.name}
         />
-        <Field key={uuidv4()}
+        <Field key={twitterLink.name}
           component={TextInput}
           type={twitterLink.type}
           label={twitterLink.label}

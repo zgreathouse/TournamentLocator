@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
 import { FEES_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
@@ -13,19 +12,19 @@ const Fees = () => {
     <section>
       <h3>Fees</h3>
       <div className="fields-group">
-        <Field key={uuidv4()}
+        <Field key={venueFee.name}
           component={NumberInput}
           type={venueFee.type}
           label={venueFee.label}
           name={venueFee.name}
         />
-        <Field key={uuidv4()}
+        <Field key={entryFee.name}
           component={NumberInput}
           type={entryFee.type}
           label={entryFee.label}
           name={entryFee.name}
         />
-        <Field key={uuidv4()}
+        <Field key={potBonus.name}
           component={NumberInput}
           type={potBonus.type}
           label={potBonus.label}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
 import { GENERAL_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
@@ -17,25 +16,25 @@ const GeneralDetails = () => {
       <h3>General Details</h3>
       <div style={{'display': 'flex'}}>
         <div className="fields-group">
-          <Field key={uuidv4()}
+          <Field key={title.name}
             component={TextInput}
             type={title.type}
             label={title.label}
             name={title.name}
           />
-          <Field key={uuidv4()}
+          <Field key={game.name}
             component={TextInput}
             type={game.type}
             label={game.label}
             name={game.name}
           />
-          <Field key={uuidv4()}
+          <Field key={tags.name}
             component={ListInput}
             type={tags.type}
             label={tags.label}
             name={tags.name}
           />
-          <Field key={uuidv4()}
+          <Field key={maxEntrants.name}
             component={NumberInput}
             type={maxEntrants.type}
             label={maxEntrants.label}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { SERIES_TIME_FIELDS } from '../../../../util/tournamentFormFields';
 import { Field } from 'redux-form';
-import uuidv4 from 'uuid/v4';
 
 //components
 import TimeInput from '../../formFields/timeInput';
@@ -15,7 +14,7 @@ const NonSeriesTimeFields = () => {
       <div className="top-time-field">
         <label>{seriesDay.label}</label>
         <br/>
-        <Field key={uuidv4()}
+        <Field key={seriesDay.name}
           component="select"
           type={seriesDay.type}
           name={seriesDay.name}
@@ -30,20 +29,20 @@ const NonSeriesTimeFields = () => {
           <option value="Friday">Friday</option>
           <option value="Saturday">Saturday</option>
         </Field>
-        <Field key={uuidv4()}
+        <Field key={seriesDay.name}
           component={Errors}
           type={seriesDay.type}
           name={seriesDay.name}
         />
       </div>
       <div className="bottom-time-fields">
-        <Field key={uuidv4()}
+        <Field key={seriesStartTime.name}
           component={TimeInput}
           type={seriesStartTime.type}
           label={seriesStartTime.label}
           name={seriesStartTime.name}
         />
-        <Field key={uuidv4()}
+        <Field key={seriesEndTime.name}
           component={TimeInput}
           type={seriesEndTime.type}
           label={seriesEndTime.label}
