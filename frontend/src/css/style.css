@@ -466,6 +466,33 @@ header {
 /*                      Tournament Form                        */
 /* ----------------------------------------------------------- */
 
+.tournament-section-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tournament-section-content-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-text-container {
+  width: 67%;
+}
+
+.section-text {
+  line-height: 1.5;
+  font-size: 102%;
+  margin-top: 20px;
+}
+
+.section-text-description {
+  line-height: 1.5;
+  font-size: 102%;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
 .input-container label {
   margin-right: 10px;
   text-align: right;

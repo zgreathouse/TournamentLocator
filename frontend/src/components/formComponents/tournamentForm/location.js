@@ -4,6 +4,7 @@ import { LOCATION_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
 import TextInput from '../formFields/textInput';
+import LocationSection from './sectionTextGuides/locationSection';
 
 const Location = () => {
   const { city, streetAddress } = LOCATION_FIELDS;
@@ -11,19 +12,22 @@ const Location = () => {
   return (
     <section>
       <h3>Location</h3>
-      <div className="fields-group">
-        <Field key={city.name}
-          component={TextInput}
-          type={city.type}
-          label={city.label}
-          name={city.name}
-        />
-        <Field key={streetAddress.name}
-          component={TextInput}
-          type={streetAddress.type}
-          label={streetAddress.label}
-          name={streetAddress.name}
-        />
+      <div className='tournament-section-content'>
+        <div className="fields-group">
+          <Field key={city.name}
+            component={TextInput}
+            type={city.type}
+            label={city.label}
+            name={city.name}
+          />
+          <Field key={streetAddress.name}
+            component={TextInput}
+            type={streetAddress.type}
+            label={streetAddress.label}
+            name={streetAddress.name}
+          />
+        </div>
+        <LocationSection />
       </div>
     </section>
   )

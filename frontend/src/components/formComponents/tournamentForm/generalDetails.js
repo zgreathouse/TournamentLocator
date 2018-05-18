@@ -6,7 +6,7 @@ import { GENERAL_FIELDS } from '../../../util/tournamentFormFields';
 import TextInput from '../formFields/textInput';
 import ListInput from '../formFields/listInput';
 import NumberInput from '../formFields/numberInput';
-// import GeneralSection from './sectionTextGuides/generalSection';
+import GeneralSection from './sectionTextGuides/generalSection';
 
 const GeneralDetails = () => {
   const { title, game, maxEntrants, tags } = GENERAL_FIELDS;
@@ -14,7 +14,7 @@ const GeneralDetails = () => {
   return (
     <section>
       <h3>General Details</h3>
-      <div style={{'display': 'flex'}}>
+      <div className='tournament-section-content'>
         <div className="fields-group">
           <Field key={title.name}
             component={TextInput}
@@ -41,7 +41,7 @@ const GeneralDetails = () => {
             name={maxEntrants.name}
           />
         </div>
-        {/* <GeneralSection/> */}
+        <GeneralSection/>
       </div>
     </section>
   )

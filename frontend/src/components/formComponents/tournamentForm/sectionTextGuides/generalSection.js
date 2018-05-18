@@ -2,7 +2,7 @@ import React from 'react';
 
 const GeneralSection = () => {
   return (
-    <div>
+    <div className='section-text-container'>
       <p style={{'lineHeight': '1.5', 'fontSize': '109%', marginTop: '65px'}}>
           Specify the title and featured game of your tournament <br/>
           here, along with maximum capacity of entrants. Additionally, <br/>
