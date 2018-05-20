@@ -42,7 +42,7 @@ class CommentsIndex extends Component {
         <div>
           {this.renderCommentField()}
           <div className="comments-index-empty">
-            <p>No comments yet...</p>
+            No comments yet...
           </div>
         </div>
       )

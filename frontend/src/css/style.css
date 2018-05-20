@@ -788,6 +788,8 @@ header {
   width: 80%;
   min-height: 110px;
   margin: 0 auto;
+  font-weight: 100;
+
   padding: 0px;
   list-style: none;
   background-color: #403f42;
