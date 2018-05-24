@@ -8,6 +8,8 @@ import { fetchUser } from '../actions/userActions';
 //components
 import Header from './headerComponents';
 import Footer from './footerComponents';
+import LandingPage from './landingPageComponents';
+import Dashboard from './dashboardComponents';
 import TournamentIndex from './tournamentComponents/TournamentIndex';
 import TournamentShow from './tournamentComponents/tournamentShow';
 import TournamentForm from './formComponents/tournamentForm';
@@ -22,12 +24,19 @@ class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.props;
+
+    let HomePage;
+
+    currentUser ? HomePage = Dashboard : HomePage = LandingPage;
+
     return (
       <BrowserRouter>
         <div>
           <Header />
           <div className="container">
             <Switch>
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/tournaments/new" component={TournamentForm} />
               <Route exact path="/tournaments/:id" component={TournamentShow} />
               <Route exact path="/tournaments/:id/edit" component={TournamentForm} />
@@ -46,4 +55,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, { fetchUser })(App);
+const mapStateToProps = state => ({
+  currentUser: state.auth
+});
+
+export default connect(mapStateToProps, { fetchUser })(App);
