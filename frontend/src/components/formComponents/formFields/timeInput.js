@@ -4,7 +4,7 @@ const TimeInput = (field) => {
   const { touched, error } = field.meta;
 
   return (
-    <div className="input-container">
+    <div className="time-input-container">
       <label>{field.label}</label>
       <br/>
       <input type="time" {...field.input}/>

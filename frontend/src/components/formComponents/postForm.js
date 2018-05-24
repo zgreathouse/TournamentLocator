@@ -9,7 +9,7 @@ import { createPost, editPost } from '../../actions/postActions';
 
 //components
 import TextInput from './formFields/textInput';
-import TextareaInput from './formFields/textareaInput';
+import TextareaInput2 from './formFields/textareaInput2';
 import Errors from './formFields/errors';
 import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
@@ -24,8 +24,8 @@ class PostForm extends Component {
       }
 
       return (
-        <div key={name}>
-          <Field component={TextareaInput}
+        <div className="post-body-input" key={name}>
+          <Field component={TextareaInput2}
             type={type} label={label} name={name} placeholder={placeholder}
           />
           <Field component={Errors}
@@ -54,10 +54,10 @@ class PostForm extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className="tournament-form-container">
+      <div className="post-form-container">
         <h2>Post Form</h2>
         <form
-          className="tournament-form"
+          className="post-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
           {this.renderFields()}

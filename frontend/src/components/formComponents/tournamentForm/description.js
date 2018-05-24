@@ -7,7 +7,7 @@ import DescriptionSection from './sectionTextGuides/descriptionSection';
 
 const GeneralDetails = () => {
   return (
-    <section style={{"border": "none"}}>
+    <section className="description-section">
       <h3>Description</h3>
       <div className='tournament-section-content-description'>
         <DescriptionSection/>

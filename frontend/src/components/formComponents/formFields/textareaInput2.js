@@ -8,7 +8,7 @@ const TextareaInput = (field) => {
       <textarea
         placeholder={field.placeholder}
         rows="10"
-        cols="86"
+        cols="76"
         {...field.input}
       />
     </div>

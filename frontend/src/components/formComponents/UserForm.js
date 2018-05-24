@@ -20,7 +20,7 @@ class UserForm extends Component {
 
     return _.map(FIELDS, ({ label, name, type }) => {
       if (user.username && name === "username") {
-        return <h3 key={name}>{user.username}</h3>
+        return <h3 className="username" key={name}>{user.username}</h3>
       }
 
       if (name === 'travelRange') {
@@ -48,10 +48,10 @@ class UserForm extends Component {
     }
 
     return (
-      <div className="tournament-form-container">
+      <div className="user-form-container">
         <h2>User Form</h2>
         <form
-          className="tournament-form"
+          className="user-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
           {this.renderFields()}

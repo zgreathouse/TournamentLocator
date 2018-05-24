@@ -1,5 +1,4 @@
 import React from 'react';
-// import uuidv4 from 'uuid/v4';
 import { NON_SERIES_TIME_FIELDS } from '../../../../util/tournamentFormFields';
 import { Field } from 'redux-form';
 
