@@ -7,6 +7,8 @@ import { deleteUser } from '../../actions/userActions';
 //components
 import UserDetail from './userDetail';
 import EditProfileButton from './editProfileButton';
+import UserTournamentsIndex from '../tournamentComponents/UserTournamentsIndex';
+
 
 class ProfilePage extends Component {
   renderUsername(user) {
@@ -44,10 +46,13 @@ class ProfilePage extends Component {
     }
 
     return (
-      <div className="tournament-detail-container">
-        {this.renderUsername(user)}
-        <EditProfileButton />
-        <UserDetail user={user}/>
+      <div>
+        <div className="tournament-detail-container">
+          {this.renderUsername(user)}
+          <EditProfileButton />
+          <UserDetail user={user}/>
+        </div>
+        <UserTournamentsIndex />
         {this.renderDeleteButton()}
       </div>
     )
