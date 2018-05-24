@@ -290,7 +290,21 @@ header {
 /*                        Profile Page                         */
 /* ----------------------------------------------------------- */
 
+.user-info-piece {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  margin-bottom: 3px; 
+}
 
+.user-info-piece h4 {
+  margin: 0 5px;
+}
+
+.user-info-piece p {
+  margin: 0 5px;
+  font-size: 93%;
+}
 
 /* ----------------------------------------------------------- */
 /*                          User Form                          */

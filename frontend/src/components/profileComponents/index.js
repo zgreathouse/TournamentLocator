@@ -12,7 +12,7 @@ import UserTournamentsIndex from '../tournamentComponents/UserTournamentsIndex';
 
 class ProfilePage extends Component {
   renderUsername(user) {
-    return user.username ? <h2>{user.username}</h2> : <h2>New User!</h2>
+    return user.username ? <h3>{user.username}</h3> : <h3>New User!</h3>
   }
 
   onDelete() {
@@ -48,6 +48,7 @@ class ProfilePage extends Component {
     return (
       <div>
         <div className="tournament-detail-container">
+          <h2 style={{display: "flex", justifyContent: "center", marginBottom: "40px"}}>Profile</h2>
           {this.renderUsername(user)}
           <EditProfileButton />
           <UserDetail user={user}/>
