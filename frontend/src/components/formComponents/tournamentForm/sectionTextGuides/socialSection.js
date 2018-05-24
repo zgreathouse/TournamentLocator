@@ -4,11 +4,13 @@ const SocialSection = () => {
   return (
     <div className='section-text-container'>
       <p className='section-text'>
-          Optionally, you may enter the organizations invloved in <br/>
-          making your tournament possible. If your tournament will <br/>
-          be streamed, please provide a link to the stream.  <br/>
-          On Twitter? Provide a link to the tournament twitter so <br/>
-          people can connect with you!
+          Optionally, you may enter the organizations invloved in making your <br/>
+          tournament possible. If your tournament will be streamed, you may input <br/>
+          the link here.
+          <br/>
+          <br/>
+          On Twitter? Provide your twitter tag so people can follow and stay current <br/>
+          with your tournament!
       </p>
     </div>
   )
