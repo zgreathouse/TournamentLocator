@@ -4,7 +4,6 @@ import { LOCATION_FIELDS } from '../../../util/tournamentFormFields';
 
 //components
 import TextInput from '../formFields/textInput';
-import LocationSection from './sectionTextGuides/locationSection';
 
 const Location = () => {
   const { city, streetAddress } = LOCATION_FIELDS;
@@ -27,7 +26,6 @@ const Location = () => {
             name={streetAddress.name}
           />
         </div>
-        <LocationSection />
       </div>
     </section>
   )
