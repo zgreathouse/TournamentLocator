@@ -48,6 +48,11 @@ section {
 
 a { text-decoration: none; }
 
+.container {
+  margin: 100px 0;
+  min-height: 609px;
+}
+
 /* ----------------------------------------------------------- */
 /*                     Reusable Components                     */
 /* ----------------------------------------------------------- */
@@ -157,6 +162,12 @@ h1, h2, h3 {
 /* ----------------------------------------------------------- */
 /*                           Header                            */
 /* ----------------------------------------------------------- */
+
+.header-container {
+  position: absolute;
+  top: 0;
+  width: 87.5%;
+}
 
 header {
   background-color: #403f42;
@@ -840,12 +851,18 @@ header {
 /*                           Footer                            */
 /* ----------------------------------------------------------- */
 
+.footer-container {
+  position: relative;
+  bottom:0;
+  width: 100%;
+}
+
 footer {
   background-color: #403f42;
   color: #fff;
   display: inline-block;
   width: 100%;
-  height: 174px;
+  height: 172px;
 }
 
 .main-logo-big {

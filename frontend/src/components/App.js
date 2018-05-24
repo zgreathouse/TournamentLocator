@@ -26,17 +26,19 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Header />
-          <Switch>
-            <Route exact path="/tournaments/new" component={TournamentForm} />
-            <Route exact path="/tournaments/:id" component={TournamentShow} />
-            <Route exact path="/tournaments/:id/edit" component={TournamentForm} />
-            <Route exact path="/tournaments/:id/forum" component={Forum} />
-            <Route exact path="/tournaments/:id/forum/new" component={PostForm} />
-            <Route exact path="/tournaments/:id/forum/:postID/edit" component={PostForm} />
-            <Route exact path="/tournaments" component={TournamentIndex} />
-            <Route exact path="/user/edit" component={UserForm} />
-            <Route exact path="/user/profile/:id" component={ProfilePage} />
-          </Switch>
+          <div className="container">
+            <Switch>
+              <Route exact path="/tournaments/new" component={TournamentForm} />
+              <Route exact path="/tournaments/:id" component={TournamentShow} />
+              <Route exact path="/tournaments/:id/edit" component={TournamentForm} />
+              <Route exact path="/tournaments/:id/forum" component={Forum} />
+              <Route exact path="/tournaments/:id/forum/new" component={PostForm} />
+              <Route exact path="/tournaments/:id/forum/:postID/edit" component={PostForm} />
+              <Route exact path="/tournaments" component={TournamentIndex} />
+              <Route exact path="/user/edit" component={UserForm} />
+              <Route exact path="/user/profile/:id" component={ProfilePage} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </BrowserRouter>
