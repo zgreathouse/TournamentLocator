@@ -321,11 +321,11 @@ header {
 
 .tournament-list {
   list-style: none;
-  margin-left: 28px;
+  margin-left: 40px;
 }
 
 .tournament-list li {
-  width: 28%;
+  width: 29%;
   margin: 15px;
   display: inline-block;
 }
@@ -363,9 +363,9 @@ header {
 
 .item-detail-info p {
   margin: 0;
-  font-size: 75%;
+  font-size: 70%;
   display: inline-block;
-  padding: 2px 13px;
+  padding: 5px 13px;
   color: #403f42;
   letter-spacing: 1px;
 }
