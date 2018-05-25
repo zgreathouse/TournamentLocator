@@ -294,7 +294,7 @@ header {
   display: flex;
   justify-content: flex-start;
   padding-left: 40px;
-  margin-bottom: 3px; 
+  margin-bottom: 3px;
 }
 
 .user-info-piece h4 {
@@ -788,6 +788,9 @@ header {
   font-weight: 100;
   background-color: #403f42;
   border-radius: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .body-text {

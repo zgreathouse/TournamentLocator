@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 const Dashboard = ({ currentUser }) => {
-  if (!currentUser) {
-    return (
-      <h3 style={{margin: '20px 40px'}}>
-        Loading...
-      </h3>
-    )
-  }
-
   return (
-    <h3 style={{margin: '20px 40px'}}>
+    <h3 style={{margin: '20px 40px 0 20px'}}>
       Welcome, {currentUser.username}
     </h3>
   )
