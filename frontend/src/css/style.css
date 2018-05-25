@@ -306,6 +306,15 @@ header {
   font-size: 93%;
 }
 
+/*.top-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.long-field input {
+  width: 700px;
+}*/
+
 /* ----------------------------------------------------------- */
 /*                          User Form                          */
 /* ----------------------------------------------------------- */

@@ -21,13 +21,10 @@ class UserForm extends Component {
     return _.map(FIELDS, ({ label, name, type }) => {
       if (user.username && name === "username") {
         return <h3 className="username" key={name}>{user.username}</h3>
-      }
-
-      if (name === 'travelRange') {
+      } else if (name === 'travelRange') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
-
       } else if (name === 'followedGames') {
-        return <Field key={name} component={ListInput} type={type} label={label} name={name} />
+        return;
       }
 
       return <Field key={name} component={TextInput} type={type} label={label} name={name} />
@@ -42,6 +39,7 @@ class UserForm extends Component {
 
   render() {
     const { handleSubmit, user } = this.props;
+    const { followedGames } = FIELDS;
 
     if (!user){
       return <div></div>
@@ -54,7 +52,17 @@ class UserForm extends Component {
           className="user-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          {this.renderFields()}
+          <div className="top-fields">
+            {this.renderFields()}
+          </div>
+          <div className="long-field">
+            <Field key={followedGames.name}
+              component={ListInput}
+              type={followedGames.type}
+              label={followedGames.label}
+              name={followedGames.name}
+            />
+          </div>
           <div className="form-buttons">
             <SubmitButton />
             <CancelButton route={`/user/profile/${this.props.user._id}`}/>
