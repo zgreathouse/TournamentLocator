@@ -306,14 +306,19 @@ header {
   font-size: 93%;
 }
 
-/*.top-fields {
+.top-fields {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
-.long-field input {
-  width: 700px;
-}*/
+.top-fields .input-container input {
+  width: 300px;
+}
+
+.long-field .input-container input {
+  width: 780px;
+}
 
 /* ----------------------------------------------------------- */
 /*                          User Form                          */

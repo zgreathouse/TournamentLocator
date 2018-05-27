@@ -15,19 +15,31 @@ import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
 class UserForm extends Component {
-  renderFields() {
+  renderUsername() {
+    const { username } = FIELDS;
     const { user } = this.props;
 
+    if (user.username && username.name === "username") {
+      return <h3 className="username" key={username.name}>{user.username}</h3>
+    }
+
+    return (
+      <Field key={username.name}
+        component={TextInput}
+        type={username.type}
+        label={username.label}
+        name={username.name}
+      />
+    )
+  }
+
+  renderFields() {
     return _.map(FIELDS, ({ label, name, type }) => {
-      if (user.username && name === "username") {
-        return <h3 className="username" key={name}>{user.username}</h3>
+      if (name === 'city') {
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} />;
       } else if (name === 'travelRange') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
-      } else if (name === 'followedGames') {
-        return;
       }
-
-      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }
 
@@ -52,6 +64,7 @@ class UserForm extends Component {
           className="user-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
+          {this.renderUsername()}
           <div className="top-fields">
             {this.renderFields()}
           </div>
