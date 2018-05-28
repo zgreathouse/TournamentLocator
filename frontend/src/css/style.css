@@ -564,7 +564,9 @@ header {
   height: 80px;
 }
 
-.input-container { width: 300px; }
+.input-container {
+  width: 300px;
+}
 
 .time-input-container { width: 290px; }
 
@@ -596,15 +598,24 @@ header {
 
 .input-container input:focus,
 .time-input-container input:focus,
-.date-input-container input:focus { outline: 0; }
+.date-input-container input:focus {
+  outline: 0;
+  border: 1px solid #2bbbad;
+  box-shadow: 0 0 1px 1px #2bbbad;
+}
 
 .input-container textarea {
   padding: 5px;
   rows: 10;
-  columns: 86;
+  columns: 100;
+  font-size: 85%;
 }
 
-.input-container textarea:focus { outline: 0; }
+.input-container textarea:focus {
+  outline: 0;
+  border: 1px solid #2bbbad;
+  box-shadow: 0 0 1px 1px #2bbbad;
+}
 
 .tournament-form-container {
   width: 95%;

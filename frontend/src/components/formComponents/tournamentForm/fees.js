@@ -12,8 +12,9 @@ const Fees = () => {
   return (
     <section>
       <h3>Fees</h3>
+      <FeesSection/>
       <div className='tournament-section-content'>
-        <div className="fields-group">
+        <div className="fields-group" style={{display: "flex"}}>
           <Field key={venueFee.name}
             component={NumberInput}
             type={venueFee.type}
@@ -33,7 +34,6 @@ const Fees = () => {
             name={potBonus.name}
           />
         </div>
-        <FeesSection/>
       </div>
     </section>
   )

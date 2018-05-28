@@ -16,32 +16,37 @@ const GeneralDetails = () => {
       <h3>General Details</h3>
       <div className='tournament-section-content'>
         <div className="fields-group">
-          <Field key={title.name}
-            component={TextInput}
-            type={title.type}
-            label={title.label}
-            name={title.name}
-          />
-          <Field key={game.name}
-            component={TextInput}
-            type={game.type}
-            label={game.label}
-            name={game.name}
-          />
-          <Field key={tags.name}
-            component={ListInput}
-            type={tags.type}
-            label={tags.label}
-            name={tags.name}
-          />
-          <Field key={maxEntrants.name}
-            component={NumberInput}
-            type={maxEntrants.type}
-            label={maxEntrants.label}
-            name={maxEntrants.name}
-          />
+          <GeneralSection/>
+          <div style={{display: "flex"}}>
+            <Field key={title.name}
+              component={TextInput}
+              type={title.type}
+              label={title.label}
+              name={title.name}
+            />
+            <Field key={game.name}
+              component={TextInput}
+              type={game.type}
+              label={game.label}
+              name={game.name}
+            />
+            <Field key={maxEntrants.name}
+              component={NumberInput}
+              type={maxEntrants.type}
+              label={maxEntrants.label}
+              name={maxEntrants.name}
+            />
+          </div>
+          <div className="long-field">
+            <Field key={tags.name}
+              component={ListInput}
+              type={tags.type}
+              label={tags.label}
+              name={tags.name}
+            />
+          </div>
         </div>
-        <GeneralSection/>
+
       </div>
     </section>
   )

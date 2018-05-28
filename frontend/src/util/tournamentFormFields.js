@@ -11,16 +11,16 @@ export const GENERAL_FIELDS = {
     type: 'input',
     errorMessage: 'the featured game'
   },
-  tags: {
-    label: 'Tags',
-    name: 'tags',
-    type: 'input'
-  },
   maxEntrants: {
     label: 'Max Entrants',
     name: 'maxEntrants',
     type: 'input',
     errorMessage: 'a max number of entrants'
+  },
+  tags: {
+    label: 'Tags',
+    name: 'tags',
+    type: 'input'
   },
   // bannerImage: {
   //   label: 'Upload a tournament banner:',
@@ -34,13 +34,13 @@ export const LOCATION_FIELDS = {
     label: 'City',
     name: 'city',
     type: 'input',
-    errorMessage: 'the city where this tournament will be held'
+    errorMessage: 'the the city'
   },
   streetAddress: {
     label: 'Street Address',
     name: 'streetAddress',
     type: 'input',
-    errorMessage: 'the street address where this tournament will be held'
+    errorMessage: 'the street address'
   }
 };
 
