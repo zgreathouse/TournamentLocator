@@ -12,7 +12,7 @@ const Location = () => {
     <section>
       <h3>Location</h3>
       <div className='tournament-section-content'>
-        <div className="fields-group">
+        <div className="fields-group-location">
           <Field key={city.name}
             component={TextInput}
             type={city.type}

@@ -620,6 +620,11 @@ header {
 
 .fields-group { padding: 10px 30px; }
 
+.fields-group-location {
+  padding: 10px 30px;
+  display: flex
+}
+
 .time-fields-overview {
   display: flex;
   align-items: center;
@@ -646,6 +651,10 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 15px;
+}
+
+.street-address {
+  width: 500px;
 }
 
 /* ----------------------------------------------------------- */
