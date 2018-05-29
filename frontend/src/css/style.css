@@ -142,10 +142,10 @@ h1, h2, h3 {
 /*--------------- Errors ---------------*/
 
 .form-field-error {
-  color: #f00;
+  color: #2bbbad;
   font-style: italic;
   font-weight: 100;
-  font-size: 82%;
+  font-size: 69%;
   align-self: flex-start;
 }
 
@@ -662,6 +662,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 15px;
+  font-size: 85%;
 }
 
 .street-address {
@@ -685,6 +686,28 @@ header {
   align-self: center;
   margin: 0;
 }
+
+.create-post-link {
+  padding-bottom: 6px;
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s;
+}
+
+.create-post-link a {
+  color: #aaa;
+  letter-spacing: 1px;
+  text-align: right;
+  font-weight: 100;
+  background-color: #fff;
+  border: none;
+}
+
+.create-post-link a:hover { cursor: pointer; }
+
+.create-post-link:focus { outline:0; }
+.create-post-link:hover { border-bottom: 2px solid #2bbbad; }
 
 .forum-content {
   display: flex;
@@ -752,28 +775,31 @@ header {
 .default-post-detail {
   width: 72%;
   margin: 0 auto;
-  padding: 15px 0 20px 0;
+  padding: 60px 0 20px 0;
+  color: #aaa;
+  font-weight: 100;
 }
 
 .default-post-detail {
   display: flex;
   justify-content: center;
-  font-size: 130%;
+  font-size: 120%;
   text-align: center;
   line-height: 1.5;
 }
 
-.new-post-link:link,
-.new-post-link:visited {
+.default-post-detail a:link,
+.default-post-detail a:visited {
   margin-top: 80px;
-  color: #403f42;
+  color: #aaa;
   height: 100px;
 }
 
-.new-post-link:active,
-.new-post-link:hover {
+.default-post-detail a:active,
+.default-post-detail a:hover {
   color: #2bbbad;
   height: 100px;
+  cursor: pointer;
 }
 
 .post-content {
@@ -801,7 +827,7 @@ header {
   text-align: center;
   letter-spacing: 1px;
   margin: 25px 0 0 25px;
-  color: #403f42;
+  color: #aaa;
   width: 8%;
   padding-bottom: 6px;
   border-bottom: 2px solid transparent;
@@ -869,7 +895,13 @@ header {
   margin: 30px 0;
 }
 
-.post-body-input { height: 300px; }
+.post-body-input { height: 250px; }
+
+.post-form-button {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 90%;
+}
 
 /* ----------------------------------------------------------- */
 /*                       Comment Section                       */
@@ -891,16 +923,18 @@ header {
 
 .comment-input-container input {
   width: 100%;
-  font-size: 90%;
+  font-size: 85%;
+  /*font-weight: 100;*/
 }
 
 .comment-input-container input:focus { outline: none; }
 
 .comment-error {
-  color: #f00;
+  padding-top: 5px;
+  color: #2bbbad;
   font-style: italic;
   font-weight: 100;
-  font-size: 85%;
+  font-size: 75%;
   align-self: flex-start;
   height:1px;
 }

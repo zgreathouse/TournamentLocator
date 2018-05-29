@@ -11,6 +11,7 @@ import ForumHeader from './forumHeader';
 import NewPostButton from './posts/newPostButton';
 import PostIndex from './posts/PostIndex';
 import PostDetail from './posts/PostDetail';
+import FormModal from './posts/FormModal';
 
 class Forum extends Component {
   componentDidMount() {
@@ -19,17 +20,18 @@ class Forum extends Component {
   }
 
   generatePostDetailText() {
-    const { currentUser, tournament } = this.props;
+    const { currentUser } = this.props;
 
     if (currentUser.finishAccountSetup) {
       return (
-        <Link
-          to={`/tournaments/${tournament._id}/forum/new`}
-          className="new-post-link"
-        >
-          Questions or comments <br/>
-          Post it here!
-        </Link>
+        // <Link
+        //   to={`/tournaments/${tournament._id}/forum/new`}
+        //   className="new-post-link"
+        // >
+        //   Questions or comments <br/>
+        //   Post it here!
+        // </Link>
+        <FormModal modalText="Questions or comments?" />
       )
     }
 

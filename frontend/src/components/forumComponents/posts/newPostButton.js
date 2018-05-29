@@ -1,18 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+//components
+import FormModal from './FormModal';
 
 const NewPostButton = ({ tournamentID, user }) => {
-  if (!user.finishAccountSetup) {
-    return <div></div>
-  }
 
   return (
-    <div className="create-tournament-link">
-      <Link to={`/tournaments/${tournamentID}/forum/new`}>
-        Create Post!
-      </Link>
+    <div className="create-post-link">
+      <FormModal modalText="Create Post!"/>
     </div>
   )
 }
 
 export default NewPostButton;
+
+/* <Link to={`/tournaments/${tournamentID}/forum/new`}>
+  Create Post!
+</Link> */
