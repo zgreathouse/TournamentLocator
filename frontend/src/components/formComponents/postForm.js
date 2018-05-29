@@ -38,14 +38,12 @@ class PostForm extends Component {
   onSubmit(values) {
     let splitPath = this.props.match.path.split("/");
 
-    if (splitPath[splitPath.length - 1] === "new") {
-      this.props.createPost(this.props.match.params.id, values, () => {
+    if (splitPath[splitPath.length - 1] === "edit") {
+      this.props.editPost(this.props.match.params.id, values, () => {
         this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
       });
     } else {
-      this.props.editPost(this.props.postID, values, () => {
-        this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
-      });
+      this.props.createPost(this.props.postID);
     }
   }
 
