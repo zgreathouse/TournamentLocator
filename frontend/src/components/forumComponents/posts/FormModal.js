@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom';
 
 //components
 import PostForm from '../../formComponents/PostForm';

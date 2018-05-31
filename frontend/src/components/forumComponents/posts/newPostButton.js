@@ -13,7 +13,3 @@ const NewPostButton = ({ tournamentID, user }) => {
 }
 
 export default NewPostButton;
-
-/* <Link to={`/tournaments/${tournamentID}/forum/new`}>
-  Create Post!
-</Link> */
