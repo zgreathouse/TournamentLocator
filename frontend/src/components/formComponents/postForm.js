@@ -18,19 +18,13 @@ class PostForm extends Component {
   renderFields() {
     return _.map(FIELDS, ({ label, name, type, placeholder }) => {
       if (name === 'title') {
-        return <Field key={name} component={TextInput}
-          type={type} label={label} name={name}
-        />
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} />
       }
 
       return (
         <div className="post-body-input" key={name}>
-          <Field component={TextareaInput2}
-            type={type} label={label} name={name} placeholder={placeholder}
-          />
-          <Field component={Errors}
-            type={type} label={label} name={name} placeholder={placeholder}
-          />
+          <Field component={TextareaInput2} type={type} label={label} name={name} placeholder={placeholder} />
+          <Field component={Errors} type={type} label={label} name={name} placeholder={placeholder} />
         </div>
       )
     });
