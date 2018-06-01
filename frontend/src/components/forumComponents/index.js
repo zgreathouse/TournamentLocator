@@ -23,10 +23,7 @@ class Forum extends Component {
 
     if (currentUser.finishAccountSetup) {
       return (
-        <Link
-          to={`/tournaments/${tournament._id}/forum/new`}
-          className="new-post-link"
-        >
+        <Link to={`/tournaments/${tournament._id}/forum/new`} className="new-post-link">
           Questions or comments <br/>
           Post it here!
         </Link>
@@ -34,10 +31,7 @@ class Forum extends Component {
     }
 
     return (
-      <Link
-        to={`/user/edit`}
-        className="new-post-link"
-      >
+      <Link to={`/user/edit`} className="new-post-link">
         Finish setting up your account <br/>
         to participate in the Forum!
       </Link>
