@@ -3,7 +3,7 @@ import { convertToReadable } from '../../util/helperFunctions';
 
 const UserDetail = ({ user }) => {
   return (
-    <div>
+    <div className="user-detail">
       <div className="user-info-piece">
         <h4>City: </h4>
         <p>{user.city}</p>

@@ -51,7 +51,7 @@ class ProfilePage extends Component {
     }
 
     return (
-      <div>
+      <div className="profile-page">
         <div className="tournament-detail-container">
           {this.renderUsername(user)}
           <EditProfileButton />

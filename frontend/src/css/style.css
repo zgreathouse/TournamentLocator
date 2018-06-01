@@ -290,6 +290,14 @@ header {
 /*                        Profile Page                         */
 /* ----------------------------------------------------------- */
 
+.profile-page {
+  min-height: 708px;
+}
+
+.user-detail {
+  min-height: 80px;
+}
+
 .user-info-piece {
   display: flex;
   justify-content: flex-start;
