@@ -1,6 +1,7 @@
 //css libraries
 import 'normalize.css/normalize.css';
 import './css/vendor/grid.css';
+import './css/vendor/slider.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './css/style.css';
 

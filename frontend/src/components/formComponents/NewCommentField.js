@@ -2,8 +2,11 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+
+//actions
 import { createComment } from '../../actions/commentActions';
 
+//components
 import NewCommentInput from './formFields/newCommentInput';
 import CommentButton from './formButtons/commentButton';
 
@@ -16,9 +19,9 @@ const FIELD = {
 }
 
 class NewCommentField extends Component {
-
   onSubmit(value) {
     const { createComment, postID, reset } = this.props;
+
     createComment(postID, value).then(() => {
       reset();
     });

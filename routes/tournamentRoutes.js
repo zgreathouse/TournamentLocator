@@ -32,38 +32,38 @@ module.exports = app => {
 
   // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
-     const tournament = new Tournament({
-       _user: req.user.id,
-       title: req.body.title,
-       game: req.body.game,
-       tags: req.body.tags,
-       description: req.body.description,
-       streamLink: req.body.streamLink,
-       twitterLink: req.body.twitterLink,
-       startTime: req.body.startTime || null,
-       endTime: req.body.endTime || null,
-       seriesStartTime: req.body.seriesStartTime || null,
-       seriesEndTime: req.body.seriesEndTime || null,
-       seriesDay: req.body.seriesDay || null,
-       city: req.body.city,
-       streetAddress: req.body.streetAddress,
-       venueFee: req.body.venueFee,
-       entryFee: req.body.entryFee,
-       sponsors: req.body.sponsors,
-       potBonus: req.body.potBonus,
-       maxEntrants: req.body.maxEntrants,
-       bannerImage: req.body.bannerImage,
-       forum: []
-     });
+    const tournament = new Tournament({
+      _user: req.user.id,
+      title: req.body.title,
+      game: req.body.game,
+      tags: req.body.tags,
+      description: req.body.description,
+      streamLink: req.body.streamLink,
+      twitterLink: req.body.twitterLink,
+      startTime: req.body.startTime || null,
+      endTime: req.body.endTime || null,
+      seriesStartTime: req.body.seriesStartTime || null,
+      seriesEndTime: req.body.seriesEndTime || null,
+      seriesDay: req.body.seriesDay || null,
+      city: req.body.city,
+      streetAddress: req.body.streetAddress,
+      venueFee: req.body.venueFee,
+      entryFee: req.body.entryFee,
+      sponsors: req.body.sponsors,
+      potBonus: req.body.potBonus,
+      maxEntrants: req.body.maxEntrants,
+      bannerImage: req.body.bannerImage,
+      forum: []
+    });
      // Saves tournament and adds to user hosting array. Sends back updated user
-     try {
-       req.user.tournaments.push(tournament._id);
-       await tournament.save();
-       const user = await req.user.save();
-       res.send(tournament);
-     } catch (err) {
-       res.status(422).send(err);
-     }
+    try {
+      req.user.tournaments.push(tournament._id);
+      await tournament.save();
+      const user = await req.user.save();
+      res.send(tournament);
+    } catch (err) {
+      res.status(422).send(err);
+    }
   });
 
   // Update (edit) an existing tournament
@@ -109,6 +109,7 @@ module.exports = app => {
 
     res.send(req.user);
   });
+
 
   // Delete an existing tournament
   app.delete('/api/tournaments/:tournamentId', requireLogin, async (req, res) => {

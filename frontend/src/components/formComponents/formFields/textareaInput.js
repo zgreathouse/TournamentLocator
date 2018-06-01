@@ -1,15 +1,14 @@
 import React from 'react';
 
 const TextareaInput = (field) => {
-
   return (
     <div className="input-container">
-      <label>{field.label}</label>
+      {field.label ? <label>{field.label}</label>: <div></div>}
       <br/>
       <textarea
-        placeholder="Anything you'd like to add?"
-        rows="8"
-        cols="80"
+        placeholder={field.placeholder}
+        rows="10"
+        cols="86"
         {...field.input}
       />
     </div>

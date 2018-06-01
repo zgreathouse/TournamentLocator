@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { convertToDatabaseWritable } from '../util/helperFunctions';
 
-//constants
-export const FETCH_TOURNAMENTS  = 'FETCH_TOURNAMENTS';
-export const FETCH_TOURNAMENT   = 'FETCH_TOURNAMENT';
-export const CREATE_TOURNAMENT  = 'CREATE_TOURNAMENT';
-export const UPDATE_TOURNAMENT  = 'UPDATE_TOURNAMENT';
-export const DELETE_TOURNAMENT  = 'DELETE_TOURNAMENT';
+//action types
+export const FETCH_TOURNAMENTS       = 'FETCH_TOURNAMENTS';
+export const FETCH_USER_TOURNAMENTS  = 'FETCH_USER_TOURNAMENTS';
+export const FETCH_TOURNAMENT        = 'FETCH_TOURNAMENT';
+export const CREATE_TOURNAMENT       = 'CREATE_TOURNAMENT';
+export const UPDATE_TOURNAMENT       = 'UPDATE_TOURNAMENT';
+export const DELETE_TOURNAMENT       = 'DELETE_TOURNAMENT';
 
 let newTournament;
 
@@ -29,6 +30,18 @@ export const fetchTournaments = () => async dispatch => {
     payload: res.data
   });
 };
+
+//action which fetches all of the tournaments from the database
+export const fetchUserTournaments = (id) => async dispatch => {
+  const res = await axios.get(`/api/${id}/tournaments`);
+
+  dispatch({
+    type: FETCH_TOURNAMENTS,
+    payload: res.data
+  });
+};
+
+
 
 //action which creates a new tournament document in the database
 export const createTournament = (values, callback) => async dispatch => {

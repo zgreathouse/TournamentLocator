@@ -3,12 +3,13 @@ export const FIELDS = {
     label: 'Subject',
     name: 'title',
     type: 'input',
-    errorMessage: 'a title'
+    errorMessage: 'a subject'
   },
   body: {
     label: 'Body',
     name: 'body',
     type: 'input',
-    errorMessage: 'some content to be posted'
+    placeholder: 'Questions or comments...',
+    errorMessage: 'some content to post'
   }
 }

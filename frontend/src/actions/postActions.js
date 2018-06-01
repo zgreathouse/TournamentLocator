@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//action types
 export const FETCH_POST  = 'FETCH_POST';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';

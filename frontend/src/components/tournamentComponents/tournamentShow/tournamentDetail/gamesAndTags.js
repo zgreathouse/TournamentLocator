@@ -3,7 +3,6 @@ import { convertToReadable } from "../../../../util/helperFunctions";
 
 const GamesAndTags = ({ tournament }) => {
   const { game, tags } = tournament;
-
   let tagsList = <div></div>;
 
   if (tags && tags.length > 0) {

@@ -2,8 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { editUser } from '../../actions/userActions';
 import { FIELDS, unrequiredFields } from '../../util/userFormFields';
+
+//actions
+import { editUser } from '../../actions/userActions';
 
 //components
 import TextInput from './formFields/textInput';
@@ -13,22 +15,31 @@ import SubmitButton from './formButtons/submitButton';
 import CancelButton from './formButtons/cancelButton';
 
 class UserForm extends Component {
-  renderFields() {
+  renderUsername() {
+    const { username } = FIELDS;
     const { user } = this.props;
 
+    if (user.username && username.name === "username") {
+      return <h3 className="username" key={username.name}>{user.username}</h3>
+    }
+
+    return (
+      <Field key={username.name}
+        component={TextInput}
+        type={username.type}
+        label={username.label}
+        name={username.name}
+      />
+    )
+  }
+
+  renderFields() {
     return _.map(FIELDS, ({ label, name, type }) => {
-      if (user.username && name === "username") {
-        return <h3 key={name}>{user.username}</h3>
-      }
-
-      if (name === 'travelRange') {
+      if (name === 'city') {
+        return <Field key={name} component={TextInput} type={type} label={label} name={name} />;
+      } else if (name === 'travelRange') {
         return <Field key={name} component={NumberInput} type={type} label={label} name={name} />
-
-      } else if (name === 'followedGames') {
-        return <Field key={name} component={ListInput} type={type} label={label} name={name} />
       }
-
-      return <Field key={name} component={TextInput} type={type} label={label} name={name} />
     });
   }
 
@@ -40,19 +51,31 @@ class UserForm extends Component {
 
   render() {
     const { handleSubmit, user } = this.props;
+    const { followedGames } = FIELDS;
 
     if (!user){
       return <div></div>
     }
 
     return (
-      <div className="tournament-form-container">
+      <div className="user-form-container">
         <h2>User Form</h2>
         <form
-          className="tournament-form"
+          className="user-form"
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
-          {this.renderFields()}
+          {this.renderUsername()}
+          <div className="top-fields">
+            {this.renderFields()}
+          </div>
+          <div className="long-field">
+            <Field key={followedGames.name}
+              component={ListInput}
+              type={followedGames.type}
+              label={followedGames.label}
+              name={followedGames.name}
+            />
+          </div>
           <div className="form-buttons">
             <SubmitButton />
             <CancelButton route={`/user/profile/${this.props.user._id}`}/>

@@ -6,17 +6,13 @@ import {
   DELETE_POST
 } from '../actions/postActions';
 
-const initialState = {
-  entities: {},
-  selectedPost: {}
-}
+const initialState = { entities: {}, selectedPost: {} }
 
 const postsReducer = (state = initialState, action) => {
   Object.freeze(state);
   let newState;
 
   switch(action.type) {
-
     case FETCH_POST:
       newState = Object.assign({}, state);
       newState.selectedPost = action.payload;

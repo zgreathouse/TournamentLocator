@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+//actions
 import { deleteUser } from '../../actions/userActions';
-import { convertToReadable } from '../../util/helperFunctions';
+
+//components
+import UserDetail from './userDetail';
+import EditProfileButton from './editProfileButton';
+import UserTournamentsIndex from '../tournamentComponents/UserTournamentsIndex';
+
 
 class ProfilePage extends Component {
   renderUsername(user) {
-    return user.username ? <h2>{user.username}</h2> : <h2>New User!</h2>
+    return user.username ?
+      <h2 style={{display: "flex", justifyContent: "center", marginBottom: "40px"}}>
+        {user.username}
+      </h2>
+      :
+      <h2>New User!</h2>
   }
 
   onDelete() {
@@ -40,17 +51,13 @@ class ProfilePage extends Component {
     }
 
     return (
-      <div className="tournament-detail-container">
-        {this.renderUsername(user)}
-        <div className="edit-button-container">
-          <Link
-            to="/user/edit"
-            className="edit-button"
-          >Edit Profile</Link>
+      <div className="profile-page">
+        <div className="tournament-detail-container">
+          {this.renderUsername(user)}
+          <EditProfileButton />
+          <UserDetail user={user}/>
         </div>
-        <div>City: {user.city}</div>
-        <div>Travel Radius: {user.travelRange} miles</div>
-        <div>Games: {convertToReadable(user.followedGames)}</div>
+        <UserTournamentsIndex />
         {this.renderDeleteButton()}
       </div>
     )

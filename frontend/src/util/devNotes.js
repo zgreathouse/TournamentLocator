@@ -1,7 +1,10 @@
 /*
 TODO
 
+  ** fix the post form modal
+  ** extract the inline styling on the tournament components to make components more modular
+
   *Bug hunting across app
-  *Review all components and DRY out where necessary
-  
+  *DRY out form components where necessary
+
 */

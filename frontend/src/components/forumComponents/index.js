@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+//actions
 import { fetchPosts } from '../../actions/postActions';
 import { fetchTournament } from '../../actions/tournamentActions';
-import { Link } from 'react-router-dom';
 
 //components
 import ForumHeader from './forumHeader';
@@ -12,8 +14,8 @@ import PostDetail from './posts/PostDetail';
 
 class Forum extends Component {
   componentDidMount() {
-    this.props.fetchPosts(this.props.match.params.id);
-    this.props.fetchTournament(this.props.match.params.id)
+    this.props.fetchPosts(this.props.match.params.id)
+      .then(this.props.fetchTournament(this.props.match.params.id));
   }
 
   generatePostDetailText() {
@@ -21,10 +23,7 @@ class Forum extends Component {
 
     if (currentUser.finishAccountSetup) {
       return (
-        <Link
-          to={`/tournaments/${tournament._id}/forum/new`}
-          className="new-post-link"
-        >
+        <Link to={`/tournaments/${tournament._id}/forum/new`} className="new-post-link">
           Questions or comments <br/>
           Post it here!
         </Link>
@@ -32,10 +31,7 @@ class Forum extends Component {
     }
 
     return (
-      <Link
-        to={`/user/edit`}
-        className="new-post-link"
-      >
+      <Link to={`/user/edit`} className="new-post-link">
         Finish setting up your account <br/>
         to participate in the Forum!
       </Link>
@@ -43,11 +39,11 @@ class Forum extends Component {
   }
 
   renderPostDetail() {
-    const { selectedPost } = this.props;
+    const { selectedPost, tournament } = this.props;
 
     if (selectedPost && Object.keys(selectedPost).length > 0) {
       return (
-        <PostDetail post={this.props.selectedPost} author={this.props.tournament._user}/>
+        <PostDetail post={selectedPost} tournamentOrganizer={tournament._user}/>
       )
     }
 

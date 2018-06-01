@@ -1,9 +1,7 @@
-//modules
 import React from 'react';
 
 //components
-import FacebookOAuthButton from './FacebookOAuthButton';
-import GoogleOAuthButton from './GoogleOAuthButton';
+import OAuthButton from './oauthButton';
 
 const AuthModalBody = ({modalType}) => {
   return (
@@ -12,8 +10,8 @@ const AuthModalBody = ({modalType}) => {
         {modalType} with <br/> Google or Facebook!
       </h2>
       <div className="oauth-button-container">
-        <GoogleOAuthButton modalType={modalType}/>
-        <FacebookOAuthButton modalType={modalType}/>
+        <OAuthButton modalType={modalType} authenticator="google"/>
+        <OAuthButton modalType={modalType} authenticator="facebook"/>
       </div>
     </div>
   )
