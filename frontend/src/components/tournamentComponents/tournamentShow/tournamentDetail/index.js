@@ -2,7 +2,6 @@ import React from 'react';
 
 //components
 import GamesAndTags from './gamesAndTags';
-import SeriesIcon from './seriesIcon';
 import TournamentLinks from './tournamentLinks';
 import Sponsors from './sponsors';
 import MaxEntrants from './maxEntrants';
@@ -21,7 +20,6 @@ const TournamentDetail = ({ tournament }) => {
 
       <div className="tournament-detail">
         <GamesAndTags tournament={tournament} />
-        <SeriesIcon tournament={tournament} />
         <TournamentLinks tournament={tournament} />
         <Sponsors tournament={tournament} />
         <MaxEntrants tournament={tournament} />
