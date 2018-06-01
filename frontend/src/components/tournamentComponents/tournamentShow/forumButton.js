@@ -1,4 +1,3 @@
-//a button which navigates the user to forum page
 import React from 'react';
 import { Link } from 'react-router-dom';
 

@@ -1,16 +1,16 @@
 import React from 'react';
 
-const RequiredTextareaInput = (field) => {
+const TextareaInput = (field) => {
   const { touched, error } = field.meta;
 
   return (
     <div className="input-container">
-      <label>{field.label}</label>
+      {field.label ? <label>{field.label}</label>: <div></div>}
       <br/>
       <textarea
-        placeholder="Questions or comments..."
-        rows="8"
-        cols="80"
+        placeholder={field.placeholder}
+        rows="10"
+        cols="76"
         {...field.input}
       />
       <div className="form-field-error">{touched && error}</div>
@@ -18,4 +18,4 @@ const RequiredTextareaInput = (field) => {
   )
 }
 
-export default RequiredTextareaInput;
+export default TextareaInput;

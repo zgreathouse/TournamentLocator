@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deletePost } from '../../../actions/postActions';
 import { renderBody } from '../../../util/helperFunctions';
+
+//actions
+import { deletePost } from '../../../actions/postActions';
 
 //components
 import EditPostButton from './editPostButton';
@@ -23,9 +25,9 @@ class PostDetail extends Component {
   }
 
   renderDeleteButton() {
-    const { post, currentUser, author } = this.props;
+    const { post, currentUser, tournamentOrganizer } = this.props;
 
-    if (post._user === currentUser._id || author === currentUser._id) {
+    if (post._user === currentUser._id || tournamentOrganizer === currentUser._id) {
       return (
         <div className="delete-button-container">
           <button
@@ -38,10 +40,10 @@ class PostDetail extends Component {
   }
 
   render() {
-    const { comments, post, currentUser, tournamentAuthor } = this.props;
+    const { comments, post, currentUser, tournamentOrganizer } = this.props;
 
     if (!post) {
-      return <div></div>
+      return <div>Loading Post...</div>
     }
 
     return (
@@ -61,7 +63,7 @@ class PostDetail extends Component {
         <CommentIndex
           postID={post._id}
           comments={comments}
-          author={tournamentAuthor}
+          tournamentOrganizer={tournamentOrganizer}
           currentUser={currentUser}
         />
       </div>

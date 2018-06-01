@@ -1,7 +1,8 @@
 import _ from 'lodash';
-import uuidv4 from 'uuid/v4';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+//actions
 import { fetchTournaments } from '../../actions/tournamentActions';
 
 //components
@@ -16,7 +17,7 @@ class TournamentIndex extends Component {
   renderTournamentList() {
     return _.map(this.props.tournaments, (tournament => {
       return (
-        <li key={uuidv4()}>
+        <li key={tournament.title}>
           <TournamentIndexItem tournament={tournament} />
         </li>
       )
@@ -26,7 +27,7 @@ class TournamentIndex extends Component {
   render() {
     const { tournaments, currentUser } = this.props;
 
-    if(_.keys(tournaments).length < 1 || !currentUser) {
+    if(!tournaments || !currentUser) {
       return (
         <div>
           <h2 className="tournaments-greeting">

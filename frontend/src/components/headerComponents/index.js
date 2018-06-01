@@ -1,4 +1,3 @@
-//modules
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -8,8 +7,7 @@ import AuthModal from './auth/AuthModal';
 import UserProfileLink from './userProfileLink';
 
 class Header extends Component {
-
-  renderContent() {
+  renderNavLinks() {
     const { auth } = this.props;
 
     switch (auth) {
@@ -30,14 +28,16 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
-        <Link to="/tournaments" >
+      <div className="header-container">
+        <header>
+          <Link to="/tournaments" >
           <h2 className="main-logo">Tournament Locator</h2>
         </Link>
-          <ul className="main-nav">
-            {this.renderContent()}
-          </ul>
+        <ul className="main-nav">
+          {this.renderNavLinks()}
+        </ul>
       </header>
+      </div>
     )
   }
 }

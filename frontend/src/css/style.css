@@ -1,9 +1,8 @@
-/* ---------------------- */
+/* -------------------- Color Palette ------------------------ /
   #2a292b
   #403f42
   #2bbbad
-/* ---------------------- */
-
+ ----------------------------------------------------------- */
 
 /* ----------------------------------------------------------- */
 /*                       Basic Setup                           */
@@ -41,7 +40,17 @@ html {
   visibility: hidden;
 }
 
+section {
+  margin: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #403f42;
+}
+
 a { text-decoration: none; }
+
+.container {
+  min-height: 688px;
+}
 
 /* ----------------------------------------------------------- */
 /*                     Reusable Components                     */
@@ -117,9 +126,7 @@ h1, h2, h3 {
   transition: color 0.6s;
 }
 
-.white {
-  color: #fff;
-}
+.white { color: #fff; }
 
 .delete-button:hover,
 .delete-button-small:hover {
@@ -135,15 +142,15 @@ h1, h2, h3 {
 /*--------------- Errors ---------------*/
 
 .form-field-error {
-  color: #f00;
+  color: #2bbbad;
   font-style: italic;
   font-weight: 100;
-  font-size: 85%;
+  font-size: 69%;
   align-self: flex-start;
 }
 
 .message {
-  color: #aaa;
+  color: #999;
   font-size: 75%;
   font-style: italic;
   display: inline-block;
@@ -155,6 +162,12 @@ h1, h2, h3 {
 /*                           Header                            */
 /* ----------------------------------------------------------- */
 
+.header-container {
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
 header {
   background-color: #403f42;
   color: #fff;
@@ -164,7 +177,7 @@ header {
 }
 
 .main-logo {
-  width: 30%;
+  width: 35%;
   margin: 0;
   padding: 2%;
   text-decoration: none;
@@ -272,6 +285,69 @@ header {
 
 .fa-facebook { margin-right: 15px; }
 
+
+/* ----------------------------------------------------------- */
+/*                        Profile Page                         */
+/* ----------------------------------------------------------- */
+
+.profile-page {
+  min-height: 708px;
+}
+
+.user-detail {
+  min-height: 80px;
+}
+
+.user-info-piece {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
+  margin-bottom: 3px;
+}
+
+.user-info-piece h4 {
+  margin: 0 5px;
+}
+
+.user-info-piece p {
+  margin: 0 5px;
+  font-size: 93%;
+}
+
+.top-fields {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.top-fields .input-container input {
+  width: 300px;
+}
+
+.long-field .input-container input {
+  width: 780px;
+}
+
+/* ----------------------------------------------------------- */
+/*                          User Form                          */
+/* ----------------------------------------------------------- */
+
+.user-form-container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.user-form-container h2 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.user-form-container .input-container {
+  margin-top: 10px;
+  width: 50%;
+}
+
+
 /* ----------------------------------------------------------- */
 /*                      Tournament Index                       */
 /* ----------------------------------------------------------- */
@@ -298,7 +374,8 @@ header {
 }
 
 .create-tournament-link a {
-  color: #403f42;
+  color: #aaa;
+  font-weight: 100;
   letter-spacing: 1px;
   text-align: right;
 }
@@ -308,11 +385,11 @@ header {
 
 .tournament-list {
   list-style: none;
-  margin-left: 28px;
+  margin-left: 40px;
 }
 
 .tournament-list li {
-  width: 28%;
+  width: 29%;
   margin: 15px;
   display: inline-block;
 }
@@ -350,9 +427,9 @@ header {
 
 .item-detail-info p {
   margin: 0;
-  font-size: 75%;
+  font-size: 70%;
   display: inline-block;
-  padding: 2px 13px;
+  padding: 5px 13px;
   color: #403f42;
   letter-spacing: 1px;
 }
@@ -436,7 +513,7 @@ header {
 .forum-button-container {
   display: flex;
   justify-content: center;
-  margin: 30px 0 60px 0;
+  margin: 50px 0 20px 0;
 }
 
 .forum-button {
@@ -463,16 +540,94 @@ header {
 /*                      Tournament Form                        */
 /* ----------------------------------------------------------- */
 
-.input-container label {
+.tournament-section-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tournament-section-content-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-text-container {
+  width: 67%;
+}
+
+.section-text {
+  line-height: 1.5;
+  font-size: 80%;
+  margin-top: 20px;
+}
+
+.section-text-description {
+  line-height: 1.5;
+  font-size: 102%;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.input-container,
+.time-input-container,
+.date-input-container {
+  height: 80px;
+}
+
+.input-container {
+  width: 300px;
+}
+
+.time-input-container { width: 290px; }
+
+.date-input-container { width: 500px; }
+
+.errors-container { height: 23px; }
+
+.input-container label,
+.time-input-container label,
+.date-input-container label {
   margin-right: 10px;
   text-align: right;
+  font-size: 90%;
   color: #403f42;
 }
 
-.input-container input:focus { outline: 0; }
+.input-container input,
+.date-input-container input {
+  height: 29px;
+  width: 250px;
+  font-size: 84%;
+}
+
+.time-input-container input {
+  height: 29px;
+  width: 140px;
+  font-size: 84%;
+}
+
+.input-container input:focus,
+.time-input-container input:focus,
+.date-input-container input:focus {
+  outline: 0;
+  border: 1px solid #2bbbad;
+  box-shadow: 0 0 1px 1px #2bbbad;
+}
+
+.input-container textarea {
+  padding: 5px;
+  rows: 10;
+  columns: 100;
+  font-size: 85%;
+}
+
+.input-container textarea:focus {
+  outline: 0;
+  border: 1px solid #2bbbad;
+  box-shadow: 0 0 1px 1px #2bbbad;
+}
 
 .tournament-form-container {
-  width: 80%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -483,11 +638,44 @@ header {
 
 .tournament-form div { margin: 5px 0; }
 
+.fields-group { padding: 10px 30px; }
+
+.fields-group-location {
+  padding: 10px 30px;
+  display: flex
+}
+
+.time-fields-overview {
+  display: flex;
+  align-items: center;
+}
+
+.time-fields-overview p {
+  margin: 5px 10px 0 30px;
+  font-size: 90%;
+}
+
+.bottom-time-fields {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.description-section {
+  border: none;
+  height: 430px;
+}
+
 .form-buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 15px;
+  font-size: 85%;
+}
+
+.street-address {
+  width: 500px;
 }
 
 /* ----------------------------------------------------------- */
@@ -508,10 +696,32 @@ header {
   margin: 0;
 }
 
+.create-post-link {
+  padding-bottom: 6px;
+  background-color: transparent;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-bottom 0.3s;
+  transition: border-bottom 0.3s;
+}
+
+.create-post-link a {
+  color: #aaa;
+  letter-spacing: 1px;
+  text-align: right;
+  font-weight: 100;
+  background-color: #fff;
+  border: none;
+}
+
+.create-post-link a:hover { cursor: pointer; }
+
+.create-post-link:focus { outline:0; }
+.create-post-link:hover { border-bottom: 2px solid #2bbbad; }
+
 .forum-content {
   display: flex;
   justify-content: space-between;
-  min-height: 510px;
+  min-height: 586px;
 }
 
 .posts-index-container {
@@ -574,29 +784,31 @@ header {
 .default-post-detail {
   width: 72%;
   margin: 0 auto;
-  padding: 15px 0 20px 0;
+  padding: 60px 0 20px 0;
+  color: #aaa;
+  font-weight: 100;
 }
 
 .default-post-detail {
   display: flex;
   justify-content: center;
-  font-size: 130%;
+  font-size: 120%;
   text-align: center;
   line-height: 1.5;
 }
 
-
-.new-post-link:link,
-.new-post-link:visited {
+.default-post-detail a:link,
+.default-post-detail a:visited {
   margin-top: 80px;
-  color: #403f42;
+  color: #aaa;
   height: 100px;
 }
 
-.new-post-link:active,
-.new-post-link:hover {
+.default-post-detail a:active,
+.default-post-detail a:hover {
   color: #2bbbad;
   height: 100px;
+  cursor: pointer;
 }
 
 .post-content {
@@ -621,10 +833,12 @@ header {
 
 .go-back-button {
   font-weight: 100;
+  text-align: center;
   letter-spacing: 1px;
-  color: #403f42;
-  width: 10%;
-  padding: 10px;
+  margin: 25px 0 0 25px;
+  color: #aaa;
+  width: 8%;
+  padding-bottom: 6px;
   border-bottom: 2px solid transparent;
   -webkit-transition: border-bottom 0.4s;
   transition: border-bottom 0.4s;
@@ -632,6 +846,10 @@ header {
 
 .go-back-button:hover {
   border-bottom: 2px solid #2bbbad;
+}
+
+.post-title {
+  margin-bottom: 10px;
 }
 
 .post-body {
@@ -643,6 +861,9 @@ header {
   font-weight: 100;
   background-color: #403f42;
   border-radius: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .body-text {
@@ -670,6 +891,22 @@ header {
 .edit-post-link a:hover { color: #2bbbad; }
 
 /* ----------------------------------------------------------- */
+/*                          Post Form                          */
+/* ----------------------------------------------------------- */
+
+.post-form-container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.post-form-container h2 {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.post-body-input { height: 250px; }
+
+/* ----------------------------------------------------------- */
 /*                       Comment Section                       */
 /* ----------------------------------------------------------- */
 
@@ -683,31 +920,33 @@ header {
 .comment-input-container {
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 65%;
   flex-direction: column;
 }
 
 .comment-input-container input {
   width: 100%;
-  font-size: 90%;
+  font-size: 85%;
+  /*font-weight: 100;*/
 }
 
 .comment-input-container input:focus { outline: none; }
 
 .comment-error {
-  color: #f00;
+  padding-top: 5px;
+  color: #2bbbad;
   font-style: italic;
   font-weight: 100;
-  font-size: 85%;
+  font-size: 75%;
   align-self: flex-start;
   height:1px;
 }
 
 .comment-button-container {
   background-color: #403f42;
-  font-size: 87%;
-  height: 26px;
-  padding: 0 6px;
+  font-size: 80%;
+  height: 24px;
+  padding: 0 14px;
   border-radius: 0 0 15px 0;
 }
 
@@ -715,7 +954,7 @@ header {
   background-color: #403f42;
   color: #fff;
   border: none;
-  height: 26px;
+  height: 24px;
   font-weight: 100;
   letter-spacing: 1px;
   border-radius: 0 0 15px 0;
@@ -733,23 +972,17 @@ header {
 .comments-section ul,
 .comments-index-empty {
   width: 80%;
+  letter-spacing: 1px;
   min-height: 110px;
   margin: 0 auto;
-  padding: 0px;
+  font-weight: 100;
   list-style: none;
   background-color: #403f42;
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-}
-
-.comments-index-empty p {
-  font-weight: 100;
-  letter-spacing: 1px;
-  font-size: 90%;
-  margin-left: 20px;
-  align-self: flex-start;
 }
 
 .comments-section ul li {
@@ -790,28 +1023,37 @@ header {
   text-align: right;
 }
 
-
 /* ----------------------------------------------------------- */
 /*                           Footer                            */
 /* ----------------------------------------------------------- */
+
+.footer-container {
+  position: relative;
+  bottom:0;
+  width: 100%;
+}
 
 footer {
   background-color: #403f42;
   color: #fff;
   display: inline-block;
   width: 100%;
-  height: 177px;
+  height: 172px;
 }
 
 .main-logo-big {
   /* Big logo styling here */
 }
 
-.social-links { font-size: 75%; }
+.social-links {
+  padding: 12px;
+  font-size: 75%;
+}
 
 .social-links h3 {
   margin-right: 80px;
   letter-spacing: 2px;
+  padding-bottom: 12px;
 }
 
 .social-links a { margin-left: 7px; }
@@ -821,6 +1063,7 @@ footer {
 .social-links p {
   margin-left: 5px;
   letter-spacing: 1px;
+  padding-bottom: 8px;
 }
 
 .fa-linkedin,
@@ -835,7 +1078,11 @@ footer {
 
 .fa-github:hover { color: #4078c0; }
 
-.legal-nav-container { background-color: #2a292b; }
+.legal-nav-container {
+  display: flex;
+  height: 40px;
+  background-color: #2a292b;
+}
 
 .legal-nav {
   font-size: 70%;

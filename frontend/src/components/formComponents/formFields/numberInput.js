@@ -24,6 +24,7 @@ const NumberInput = (field) => {
       {fieldLabel}
       <br/>
       <input
+        style={{width: '40%'}}
         type="number"
         min='0'
         placeholder={`${placeholder}`}

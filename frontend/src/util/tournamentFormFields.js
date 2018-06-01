@@ -1,4 +1,4 @@
-export const FIELDS = {
+export const GENERAL_FIELDS = {
   title: {
     label: 'Title',
     name: 'title',
@@ -11,29 +11,40 @@ export const FIELDS = {
     type: 'input',
     errorMessage: 'the featured game'
   },
-  tags: {
-    label: 'Tags',
-    name: 'tags',
-    type: 'input'
-  },
-  city: {
-    label: 'City',
-    name: 'city',
-    type: 'input',
-    errorMessage: 'the city where this tournament will be held'
-  },
-  streetAdress: {
-    label: 'Street Address',
-    name: 'streetAddress',
-    type: 'input',
-    errorMessage: 'the street address where this tournament will be held'
-  },
   maxEntrants: {
     label: 'Max Entrants',
     name: 'maxEntrants',
     type: 'input',
     errorMessage: 'a max number of entrants'
   },
+  tags: {
+    label: 'Tags',
+    name: 'tags',
+    type: 'input'
+  },
+  // bannerImage: {
+  //   label: 'Upload a tournament banner:',
+  //   name: 'bannerImage',
+  //   type: 'input'
+  // }
+};
+
+export const LOCATION_FIELDS = {
+  city: {
+    label: 'City',
+    name: 'city',
+    type: 'input',
+    errorMessage: 'the the city'
+  },
+  streetAddress: {
+    label: 'Street Address',
+    name: 'streetAddress',
+    type: 'input',
+    errorMessage: 'the street address'
+  }
+};
+
+export const SOCIAL_FIELDS = {
   sponsors: {
     label: 'Sponsors',
     name: 'sponsors',
@@ -48,15 +59,16 @@ export const FIELDS = {
     label: 'Twitter Link',
     name: 'twitterLink',
     type: 'input'
-  },
-  //date input
+  }
+};
+
+export const NON_SERIES_TIME_FIELDS = {
   date: {
     label: 'Date',
     name: 'date',
     type: 'input',
     errorMessage: 'the date the tournament will be held'
   },
-  //time inputs
   startTime: {
     label: 'Start',
     name: 'startTime',
@@ -68,8 +80,31 @@ export const FIELDS = {
     name: 'endTime',
     type: 'input',
     errorMessage: 'an end time'
+  }
+};
+
+export const SERIES_TIME_FIELDS = {
+  seriesDay: {
+    label: 'Weekday',
+    name: 'seriesDay',
+    type: 'select',
+    errorMessage: 'the day of the week the tournament will be held on'
   },
-  // money inputs
+  seriesStartTime: {
+    label: 'Start',
+    name: 'seriesStartTime',
+    type: 'input',
+    errorMessage: 'a start time'
+  },
+  seriesEndTime: {
+    label: 'End',
+    name: 'seriesEndTime',
+    type: 'input',
+    errorMessage: 'an end time'
+  }
+};
+
+export const FEES_FIELDS = {
   venueFee: {
     label: 'Venue Fee',
     name: 'venueFee',
@@ -84,32 +119,26 @@ export const FIELDS = {
     label: 'Pot Bonus',
     name: 'potBonus',
     type: 'input'
-  },
-  series: {
-    label: 'Is your tournament held weekly?',
-    name: 'series',
-    type: 'input',
-    errorMessage: 'yes or no'
-  },
-  bannerImage: {
-    label: 'Upload a tournament banner:',
-    name: 'bannerImage',
-    type: 'input'
-  },
-  description: {
-    label: 'Description',
-    name: 'description',
-    type: 'input'
   }
 };
 
+export const FIELDS = Object.assign({},
+  GENERAL_FIELDS,
+  LOCATION_FIELDS,
+  SOCIAL_FIELDS,
+  NON_SERIES_TIME_FIELDS,
+  SERIES_TIME_FIELDS,
+  FEES_FIELDS
+);
+
 export const unrequiredFields = [
   'tags',
-  'venueFee',
-  'entryFee',
-  'potBonus',
+  'bannerImage',
   'sponsors',
   'streamLink',
   'twitterLink',
+  'venueFee',
+  'entryFee',
+  'potBonus',
   'description'
 ];

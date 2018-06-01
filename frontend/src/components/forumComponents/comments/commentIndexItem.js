@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteComment } from '../../../actions/commentActions';
 import { extractDate } from '../../../util/helperFunctions';
+
+//actions
+import { deleteComment } from '../../../actions/commentActions';
 
 class CommentIndexItem extends Component {
   renderDeleteButton() {
-    const { comment, currentUser, author } = this.props;
+    const { comment, currentUser, tournamentOrganizer } = this.props;
 
-    if (comment._user === currentUser._id || currentUser._id === author) {
+    if (currentUser._id === comment._user || currentUser._id === tournamentOrganizer) {
       return (
         <div className="delete-button-container">
           <button className="delete-button" onClick={this.onDelete.bind(this)}>
@@ -24,6 +26,7 @@ class CommentIndexItem extends Component {
 
   render() {
     const { comment } = this.props;
+
     return (
       <div className="comment-index-item">
         <div className="comment-header">
@@ -32,7 +35,9 @@ class CommentIndexItem extends Component {
         <p className="comment-body">
           <strong>{comment.author}:</strong>  {comment.body}
         </p>
-        <p className="comment-date">{extractDate(comment.dateSubmitted)}</p>
+        <p className="comment-date">
+          {extractDate(comment.dateSubmitted)}
+        </p>
       </div>
     )
   }
