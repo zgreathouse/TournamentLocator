@@ -322,6 +322,17 @@ header {
   padding: 1%;
 }
 
+.tournament-list-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-trophy {
+  color: #2bbbad;
+  margin-right: 5px;
+}
+
 .tournament-list-item-title {
   margin: 5px 10px;
   color: #403f42;
@@ -397,6 +408,14 @@ header {
 .tournament-detail {
   padding: 15px;
   border: 1px solid #403f42;
+}
+
+.tournament-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28px;
+  margin-right: 10px;
 }
 
 .tournament-description-container {
