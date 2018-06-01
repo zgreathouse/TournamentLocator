@@ -15,9 +15,7 @@ class ProfilePage extends Component {
     return user.username ?
       <h2 style={{display: "flex", justifyContent: "center", marginBottom: "40px"}}>
         {user.username}
-      </h2>
-      :
-      <h2>New User!</h2>
+      </h2> : <h2>New User!</h2>
   }
 
   onDelete() {
