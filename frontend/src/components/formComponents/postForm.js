@@ -12,6 +12,7 @@ import TextInput from './formFields/textInput';
 import TextareaInput2 from './formFields/textareaInput2';
 import Errors from './formFields/errors';
 import SubmitButton from './formButtons/submitButton';
+import CancelButton from './formButtons/cancelButton';
 
 class PostForm extends Component {
   renderFields() {
@@ -38,12 +39,14 @@ class PostForm extends Component {
   onSubmit(values) {
     let splitPath = this.props.match.path.split("/");
 
-    if (splitPath[splitPath.length - 1] === "edit") {
-      this.props.editPost(this.props.match.params.id, values, () => {
+    if (splitPath[splitPath.length - 1] === "new") {
+      this.props.createPost(this.props.match.params.id, values, () => {
         this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
       });
     } else {
-      this.props.createPost(this.props.postID);
+      this.props.editPost(this.props.postID, values, () => {
+        this.props.history.push(`/tournaments/${this.props.match.params.id}/forum`);
+      });
     }
   }
 
@@ -58,8 +61,9 @@ class PostForm extends Component {
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
         >
           {this.renderFields()}
-          <div className="post-form-button">
+          <div className="form-buttons">
             <SubmitButton />
+            <CancelButton route={`/tournaments/${this.props.match.params.id}/forum`}/>
           </div>
         </form>
       </div>
@@ -82,7 +86,7 @@ const validate = values => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  postID: ""//ownProps.match.params.postID
+  postID: ownProps.match.params.postID
 })
 
 export default reduxForm({

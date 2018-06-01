@@ -366,7 +366,8 @@ header {
 }
 
 .create-tournament-link a {
-  color: #403f42;
+  color: #aaa;
+  font-weight: 100;
   letter-spacing: 1px;
   text-align: right;
 }
@@ -896,12 +897,6 @@ header {
 }
 
 .post-body-input { height: 250px; }
-
-.post-form-button {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 90%;
-}
 
 /* ----------------------------------------------------------- */
 /*                       Comment Section                       */
