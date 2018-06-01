@@ -56,14 +56,14 @@ module.exports = app => {
       forum: []
     });
      // Saves tournament and adds to user hosting array. Sends back updated user
-     try {
-       req.user.tournaments.push(tournament._id);
-       await tournament.save();
-       const user = await req.user.save();
-       res.send(tournament);
-     } catch (err) {
-       res.status(422).send(err);
-     }
+    try {
+      req.user.tournaments.push(tournament._id);
+      await tournament.save();
+      const user = await req.user.save();
+      res.send(tournament);
+    } catch (err) {
+      res.status(422).send(err);
+    }
   });
 
   // Update (edit) an existing tournament

@@ -2,7 +2,6 @@ import React from 'react';
 
 //components
 import GamesAndTags from './gamesAndTags';
-import SeriesIcon from './seriesIcon';
 import TournamentLinks from './tournamentLinks';
 import Sponsors from './sponsors';
 import MaxEntrants from './maxEntrants';
@@ -14,10 +13,13 @@ import Description from './description';
 const TournamentDetail = ({ tournament }) => {
   return (
     <div className="tournament-detail-container">
-      <h2>{tournament.title}</h2>
+      <div className="tournament-detail-header">
+        <h2>{tournament.title}</h2>
+        {tournament.seriesStartTime ? <i className="fa fa-trophy"></i> : <i></i>}
+      </div>
+
       <div className="tournament-detail">
         <GamesAndTags tournament={tournament} />
-        <SeriesIcon tournament={tournament} />
         <TournamentLinks tournament={tournament} />
         <Sponsors tournament={tournament} />
         <MaxEntrants tournament={tournament} />

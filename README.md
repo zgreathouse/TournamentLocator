@@ -24,52 +24,57 @@ Notes: This is a working schema subject to change
 | username                        | String                                      |
 | googleID		                    | String                                      |
 | facebookID	                    | String                                      |
-| title		                        | String                                      |
 | city                            | String                                      |
 | travelRange                     | { type: Number, default: 25 }               |
 | followedGames                   | [String]                                    |
-| followedSeries                  | [String]										                |
 | finishAccountSetup              | { type: Boolean, default: false }			      |
-| tournaments                     | [ tournamentSchema ]                        |
+| tournaments                     | [ String ]                        |
 
 #### TournamentSchema
 
 | Field                           | DataType                                    |
 | --------------------------------|:------------------------------------------- |
+| _user:                          | {type: Schema.Types.ObjectId, ref: 'User'}  |
 | title                           | String                                      |
 | game                            | String                                      |
 | tags                            | [ String ]                                  |
-| tournamentOrganizer             | { type: Schema.Types.ObjectId, ref: 'User'} |
+| description                     | String                                      |
 | streamLink                      | String                                      |
 | twitterLink                     | String                                      |
-| date                            | Date                                        |
 | startTime                       | Date                                        |
-| endTime                         | Date                                        |
-| venueAddress                    | String                                      |
+| endTime                         | { type: Date, expires: 60 }                 |
+| seriesStartTime                 | String                                      |
+| seriesEndTime                   | String                                      |
+| seriesDay                       | String                                      |
+| city                            | String                                      |
+| streetAddress                   | String                                      |
 | venueFee                        | Number                                      |
 | entryFee                        | Number                                      |
+| sponsors                        | [ String ]                                  |
 | potBonus                        | Number                                      |
 | maxEntrants                     | Number                                      |
 | bannerImage                     | String                                      |
 | series                          | Boolean                                     |
-| forum                           | [postSchema]                                |
+| forum                           | [ String ]                                  |
 
 #### PostSchema
 
-| Field                           | DataType                                    |
-| --------------------------------|:------------------------------------------- |
-| tournamentId                    | Number                                      |
-| _user                           | { type: Schema.Types.ObjectId, ref: 'User'} |
-| title                           | String                                      |
-| datePosted                      | Date                                        |
-| comments                        | [commentSchema]                             |
+| Field                           | DataType                                           |
+| --------------------------------|:-------------------------------------------------- |
+| _user                           | { type: Schema.Types.ObjectId, ref: 'User'}        |
+| _tournament                     | { type: Schema.Types.ObjectId, ref: 'Tournaments'} |
+| title                           | String                                             |
+| body                            | String                                             |
+| datePosted                      | Date                                               |
+| comments                        | [commentSchema]                                    |
 
 #### CommentSchema
 
 | Field                           | DataType                                    |
 | --------------------------------|:------------------------------------------- |
-| postId                          | Number                                      |
 | _user                           | { type: Schema.Types.ObjectId, ref: 'User'} |
+| _post                           | { type: Schema.Types.ObjectId, ref: 'Post'} |
+| author                          | String                                      |
 | body                            | String                                      |
 | dateSubmitted                   | Date                                        |
 
@@ -86,9 +91,10 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 | ‘/auth/google/callback’         | GET           | Google OAuth (callback url after authentication)                    |
 | ‘/auth/facebook’                | GET           | Facebook OAuth (login/ sign up)                                     |
 | ‘/auth/facebook/callback’       | GET           | Facebook OAuth (callback url after authentication)                  |
-| ‘/api/edit/user’                | PATCH         | Edit user document                                                  |
-| ‘/api/current_user’             | GET           | Get the current user                                                |
+| ‘/api/users’                    | PATCH         | Edit user document                                                  |
+| ‘/api/currentUser’              | GET           | Get the current user                                                |
 | ‘/api/logout’                   | GET           | Logout the current user                                             |
+| '/api/currentUser'              | DELETE        | Delete the current user                                             |
 
 #### Tournament Routes
 
@@ -105,19 +111,19 @@ Notes: Below are the Auth routes as well as full CRUD for Tournaments, Posts, an
 
 | Route                           | Type          | Purpose                                                             |
 | --------------------------------|:-------------:| :-------------------------------------------------------------------|
-| ‘/api/post’                     | GET           | Get an index of all the the posts for a given tournament            |
-| ‘/api/post’                     | POST          | Create a new post to be added to a Tournament’s collection of posts |
-| ‘/api/post’                     | PATCH         | Update (edit) an existing post                                      |
-| ‘/api/post’                     | DELETE        | Delete an existing post                                             |
+| ‘/api/post/:postId’             | GET           | Get a specific post                                                 |
+| ‘/api/post/:tournamentId’       | GET           | Get an index of all the the posts for a given tournament            |
+| ‘/api/post/:tournamentId’       | POST          | Create a new post to be added to a Tournament’s collection of posts |
+| ‘/api/post/:postId’             | PATCH         | Update (edit) an existing post                                      |
+| ‘/api/post/:postId’             | DELETE        | Delete an existing post                                             |
 
 #### Comment Routes
 
 | Route                           | Type          | Purpose                                                             |
 | --------------------------------|:-------------:| :-------------------------------------------------------------------|
-| ‘/api/comment’                  | GET           | Get an index of all the the comments for a given post               |
-| ‘/api/comment’                  | POST          | Create a new post to be added to a post’s collection of comments    |
-| ‘/api/comment’                  | PATCH         | Update (edit) an existing comment                                   |
-| ‘/api/comment’                  | DELETE        | Delete an existing comment                                          |
+| ‘/api/comment/:postId’          | GET           | Get an index of all the the comments for a given post               |
+| ‘/api/comment/:postId’          | POST          | Create a new post to be added to a post’s collection of comments    |
+| ‘/api/:postId/:commentId’       | DELETE        | Delete an existing comment                                          |
 
 ***
 ## FrontEnd Routes
