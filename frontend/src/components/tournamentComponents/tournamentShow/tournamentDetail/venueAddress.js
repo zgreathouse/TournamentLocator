@@ -4,7 +4,7 @@ const VenueAddress = ({ tournament }) => {
   const { streetAddress, city } = tournament;
 
   return (
-    <div>Venue Address: {streetAddress}, {city}</div>
+    <div><strong>Venue Address:</strong> {streetAddress}, {city}</div>
   )
 }
 

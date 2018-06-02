@@ -3,8 +3,8 @@ import React from 'react';
 const TournamentLinks = ({ tournament }) => {
   const { streamLink, twitterLink } = tournament;
 
-  let stream = streamLink ? <div>Stream: {streamLink}</div> : <div></div>
-  let twitter = twitterLink ? <div>Twitter: {twitterLink}</div> : <div></div>
+  let stream = streamLink ? <div><strong>Stream:</strong> {streamLink}</div> : <div></div>
+  let twitter = twitterLink ? <div><strong>Twitter:</strong> {twitterLink}</div> : <div></div>
 
   return (
     <div>

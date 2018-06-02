@@ -6,7 +6,7 @@ const Sponsors = ({ tournament }) => {
   let sponsorList = <div></div>;
 
   if (sponsors && sponsors.length > 0) {
-    sponsorList = <div>Sponsors: {convertToReadable(sponsors)}</div>;
+    sponsorList = <div><strong>Sponsors:</strong> {convertToReadable(sponsors)}</div>;
   }
 
   return (

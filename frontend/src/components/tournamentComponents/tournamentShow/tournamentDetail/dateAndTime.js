@@ -19,10 +19,10 @@ const DateAndTime = ({ tournament }) => {
 
   return (
     <div>
-      <div>{label}: {date}</div>
+      <div><strong>{label}:</strong> {date}</div>
       <div>
-        <div>Start: {start} </div>
-        <div>End: {end} </div>
+        <div><strong>Start:</strong> {start} </div>
+        <div><strong>End:</strong> {end} </div>
       </div>
     </div>
   )

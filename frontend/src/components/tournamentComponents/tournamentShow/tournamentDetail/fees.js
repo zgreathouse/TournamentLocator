@@ -5,9 +5,9 @@ const Fees = ({ tournament }) => {
 
   return (
     <div>
-      <div>Venue Fee: {venueFee ? `$${venueFee}` : '$0'}</div>
-      <div>Entry Fee: {entryFee ? `$${entryFee}` : '$0'}</div>
-      { potBonus ? <div>Pot Bonus: {`$${potBonus}`}</div> : <div></div>}
+      <div><strong>Venue Fee:</strong> {venueFee ? `$${venueFee}` : '$0'}</div>
+      <div><strong>Entry Fee:</strong> {entryFee ? `$${entryFee}` : '$0'}</div>
+      { potBonus ? <div><strong>Pot Bonus:</strong> {`$${potBonus}`}</div> : <div></div>}
     </div>
   )
 }
