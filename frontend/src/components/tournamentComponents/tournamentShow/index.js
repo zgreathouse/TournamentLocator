@@ -52,8 +52,8 @@ class TournamentShow extends Component {
       <div>
         <EditTournamentButton tournament={selectedTournament} currentUser={currentUser} />
         <TournamentDetail tournament={selectedTournament}/>
-        {this.renderDeleteButton()}
         <ForumButton tournamentID={selectedTournament._id}/>
+        {this.renderDeleteButton()}
       </div>
     )
   }
