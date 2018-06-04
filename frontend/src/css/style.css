@@ -1,8 +1,7 @@
 /* -------------------- Color Palette ------------------------ /
   #2a292b
   #403f42
-  #ff6600
-  #ff6600
+  #ff471a
  ----------------------------------------------------------- */
 
 /* ----------------------------------------------------------- */
@@ -44,7 +43,13 @@ html {
 section {
   margin: 15px;
   padding: 10px;
-  border-bottom: 1px solid #ff6600;
+  border-bottom: 1px solid #ff471a;
+}
+
+section h3 {
+  color: #aaa;
+  font-weight: 100;
+  letter-spacing: 2px;
 }
 
 a { text-decoration: none; }
@@ -76,7 +81,7 @@ h1, h2, h3 {
 }
 
 .submit-button {
-  background-color: #ff6600;
+  background-color: #ff471a;
   letter-spacing: 1px;
   color: #fff;
   font-weight: 100;
@@ -143,7 +148,7 @@ h1, h2, h3 {
 /*--------------- Errors ---------------*/
 
 .form-field-error {
-  color: #ff6600;
+  color: #ff471a;
   font-style: italic;
   font-weight: 100;
   font-size: 69%;
@@ -185,6 +190,12 @@ header {
   border: 0;
   color: #fff;
   float: left;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+.main-logo:hover {
+  color: #ff471a;
 }
 
 .main-nav {
@@ -231,7 +242,7 @@ header {
 .auth-button:hover,
 .auth-button-logout:hover {
   cursor: pointer;
-  border-bottom: 2px solid #ff6600;
+  border-bottom: 2px solid #ff471a;
 }
 
 /* ----------------------------------------------------------- */
@@ -246,7 +257,7 @@ header {
 
 .modal-exit-button:hover {
   cursor: pointer;
-  color: #ff6600;
+  color: #ff471a;
 }
 
 .modal-content {
@@ -394,7 +405,7 @@ header {
 }
 
 .create-tournament-link:focus { outline:0; }
-.create-tournament-link:hover { border-bottom: 2px solid #ff6600; }
+.create-tournament-link:hover { border-bottom: 2px solid #ff471a; }
 
 .tournament-list {
   list-style: none;
@@ -419,7 +430,7 @@ header {
 }
 
 .fa-trophy {
-  color: #ff6600;
+  color: #ff471a;
   margin-right: 5px;
 }
 
@@ -430,7 +441,7 @@ header {
 }
 
 .item-detail {
-  border: 1px solid #ff6600;
+  border: 1px solid #e8e8e8;
   opacity: .5;
   border-radius: 0 0 15px 0;
   -webkit-transition: opacity 0.4s;
@@ -553,7 +564,7 @@ header {
   letter-spacing: 1px;
   font-weight: 100;
   font-size: 120%;
-  background-color: #ff6600;
+  background-color: #ff471a;
   color: #fff;
   padding: 20px 160px;
   border-radius: 10px;
@@ -642,8 +653,8 @@ header {
 .time-input-container input:focus,
 .date-input-container input:focus {
   outline: 0;
-  border: 1px solid #ff6600;
-  box-shadow: 0 0 1px 1px #ff6600;
+  border: 1px solid #ff471a;
+  box-shadow: 0 0 1px 1px #ff471a;
 }
 
 .input-container textarea {
@@ -655,8 +666,8 @@ header {
 
 .input-container textarea:focus {
   outline: 0;
-  border: 1px solid #ff6600;
-  box-shadow: 0 0 1px 1px #ff6600;
+  border: 1px solid #ff471a;
+  box-shadow: 0 0 1px 1px #ff471a;
 }
 
 .tournament-form-container {
@@ -749,7 +760,7 @@ header {
 .create-post-link a:hover { cursor: pointer; }
 
 .create-post-link:focus { outline:0; }
-.create-post-link:hover { border-bottom: 2px solid #ff6600; }
+.create-post-link:hover { border-bottom: 2px solid #ff471a; }
 
 .forum-content {
   display: flex;
@@ -793,7 +804,7 @@ header {
 }
 
 .post-index-item:hover {
-  color: #ff6600;
+  color: #ff471a;
   cursor: pointer;
 }
 
@@ -835,11 +846,13 @@ header {
   margin-top: 80px;
   color: #aaa;
   height: 100px;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
 }
 
 .default-post-detail a:active,
 .default-post-detail a:hover {
-  color: #ff6600;
+  color: #ff471a;
   height: 100px;
   cursor: pointer;
 }
@@ -878,7 +891,7 @@ header {
 }
 
 .go-back-button:hover {
-  border-bottom: 2px solid #ff6600;
+  border-bottom: 2px solid #ff471a;
 }
 
 .post-title {
@@ -921,7 +934,7 @@ header {
 }
 
 .edit-post-link a:active,
-.edit-post-link a:hover { color: #ff6600; }
+.edit-post-link a:hover { color: #ff471a; }
 
 /* ----------------------------------------------------------- */
 /*                          Post Form                          */
@@ -967,7 +980,7 @@ header {
 
 .comment-error {
   padding-top: 5px;
-  color: #ff6600;
+  color: #ff471a;
   font-style: italic;
   font-weight: 100;
   font-size: 75%;
@@ -999,7 +1012,7 @@ header {
 
 .comment-button:hover {
   cursor: pointer;
-  color: #ff6600;
+  color: #ff471a;
 }
 
 .comments-section ul,
@@ -1141,7 +1154,7 @@ footer {
 
 .legal-nav a:active,
 .legal-nav a:hover {
-  color: #ff6600;
+  color: #ff471a;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
