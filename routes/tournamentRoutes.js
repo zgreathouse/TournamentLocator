@@ -30,6 +30,11 @@ module.exports = app => {
     res.send(tournament);
   });
 
+  // Get tournaments relating to an array of tags passed via URL
+  app.get('/api/tournaments/(:tags)*', async (req, res) =>{
+    
+  })
+
   // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
     const tournament = new Tournament({
