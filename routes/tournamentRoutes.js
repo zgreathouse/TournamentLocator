@@ -31,9 +31,21 @@ module.exports = app => {
   });
 
   // Get tournaments relating to an array of tags passed via URL
+  /*################################################################################
+  THIS WILL ONLY WORK IF API URL IS FORMATTED '/api/tournaments/tag1/tag2/tag3'
+  need to talk to Z about formatting of data being passed in
+  -- current probelems
+    -caplitalizations
+    -tag ordering --tags 2 through end have space -- this kills the route
+  ################################################################################*/
   app.get('/api/tournaments/(:tags)*', async (req, res) =>{
-    
+    let taglist = [req.params.tags].concat(req.params[0].split('/').slice(1));
+
+    const tournaments = await Tournament.find({ tags: { $in: taglist } })
+
+    console.log(tournaments);
   })
+
 
   // Create a new tournament in the database
   app.post('/api/tournaments', requireLogin, async (req, res) => {
@@ -144,4 +156,9 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
+
+  //db querey testing
+  // app.get('/api/test/', async (req, res) => {
+  //   res.send({})
+  // })
 };
