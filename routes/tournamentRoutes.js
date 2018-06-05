@@ -37,6 +37,7 @@ module.exports = app => {
   -- current probelems
     -caplitalizations
     -tag ordering --tags 2 through end have space -- this kills the route
+  --TODO later add radius check
   ################################################################################*/
   app.get('/api/tournaments/(:tags)*', async (req, res) =>{
     let taglist = [req.params.tags].concat(req.params[0].split('/').slice(1));
