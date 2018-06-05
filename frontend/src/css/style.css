@@ -68,6 +68,8 @@ h1, h2, h3 {
   letter-spacing: 1px;
 }
 
+h2 { color: #ff471a }
+
 /*-------------- Buttons ---------------*/
 
 .modal-exit-button {
