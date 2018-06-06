@@ -42,9 +42,10 @@ module.exports = app => {
   app.get('/api/tournaments/(:tags)*', async (req, res) =>{
     let taglist = [req.params.tags].concat(req.params[0].split('/').slice(1));
 
-    const tournaments = await Tournament.find({ tags: { $in: taglist } })
+    const tournaments = await Tournament.find({ tags: { $in: taglist } });
 
     console.log(tournaments);
+    res.send(tournaments);
   })
 
 
