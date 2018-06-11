@@ -4,7 +4,9 @@ const VenueAddress = ({ tournament }) => {
   const { streetAddress, city } = tournament;
 
   return (
-    <div><strong>Venue Address:</strong> {streetAddress}, {city}</div>
+    <section>
+      <strong>Venue Address:</strong> {streetAddress}, {city}
+    </section>
   )
 }
 

@@ -7,10 +7,10 @@ const TournamentLinks = ({ tournament }) => {
   let twitter = twitterLink ? <div><strong>Twitter:</strong> {twitterLink}</div> : <div></div>
 
   return (
-    <div>
+    <section>
       {stream}
       {twitter}
-    </div>
+    </section>
   )
 }
 

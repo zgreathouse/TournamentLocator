@@ -10,10 +10,10 @@ const GamesAndTags = ({ tournament }) => {
   }
 
   return (
-    <div>
+    <section>
       <div><strong>Game:</strong> {game}</div>
       {tagsList}
-    </div>
+    </section>
   )
 }
 

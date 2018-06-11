@@ -9,12 +9,12 @@ const Description = ({ tournament }) => {
   }
 
   return (
-    <div className="tournament-description-container">
+    <section className="tournament-description-container">
       <strong>Description:</strong> <br/>
       <div className="body-text">
         {renderBody(description)}
       </div>
-    </div>
+    </section>
   )
 }
 
