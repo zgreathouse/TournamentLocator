@@ -8,10 +8,11 @@ TODO
 
   ** get a large map view on the dashboard
   ** small map view on the tournament show Page
-  ** style show Page
+  ** style show Page (start from wire frame)
 
   ** get a tentative default image to put banners where tournmanet
      banners will be (Index, Show Page, Forum)
+  ** add banner image field to the tournament form
 
   *Bug hunting across app
   *DRY out form components where necessary
