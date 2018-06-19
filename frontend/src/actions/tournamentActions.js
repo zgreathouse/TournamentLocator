@@ -31,7 +31,7 @@ export const fetchTournaments = () => async dispatch => {
   });
 };
 
-//action which fetches all of the tournaments from the database
+//action which fetches all of the tournaments relevant to the user from the database
 export const fetchUserTournaments = (id) => async dispatch => {
   const res = await axios.get(`/api/${id}/tournaments`);
 
